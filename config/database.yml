@@ -1,4 +1,8 @@
-
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
 #
 default: &default
   adapter: postgresql
@@ -19,3 +23,5 @@ test:
 production:
   <<: *default
   database: lets_production
+  username: lets
+  password: <%= ENV['LETS_DATABASE_PASSWORD'] %>
