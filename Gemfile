@@ -8,7 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
+
+# Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -30,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
-
+gem 'pry-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -42,7 +43,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-rails'
+
   gem 'annotate'
 
 end
