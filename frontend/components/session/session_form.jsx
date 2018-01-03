@@ -49,15 +49,36 @@ class SessionForm extends React.Component {
     if (this.props.loggedIn) {
       return <Redirect to="/" />;
     }
-    const text = (this.props.formType === 'login') ? ["Log In", "Don't have an account?"] : ["Sign Up", "Already have an account?"];
-    const link = (text[0] === "Log In") ? ['signup', "Sign Up"] : ['login', "Log In"];
+
+    const text = (
+                    this.props.formType === 'login'
+                  ) ? (
+                    ["Log In", "Don't have an account?"]
+                  ) : (
+                    ["Sign Up", "Already have an account?"]
+                  );
+
+    const link = (
+                    text[0] === "Log In"
+                  ) ? (
+                    ['signup', "Sign Up"]
+                  ) : (
+                    ['login', "Log In"]
+                  );
+
     return (
       <main className="modal is-active">
         <div className="session-modal-screen">
           <section className="session-form">
+
+
+
             <p>Guest login: <br/>
               email: 'user@email.com', <br/>
               password: 'password'</p>
+
+
+
             <form onSubmit={this.handleSubmit}>
               <input className="session-form-email"
                 type="text"
