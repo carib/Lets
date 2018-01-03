@@ -3,31 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 header {
+  position: fixed;
+  z-index: 3; 
   justify-content: space-between;
   display: flex;
   flex-direction: row;
   height: 75px;
+  width: 100%;
   background: #fff;
   box-shadow: 0px -7px 20px 4px #211f1f;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
 
   h1 {
-    // text-align: center;
-    // line-height: 3;
     padding: 5px;
-    // margin: 0;
-    // font-weight: 700;
-    // font-size: 16px;
-    // border: 1px solid darkgray;
-    // border-radius: 180px;
   }
-}
 
-.header-nav-links {
-  padding: 5px;
-
-  a {
+  .header-right {
     padding: 5px;
+
+    .header-nav-links {
+      a {
+        padding: 5px;
+      }
+    }
   }
 }

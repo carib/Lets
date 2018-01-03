@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+User.destroy_all
+user1 = User.create!(email: abc, password: 123456)
 
 Spot.destroy_all
 50.times do |_|

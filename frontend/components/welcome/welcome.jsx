@@ -14,19 +14,23 @@ class Welcome extends React.Component {
 
   userWelcome() {
     return (
-      <nav className="header-user-nav">
-        <h3>Welcome, {this.props.user.email}!</h3>
-        <button onClick={this.handleLogout}>Log Out</button>
-      </nav>
+      <div className="header-right">
+        <nav className="header-user-nav">
+          <h3>Welcome, {this.props.user.email}!</h3>
+          <button onClick={this.handleLogout}>Log Out</button>
+        </nav>
+      </div>
     );
   }
 
   navLinks() {
     return (
-      <nav className="header-nav-links">
-        <Link to='/signup'>Sign Up</Link>
-        <Link to='/login'>Log In</Link>
-      </nav>
+      <div className="header-right">
+        <nav className="header-nav-links">
+          <Link to='/signup'>Sign Up</Link>
+          <Link to='/login'>Log In</Link>
+        </nav>
+      </div>
     );
   }
 
