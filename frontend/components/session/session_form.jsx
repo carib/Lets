@@ -48,27 +48,26 @@ class SessionForm extends React.Component {
     const text = (this.props.formType === 'login') ? "Log In" : "Sign Up";
     const link = (text === "Log In") ? ['signup', "Sign Up"] : ['login', "Log In"];
     return (
-      <div>
-  <br/>
-  <form onSubmit={this.handleSubmit}>
-    <label>Email:
-      <input
-        type="text"
-        value={this.state.email}
-        onChange={this.update('email')} />
-    </label>
-    <br />
-    <label>Password:
-      <input
-        type="password"
-        value={this.state.password}
-        onChange={this.update('password')} />
-    </label>
-    <button type="submit" >{text}</button>
-  </form>
-  <p>{text}, or <Link to={`/${link[0]}`}>{link[1]}</Link></p>
-  {this.renderErrors()}
-</div>
+      <section className="session-form-section">
+        <form onSubmit={this.handleSubmit}>
+
+          <input className="session-form-email"
+            type="text"
+            value={this.state.email}
+            onChange={this.update('email')} />
+
+          <input
+            className="session-form-password"
+            type="password"
+            value={this.state.password}
+            onChange={this.update('password')} />
+
+          <button type="submit" >{text}</button>
+          
+        </form>
+        <p>{text}, or <Link to={`/${link[0]}`}>{link[1]}</Link></p>
+        {this.renderErrors()}
+      </section>
     )
   }
 }
