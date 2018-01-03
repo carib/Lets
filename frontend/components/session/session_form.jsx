@@ -55,8 +55,10 @@ class SessionForm extends React.Component {
       <main className="modal is-active">
         <div className="session-modal-screen">
           <section className="session-form">
+            <p>Guest login: <br/>
+              email: 'user@email.com', <br/>
+              password: 'password'</p>
             <form onSubmit={this.handleSubmit}>
-
               <input className="session-form-email"
                 type="text"
                 value={this.state.email}
