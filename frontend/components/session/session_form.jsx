@@ -41,33 +41,43 @@ class SessionForm extends React.Component {
     };
   }
 
+  toggleModal() {
+
+  }
+
   render() {
     if (this.props.loggedIn) {
       return <Redirect to="/" />;
     }
-    const text = (this.props.formType === 'login') ? "Log In" : "Sign Up";
-    const link = (text === "Log In") ? ['signup', "Sign Up"] : ['login', "Log In"];
+    const text = (this.props.formType === 'login') ? ["Log In", "Don't have an account?"] : ["Sign Up", "Already have an account?"];
+    const link = (text[0] === "Log In") ? ['signup', "Sign Up"] : ['login', "Log In"];
     return (
-      <section className="session-form-section">
-        <form onSubmit={this.handleSubmit}>
+      <main className="modal is-active">
+        <div className="session-modal-screen">
+          <section className="session-form">
+            <form onSubmit={this.handleSubmit}>
 
-          <input className="session-form-email"
-            type="text"
-            value={this.state.email}
-            onChange={this.update('email')} />
+              <input className="session-form-email"
+                type="text"
+                value={this.state.email}
+                onChange={this.update('email')}
+                placeholder="Email Address" />
 
-          <input
-            className="session-form-password"
-            type="password"
-            value={this.state.password}
-            onChange={this.update('password')} />
+              <input
+                className="session-form-password"
+                type="password"
+                value={this.state.password}
+                onChange={this.update('password')}
+                placeholder="Password" />
 
-          <button type="submit" >{text}</button>
-          
-        </form>
-        <p>{text}, or <Link to={`/${link[0]}`}>{link[1]}</Link></p>
-        {this.renderErrors()}
-      </section>
+              <button type="submit" >{text[0]}</button>
+
+              <p>{text[1]} <Link to={`/${link[0]}`}>{link[1]}</Link></p>
+            </form>
+            {this.renderErrors()}
+          </section>
+        </div>
+      </main>
     )
   }
 }
