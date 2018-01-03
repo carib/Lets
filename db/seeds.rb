@@ -8,7 +8,7 @@
 require 'faker'
 
 User.destroy_all
-user1 = User.create!(email: abc, password: 123456)
+user1 = User.create!(email: 'user@email.com', password: 'password')
 
 Spot.destroy_all
 50.times do |_|
