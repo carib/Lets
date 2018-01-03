@@ -5,7 +5,7 @@ import { AuthRoute } from '../util/route_util';
 
 import WelcomeContainer from './welcome/welcome_container';
 import SessionFormContainer from './session/session_form_container';
-import SpotIndexContainer from './spots/spot_index_container';
+import SpotIndexContainer from './search/spot_index_container';
 
 const App = (props) => (
   <div>
