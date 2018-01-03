@@ -5,6 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+
 Spot.destroy_all
-Spot.create!(description: "Add wall dimensions, visibility", lat: 40.683198, lng: -73.910535)
-Spot.create!(description: "Big wall, add already painted?", lat: 40.706523, lng: -73.922554)
+50.times do |_|
+  Spot.create!(
+    description: Faker::Dune.quote,
+    lat: Faker::Address.latitude,
+    lng: Faker::Address.longitude)
+end
