@@ -1,3 +1,33 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+header {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  height: 75px;
+  background: #fff;
+  box-shadow: 0px -7px 20px 4px #211f1f;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+
+  h1 {
+    // text-align: center;
+    // line-height: 3;
+    padding: 5px;
+    // margin: 0;
+    // font-weight: 700;
+    // font-size: 16px;
+    // border: 1px solid darkgray;
+    // border-radius: 180px;
+  }
+}
+
+.header-nav-links {
+  padding: 5px;
+
+  a {
+    padding: 5px;
+  }
+}
