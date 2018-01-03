@@ -1,4 +1,4 @@
-export const fetchSpots = () => {
+export const fetchSpots = (filters) => {
   return $.ajax({
     method: 'GET',
     url: 'api/spots',
