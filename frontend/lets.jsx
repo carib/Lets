@@ -6,6 +6,8 @@ import Root from './components/root';
 
 import * as SessionApi from './util/session_api_util';
 import * as SessionAct from './actions/session_actions';
+import * as SpotApi from './util/spot_api_util';
+import * as SpotAct from './actions/spot_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -31,4 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //TESTING START
 window.SessionApi = SessionApi;
 window.SessionAct = SessionAct;
+window.SpotApi = SpotApi;
+window.SpotAct = SpotAct;
 //TESTING END
