@@ -6,23 +6,48 @@ import { AuthRoute } from '../util/route_util';
 import WelcomeContainer from './welcome/welcome_container';
 import SessionFormContainer from './session/session_form_container';
 import SearchContainer from './search/search_container';
+import Modal from './modals/modal';
 
-const App = (props) => (
-  <div>
-    <header>
-      <h1>Lets!!</h1>
-      <Switch>
-        <Route path="/login" />
-        <Route path="/signup" />
-        <WelcomeContainer />
-      </Switch>
-    </header>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { showModal: false };
+    this.toggleModal = this.toggleModal.bind(this);
+  }
 
-    <AuthRoute path="/login" component={ SessionFormContainer } />
-    <AuthRoute path="/signup" component={ SessionFormContainer } />
-    <Route exact path="/" component={ SearchContainer } />
-  </div>
-);
+  toggleModal() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <header>
+          <h1>Lets!!</h1>
+          <Route path="/login" toggleModal={this.toggleModal}/>
+          <Route path="/signup" toggleModal={this.toggleModal}/>
+          <WelcomeContainer />
+        </header>
+        <Modal
+          className={(this.state.showModal) ? "modal-show" : "modal"}
+          show={this.state.isOpen}
+          onClose={this.toggleModal} />
+          <AuthRoute path="/login" component={ SessionFormContainer } toggleModal={this.toggleModal}/>
+          <AuthRoute path="/signup" component={ SessionFormContainer } toggleModal={this.toggleModal}/>
+
+        <Route exact path="/" component={ SearchContainer } />
+      </div>
+    );
+  }
+}
 
 export default App;
-//
+//<Modal show={this.state.isOpen} onClose={this.toggleModal}>
+// </Modal>
+
+// <Modal show={this.state.isOpen} onClose={this.toggleModal}>
+//   <AuthRoute path="/login" component={ SessionFormContainer } toggleModal={this.toggleModal}/>
+//   <AuthRoute path="/signup" component={ SessionFormContainer } toggleModal={this.toggleModal}/>
+// </Modal>

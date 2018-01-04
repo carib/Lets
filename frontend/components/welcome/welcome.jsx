@@ -7,6 +7,12 @@ class Welcome extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
+    console.log(this.props)
+
+  }
+
   handleLogout(e) {
     e.preventDefault();
     this.props.logout();
@@ -26,9 +32,9 @@ class Welcome extends React.Component {
   navLinks() {
     return (
       <div className="header-right">
-        <nav className="header-nav-links">
-          <Link to='/signup'>Sign Up</Link>
-          <Link to='/login'>Log In</Link>
+        <nav className="header-nav-links" >
+          <p onClick={this.props.toggleModal}>Sign Up</p>
+          <p onClick={this.props.toggleModal}>Log In</p>
         </nav>
       </div>
     );
@@ -44,3 +50,6 @@ class Welcome extends React.Component {
 }
 
 export default Welcome;
+//
+// <Link to='/signup'>Sign Up</Link>
+// <Link to='/login' onClick={this.props.toggleModal}>Log In</Link>

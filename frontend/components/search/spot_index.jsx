@@ -18,7 +18,6 @@ class SpotIndex extends React.Component {
     if (this.props.loggedIn) {
       return (
         <article className="spot-index-main">
-          {this.redirect()}
           <ul>
             {
               spots.map(spot =>

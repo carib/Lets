@@ -5,6 +5,8 @@ import {
   withRouter
 } from 'react-router-dom';
 
+import Modal from '../modals/modal';
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +15,10 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.newProps.toggleModal();
   }
 
   handleSubmit(e) {
@@ -64,8 +70,8 @@ class SessionForm extends React.Component {
 
     return (
       <main className="modal">
-        <div className="session-modal-screen">
-          <section className="session-form">
+        <div className="modal-backdrop">
+          <section className="modal-detail-box">
 
             <p>Guest login: <br/>
               email: 'user@email.com', <br/>
