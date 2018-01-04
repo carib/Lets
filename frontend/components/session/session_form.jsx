@@ -63,24 +63,21 @@ class SessionForm extends React.Component {
                     ['login', "Log In"]
     );
     return (
-      <div className="backdrop">
-        <section className="modal">
 
+      <div>
           <p>Guest login: <br/>
             email: 'user@email.com', <br/>
             password: 'password'</p>
 
-
-
-          <form onSubmit={this.handleSubmit}>
-            <input className="session-form-email"
+          <form className={"modal-form"} onSubmit={this.handleSubmit}>
+            <input className="modal-form-email"
               type="text"
               value={this.state.email}
               onChange={this.update('email')}
               placeholder="Email Address" />
 
             <input
-              className="session-form-password"
+              className="modal-form-password"
               type="password"
               value={this.state.password}
               onChange={this.update('password')}
@@ -91,7 +88,6 @@ class SessionForm extends React.Component {
             <p>{text[1]} <Link to={`/${link[0]}`}>{link[1]}</Link></p>
           </form>
           {this.renderErrors()}
-        </section>
       </div>
     )
   }

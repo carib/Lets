@@ -27,17 +27,13 @@ class Welcome extends React.Component {
     );
   }
 
-  renderModal() {
-    return <Modal />
-  }
-
   navLinks() {
     return (
       <header>
         <div className="header-right">
           <nav className="header-nav-links">
-            <Link to='/signup' onClick={this.props.toggleModal}>Sign Up</Link>
-            <Link to='/login' onClick={this.props.toggleModal}>Log In</Link>
+            <button onClick={this.props.toggleModal}>Sign Up</button>
+            <button onClick={this.props.toggleModal}>Log In</button>
           </nav>
         </div>
       </header>

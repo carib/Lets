@@ -28,6 +28,7 @@ class App extends React.Component {
       <div className="App">
         <WelcomeContainer
           toggleModal={this.toggleModal}/>
+        <Route exact path="/" component={ SearchContainer } />
         <Modal
           show={this.state.showModal}
           onClose={this.toggleModal}
@@ -41,7 +42,6 @@ class App extends React.Component {
             component={ SessionFormContainer }
             toggleModal={ this.toggleModal } />
         </Modal>
-        <Route exact path="/" component={ SearchContainer } />
       </div>
     )
   }
