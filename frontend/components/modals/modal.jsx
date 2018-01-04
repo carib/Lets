@@ -9,8 +9,11 @@ class Modal extends React.Component {
     }
 
     return (
-      <main>
-        {this.props.children}
+      <main className="modal">
+        <div className="modal-backdrop">
+          {this.props.children}
+          <SessionFormContainer />
+        </div>
       </main>
     );
   }

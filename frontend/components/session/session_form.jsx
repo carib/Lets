@@ -16,10 +16,10 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-
-  componentWillReceiveProps(newProps) {
-    this.newProps.toggleModal();
-  }
+  // 
+  // componentWillReceiveProps(newProps) {
+  //   this.newProps.toggleModal();
+  // }
 
   handleSubmit(e) {
     e.preventDefault();

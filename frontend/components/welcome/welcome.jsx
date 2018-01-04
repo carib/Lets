@@ -33,8 +33,8 @@ class Welcome extends React.Component {
     return (
       <div className="header-right">
         <nav className="header-nav-links" >
-          <p onClick={this.props.toggleModal}>Sign Up</p>
-          <p onClick={this.props.toggleModal}>Log In</p>
+          <Link to="/signup" onClick={this.props.toggleModal}>Sign Up</Link>
+          <Link to="/login" onClick={this.props.toggleModal}>Log In</Link>
         </nav>
       </div>
     );
