@@ -46,8 +46,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    if (this.props.loggedIn) {
-    }
 
     const text = (
                     this.props.formType === 'login'
@@ -65,8 +63,8 @@ class SessionForm extends React.Component {
                     ['login', "Log In"]
     );
     return (
-      <div className="session-modal-screen">
-        <section className="session-form">
+      <div className="backdrop">
+        <section className="modal">
 
           <p>Guest login: <br/>
             email: 'user@email.com', <br/>
