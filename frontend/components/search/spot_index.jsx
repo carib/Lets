@@ -12,9 +12,6 @@ class SpotIndex extends React.Component {
     this.props.fetchSpots();
   }
 
-  redirect() {
-
-  }
 
   render() {
     const { spots } = this.props;

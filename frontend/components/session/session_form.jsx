@@ -41,10 +41,6 @@ class SessionForm extends React.Component {
     };
   }
 
-  toggleModal() {
-
-  }
-
   render() {
     if (this.props.loggedIn) {
       return <Redirect to="/" />;
@@ -67,17 +63,13 @@ class SessionForm extends React.Component {
                   );
 
     return (
-      <main className="modal is-active">
+      <main className="modal">
         <div className="session-modal-screen">
           <section className="session-form">
-
-
 
             <p>Guest login: <br/>
               email: 'user@email.com', <br/>
               password: 'password'</p>
-
-
 
             <form onSubmit={this.handleSubmit}>
               <input className="session-form-email"
