@@ -31,8 +31,7 @@ class App extends React.Component {
           <WelcomeContainer />
         </header>
         <Modal
-          className={(this.state.showModal) ? "modal-show" : "modal"}
-          show={this.state.isOpen}
+          show={this.state.showModal}
           onClose={this.toggleModal} />
           <AuthRoute path="/login" component={ SessionFormContainer } toggleModal={this.toggleModal}/>
           <AuthRoute path="/signup" component={ SessionFormContainer } toggleModal={this.toggleModal}/>
@@ -44,10 +43,10 @@ class App extends React.Component {
 }
 
 export default App;
-//<Modal show={this.state.isOpen} onClose={this.toggleModal}>
+//<Modal show={this.state.showModal} onClose={this.toggleModal}>
 // </Modal>
 
-// <Modal show={this.state.isOpen} onClose={this.toggleModal}>
+// <Modal show={this.state.showModal} onClose={this.toggleModal}>
 //   <AuthRoute path="/login" component={ SessionFormContainer } toggleModal={this.toggleModal}/>
 //   <AuthRoute path="/signup" component={ SessionFormContainer } toggleModal={this.toggleModal}/>
 // </Modal>
