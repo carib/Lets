@@ -1,17 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-import Modal from '../session/modal';
+import { Link, Route } from 'react-router-dom';
 
 class Welcome extends React.Component {
   constructor(props) {
     super(props);
+    this.toggleModal;
     this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleLogout(e) {
     e.preventDefault();
     this.props.logout();
+  }
+
+  handleLink(e) {
+    e.preventDefault();
+    this.props.toggleModal();
   }
 
   userWelcome() {
@@ -32,8 +36,8 @@ class Welcome extends React.Component {
       <header>
         <div className="header-right">
           <nav className="header-nav-links">
-            <button onClick={this.props.toggleModal}>Sign Up</button>
-            <button onClick={this.props.toggleModal}>Log In</button>
+            <Link to="/login" onClick={this.props.toggleModal} value="login">Log In</Link>
+            <Link to="/login" onClick={this.props.toggleModal} value="signup">Sign Up</Link>
           </nav>
         </div>
       </header>

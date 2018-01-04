@@ -10,8 +10,9 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
+    this.formType = { type: '' };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -45,15 +46,19 @@ class SessionForm extends React.Component {
     };
   }
 
-  render() {
+  renderConductor() {
 
-    const text = (
-                    this.props.formType === 'login'
-                  ) ? (
-                    ["Log In", "Don't have an account?"]
-                  ) : (
-                    ["Sign Up", "Already have an account?"]
-    );
+  }
+
+  render() {
+    let type;
+    let text;
+    type = (this.props.formType) ? this.props.formType : this.toggleFormType('login');
+    if (type === 'login') {
+      text = ["Log In", "Don't have an account?"]
+    } else {
+      text = ["Sign Up", "Already have an account?"]
+    }
 
     const link = (
                     text[0] === "Log In"
@@ -65,28 +70,8 @@ class SessionForm extends React.Component {
     return (
 
       <div>
-          <p>Guest login: <br/>
-            email: 'user@email.com', <br/>
-            password: 'password'</p>
-
-          <form className={"modal-form"} onSubmit={this.handleSubmit}>
-            <input className="modal-form-email"
-              type="text"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholder="Email Address" />
-
-            <input
-              className="modal-form-password"
-              type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="Password" />
-
-            <button type="submit" >{text[0]}</button>
-
-            <p>{text[1]} <Link to={`/${link[0]}`}>{link[1]}</Link></p>
-          </form>
+          <Modal>
+          </Modal>
           {this.renderErrors()}
       </div>
     )
@@ -94,3 +79,5 @@ class SessionForm extends React.Component {
 }
 
 export default withRouter(SessionForm);
+// <p>{text[1]} <Link to={`/${link[0]}`}>{link[1]}</Link></p>
+//
