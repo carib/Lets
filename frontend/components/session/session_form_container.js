@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
 
+import { withRouter } from 'react-router-dom';
+import Modal from './modal';
 import SessionForm from './session_form';
 import {
   login,
@@ -22,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(SessionForm);
+)(SessionForm));

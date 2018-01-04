@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Modal from '../session/modal';
+
 class Welcome extends React.Component {
   constructor(props) {
     super(props);
@@ -14,23 +16,31 @@ class Welcome extends React.Component {
 
   userWelcome() {
     return (
-      <div className="header-right">
-        <nav className="header-user-nav">
-          <h3>Welcome, {this.props.user.email}!</h3>
-          <button onClick={this.handleLogout}>Log Out</button>
-        </nav>
-      </div>
+      <header>
+        <div className="header-right">
+          <nav className="header-user-nav">
+            <h3>Welcome, {this.props.user.email}!</h3>
+            <button onClick={this.handleLogout}>Log Out</button>
+          </nav>
+        </div>
+      </header>
     );
+  }
+
+  renderModal() {
+    return <Modal />
   }
 
   navLinks() {
     return (
-      <div className="header-right">
-        <nav className="header-nav-links">
-          <Link to='/signup'>Sign Up</Link>
-          <Link to='/login'>Log In</Link>
-        </nav>
-      </div>
+      <header>
+        <div className="header-right">
+          <nav className="header-nav-links">
+            <Link to='/signup' onClick={this.props.toggleModal}>Sign Up</Link>
+            <Link to='/login' onClick={this.props.toggleModal}>Log In</Link>
+          </nav>
+        </div>
+      </header>
     );
   }
 

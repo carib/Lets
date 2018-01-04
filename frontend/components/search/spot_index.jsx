@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 import SpotIndexItem from './spot_index_item';
+import Modal from '../session/modal';
 
 class SpotIndex extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class SpotIndex extends React.Component {
         </article>
       )
     } else {
-      return <Redirect to="/login" />
+      return <Modal />
     }
   }
 }
