@@ -13,12 +13,12 @@
  *= require_tree .
  *= require_self
  */
-#map-container {
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  margin-top: 75px;
-  width: 40%;
-  height: 92.5%;
 
-}
+ .map-wrap #map-container {
+   margin-top: 75px;
+   position: fixed !important;
+   bottom: 0px !important;
+   right: 0px !important;
+   height: 93%;
+   width: 40%;
+ }

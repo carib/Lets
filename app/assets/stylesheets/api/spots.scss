@@ -2,28 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.search-main {
-
+.spot-item {
+  display: inline-block;
+  padding: 5px;
+  width: 250px;
+  height: 150px;
+  border: 1px solid black;
+  overflow: hidden;
 }
 
 .spot-index-main {
-  // column-count: 3;
   column-gap: 1em;
   margin-top: 80px;
   padding-left: 10px;
   position: absolute;
   z-index: 1;
-  width: 50%;
+  width: 58%;
 
-  li {
-    margin: 5px;
-    padding-left: 5px;
-    display: inline-block;
-    margin: 0 0 1em;
-    width: 100%;
+  .nested-spot-item {
 
     .nested-spot-list {
-      padding: 3px;
+      padding-top: 10px;
       border: 1px solid black;
 
     }

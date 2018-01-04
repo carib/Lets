@@ -29,9 +29,13 @@ class SpotMap extends React.Component {
 
   render() {
     return (
-      <div ref={ map => this.mapNode = map } id='map-container'>
-        Map
-      </div>
+      <aside className='map-wrap'>
+        <div
+          ref={ map => this.mapNode = map }
+          id='map-container'>
+          Map
+        </div>
+      </aside>
     )
   }
 }
