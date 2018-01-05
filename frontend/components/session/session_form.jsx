@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  // 
+  //
   // componentWillReceiveProps(newProps) {
   //   this.newProps.toggleModal();
   // }
@@ -71,32 +71,38 @@ class SessionForm extends React.Component {
     return (
       <main className="modal">
         <div className="modal-backdrop">
-          <section className="modal-detail-box">
+          <div className="modal-detail-box">
 
-            <p>Guest login: <br/>
-              email: 'user@email.com', <br/>
-              password: 'password'</p>
+            <section className="modal-inner-detail-box">
 
-            <form onSubmit={this.handleSubmit}>
-              <input className="session-form-email"
-                type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email Address" />
+              <form onSubmit={this.handleSubmit}>
+                <input className="session-form-email"
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  placeholder="Email Address" />
 
-              <input
-                className="session-form-password"
-                type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password" />
+                <input
+                  className="session-form-password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  placeholder="Password" />
 
-              <button type="submit" >{text[0]}</button>
+                <button type="submit" >{text[0]}</button>
+                <div className="modal-footer">
+                  <div className="modal-divider-foot"></div>
+                  <span className="modal-footer-text">{text[1]}
+                    <div className="modal-footer-link">
+                      <Link to={`/${link[0]}`} >{link[1]}</Link>
+                    </div>
+                </span>
+                </div>
+              </form>
+            </section>
 
-              <p>{text[1]} <Link to={`/${link[0]}`}>{link[1]}</Link></p>
-            </form>
             {this.renderErrors()}
-          </section>
+          </div>
         </div>
       </main>
     )

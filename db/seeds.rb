@@ -15,5 +15,6 @@ Spot.destroy_all
   Spot.create!(
     description: Faker::Dune.quote,
     lat: Faker::Address.latitude,
-    lng: Faker::Address.longitude)
+    lng: Faker::Address.longitude),
+
 end

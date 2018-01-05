@@ -14,6 +14,13 @@
  *= require_self
  */
 
+ * {
+   font-family: 'Montserrat', sans-serif !important;
+   font-stretch: ultra-condensed !important;
+   letter-spacing: -0.02em !important;
+
+ }
+
  .map-wrap #map-container {
    margin-top: 75px;
    position: fixed !important;
