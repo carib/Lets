@@ -5,17 +5,17 @@ class Welcome extends React.Component {
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
-    console.log(this.props)
-
+    this.handleChoice = this.handleChoice.bind(this);
+    console.log("welcome", props);
   }
 
   handleLogout(e) {
     e.preventDefault();
     this.props.logout();
+  }
+
+  handleChoice(e) {
+    this.props.modProp.toggle();
   }
 
   userWelcome() {
@@ -33,8 +33,17 @@ class Welcome extends React.Component {
     return (
       <div className="header-right">
         <nav className="header-nav-links" >
-          <Link to="/signup" onClick={this.props.toggleModal}>Sign Up</Link>
-          <Link to="/login" onClick={this.props.toggleModal}>Log In</Link>
+          <button
+            value={"signup"}
+            onClick={this.handleChoice}
+          >Sign Up
+        </button>
+
+          <button
+            value={"login"}
+            onClick={this.handleChoice}
+          >Log In
+        </button>
         </nav>
       </div>
     );

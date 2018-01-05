@@ -8,6 +8,10 @@ import * as SessionApi from './util/session_api_util';
 import * as SessionAct from './actions/session_actions';
 import * as SpotApi from './util/spot_api_util';
 import * as SpotAct from './actions/spot_actions';
+import * as ModalApi from './util/modal_util';
+import * as ModalAct from './actions/modal_actions';
+
+import merge from 'lodash/merge';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -35,4 +39,7 @@ window.SessionApi = SessionApi;
 window.SessionAct = SessionAct;
 window.SpotApi = SpotApi;
 window.SpotAct = SpotAct;
+window.ModalApi = ModalApi;
+window.ModalAct = ModalAct;
+window.merge = merge;
 //TESTING END

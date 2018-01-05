@@ -41,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/carib/Lets/issues"
   },
-  "homepage": "https://github.com/carib/Lets#readme"
+  "homepage": "https://github.com/carib/Lets#readme",
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.2"
+  }
 }

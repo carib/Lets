@@ -1,13 +1,17 @@
-import LoginModal from '../modals/login_modal';
+import React from 'react';
 import merge from 'lodash/merge';
 
-const modals = {
-  'login': {},
-}
+import LoginModal from '../components/modals/login_modal';
 
-export const fetchModal = (key) => {
-  const currentModal = merge({ show: true }, modals[key]});
-  return {
-    currentModal: currentModal,
-  }
+
+export const fetchModal = (modalType) => {
+  const modals = {
+    'login': { currentModal: LoginModal },
+  };
+
+  
+
+  const currentModal = merge({}, modals[modalType]);
+  console.log(currentModal)
+  return { currentModal: <LoginModal /> }
 }

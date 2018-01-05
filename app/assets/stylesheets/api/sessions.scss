@@ -110,10 +110,11 @@
           font-weight: 300;
           font-stretch: -0.2em;
 
-          .modal-footer-link a {
+          .modal-footer-button {
             padding: 5px;
             color: #008489 !important;
             font-weight: 400;
+            cursor: pointer;
           }
         }
       }

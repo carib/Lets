@@ -12,19 +12,18 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      isLogin: true
     };
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.switchForm = this.switchForm.bind(this)
   }
-  //
-  // componentWillReceiveProps(newProps) {
-  //   this.newProps.toggleModal();
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
+    const processForm = (this.state.isLogin) ? login : signup;
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    processForm(user);
   }
 
   renderErrors() {
@@ -47,13 +46,18 @@ class SessionForm extends React.Component {
     };
   }
 
+  switchForm() {
+    this.setState({ isLogin: !this.state.isLogin});
+    console.log('button', this.state.isLogin);
+  }
+
   render() {
     if (this.props.loggedIn) {
       return <Redirect to="/" />;
     }
 
     const text = (
-                  this.props.formType === 'login'
+                  this.isLogin
                     ) ? (
                       ["Log In", "Don't have an account?"]
                     ) : (
@@ -94,13 +98,12 @@ class SessionForm extends React.Component {
                   <div className="modal-divider-foot"></div>
                   <span className="modal-footer-text">{text[1]}
                     <div className="modal-footer-link">
-                      <Link to={`/${link[0]}`} >{link[1]}</Link>
+                      <div className="modal-footer-button" onClick={this.switchForm} >{link[1]}</div>
                     </div>
                 </span>
                 </div>
               </form>
             </section>
-
             {this.renderErrors()}
           </div>
         </div>
