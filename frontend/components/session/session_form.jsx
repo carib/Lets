@@ -53,19 +53,19 @@ class SessionForm extends React.Component {
     }
 
     const text = (
-                    this.props.formType === 'login'
-                  ) ? (
-                    ["Log In", "Don't have an account?"]
-                  ) : (
-                    ["Sign Up", "Already have an account?"]
+                  this.props.formType === 'login'
+                    ) ? (
+                      ["Log In", "Don't have an account?"]
+                    ) : (
+                      ["Sign Up", "Already have an account?"]
                   );
 
     const link = (
-                    text[0] === "Log In"
-                  ) ? (
-                    ['signup', "Sign Up"]
-                  ) : (
-                    ['login', "Log In"]
+                  text[0] === "Log In"
+                    ) ? (
+                      ['signup', "Sign Up"]
+                    ) : (
+                      ['login', "Log In"]
                   );
 
     return (

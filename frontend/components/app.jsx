@@ -26,15 +26,10 @@ class App extends React.Component {
       <div>
         <header>
           <h1>Lets!!</h1>
-          <Route path="/login" toggleModal={this.toggleModal}/>
-          <Route path="/signup" toggleModal={this.toggleModal}/>
           <WelcomeContainer />
         </header>
-        <Modal
-          show={this.state.showModal}
-          onClose={this.toggleModal} />
-          <AuthRoute path="/login" component={ SessionFormContainer } toggleModal={this.toggleModal}/>
-          <AuthRoute path="/signup" component={ SessionFormContainer } toggleModal={this.toggleModal}/>
+
+        <Modal show={this.state.showModal} onClose={this.toggleModal} />
 
         <Route exact path="/" component={ SearchContainer } />
       </div>

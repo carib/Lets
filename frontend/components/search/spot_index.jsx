@@ -15,25 +15,26 @@ class SpotIndex extends React.Component {
 
   render() {
     const { spots } = this.props;
-    if (this.props.loggedIn) {
-      return (
-        <article className="spot-index-main">
-          <ul>
-            {
-              spots.map(spot =>
-                <SpotIndexItem
-                  key={spot.id}
-                  spot={spot}
-                  />
-              )
-            }
-          </ul>
-        </article>
-      )
-    } else {
-      return <Redirect to="/login" />
-    }
+    return (
+      <article className="spot-index-main">
+        <ul>
+          {
+            spots.map(spot =>
+              <SpotIndexItem
+                key={spot.id}
+                spot={spot}
+                />
+            )
+          }
+        </ul>
+      </article>
+    )
   }
 }
 
 export default SpotIndex;
+// if (this.props.loggedIn) {
+//   )
+// } else {
+//   return <Redirect to="/login" />
+// }
