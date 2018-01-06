@@ -34,11 +34,11 @@
        font-url('circularstd-bold.ttf') format('truetype'),
        font-url('circularstd-bold.svg') format('svg');
 }
+
 @font-face {
   font-family: 'Circular';
   font-style: light;
-  src: font-url('circular-light.woff2');
-  format('woff');
+  src: font-url('circular-light.woff2') format('woff');
 }
 
 * {
