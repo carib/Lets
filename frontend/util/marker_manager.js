@@ -6,13 +6,15 @@ export default class MarkerManager {
   }
 
   updateMarkers(spots) {
+    // const page = (searchPage * 18);
+    const currentSpots = spots.slice(0, 18);
     const spotsObj = {};
-    spots.forEach(spot =>
+    currentSpots.forEach(spot =>
       spotsObj[spot.id] = spot
     );
 
     // spots.forEach(newSpot => this.createMarkerFromSpot(newSpot, this.handleClick))
-    spots.forEach(newSpot => this.createMarkerFromSpot(newSpot))
+    currentSpots.forEach(newSpot => this.createMarkerFromSpot(newSpot))
   }
 
   createMarkerFromSpot(spot) {

@@ -13,19 +13,19 @@ class SpotIndex extends React.Component {
   render() {
     const { spots, searchPage } = this.props;
     const page = (searchPage * 18);
+    const currentSpots = spots.slice(0, 18);
 
-
-    console.log('spotindex-render', this.props);
+    console.log('spotindex-render', spots, currentSpots);
     return (
       <div>
         <article className="spot-index-main">
           <ul className="spot-index-column">
             {
-              spots.map(spot =>
+              currentSpots.map(spot =>
                 <SpotIndexItem
                   key={spot.id}
                   spot={spot}
-                  />
+                />
               )
             }
           </ul>

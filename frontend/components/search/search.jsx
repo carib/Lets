@@ -24,7 +24,8 @@ class Search extends React.Component {
 
   render() {
     const { fetchSpots, loggedIn } = this.props;
-    const { spots } = this.state;
+    const { spots, searchPage } = this.state;
+
     return (
       <div className="search-main">
         <SpotMap
