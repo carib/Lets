@@ -6,14 +6,25 @@ import SpotMap from './../spot_map/spot_map';
 class Search extends React.Component {
   constructor(props) {
     super(props);
+    console.log('search', this.props, this.state);
+    this.state = {
+      searchPage: 1,
+      loggedIn: false,
+      spots: []
+    }
   }
 
   componentDidMount() {
     this.props.fetchSpots();
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ spots: nextProps.spots })
+  }
+
   render() {
-    const { fetchSpots, spots, loggedIn } = this.props;
+    const { fetchSpots, loggedIn } = this.props;
+    const { spots } = this.state;
     return (
       <div className="search-main">
         <SpotMap

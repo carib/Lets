@@ -16,7 +16,26 @@ const SpotIndexItem = ({ spot }) => {
 
       </li>
       <div className="spot-item-info">
-        Spot: Description!
+        <div className="item-info-row-1">
+          <span>ENTIRE HOUSE</span> * <span>2 BEDS</span>
+        </div>
+        <div className="item-info-row-2">
+          I SETTE CONI - TRULLO EDERA
+        </div>
+        <div className="item-info-row-3">
+          From <span>$74</span> per night
+        </div>
+        <div className="item-info-row-4">
+          <div className="item-info-stars">
+            *****
+          </div>
+          <div className="item-info-review-count">
+            106
+          </div>
+          <div className="item-info-superhost">
+            Superhost
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -4,9 +4,6 @@ import { Redirect } from 'react-router-dom';
 import SpotIndexItem from './spot_index_item';
 
 class SpotIndex extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.fetchSpots();
@@ -14,20 +11,26 @@ class SpotIndex extends React.Component {
 
 
   render() {
-    const { spots } = this.props;
+    const { spots, searchPage } = this.props;
+    const page = (searchPage * 18);
+
+
+    console.log('spotindex-render', this.props);
     return (
-      <article className="spot-index-main">
-        <ul className="spot-index-column">
-          {
-            spots.map(spot =>
-              <SpotIndexItem
-                key={spot.id}
-                spot={spot}
-                />
-            )
-          }
-        </ul>
-      </article>
+      <div>
+        <article className="spot-index-main">
+          <ul className="spot-index-column">
+            {
+              spots.map(spot =>
+                <SpotIndexItem
+                  key={spot.id}
+                  spot={spot}
+                  />
+              )
+            }
+          </ul>
+        </article>
+      </div>
     )
   }
 }
@@ -38,3 +41,17 @@ export default SpotIndex;
 // } else {
 //   return <Redirect to="/login" />
 // }
+
+// const { spots } = this.props;
+// return (
+//   <div>
+//     {
+//       spots.map(spot =>
+//         <SpotIndexItem
+//           key={spot.id}
+//           spot={spot}
+//         />
+//       )
+//     }
+//   </div>
+// )
