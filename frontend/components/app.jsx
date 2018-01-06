@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import { AuthRoute } from '../util/route_util';
 
-import WelcomeContainer from './welcome/welcome_container';
+import HeaderContainer from './header/header_container';
 import SessionFormContainer from './session/session_form_container';
 import SearchContainer from './search/search_container';
 import ModalContainer from './modals/modal_container';
@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
 
-
+  // REMOVE AFTER TESTING
   testFunc() {
     console.log("This works!");
   }
@@ -50,7 +50,7 @@ export default App;
 //       <div>
 //         <header>
 //           <h1>Lets!!</h1>
-//           <WelcomeContainer />
+//           <HeaderContainer />
 //         </header>
 //         <ModalContainer >
 //           <Route exact path="/" component={ SearchContainer } />

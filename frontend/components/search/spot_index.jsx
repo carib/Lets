@@ -17,7 +17,7 @@ class SpotIndex extends React.Component {
     const { spots } = this.props;
     return (
       <article className="spot-index-main">
-        <ul>
+        <ul className="spot-index-column">
           {
             spots.map(spot =>
               <SpotIndexItem

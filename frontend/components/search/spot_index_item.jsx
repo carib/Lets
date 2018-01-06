@@ -7,17 +7,17 @@ const SpotIndexItem = ({ spot }) => {
       <li className="spot-item">
         <ul className="nested-spot-list">
 
-          <li
-            className="nested-spot-item">
+          <li className="nested-spot-item">
             Latitude: {spot.lat}</li>
-          <li
-            className="nested-spot-item">
+          <li className="nested-spot-item">
             Longitude: {spot.lng}</li>
 
         </ul>
 
       </li>
-      Spot: Description!
+      <div className="spot-item-info">
+        Spot: Description!
+      </div>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 //
 // import SessionFormContainer from '../session/session_form_container';
 import SearchContainer from '../search/search_container';
-import WelcomeContainer from '../welcome/welcome_container';
+import HeaderContainer from '../header/header_container';
 
 import LoginModalContainer from './login_modal_container';
 
@@ -44,8 +44,10 @@ class Modal extends React.Component {
       <main className="modal">
         <header>
           <h1>Lets!!</h1>
-          <WelcomeContainer modProp={modProps} />
+          <HeaderContainer modProp={modProps} />
         </header>
+        <div className="search-filters-bar">
+        </div>
         <div className={toggleType[1]}>
           <LoginModalContainer modProps={modProps} />
         </div>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Welcome extends React.Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleChoice = this.handleChoice.bind(this);
-    console.log("welcome", props);
+    console.log("header", props);
   }
 
   handleLogout(e) {
@@ -18,11 +18,11 @@ class Welcome extends React.Component {
     this.props.modProp.toggle();
   }
 
-  userWelcome() {
+  memberHeader() {
     return (
       <div className="header-right">
-        <nav className="header-user-nav">
-          <h3>Welcome, {this.props.user.email}!</h3>
+        <nav className="header-member-nav">
+          <h3>Header, {this.props.user.email}!</h3>
           <button onClick={this.handleLogout}>Log Out</button>
         </nav>
       </div>
@@ -51,14 +51,11 @@ class Welcome extends React.Component {
 
   render() {
     if (this.props.user !== null) {
-      return this.userWelcome();
+      return this.memberHeader();
     } else {
       return this.navLinks();
     }
   }
 }
 
-export default Welcome;
-//
-// <Link to='/signup'>Sign Up</Link>
-// <Link to='/login' onClick={this.props.toggleModal}>Log In</Link>
+export default Header;
