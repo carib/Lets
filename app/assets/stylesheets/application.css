@@ -15,7 +15,7 @@
  */
 
 
- @font-face {
+@font-face {
   font-family: 'Circular';
   font-style: book;
   src: font-url('circularstd-book.eot');
@@ -25,7 +25,7 @@
        font-url('circularstd-book.svg') format('svg');
 }
 
- @font-face {
+@font-face {
   font-family: 'Circular';
   font-style: bold;
   src: font-url('circularstd-bold.eot');
@@ -34,7 +34,13 @@
        font-url('circularstd-bold.ttf') format('truetype'),
        font-url('circularstd-bold.svg') format('svg');
 }
+@font-face {
+  font-family: 'Circular';
+  font-style: light;
+  src: font-url('circular-light.woff2');
+  format('woff');
+}
 
- * {
-   font-family: 'Circular', sans-serif !important;
- }
+* {
+  font-family: 'Circular', sans-serif !important;
+}
