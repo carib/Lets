@@ -8,7 +8,7 @@ import {
 
 
 const _nullModal = Object.freeze({
-  currentModal: "",
+  currentModal: {},
   isShowing: false,
 })
 

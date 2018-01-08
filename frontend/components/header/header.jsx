@@ -19,6 +19,8 @@ class Header extends React.Component {
   }
 
   handleChoice(e) {
+    console.log(this.props);
+    console.log(this.props.modProp);
     this.props.modProp.toggle();
     this.props.modProp.fetch(e.target.value);
   }
@@ -35,11 +37,12 @@ class Header extends React.Component {
     if (this.state.menuActive) {
       menu =  <div className="header-member-menu">
                 <ul className="menu-list">
-                  <li className="menu-item">WOOT</li>
-                  <li className="menu-item">WOOT</li>
-                  <li className="menu-item">WOOT</li>
-                  <li className="menu-item">WOOT</li>
-                  <li onClick={this.handleLogout} className="menu-item">Log Out</li>
+                  <li><div className="menu-item">WOOT</div></li>
+                  <li><div className="menu-item">WOOT</div></li>
+                  <li><div className="menu-item">WOOT</div></li>
+                  <li>
+                    <div onClick={this.handleLogout} className="menu-item">Log Out</div>
+                  </li>
                 </ul>
               </div>
     } else {
@@ -101,11 +104,3 @@ class Header extends React.Component {
 }
 
 export default Header;
-// <ul className="menu-list">
-//   <li><div className="menu-item">WOOT</div></li>
-//   <li><div className="menu-item">WOOT</div></li>
-//   <li><div className="menu-item">WOOT</div></li>
-//   <li>
-//     <div onClick={this.handleLogout} className="menu-item">Log Out</div>
-//   </li>
-// </ul>

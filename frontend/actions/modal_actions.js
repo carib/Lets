@@ -24,8 +24,9 @@ export const toggleModalHide = () => {
 }
 
 export const fetchModal = (modalType) => dispatch => {
+  const modal = ModalUtil.fetchModal(modalType);
 
-  dispatch(ModalUtil.fetchModal(modalType))
+  dispatch(receiveCurrentModal(modal))
 }
 
 export const showModal = () => dispatch => {

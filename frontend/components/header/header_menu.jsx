@@ -34,12 +34,8 @@ class HeaderMenu extends React.Component {
       <div className="header-right">
         <nav className="header-member-nav">
           <button className="header-member-button" onClick={this.toggleMenu} />
-          <CSSTransitionGroup
-            transitionName="menu"
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={300}
-          >{menu}
-          </CSSTransitionGroup>
+          {menu}
+        
         </nav>
       </div>
     );

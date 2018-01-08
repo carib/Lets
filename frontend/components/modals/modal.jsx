@@ -13,7 +13,7 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentModal: ((this.props.currentModal) ? this.props.currentModal : ""),
+      currentModal: ((this.props.currentModal) ? this.props.currentModal : null),
       modalProps: {},
       modalType: null,
       show: this.props.currentModal.isShowing,
@@ -46,6 +46,7 @@ class Modal extends React.Component {
         <header className="main-header">
           <h1>Lets!!</h1>
           <HeaderContainer modProp={modProps} />
+          
         </header>
         <div className="search-filters-bar">
         </div>
