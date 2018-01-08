@@ -36,6 +36,8 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'aws-sdk', '< 3.0'
+gem 'paperclip', '~> 5.0.0'
+gem 'figaro'
 
 
 group :development, :test do
