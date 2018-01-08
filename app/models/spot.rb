@@ -13,7 +13,7 @@
 #  currency             :string
 #  pastGuestIds         :string           is an Array
 #  reviewIds            :string           is an Array
-#  type                 :string
+#  spotType             :string
 #
 
 # SAMPLE STATE:

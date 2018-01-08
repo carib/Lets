@@ -19,7 +19,7 @@ Spot.destroy_all
 20.times do |_|
   num = Random.new
   Spot.create!(
-    description: "ENTIRE HOUSE * #{rand(4)} BEDS",
+    description: Faker::Cat.breed,
     lat: Faker::Address.latitude,
     lng: Faker::Address.longitude,
     averageRating: rand(6),
@@ -27,5 +27,6 @@ Spot.destroy_all
     currency: 'USD',
     pastGuestIds: [],
     reviewIds: [],
+    spotType: "ENTIRE HOUSE * #{rand(4)} BEDS",
   )
 end
