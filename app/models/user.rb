@@ -1,3 +1,29 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  firstName       :string           not null
+#  lastName        :string           not null
+#
+
+# SAMPLE STATE:
+# users: {
+#              1: {
+#                id: 1,
+#                email: "humancondition2001@hotmail.com",
+#                firstName: "Hannah",
+#                lastName: "Arendt",
+#                imgUrl: "https://goo.gl/44nkpL",
+#                reviewIds: [7],
+#                hostedSpotIds: []
+#              },
+
 class User < ApplicationRecord
   validates :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true

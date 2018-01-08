@@ -23,8 +23,8 @@ export const toggleModalHide = () => {
   }
 }
 
-export const fetchModal = (type) => dispatch => {
-  const modal = ModalUtil.fetchModal(type);
+export const fetchModal = (modalType) => dispatch => {
+  const modal = ModalUtil.fetchModal(modalType);
 
   dispatch(receiveCurrentModal(modal))
 }

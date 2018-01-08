@@ -6,7 +6,6 @@ class Header extends React.Component {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleChoice = this.handleChoice.bind(this);
-    console.log("header", props);
   }
 
   handleLogout(e) {
@@ -16,6 +15,8 @@ class Header extends React.Component {
 
   handleChoice(e) {
     this.props.modProp.toggle();
+    this.props.modProp.fetch(e.target.value);
+
   }
 
   memberHeader() {
@@ -34,13 +35,13 @@ class Header extends React.Component {
       <div className="header-right">
         <nav className="header-nav-links" >
           <button
-            value={"signup"}
+            value={"SIGNUP"}
             onClick={this.handleChoice}
           >Sign Up
         </button>
 
           <button
-            value={"login"}
+            value={"LOGIN"}
             onClick={this.handleChoice}
           >Log In
         </button>

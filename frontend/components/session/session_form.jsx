@@ -48,7 +48,6 @@ class SessionForm extends React.Component {
 
   switchForm() {
     this.setState({ isLogin: !this.state.isLogin});
-    console.log('button', this.state.isLogin);
   }
 
   render() {

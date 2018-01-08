@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import LoginModal from './login_modal';
+import ModalRelay from './modal_relay';
 
 import {
   login,
@@ -10,20 +10,24 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    currentModal: state.ui.modal.currentModal,
+    isShowing: state.ui.modal.isShowing,
     loggedIn: Boolean(state.session.currentUser),
     errors: state.errors.session,
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    const toggle = (ownProps.modProps.toggle)
+    const {toggle, fetch} = (ownProps.modProps);
   return {
-    toggle: () => dispatch(toggle()),
+    fetch: (modal) => dispatch(fetch(modal)),
     login: (user) => dispatch(login(user)),
+    signup: (user) => dispatch(signup(user)),
+    toggle: () => dispatch(toggle()),
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginModal);
+)(ModalRelay);

@@ -10,8 +10,6 @@ import {
 } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-
-  console.log(state);
   return {
     currentModal: state.ui.modal.currentModal,
     show: state.ui.modal.isShowing
@@ -23,7 +21,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
   return {
     showModal: () => dispatch(showModal()),
-    hideModal: () => dispatch(hideModal())
+    hideModal: () => dispatch(hideModal()),
+    fetchModal: (modal) => dispatch(fetchModal(modal))
   }
 }
 

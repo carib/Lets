@@ -8,13 +8,18 @@
 require 'faker'
 
 User.destroy_all
-user1 = User.create!(email: 'user@email.com', password: 'password')
+user1 = User.create!(
+  email: 'user@email.com',
+  password: 'password',
+  firstName: 'Guest',
+  lastName: 'User'
+)
 
 Spot.destroy_all
 50.times do |_|
   Spot.create!(
     description: Faker::Dune.quote,
     lat: Faker::Address.latitude,
-    lng: Faker::Address.longitude),
-
+    lng: Faker::Address.longitude
+  )
 end

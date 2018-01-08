@@ -1,11 +1,11 @@
 import React from 'react';
 import merge from 'lodash/merge';
-//
-// import SessionFormContainer from '../session/session_form_container';
+
 import SearchContainer from '../search/search_container';
 import HeaderContainer from '../header/header_container';
 
-import LoginModalContainer from './login_modal_container';
+import ModalRelayContainer from './modal_relay_container';
+
 
 class Modal extends React.Component {
   constructor(props) {
@@ -16,13 +16,12 @@ class Modal extends React.Component {
       modalType: null,
       show: this.props.currentModal.isShowing,
     };
-    // console.log("modal.jsx", this.props);
+    console.log("modal.jsx", this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ show: nextProps.show, currentModal: nextProps.currentModal })
   }
-
 
   render() {
     const toggleType = (
@@ -49,7 +48,14 @@ class Modal extends React.Component {
         <div className="search-filters-bar">
         </div>
         <div className={toggleType[1]}>
-          <LoginModalContainer modProps={modProps} />
+          <div className="modal-detail-box">
+            <section className="modal-inner-detail-box">
+
+              <ModalRelayContainer
+                modProps={modProps}
+                currentModal={this.state.currentModal} />
+            </section>
+          </div>
         </div>
         {this.props.children}
       </main>

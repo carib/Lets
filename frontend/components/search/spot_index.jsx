@@ -15,7 +15,6 @@ class SpotIndex extends React.Component {
     const page = (searchPage * 18);
     const currentSpots = spots.slice(0, 18);
 
-    console.log('spotindex-render', spots, currentSpots);
     return (
       <div>
         <article className="spot-index-main">

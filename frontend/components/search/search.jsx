@@ -6,7 +6,6 @@ import SpotMap from './../spot_map/spot_map';
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    console.log('search', this.props, this.state);
     this.state = {
       searchPage: 1,
       loggedIn: false,
