@@ -51,28 +51,34 @@ class SignUpModal extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input className="session-form-email"
+          <input
+            className="session-form-email"
             type="text"
             value={this.state.email}
             onChange={this.update('email')}
-            placeholder="Email Address" />
-          <input className="session-form-first-name"
+            placeholder="Email Address"
+          />
+          <input
+            className="session-form-first-name"
             type="text"
             value={this.state.firstName}
             onChange={this.update('firstName')}
-            placeholder="First name" />
-          <input className="session-form-last-name"
+            placeholder="First name"
+          />
+          <input
+            className="session-form-last-name"
             type="text"
             value={this.state.lastName}
             onChange={this.update('lastName')}
-            placeholder="Last name" />
+            placeholder="Last name"
+          />
           <input
             className="session-form-password"
             type="password"
             value={this.state.password}
             onChange={this.update('password')}
-            placeholder="Password" />
-
+            placeholder="Password"
+          />
           <button type="submit">{text[0]}</button>
           <div className="modal-footer">
             <div className="modal-divider-foot"></div>

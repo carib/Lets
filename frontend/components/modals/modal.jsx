@@ -45,8 +45,8 @@ class Modal extends React.Component {
       <main className="modal">
         <header className="main-header">
           <h1>Lets!!</h1>
+
           <HeaderContainer modProp={modProps} />
-          
         </header>
         <div className="search-filters-bar">
         </div>
