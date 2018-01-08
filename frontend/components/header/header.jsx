@@ -47,7 +47,7 @@ class Header extends React.Component {
       <div className="header-right">
         <nav className="header-member-nav">
           <div className="member-icon-box" onClick={this.toggleMenu}>
-            <i className="fa fa-user-circle"  />
+            <i className="fa fa-user-circle" />
           </div>
         {menu}
         </nav>
@@ -58,7 +58,7 @@ class Header extends React.Component {
   navLinks() {
     return (
       <div className="header-right">
-        <nav className="header-nav-links" >
+        <nav className="header-nav-links">
           <button
             value={"SIGNUP"}
             onClick={this.handleChoice}
