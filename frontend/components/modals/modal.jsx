@@ -3,6 +3,8 @@ import merge from 'lodash/merge';
 
 import SearchContainer from '../search/search_container';
 import HeaderContainer from '../header/header_container';
+import HeaderMenu from '../header/header_menu';
+
 
 import ModalRelayContainer from './modal_relay_container';
 
@@ -11,7 +13,7 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentModal: ((this.props.currentModal) ? this.props.currentModal : null),
+      currentModal: ((this.props.currentModal) ? this.props.currentModal : ""),
       modalProps: {},
       modalType: null,
       show: this.props.currentModal.isShowing,
@@ -41,7 +43,7 @@ class Modal extends React.Component {
 
     return (
       <main className="modal">
-        <header>
+        <header className="main-header">
           <h1>Lets!!</h1>
           <HeaderContainer modProp={modProps} />
         </header>

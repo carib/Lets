@@ -20,10 +20,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     const {toggle, fetch} = (ownProps.modProps);
   return {
-    fetch: (modal) => dispatch(fetch(modal)),
+    toggle: (modal) => dispatch(receiveCurrentModal(modal)),
     login: (user) => dispatch(login(user)),
     signup: (user) => dispatch(signup(user)),
-    toggle: () => dispatch(toggle()),
   }
 }
 
