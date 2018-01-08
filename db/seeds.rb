@@ -16,10 +16,16 @@ user1 = User.create!(
 )
 
 Spot.destroy_all
-50.times do |_|
+20.times do |_|
+  num = Random.new
   Spot.create!(
-    description: Faker::Dune.quote,
+    description: "ENTIRE HOUSE * #{rand(4)} BEDS",
     lat: Faker::Address.latitude,
-    lng: Faker::Address.longitude
+    lng: Faker::Address.longitude,
+    averageRating: rand(6),
+    averagePricePerNight: num.rand(50.00..300.99).round(2),
+    currency: 'USD',
+    pastGuestIds: [],
+    reviewIds: [],
   )
 end
