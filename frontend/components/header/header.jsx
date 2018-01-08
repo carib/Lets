@@ -19,8 +19,6 @@ class Header extends React.Component {
   }
 
   handleChoice(e) {
-    console.log(this.props);
-    console.log(this.props.modProp);
     this.props.modProp.toggle();
     this.props.modProp.fetch(e.target.value);
   }
@@ -37,9 +35,6 @@ class Header extends React.Component {
     if (this.state.menuActive) {
       menu =  <div className="header-member-menu">
                 <ul className="menu-list">
-                  <li><div className="menu-item">WOOT</div></li>
-                  <li><div className="menu-item">WOOT</div></li>
-                  <li><div className="menu-item">WOOT</div></li>
                   <li>
                     <div onClick={this.handleLogout} className="menu-item">Log Out</div>
                   </li>
@@ -79,22 +74,6 @@ class Header extends React.Component {
   }
 
   render() {
-    let menu;
-    if (this.state.menuActive) {
-      menu =  <ul className="member-menu-list">
-                  <li>
-                    <button onClick={this.handleLogout}>Log Out</button>
-                  </li>
-                  <li>WOOT</li>
-                  <li>WOOT</li>
-                  <li>WOOT</li>
-                  <li>WOOT</li>
-                  <li>WOOT</li>
-                </ul>
-
-    } else {
-      menu = "";
-    }
     if (this.props.user !== null) {
       return this.memberHeader();
     } else {
