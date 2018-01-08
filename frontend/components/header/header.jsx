@@ -46,7 +46,9 @@ class Header extends React.Component {
     return (
       <div className="header-right">
         <nav className="header-member-nav">
-          <button className="header-member-button" onClick={this.toggleMenu} />
+          <div className="member-icon-box" onClick={this.toggleMenu}>
+            <i className="fa fa-user-circle"  />
+          </div>
         {menu}
         </nav>
       </div>

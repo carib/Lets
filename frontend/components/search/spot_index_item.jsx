@@ -6,12 +6,10 @@ const SpotIndexItem = ({ spot }) => {
     <div>
       <li className="spot-item">
         <ul className="nested-spot-list">
-
           <li className="nested-spot-item">
             Latitude: {spot.lat}</li>
           <li className="nested-spot-item">
             Longitude: {spot.lng}</li>
-
         </ul>
 
       </li>
@@ -20,20 +18,24 @@ const SpotIndexItem = ({ spot }) => {
           <span>ENTIRE HOUSE</span> * <span>2 BEDS</span>
         </div>
         <div className="item-info-row-2">
-          I SETTE CONI - TRULLO EDERA
+          Romantic front lake Como attic
         </div>
         <div className="item-info-row-3">
-          From <span>$74</span> per night
+          From <span>$148</span> per night
         </div>
         <div className="item-info-row-4">
           <div className="item-info-stars">
-            *****
+            <i className="fa fa-star" aria-hidden="true"></i>
+            <i className="fa fa-star" aria-hidden="true"></i>
+            <i className="fa fa-star" aria-hidden="true"></i>
+            <i className="fa fa-star" aria-hidden="true"></i>
+            <i className="fa fa-star" aria-hidden="true"></i>
           </div>
           <div className="item-info-review-count">
-            106
+            175
           </div>
-          <div className="item-info-superhost">
-            Superhost
+          <div className="item-info-superletter">
+            Superletter!
           </div>
         </div>
       </div>

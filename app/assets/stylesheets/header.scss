@@ -26,16 +26,29 @@
     justify-self: self-end;
     padding: 5px;
 
-    .header-member-button {
-      position: fixed;
-      right: 10px;
-      top: 10px;
-      height: 50px;
-      width: 50px;
-      border: 1px solid black;
-      border-radius: 50px;
+  .member-icon-box {
+    position: fixed;
+    right: 16px;
+    top: 25px;
+    height: 40px;
+    width: 40px;
 
+    .fa-user-circle {
+      position: fixed;
+      right: 20px;
+      top: 24px;
+      height: 30px;
+      width: 30px;
+      border: 1px solid #bfbfbf;
+      border-radius: 30px;
+      cursor: pointer;
     }
+  }
+
+  .member-icon-box:hover {
+    border-bottom: 2px solid #717171;
+  }
+
     .header-member-menu {
       position: absolute;
       top: 81px;
