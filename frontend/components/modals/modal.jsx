@@ -3,7 +3,6 @@ import merge from 'lodash/merge';
 
 import SearchContainer from '../search/search_container';
 import HeaderContainer from '../header/header_container';
-import HeaderMenu from '../header/header_menu';
 
 
 import ModalRelayContainer from './modal_relay_container';
