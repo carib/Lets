@@ -12,8 +12,22 @@ export const fetchSpots = (filters) => {
   return $.ajax({
     method: 'GET',
     url: 'api/spots',
-    data: {
-      bounds
-    },
+    data: { bounds },
+  });
+};
+
+export const fetchSpot = (spot) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/spots/${spot.id}`,
+    data: { spot },
+  })
+}
+
+export const createSpot = (spot) => {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/spots',
+    data: { spot },
   });
 };

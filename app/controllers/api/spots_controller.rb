@@ -7,7 +7,7 @@ class Api::SpotsController < ApplicationController
     @spot = Spot.new(spot_params)
 
     if @spot.save
-      render :show
+      render json: 'api/spots'
     else
       render @spot.errors.full_messages, status: 422
     end
@@ -17,17 +17,17 @@ class Api::SpotsController < ApplicationController
   end
 
   private
-  # def spot_params
-  #   params.require(:spot).permit(
-  #     :description,
-  #     :lat,
-  #     :lng,
-  #     :averageRating,
-  #     :averagePricePerNight,
-  #     :currency,
-  #     :pastGuestIds,
-  #     :reviewIds,
-  #     :spotType,
-  #   )
-  # end
+  def spot_params
+    params.require(:spot).permit(
+      :averagePricePerNight,
+      :averageRating,
+      :pastGuestIds,
+      :description,
+      :reviewIds,
+      :currency,
+      :spotType,
+      :lat,
+      :lng,
+    )
+  end
 end

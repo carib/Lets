@@ -25,7 +25,7 @@ class SpotForm extends React.Component {
 
   /*
   props:
-    -
+    - user location?
     -
   */
 
