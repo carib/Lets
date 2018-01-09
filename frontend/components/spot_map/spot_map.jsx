@@ -17,7 +17,7 @@ class SpotMap extends React.Component {
   initializeMap() {
     const mapOptions = {
       center: { lat: 37.7758, lng: -122.435 },
-      zoom: 2
+      zoom: 1
     };
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
