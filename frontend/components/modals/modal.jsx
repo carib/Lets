@@ -6,6 +6,7 @@ import HeaderContainer from '../header/header_container';
 
 
 import ModalRelayContainer from './modal_relay_container';
+import Logo from '../header/logo'
 
 
 class Modal extends React.Component {
@@ -43,7 +44,7 @@ class Modal extends React.Component {
     return (
       <main className="modal">
         <header className="main-header">
-          <h1>Lets!!</h1>
+          <Logo />
 
           <HeaderContainer modProp={modProps} />
         </header>

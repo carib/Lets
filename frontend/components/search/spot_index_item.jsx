@@ -6,7 +6,7 @@ import times from 'lodash/times';
 const SpotIndexItem = ({ spot }) => {
   const starRating = [];
   const calcStarRating = times(spot.averageRating, () => {
-      starRating.push(<i className="fa fa-star" aria-hidden="true"></i>);
+      starRating.push(<i className="fa fa-star" key={starRating.length} aria-hidden="true"></i>);
   });
   return (
     <div>

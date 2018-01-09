@@ -1,0 +1,33 @@
+.search-main {
+  height: 200px;
+  width: 100%;
+
+  .search-bar {
+    z-index: 2;
+    position: fixed;
+    top: 17px;
+    left: 80px;
+    height: 49px;
+    width: 556px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0px 1px 7px 0px #d4d2d2;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+
+    .fa-search {
+      padding: 14px;
+      padding-left: 22px;
+      font-size: 23px;
+      font-weight: 100;
+    }
+
+    .search-input {
+      height: 100%;
+      width: 100%;
+      font-size: 18px;
+      font-weight: lighter;
+    }
+  }
+}

@@ -62,14 +62,13 @@ class Header extends React.Component {
           <button
             value={"SIGNUP"}
             onClick={this.handleChoice}
-          >Sign Up
-        </button>
+          >Sign Up</button>
 
           <button
             value={"LOGIN"}
             onClick={this.handleChoice}
-          >Log In
-        </button>
+          >Log In</button>
+        
         </nav>
       </div>
     );
