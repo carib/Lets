@@ -9,6 +9,12 @@ class SpotMap extends React.Component {
     super(props);
     this.handleCLick = this.handleCLick.bind(this);
     this.updateBounds = this.updateBounds.bind(this);
+    this.state = {
+      currentLocation: {
+        lat: 40.751336,
+        lng: -73.983848
+      }
+    }
   }
 
   // Google Maps API key:
@@ -16,7 +22,7 @@ class SpotMap extends React.Component {
 
   initializeMap() {
     const mapOptions = {
-      center: { lat: 37.7758, lng: -122.435 },
+      center: this.state.currentLocation,
       zoom: 1
     };
     this.map = new google.maps.Map(this.mapNode, mapOptions);
@@ -26,9 +32,18 @@ class SpotMap extends React.Component {
 
   componentDidMount() {
     this.initializeMap();
-
     this.map.addListener('idle', this.updateBounds);
+    navigator.geolocation.getCurrentPosition((pos) => {
+      const coords = pos.coords;
+      this.setState({
+        currentLocation: {
+          lat: coords.latitude,
+          lng: coords.longitude
+        }
+      })
+    })
   }
+
 
   updateBounds() {
     const latlng = this.map.getBounds();
