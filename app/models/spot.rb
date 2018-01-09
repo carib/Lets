@@ -36,9 +36,14 @@ class Spot < ApplicationRecord
   validates :description, :lat, :lng, presence: true
 
   def self.in_bounds(bounds)
-    Spot
-      .select('*')
-      .having("lat < #{bounds[:northEast][:lat]} && lat > #{bounds[:southWest][:lat]}", )
-      .having("lng < #{bounds[:northEast][:lng]} && lng > #{bounds[:southWest][:lng]}", )
+    ne_lat = bounds['northEast']['lat'].to_f
+    sw_lat = bounds['southWest']['lat'].to_f
+    ne_lng = bounds['northEast']['lng'].to_f
+    sw_lng = bounds['southWest']['lng'].to_f
+    Spot.all.select { |spot| spot.in_bounds?(ne_lat, sw_lat, ne_lng, sw_lng)}
+  end
+
+  def in_bounds?(ne_lat, sw_lat, ne_lng, sw_lng)
+    self.lat.between?(ne_lat, sw_lat) && self.lng.between?(ne_lng, sw_lng)
   end
 end

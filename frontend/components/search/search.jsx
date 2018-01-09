@@ -25,7 +25,6 @@ class Search extends React.Component {
     }
   }
 
-
   componentWillReceiveProps(nextProps) {
     this.setState({ spots: nextProps.spots });
   }
@@ -38,8 +37,16 @@ class Search extends React.Component {
   }
 
   render() {
-    const { fetchSpots, loggedIn } = this.props;
-    const { spots, searchPage } = this.state;
+    const {
+      fetchSpots,
+      loggedIn,
+      changeFilter
+    } = this.props;
+
+    const {
+      spots,
+      searchPage
+    } = this.state;
 
     return (
       <div className="search-main">
@@ -48,6 +55,7 @@ class Search extends React.Component {
         />
         <SpotMap
           spots={spots}
+          changeFilter={changeFilter}
         />
         <SpotIndex
           fetchSpots={fetchSpots}
