@@ -7,6 +7,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "lodash": "^4.17.4",
+    "mdi": "^2.1.19",
+    "mdi-react": "^2.1.19",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",

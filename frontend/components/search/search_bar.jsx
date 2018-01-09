@@ -1,5 +1,7 @@
 import React from 'react';
 
+import MagnifyIcon from 'mdi-react/MagnifyIcon';
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,8 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className="search-bar">
-        <i className="fa fa-search search-icon"></i>
+
+        <MagnifyIcon className="search-bar-icon mdi-48px"/>
         <input
           className="search-input"
           type="text"
