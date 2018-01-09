@@ -40,7 +40,7 @@ class Search extends React.Component {
     const {
       fetchSpots,
       loggedIn,
-      changeFilter
+      updateFilter
     } = this.props;
 
     const {
@@ -55,7 +55,7 @@ class Search extends React.Component {
         />
         <SpotMap
           spots={spots}
-          changeFilter={changeFilter}
+          updateFilter={updateFilter}
         />
         <SpotIndex
           fetchSpots={fetchSpots}

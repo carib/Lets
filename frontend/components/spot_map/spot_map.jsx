@@ -8,6 +8,7 @@ class SpotMap extends React.Component {
   constructor(props) {
     super(props);
     this.handleCLick = this.handleCLick.bind(this);
+    this.updateBounds = this.updateBounds.bind(this);
   }
 
   // Google Maps API key:
@@ -21,23 +22,29 @@ class SpotMap extends React.Component {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.spots);
-
   }
 
   componentDidMount() {
     this.initializeMap();
 
-    this.map.addListener('idle', () => {
-      const newLatLng = this.map.getBounds();
-      const ne = newLatLng.getNorthEast()
-      const sw = newLatLng.getSouthWest()
-      const newBounds = {
-        northEast: { lat: ne.lat(), lng: ne.lng() },
-        southWest: { lat: sw.lat(), lng: sw.lng() },
-      };
+    this.map.addListener('idle', this.updateBounds);
+  }
 
-      this.props.changeFilter('bounds', newBounds);
-    });
+  updateBounds() {
+    const latlng = this.map.getBounds();
+    const bounds = this.parseBounds(latlng);
+    this.props.updateFilter('bounds', bounds);
+  }
+
+  parseBounds(latlng) {
+    const ne = latlng.getNorthEast()
+    const sw = latlng.getSouthWest()
+    const bounds = {
+      northEast: { lat: ne.lat(), lng: ne.lng() },
+      southWest: { lat: sw.lat(), lng: sw.lng() },
+    };
+
+    return bounds;
   }
 
   componentWillReceiveProps(newProps) {

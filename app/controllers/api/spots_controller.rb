@@ -17,7 +17,17 @@ class Api::SpotsController < ApplicationController
   end
 
   private
-  def spot_params
-    params.require(:spot).permit(:description, :lat, :lng)
-  end
+  # def spot_params
+  #   params.require(:spot).permit(
+  #     :description,
+  #     :lat,
+  #     :lng,
+  #     :averageRating,
+  #     :averagePricePerNight,
+  #     :currency,
+  #     :pastGuestIds,
+  #     :reviewIds,
+  #     :spotType,
+  #   )
+  # end
 end

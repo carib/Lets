@@ -16,6 +16,26 @@
 #  spotType             :string
 #
 
+class Spot < ApplicationRecord
+  validates :description, :lat, :lng, presence: true
+
+  def self.in_bounds(bounds)
+    ne_lat = bounds['northEast']['lat'].to_f
+    sw_lat = bounds['southWest']['lat'].to_f
+    ne_lng = bounds['northEast']['lng'].to_f
+    sw_lng = bounds['southWest']['lng'].to_f
+    Spot.all.select do |spot|
+      spot.in_bounds?(ne_lat, sw_lat, ne_lng, sw_lng)
+    end
+  end
+
+  def in_bounds?(ne_lat, sw_lat, ne_lng, sw_lng)
+    min_lat, max_lat = [ne_lat, sw_lat].min, [ne_lat, sw_lat].max
+    min_lng, max_lng = [ne_lng, sw_lng].min, [ne_lng, sw_lng].max
+    self.lat.between?(min_lat, max_lat) && self.lng.between?(min_lng, max_lng)
+  end
+end
+
 # SAMPLE STATE:
 # spots: {
   # 1: {
@@ -31,19 +51,3 @@
   #   reviewIds: [7, 8, 9],
   # }
 # },
-
-class Spot < ApplicationRecord
-  validates :description, :lat, :lng, presence: true
-
-  def self.in_bounds(bounds)
-    ne_lat = bounds['northEast']['lat'].to_f
-    sw_lat = bounds['southWest']['lat'].to_f
-    ne_lng = bounds['northEast']['lng'].to_f
-    sw_lng = bounds['southWest']['lng'].to_f
-    Spot.all.select { |spot| spot.in_bounds?(ne_lat, sw_lat, ne_lng, sw_lng)}
-  end
-
-  def in_bounds?(ne_lat, sw_lat, ne_lng, sw_lng)
-    self.lat.between?(ne_lat, sw_lat) && self.lng.between?(ne_lng, sw_lng)
-  end
-end

@@ -1,14 +1,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
+import _ from 'lodash'
+
 import SpotIndexItem from './spot_index_item';
 
 class SpotIndex extends React.Component {
-
-  componentDidMount() {
-    
-  }
-
 
   render() {
     const { spots, searchPage } = this.props;
@@ -35,22 +32,3 @@ class SpotIndex extends React.Component {
 }
 
 export default SpotIndex;
-// if (this.props.loggedIn) {
-//   )
-// } else {
-//   return <Redirect to="/login" />
-// }
-
-// const { spots } = this.props;
-// return (
-//   <div>
-//     {
-//       spots.map(spot =>
-//         <SpotIndexItem
-//           key={spot.id}
-//           spot={spot}
-//         />
-//       )
-//     }
-//   </div>
-// )

@@ -1,4 +1,4 @@
-import { fetchSpots, receiveSpots } from './spot_actions';
+import { fetchSpots } from './spot_actions';
 export const CHANGE_FILTER = "CHANGE_FILTER";
 
 export const changeFilter = (filter, value) => {
