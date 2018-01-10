@@ -1,27 +1,34 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
+import NewSpotP1 from './spot_forms/new_spot_1';
 
 class SpotForm extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.userLocation = this.userLocation.bind(this);
+    this.geoAutocomplete = this.geoAutocomplete.bind(this);
     this.state = {
       spotValues: {
-        description: null,
-        spotType: null,
-        lat: null,
-        lng: null,
-        price: null,
-        currency: null,
+        description: '',
+        spotType: '',
+        lat: 0.0,
+        lng: 0.0,
+        price: 0.00,
+        currency: 'USD',
       },
       inputValues: {
-        streetAddress: null,
-        city: null,
-        state: null,
-        zipCode: null,
+        streetAddress: '',
+        city: '',
+        state: '',
+        zipCode: '',
       },
-    }
+      currentForm: '',
+    };
+    console.log('spot form main', this.props, this.state);
   }
-
 
   /*
   props:
@@ -45,29 +52,57 @@ class SpotForm extends React.Component {
   }
 
   handleSubmit(e) {
-
+    e.preventDefault();
   }
 
+  update(field) {
+    return e => {
+      this.setState({ [field]: e.target.value })
+    };
+  }
+
+  userLocation() {
+    let loc;
+    navigator.geolocation.getCurrentPosition(pos => {
+      loc = {
+        lat: pos.coords.latitude,
+        lng: pos.coords.longitude
+      };
+    });
+    return loc;
+  }
+
+  initAutocomplete() {
+    
+  }
+  // geoComplete() {
+  //   const defaultBounds = new google.maps.LatLngBounds(
+  //     new google.maps.LatLng(71.821155, -53.830095),
+  //     new google.maps.LatLng(12.997550, -165.574784),
+  //   );
+  //   const input = document.getElementById('new-spot-search-1');
+  //   const options = {
+  //     bounds: defaultBounds,
+  //     types: ['cities']
+  //   };
+  //   return new google.maps.places.Autocomplete(input, options)
+  // }
+
   render() {
-    <div>
-      <form className="spot-form">
-        <label>Description:
-          <input type="text">
-        </label>
-        <label>Street Address:
-          <input type="text">
-        </label>
-        <label>City:
-          <input type="text">
-        </label>
-        <label>State:
-          <input type="text">
-        </label>
-        <label>ZIP Code:
-          <input type="text">
-        </label>
-      </form>
-    </div>
+    const formProps = {
+
+    };
+    return (
+      <div className="new-spot-main">
+        <NewSpotP1
+          props={this.props}
+          update={this.update}
+          handleSubmit={this.handleSubmit}
+          userLocation={this.userLocation()}
+          geoAutocomplete={this.geoAutocomplete}
+        />
+      </div>
+    )
   }
 }
 

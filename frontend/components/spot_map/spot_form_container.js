@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import {
   fetchSpot,
@@ -8,7 +9,7 @@ import SpotForm from './spot_form';
 
 const mapStateToProps = (state) => {
   return {
-
+    user: state.session.currentUser,
   }
 }
 
@@ -19,7 +20,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(SpotForm);
+)(SpotForm));

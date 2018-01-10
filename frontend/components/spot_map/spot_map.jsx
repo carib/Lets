@@ -31,6 +31,7 @@ class SpotMap extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.state.currentLocation);
     this.initializeMap();
     this.map.addListener('idle', this.updateBounds);
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -43,7 +44,6 @@ class SpotMap extends React.Component {
       })
     })
   }
-
 
   updateBounds() {
     const latlng = this.map.getBounds();
