@@ -5,18 +5,6 @@ import MagnifyIcon from 'mdi-react/MagnifyIcon';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSearch = this.handleSearch.bind(this);
-    this.initAutocomplete = this.initAutocomplete.bind(this);
-    this.initGooglePlacesAutocomplete = this.initGooglePlacesAutocomplete.bind(this);
-    this.displayPredictionSuggestions = this.displayPredictionSuggestions.bind(this);
-    this.predictionBuilder = this.predictionBuilder.bind(this);
-    this.autocompleteKeyboardListener = this.autocompleteKeyboardListener.bind(this);
-    this.autocompleteServiceListener = this.autocompleteServiceListener.bind(this);
-    // this.fillInAddress = this.fillInAddress.bind(this);
-    this.upKeyAutocompleteInteraction = this.upKeyAutocompleteInteraction.bind(this);
-    this.downKeyAutocompleteInteraction = this.downKeyAutocompleteInteraction.bind(this);
-    this.keyboardAutocomplete = this.keyboardAutocomplete.bind(this);
-    this.autocompleteListDecorator = this.autocompleteListDecorator.bind(this);
     this.state = {
       autocompleteOptions: {
         inputId: `search-bar-input`,
@@ -39,6 +27,17 @@ class SearchBar extends React.Component {
         id: `postal-code-address-field`
       }],
     }
+    this.handleSearch = this.handleSearch.bind(this);
+    this.initAutocomplete = this.initAutocomplete.bind(this);
+    this.predictionBuilder = this.predictionBuilder.bind(this);
+    this.keyboardAutocomplete = this.keyboardAutocomplete.bind(this);
+    this.autocompleteListDecorator = this.autocompleteListDecorator.bind(this);
+    this.autocompleteServiceListener = this.autocompleteServiceListener.bind(this);
+    this.initGooglePlacesAutocomplete = this.initGooglePlacesAutocomplete.bind(this);
+    this.displayPredictionSuggestions = this.displayPredictionSuggestions.bind(this);
+    this.autocompleteKeyboardListener = this.autocompleteKeyboardListener.bind(this);
+    this.upKeyAutocompleteInteraction = this.upKeyAutocompleteInteraction.bind(this);
+    this.downKeyAutocompleteInteraction = this.downKeyAutocompleteInteraction.bind(this);
   }
 
   handleSearch(e) {
@@ -198,6 +197,7 @@ class SearchBar extends React.Component {
   }
 
   keyboardAutocomplete(predictions, predictionList, autocompleteFormField, keyCodeListener) {
+
     if (document.querySelector(`.pac-selected`).innerHTML) {
       for (const prediction of predictions) {
         if (document.querySelector(`.pac-selected`).innerHTML === prediction.description) {

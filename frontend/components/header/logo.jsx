@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Logo = () => {
+const Logo = (props) => {
   return (
     <div className="logo-box">
       <div className="logo-gel">L</div>
