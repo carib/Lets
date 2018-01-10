@@ -20,7 +20,7 @@ const { user, userLocation } = props;
       </h1>
       <h3>STEP 1</h3>
       <h2>What kind of place do you have?</h2>
-      <form className="new-spot-1">
+      <div className="new-spot-1">
 
         <select type="text">
           <option value="Entire place">Entire place</option>
@@ -36,8 +36,8 @@ const { user, userLocation } = props;
             })
           }
         </select>
-        <SearchBar />
-      </form>
+        <SearchBar formProps={props} />
+      </div>
     </div>
   )
 }

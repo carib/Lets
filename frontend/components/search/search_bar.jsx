@@ -15,6 +15,7 @@ class SearchBar extends React.Component {
           restrictions: { 'country': ['us'] },
         },
       },
+      autocompleteFormFieldValue: '',
       googleComponents: [{
         googleComponent: `sublocality_level_1`,
         id: `city-address-field`
@@ -29,6 +30,7 @@ class SearchBar extends React.Component {
         id: `postal-code-address-field`
       }],
     }
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.initAutocomplete = this.initAutocomplete.bind(this);
@@ -43,10 +45,20 @@ class SearchBar extends React.Component {
     this.downKeyAutocompleteInteraction = this.downKeyAutocompleteInteraction.bind(this);
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(e.currentTarget.value);
+    console.log(this.props);
+    console.log(this.state);
+  }
+
   handleSearch(e) {
     if (this.props.searchSpots) {
       this.props.searchSpots(e.target.value);
     }
+    this.setState({
+      autocompleteFormFieldValue: document.getElementById(`search-bar-input`).innerHTML,
+    })
   }
 
   componentDidMount() {
@@ -54,7 +66,7 @@ class SearchBar extends React.Component {
   }
 
   initAutocomplete() {
-    const googleComponents = [{
+    const googleComponentsInit = [{
         googleComponent: `sublocality_level_1`,
         id: `city-address-field`
       }, {
@@ -71,6 +83,11 @@ class SearchBar extends React.Component {
     const autocompleteFormField = document.getElementById(`search-bar-input`);
 
     this.initGooglePlacesAutocomplete(autocompleteFormField);
+
+    this.setState({
+      googleComponents: googleComponentsInit,
+      autocompleteFormField: autocompleteFormField,
+    })
   }
 
   initGooglePlacesAutocomplete(autocompleteFormField) {
@@ -155,6 +172,8 @@ class SearchBar extends React.Component {
     }, (place, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         if (place.types[0] === `street_address`) {
+
+//NOTE: fillInAddress() doesn't exist?!?
           this.fillInAddress(place, autocompleteFormField);
         } else {
           autocompleteFormField.value = prediction.terms[0].value;
@@ -162,6 +181,10 @@ class SearchBar extends React.Component {
         }
       }
     });
+  }
+
+  fillInAddress(place, autocompleteFormField) {
+    autocompleteFormField.value = place.formatted_address;
   }
 
   autocompleteKeyboardListener(predictions, predictionList, autocompleteFormField) {
@@ -221,7 +244,7 @@ class SearchBar extends React.Component {
   }
 
   keyboardAutocomplete(predictions, predictionList, autocompleteFormField, keyCodeListener) {
-    if (document.querySelector(`.pac-selected`).innerHTML) {
+    if (document.querySelector(`.pac-selected`)) {
       for (const prediction of predictions) {
         if (document.querySelector(`.pac-selected`).innerHTML === prediction.description) {
           this.autocompleteServiceListener(prediction, predictionList, autocompleteFormField);
@@ -232,21 +255,16 @@ class SearchBar extends React.Component {
     }
   }
 
-
   /*Hi, I just wanted to thank you for your tutorial on implementing TK!
   I'm building a clone of airbnb for my final project in AA bootcamp and I've been going out of my way to avoid using third-party packages so that I can feel confident that I understand the material (plus I doubt "just install TK package", would go over very well for "how do you" questions in job interviews). I figured using gmaps widgets was a necessary exception to this approach, so when I got to part three of your tutorial and saw that we were about to take apart the widget and build a custom one I nearly emoted all over my desk here in class!
 
   PS. Why did I ever use anything other than backticks?!
   */
-  handleSubmit(e) {
-    e.preventDefault();
-    console.log(e);
-    console.log(this.state);
-  }
+
 
   render() {
     return (
-      <form id="search-with-results-wrapper" onSubmit={this.handleSubmit}>
+      <div id="search-with-results-wrapper">
         <div id="search-bar-wrapper" className="search-bar">
 
           <MagnifyIcon className="search-bar-icon mdi-48px"/>
@@ -256,9 +274,10 @@ class SearchBar extends React.Component {
               type="search"
               onChange={this.handleSearch}
               placeholder="Search"
+              autoComplete="off"
             />
         </div>
-      </form>
+      </div>
     )
   }
 }

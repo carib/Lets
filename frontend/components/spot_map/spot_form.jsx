@@ -9,6 +9,7 @@ class SpotForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.userLocation = this.userLocation.bind(this);
+    this.extractCoords = this.extractCoords.bind(this);
 
     this.state = {
       spotValues: {
@@ -27,7 +28,7 @@ class SpotForm extends React.Component {
       },
       currentForm: '',
     };
-    console.log('spot form main', this.props, this.state);
+
   }
 
   /*
@@ -53,6 +54,7 @@ class SpotForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log('spot form main', this.props, this.state, e.target);
   }
 
   update(field) {
@@ -72,32 +74,20 @@ class SpotForm extends React.Component {
     return loc;
   }
 
-  // geoComplete() {
-  //   const defaultBounds = new google.maps.LatLngBounds(
-  //     new google.maps.LatLng(71.821155, -53.830095),
-  //     new google.maps.LatLng(12.997550, -165.574784),
-  //   );
-  //   const input = document.getElementById('new-spot-search-1');
-  //   const options = {
-  //     bounds: defaultBounds,
-  //     types: ['cities']
-  //   };
-  //   return new google.maps.places.Autocomplete(input, options)
-  // }
-
   render() {
     const formProps = {
 
     };
     return (
-      <div className="new-spot-main">
+      <form className="new-spot-main" onSubmit={this.handleSubmit}>
         <NewSpotP1
           props={this.props}
           update={this.update}
           handleSubmit={this.handleSubmit}
           userLocation={this.userLocation()}
+          extractCoords={this.extractCoords}
         />
-      </div>
+    </form>
     )
   }
 }
