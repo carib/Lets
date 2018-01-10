@@ -1,6 +1,8 @@
 import React from 'react';
+import _ from 'lodash';
 
 import MagnifyIcon from 'mdi-react/MagnifyIcon';
+
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -27,6 +29,7 @@ class SearchBar extends React.Component {
         id: `postal-code-address-field`
       }],
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.initAutocomplete = this.initAutocomplete.bind(this);
     this.predictionBuilder = this.predictionBuilder.bind(this);
@@ -74,7 +77,6 @@ class SearchBar extends React.Component {
     const autocomplete = new google.maps.places.AutocompleteService();
     const predictionList = this.predictionListMarkup();
 
-
 // NOTE: Edited 81, 82. "autocompleteFormField.parent() not a function" error.
 
     const formFieldParent = autocompleteFormField.parentElement;
@@ -98,6 +100,7 @@ class SearchBar extends React.Component {
 
   predictionListMarkup() {
     const predictionsWrapperDiv = document.createElement(`ul`);
+
     predictionsWrapperDiv.classList.add(`pac-container`, `pac-logo`);
     return predictionsWrapperDiv;
   }
@@ -107,9 +110,25 @@ class SearchBar extends React.Component {
       predictionList.style.display = `none`;
       return;
     }
+
+
+// NOTE: Added followinglines 16 to dynamically remove dud predictions
+
+    const currentQuery = autocompleteFormField.value;
+    predictions.filter((prediction) => (prediction.description.includes(currentQuery)));
+
+    const queryMatchDescriptions = predictions.map(prediction => prediction.description);
+
+    predictionList.childNodes.forEach((child) => {
+      if (!queryMatchDescriptions.includes(child.innerHTML)) {
+        predictionList.removeChild(child);
+      }
+    });
+
     for (const prediction of predictions) {
       this.predictionBuilder(prediction, predictionList, autocompleteFormField);
     }
+
     this.autocompleteKeyboardListener(predictions, predictionList, autocompleteFormField);
   }
 
@@ -121,7 +140,12 @@ class SearchBar extends React.Component {
     predictionListItem.addEventListener(`click`, () => {
       this.autocompleteServiceListener(prediction, predictionList, autocompleteFormField);
     });
-    predictionList.appendChild(predictionListItem);
+
+// NOTE: Added this to remove duplicate predictions
+    const currentPredictions = Array.from(predictionList.children).map(child => child.innerHTML);
+    if (!currentPredictions.includes(prediction.description)) {
+      predictionList.appendChild(predictionListItem);
+    }
   }
 
   autocompleteServiceListener(prediction, predictionList, autocompleteFormField) {
@@ -134,7 +158,7 @@ class SearchBar extends React.Component {
           this.fillInAddress(place, autocompleteFormField);
         } else {
           autocompleteFormField.value = prediction.terms[0].value;
-          predicitonList.style.display = `none`;
+          predictionList.style.display = `none`;
         }
       }
     });
@@ -197,7 +221,6 @@ class SearchBar extends React.Component {
   }
 
   keyboardAutocomplete(predictions, predictionList, autocompleteFormField, keyCodeListener) {
-
     if (document.querySelector(`.pac-selected`).innerHTML) {
       for (const prediction of predictions) {
         if (document.querySelector(`.pac-selected`).innerHTML === prediction.description) {
@@ -215,21 +238,27 @@ class SearchBar extends React.Component {
 
   PS. Why did I ever use anything other than backticks?!
   */
-
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(e);
+    console.log(this.state);
+  }
 
   render() {
     return (
-      <div id="search-bar-wrapper" className="search-bar">
+      <form id="search-with-results-wrapper" onSubmit={this.handleSubmit}>
+        <div id="search-bar-wrapper" className="search-bar">
 
-        <MagnifyIcon className="search-bar-icon mdi-48px"/>
-        <input
-          id="search-bar-input"
-          className="search-input"
-          type="search"
-          onChange={this.handleSearch}
-          placeholder="Search"
-        />
-      </div>
+          <MagnifyIcon className="search-bar-icon mdi-48px"/>
+            <input
+              id="search-bar-input"
+              className="search-input"
+              type="search"
+              onChange={this.handleSearch}
+              placeholder="Search"
+            />
+        </div>
+      </form>
     )
   }
 }
