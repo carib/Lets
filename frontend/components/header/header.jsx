@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
+import SpotFormContainer from '../spot_map/spot_form_container';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.handleHeaderNavSelection = this.handleHeaderNavSelection.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleChoice = this.handleChoice.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
@@ -30,6 +32,15 @@ class Header extends React.Component {
     });
   }
 
+  handleHeaderNavSelection(e) {
+    switch (e.target.value) {
+      case 'new':
+        this.props.history.push("/new");
+      default:
+        return null;
+    }
+  }
+
   memberHeader() {
     let menu;
     if (this.state.menuActive) {
@@ -45,6 +56,12 @@ class Header extends React.Component {
     }
     return (
       <div className="header-right">
+        <div className="header-nav-buttons">
+          <button
+            className="header-add-spot-btn"
+            value="new" onClick={this.handleHeaderNavSelection}
+            >Add a new listing</button>
+        </div>
         <nav className="header-member-nav">
           <div className="member-icon-box" onClick={this.toggleMenu}>
             <i className="fa fa-user-circle" />
@@ -68,7 +85,6 @@ class Header extends React.Component {
             value={"LOGIN"}
             onClick={this.handleChoice}
           >Log In</button>
-        
         </nav>
       </div>
     );
@@ -83,4 +99,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

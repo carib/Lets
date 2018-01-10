@@ -2,14 +2,17 @@ import React from 'react';
 
 import times from 'lodash/times';
 
+import SearchBar from '../../search/search_bar';
+
+
+
 const NewSpotP1 = ({ props }) => {
 
   // 1. What kind of place do you have?
   //   - Entire Place, Private Room, Shared Room
   //   - for n guests
   //   - Location search
-  const { user, userLocation, geoAutocomplete } = props;
-
+const { user, userLocation } = props;
   return (
     <div className="new-spot-inner">
       <h1>
@@ -33,10 +36,12 @@ const NewSpotP1 = ({ props }) => {
             })
           }
         </select>
-        <input type="search" id="new-spot-search-1" placeholder={userLocation}/>
+        <SearchBar />
       </form>
     </div>
   )
 }
+
+
 
 export default NewSpotP1;

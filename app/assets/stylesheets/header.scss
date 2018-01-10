@@ -26,6 +26,21 @@
     justify-self: self-end;
     padding: 5px;
 
+  .header-nav-buttons {
+    position: fixed;
+    top: 0px;
+    right: 82px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 300px;
+    height: 80px;
+
+    .header-add-spot-btn {
+      font-size: 14px;
+    }
+  }
+
   .member-icon-box {
     position: fixed;
     right: 16px;

@@ -9,7 +9,7 @@ class SpotForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.userLocation = this.userLocation.bind(this);
-    this.geoAutocomplete = this.geoAutocomplete.bind(this);
+
     this.state = {
       spotValues: {
         description: '',
@@ -72,9 +72,6 @@ class SpotForm extends React.Component {
     return loc;
   }
 
-  initAutocomplete() {
-    
-  }
   // geoComplete() {
   //   const defaultBounds = new google.maps.LatLngBounds(
   //     new google.maps.LatLng(71.821155, -53.830095),
@@ -99,14 +96,13 @@ class SpotForm extends React.Component {
           update={this.update}
           handleSubmit={this.handleSubmit}
           userLocation={this.userLocation()}
-          geoAutocomplete={this.geoAutocomplete}
         />
       </div>
     )
   }
 }
 
-export default SpotForm;
+export default withRouter(SpotForm);
 
 // 1. What kind of place do you have?
 //   - Entire Place, Private Room, Shared Room

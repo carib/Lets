@@ -1,4 +1,35 @@
 .new-spot-main {
   height: 100%;
   width: 100%;
+
+  .new-spot-1 {
+    width: 600px;
+    height: auto;
+  }
+
+  .search-bar {
+    height: 49px;
+    width: 556px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0px 1px 7px 0px #d4d2d2;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+
+    .search-bar-icon {
+      padding: 11px;
+      padding-left: 16px;
+      height: 41px;
+      width: 37px;
+      fill: #909090;
+    }
+
+    .search-input {
+      height: 100%;
+      width: 100%;
+      font-size: 18px;
+      font-weight: lighter;
+    }
+  }
 }
