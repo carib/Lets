@@ -1,0 +1,826 @@
+/* line 1, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main {
+  height: 100%;
+  width: 100%;
+}
+/* line 5, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main .new-spot-1 {
+  width: 600px;
+  height: auto;
+}
+/* line 10, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main .search-bar {
+  height: 49px;
+  width: 556px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0px 1px 7px 0px #d4d2d2;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+}
+/* line 20, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main .search-bar .search-bar-icon {
+  padding: 11px;
+  padding-left: 16px;
+  height: 41px;
+  width: 37px;
+  fill: #909090;
+}
+/* line 28, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main .search-bar .search-input {
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+  font-weight: lighter;
+}
+/* line 2, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 146px;
+}
+/* line 8, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner #new-spot-search-1 {
+  border: 1px solid black;
+  padding: 10px;
+  width: 200px;
+  height: 40px;
+}
+/* line 1, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/search.scss */
+.search-main {
+  height: 200px;
+  width: 100%;
+}
+/* line 5, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/search.scss */
+.search-main .search-bar {
+  z-index: 2;
+  position: fixed;
+  top: 17px;
+  left: 80px;
+  height: 49px;
+  width: 556px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0px 1px 7px 0px #d4d2d2;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+}
+/* line 19, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/search.scss */
+.search-main .search-bar .search-bar-icon {
+  padding: 11px;
+  padding-left: 16px;
+  height: 41px;
+  width: 37px;
+  fill: #909090;
+}
+/* line 27, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/search.scss */
+.search-main .search-bar .search-input {
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+  font-weight: lighter;
+}
+/* line 6, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+}
+/* line 13, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box {
+  position: relative;
+  box-sizing: border-box;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  width: 568px;
+  height: 573px;
+  margin-left: -275px;
+  transform: translateY(-50%);
+}
+/* line 24, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box .session-form-email {
+  margin-top: 120px;
+}
+/* line 28, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box .session-form-password {
+  margin: 5px 0;
+}
+/* line 40, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box .modal-inner-detail-box {
+  height: 100%;
+}
+/* line 45, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form {
+  display: grid;
+  justify-content: normal;
+  grid-template-rows: min-content;
+  align-content: end;
+  justify-items: center;
+  height: 100%;
+  height: 100%;
+  width: 100%;
+  line-height: 20px;
+  color: #484848;
+  background-color: #fff;
+}
+/* line 58, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form input {
+  width: 92%;
+  height: 36px;
+  font-size: 19px;
+  font-weight: 200;
+  background: none;
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid #DBDBDB;
+  border-radius: 2px;
+  line-height: 24px;
+}
+/* line 70, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form input .session-form-password {
+  margin-bottom: 20px !important;
+}
+/* line 76, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form button {
+  display: inline-block;
+  position: relative;
+  font-size: 17px;
+  font-weight: 100;
+  text-align: center;
+  text-decoration: none;
+  line-height: 22px;
+  height: 52px;
+  width: 92%;
+  min-width: 78px;
+  margin-top: 8.7%;
+  padding: 12px 24px 12px 24px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: #ff5a5f;
+  color: #fff;
+  cursor: pointer;
+}
+/* line 96, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form .modal-divider-foot {
+  position: fixed;
+  box-sizing: border-box;
+  margin-right: 10%;
+  bottom: 72px;
+  left: 23px;
+  width: 92%;
+  border-bottom: 1px solid #DBDBDB !important;
+}
+/* line 106, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form .modal-footer {
+  padding-top: 10.3%;
+  padding-bottom: 6%;
+  font-size: 17px;
+  text-align: center;
+}
+/* line 112, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form .modal-footer .modal-footer-text {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  font-weight: 300;
+}
+/* line 118, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form .modal-footer .modal-footer-text .modal-footer-button {
+  padding: 5px;
+  color: #008489 !important;
+  font-weight: 400;
+  cursor: pointer;
+}
+/* line 6, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.map-wrap #map-container {
+  position: fixed !important;
+  margin-left: 0;
+  padding-left: 0;
+  top: 145px;
+  bottom: 0px !important;
+  right: 0px !important;
+  height: 85%;
+  width: 34%;
+  max-width: 666px;
+}
+
+/* line 18, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main {
+  position: absolute;
+  box-sizing: border-box;
+  left: 24px;
+  column-gap: 1em;
+  margin-top: 169px;
+  width: 63%;
+  max-width: 1219px;
+}
+/* line 27, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column {
+  position: relative;
+  width: 100%;
+}
+/* line 31, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 218px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  background-size: cover;
+  background-image: url(https://goo.gl/cFfeK1);
+}
+/* line 41, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item .nested-spot-item {
+  font-family: 'Circular', sans-serif !important;
+}
+/* line 44, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item .nested-spot-item .nested-spot-list {
+  padding-top: 10px;
+  border: 1px solid black;
+}
+/* line 51, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item-info {
+  display: flex;
+  flex-direction: column;
+}
+/* line 55, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item-info .item-info-row-1 {
+  font-size: 12px;
+  margin-top: 8px;
+  font-weight: bold;
+}
+/* line 61, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item-info .item-info-row-2 {
+  font-size: 17px;
+  margin-top: 3px;
+  font-weight: bold;
+}
+/* line 67, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item-info .item-info-row-3 {
+  font-size: 15px;
+  margin-top: 3px;
+  font-weight: 100;
+}
+/* line 73, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item-info .item-info-row-4 {
+  font-size: 13px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 23px;
+}
+/* line 80, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item-info .item-info-row-4 .item-info-stars {
+  font-size: 8px;
+  margin-top: 4px;
+  color: #2a8d94;
+}
+/* line 86, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item-info .item-info-row-4 .item-info-review-count {
+  font-size: 12px;
+  margin-left: 3px;
+  margin-top: 1px;
+}
+/* line 92, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-item-info .item-info-row-4 .item-info-superletter {
+  font-size: 12px;
+  margin-left: 7px;
+  margin-top: 1px;
+}
+
+@media only screen and (min-width: 1000px) {
+  /* line 103, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-main {
+    column-count: 2;
+  }
+}
+@media only screen and (min-width: 1300px) {
+  /* line 109, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-main {
+    column-count: 3;
+  }
+}
+/* line 2, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header {
+  z-index: 2;
+  position: fixed;
+  display: inline-flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  border-bottom: 1px solid  #e4e4e4;
+  align-items: center;
+  height: 81px;
+  width: 100%;
+  background: #fff;
+  color: #484848;
+  font-family: 'Circular', sans-serif;
+  font-weight: book;
+  font-size: 13px;
+}
+/* line 18, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header h1 {
+  padding: 5px;
+  justify-self: flex-start;
+}
+/* line 23, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right {
+  display: grid;
+  grid-auto-columns: max-content;
+  justify-self: self-end;
+  padding: 5px;
+}
+/* line 29, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-nav-buttons {
+  position: fixed;
+  top: 0px;
+  right: 82px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 300px;
+  height: 80px;
+}
+/* line 39, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-nav-buttons .header-add-spot-btn {
+  font-size: 14px;
+}
+/* line 44, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .member-icon-box {
+  position: fixed;
+  right: 16px;
+  top: 25px;
+  height: 40px;
+  width: 40px;
+}
+/* line 51, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .member-icon-box .fa-user-circle {
+  position: fixed;
+  right: 20px;
+  top: 24px;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #bfbfbf;
+  border-radius: 30px;
+  cursor: pointer;
+}
+/* line 63, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .member-icon-box:hover {
+  border-bottom: 2px solid #717171;
+}
+/* line 67, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-member-menu {
+  position: absolute;
+  top: 81px;
+  box-sizing: border-box;
+  border: 1px solid #b7b7b7;
+  right: 8px;
+  z-index: 4;
+  display: block;
+  background: white;
+  height: auto;
+  width: 284px;
+}
+/* line 79, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-member-menu .menu-list {
+  width: 90%;
+}
+/* line 83, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-member-menu .menu-list .menu-item {
+  padding: 17px;
+  width: 90%;
+  border-bottom: 1px solid #b7b7b7;
+  cursor: pointer;
+}
+/* line 93, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-nav-links {
+  vertical-align: sub;
+}
+/* line 96, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-nav-links button {
+  margin-right: 25px;
+}
+
+/* line 104, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.search-filters-bar {
+  z-index: 1;
+  position: fixed;
+  top: 80px;
+  border-bottom: 1px solid #e4e4e4;
+  box-sizing: border-box;
+  height: 65px;
+  width: 100%;
+  background: #fff;
+  color: #484848;
+}
+
+/* line 116, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.logo-box {
+  z-index: 3;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 22px;
+  border: 1px solid #FA5C65;
+  border-radius: 45px;
+  background-color: #edfeff;
+}
+/* line 129, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.logo-box .logo-gel {
+  font-family: 'Mrs Sheppards', cursive !important;
+  font-size: 42px;
+  position: absolute;
+  left: -3px;
+  top: -8px;
+  opacity: 37;
+  color: #FA5C65;
+}
+/* line 139, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/header.scss */
+.logo-box .logo {
+  font-family: 'Mrs Sheppards', cursive !important;
+  font-size: 40px;
+  color: white;
+  z-index: 3;
+  position: absolute;
+  left: -2px;
+  top: -8px;
+}
+/* line 2, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/reset.scss */
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, textarea,
+span, article, footer, time, small, Link {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+}
+/* line 18, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/reset.scss */
+html input[type="searchfield"],
+html input[type="textfield"],
+html input[type="password"],
+html input[type="submit"],
+html input[type="email"],
+html input[type="text"],
+html searchfield-decoration,
+html textarea,
+html button,
+html input, body input[type="searchfield"],
+body input[type="textfield"],
+body input[type="password"],
+body input[type="submit"],
+body input[type="email"],
+body input[type="text"],
+body searchfield-decoration,
+body textarea,
+body button,
+body input, header input[type="searchfield"],
+header input[type="textfield"],
+header input[type="password"],
+header input[type="submit"],
+header input[type="email"],
+header input[type="text"],
+header searchfield-decoration,
+header textarea,
+header button,
+header input, nav input[type="searchfield"],
+nav input[type="textfield"],
+nav input[type="password"],
+nav input[type="submit"],
+nav input[type="email"],
+nav input[type="text"],
+nav searchfield-decoration,
+nav textarea,
+nav button,
+nav input, h1 input[type="searchfield"],
+h1 input[type="textfield"],
+h1 input[type="password"],
+h1 input[type="submit"],
+h1 input[type="email"],
+h1 input[type="text"],
+h1 searchfield-decoration,
+h1 textarea,
+h1 button,
+h1 input, a input[type="searchfield"],
+a input[type="textfield"],
+a input[type="password"],
+a input[type="submit"],
+a input[type="email"],
+a input[type="text"],
+a searchfield-decoration,
+a textarea,
+a button,
+a input,
+ul input[type="searchfield"],
+ul input[type="textfield"],
+ul input[type="password"],
+ul input[type="submit"],
+ul input[type="email"],
+ul input[type="text"],
+ul searchfield-decoration,
+ul textarea,
+ul button,
+ul input, li input[type="searchfield"],
+li input[type="textfield"],
+li input[type="password"],
+li input[type="submit"],
+li input[type="email"],
+li input[type="text"],
+li searchfield-decoration,
+li textarea,
+li button,
+li input, strong input[type="searchfield"],
+strong input[type="textfield"],
+strong input[type="password"],
+strong input[type="submit"],
+strong input[type="email"],
+strong input[type="text"],
+strong searchfield-decoration,
+strong textarea,
+strong button,
+strong input, main input[type="searchfield"],
+main input[type="textfield"],
+main input[type="password"],
+main input[type="submit"],
+main input[type="email"],
+main input[type="text"],
+main searchfield-decoration,
+main textarea,
+main button,
+main input, button input[type="searchfield"],
+button input[type="textfield"],
+button input[type="password"],
+button input[type="submit"],
+button input[type="email"],
+button input[type="text"],
+button searchfield-decoration,
+button textarea,
+button button,
+button input, i input[type="searchfield"],
+i input[type="textfield"],
+i input[type="password"],
+i input[type="submit"],
+i input[type="email"],
+i input[type="text"],
+i searchfield-decoration,
+i textarea,
+i button,
+i input,
+section input[type="searchfield"],
+section input[type="textfield"],
+section input[type="password"],
+section input[type="submit"],
+section input[type="email"],
+section input[type="text"],
+section searchfield-decoration,
+section textarea,
+section button,
+section input, img input[type="searchfield"],
+img input[type="textfield"],
+img input[type="password"],
+img input[type="submit"],
+img input[type="email"],
+img input[type="text"],
+img searchfield-decoration,
+img textarea,
+img button,
+img input, div input[type="searchfield"],
+div input[type="textfield"],
+div input[type="password"],
+div input[type="submit"],
+div input[type="email"],
+div input[type="text"],
+div searchfield-decoration,
+div textarea,
+div button,
+div input, h2 input[type="searchfield"],
+h2 input[type="textfield"],
+h2 input[type="password"],
+h2 input[type="submit"],
+h2 input[type="email"],
+h2 input[type="text"],
+h2 searchfield-decoration,
+h2 textarea,
+h2 button,
+h2 input, p input[type="searchfield"],
+p input[type="textfield"],
+p input[type="password"],
+p input[type="submit"],
+p input[type="email"],
+p input[type="text"],
+p searchfield-decoration,
+p textarea,
+p button,
+p input, form input[type="searchfield"],
+form input[type="textfield"],
+form input[type="password"],
+form input[type="submit"],
+form input[type="email"],
+form input[type="text"],
+form searchfield-decoration,
+form textarea,
+form button,
+form input,
+fieldset input[type="searchfield"],
+fieldset input[type="textfield"],
+fieldset input[type="password"],
+fieldset input[type="submit"],
+fieldset input[type="email"],
+fieldset input[type="text"],
+fieldset searchfield-decoration,
+fieldset textarea,
+fieldset button,
+fieldset input, label input[type="searchfield"],
+label input[type="textfield"],
+label input[type="password"],
+label input[type="submit"],
+label input[type="email"],
+label input[type="text"],
+label searchfield-decoration,
+label textarea,
+label button,
+label input, textarea input[type="searchfield"],
+textarea input[type="textfield"],
+textarea input[type="password"],
+textarea input[type="submit"],
+textarea input[type="email"],
+textarea input[type="text"],
+textarea searchfield-decoration,
+textarea textarea,
+textarea button,
+textarea input,
+span input[type="searchfield"],
+span input[type="textfield"],
+span input[type="password"],
+span input[type="submit"],
+span input[type="email"],
+span input[type="text"],
+span searchfield-decoration,
+span textarea,
+span button,
+span input, article input[type="searchfield"],
+article input[type="textfield"],
+article input[type="password"],
+article input[type="submit"],
+article input[type="email"],
+article input[type="text"],
+article searchfield-decoration,
+article textarea,
+article button,
+article input, footer input[type="searchfield"],
+footer input[type="textfield"],
+footer input[type="password"],
+footer input[type="submit"],
+footer input[type="email"],
+footer input[type="text"],
+footer searchfield-decoration,
+footer textarea,
+footer button,
+footer input, time input[type="searchfield"],
+time input[type="textfield"],
+time input[type="password"],
+time input[type="submit"],
+time input[type="email"],
+time input[type="text"],
+time searchfield-decoration,
+time textarea,
+time button,
+time input, small input[type="searchfield"],
+small input[type="textfield"],
+small input[type="password"],
+small input[type="submit"],
+small input[type="email"],
+small input[type="text"],
+small searchfield-decoration,
+small textarea,
+small button,
+small input, Link input[type="searchfield"],
+Link input[type="textfield"],
+Link input[type="password"],
+Link input[type="submit"],
+Link input[type="email"],
+Link input[type="text"],
+Link searchfield-decoration,
+Link textarea,
+Link button,
+Link input {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  background-color: white;
+  appearance: none;
+}
+
+/* line 44, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/reset.scss */
+nav {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  box-sizing: inherit;
+}
+
+/* line 57, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/reset.scss */
+ul {
+  list-style: none;
+}
+
+/* line 61, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/reset.scss */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* line 68, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/reset.scss */
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* Clearfix */
+/* line 75, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/reset.scss */
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* line 4, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/static_pages.scss */
+* {
+  font-family: 'Circular', sans-serif !important;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+
+@font-face {
+  font-family: 'Circular';
+  font-style: book;
+  src: font-url('circularstd-book.eot');
+  src: font-url('circularstd-book.eot?#iefix') format('embedded-opentype'),
+       font-url('circularstd-book.woff') format('woff'),
+       font-url('circularstd-book.ttf') format('truetype'),
+       font-url('circularstd-book.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Circular';
+  font-style: bold;
+  src: font-url('circularstd-bold.eot');
+  src: font-url('circularstd-bold.eot?#iefix') format('embedded-opentype'),
+       font-url('circularstd-bold.woff') format('woff'),
+       font-url('circularstd-bold.ttf') format('truetype'),
+       font-url('circularstd-bold.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Circular';
+  font-style: light;
+  src: font-url('circular-light.woff2') format('woff');
+}
+
+* {
+  font-family: 'Circular', sans-serif !important;
+}
