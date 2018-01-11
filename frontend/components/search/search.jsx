@@ -29,9 +29,12 @@ class Search extends React.Component {
     this.setState({ spots: nextProps.spots });
   }
 
-  searchSpots(query) {
+  searchSpots(query, queryFullAddressComponents) {
+    // const { lat, lng } = queryFullAddressComponents.latLng
+
     let spots = this.state.spots.filter((spot) => {
-      return spot.description.includes(query)
+      // spot.lat < (lat + 2) && spot.lat > (lat - 2)
+      // spot.lng < (lng + 2) && spot.lng > (lng - 2)
     });
     this.setState({ spots: spots })
   }

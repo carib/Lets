@@ -7,7 +7,7 @@ import {
 } from '../../actions/spot_actions';
 import SpotForm from './spot_form';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     user: state.session.currentUser,
   }
