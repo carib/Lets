@@ -18,7 +18,6 @@ class SearchBar extends React.Component {
         country: [],
         postalCode: '',
       },
-      latLng: this.props.spotValues.zipCode,
       spotValues: this.props.spotValues,
     }
 

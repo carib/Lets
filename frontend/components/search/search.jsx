@@ -51,11 +51,16 @@ class Search extends React.Component {
       searchPage
     } = this.state;
 
+    const spotValues = {
+      streetAddress: '',
+    }
+
 
     return (
       <div className="search-main">
         <SearchBar
           searchSpots={this.searchSpots}
+          spotValues={spotValues}
         />
         <SpotMap
           spots={spots}

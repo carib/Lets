@@ -9,6 +9,7 @@ class SpotForm extends React.Component {
   constructor(props) {
     super(props);
     this.update = this.update.bind(this);
+    this.handleCLick = this.handleCLick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.userLocation = this.userLocation.bind(this);
     this.extractCoords = this.extractCoords.bind(this);
@@ -28,11 +29,12 @@ class SpotForm extends React.Component {
       maxGuests: 0,
       streetNumber: '',
     };
-
   }
 
-  componentDidUpdate() {
-    console.log('spot form state', this.state);
+  handleCLick(e) {
+    e.preventDefault();
+    this.props.createSpot(this.state);
+    this.props.history.push("/");
   }
 
   extractCoords(address) {
@@ -68,7 +70,7 @@ class SpotForm extends React.Component {
     });
     if (this.state.spotValues.postalCode) {
       this.setState({postalCode: this.state.spotValues.postalCode});
-      
+
     }
   }
 
@@ -124,7 +126,7 @@ class SpotForm extends React.Component {
               placeholder='New York, NY, US'
               mapValuesToState={this.mapValuesToState}
             />
-            <input className="new-spot-submit-button" type="submit" value="Continue" onClick={this.handleSubmit}/>
+          <input className="new-spot-submit-button" type="submit" value="Continue" onClick={this.handleCLick}/>
           </div>
         </div>
     </form>
