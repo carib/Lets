@@ -8,27 +8,7 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      autocompleteOptions: {
-        inputId: `search-bar-input`,
-        searchParams: {
-          types: ['country'],
-          restrictions: { 'country': ['us'] },
-        },
-      },
       autocompleteFormFieldValue: '',
-      googleComponents: [{
-        googleComponent: `sublocality_level_1`,
-        id: `city-address-field`
-      }, {
-        googleComponent: `locality`,
-        id: `city-address-field`
-      }, {
-        googleComponent: `administrative_area_level_1`,
-        id: `state-address-field`
-      }, {
-        googleComponent: `postal_code`,
-        id: `postal-code-address-field`
-      }],
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,18 +27,16 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(e.currentTarget.value);
-    console.log(this.props);
-    console.log(this.state);
+    this.setState({
+      autocompleteFormFieldValue: document.getElementById(`search-bar-input`).innerHTML,
+    })
+
   }
 
   handleSearch(e) {
     if (this.props.searchSpots) {
       this.props.searchSpots(e.target.value);
     }
-    this.setState({
-      autocompleteFormFieldValue: document.getElementById(`search-bar-input`).innerHTML,
-    })
   }
 
   componentDidMount() {
@@ -83,11 +61,6 @@ class SearchBar extends React.Component {
     const autocompleteFormField = document.getElementById(`search-bar-input`);
 
     this.initGooglePlacesAutocomplete(autocompleteFormField);
-
-    this.setState({
-      googleComponents: googleComponentsInit,
-      autocompleteFormField: autocompleteFormField,
-    })
   }
 
   initGooglePlacesAutocomplete(autocompleteFormField) {
@@ -250,8 +223,14 @@ class SearchBar extends React.Component {
           this.autocompleteServiceListener(prediction, predictionList, autocompleteFormField);
         }
       }
+      const selectedResult = document.querySelector(`.pac-selected`)
+
       document.querySelector(`.pac-selected`).classList.remove(`pac-selected`);
       autocompleteFormField.removeEventListener(`keydown`, keyCodeListener);
+
+      this.setState({
+        autocompleteFormFieldValue: selectedResult,
+      });
     }
   }
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import SpotIndex from './spot_index';
 import SpotMap from './../spot_map/spot_map';
-import SearchBar from './search_bar';
+import SearchBar from './search_bar_demo';
 
 class Search extends React.Component {
   constructor(props) {
@@ -47,6 +47,7 @@ class Search extends React.Component {
       spots,
       searchPage
     } = this.state;
+
 
     return (
       <div className="search-main">

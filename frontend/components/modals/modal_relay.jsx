@@ -18,7 +18,6 @@ class ModalRelay extends React.Component {
     switch (modalType) {
       case 'LOGIN':
         return <LoginModal modProps={this.props} />
-        return "HELLOOO"
       case 'SIGNUP':
         return <SignUpModal modProps={this.props} />
       default:

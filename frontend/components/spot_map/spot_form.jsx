@@ -31,12 +31,6 @@ class SpotForm extends React.Component {
 
   }
 
-  /*
-  props:
-    - user location?
-    -
-  */
-
   extractCoords(address) {
     const geo = new google.maps.Geocoder();
     let spotCoords;
@@ -54,7 +48,7 @@ class SpotForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('spot form main', this.props, this.state, e.target);
+
   }
 
   update(field) {

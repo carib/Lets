@@ -2,7 +2,7 @@ import React from 'react';
 
 import times from 'lodash/times';
 
-import SearchBar from '../../search/search_bar';
+import SearchBar from '../../search/search_bar_demo';
 
 
 

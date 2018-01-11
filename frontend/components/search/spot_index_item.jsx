@@ -9,7 +9,7 @@ const SpotIndexItem = ({ spot }) => {
       starRating.push(<i className="fa fa-star" key={starRating.length} aria-hidden="true"></i>);
   });
   return (
-    <div>
+    <div className="spot-index-inner-column">
       <li className="spot-item">
       </li>
       <div className="spot-item-info">

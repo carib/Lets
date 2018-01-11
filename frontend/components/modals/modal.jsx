@@ -1,11 +1,12 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import { Redirect } from 'react-router-dom';
 
 import SearchContainer from '../search/search_container';
 import HeaderContainer from '../header/header_container';
 
 import ModalRelayContainer from './modal_relay_container';
-import Logo from '../header/logo'
+import Logo from '../header/logo';
 
 
 class Modal extends React.Component {
@@ -13,6 +14,7 @@ class Modal extends React.Component {
     super(props);
     this.state = {
       currentModal: ((this.props.currentModal) ? this.props.currentModal : null),
+      currentUser: this.props.currentUser,
       modalProps: {},
       modalType: null,
       show: this.props.currentModal.isShowing,
@@ -42,7 +44,7 @@ class Modal extends React.Component {
     return (
       <main className="modal">
         <header className="main-header">
-            <Logo />
+          <Logo />
 
           <HeaderContainer modProp={modProps} />
         </header>
@@ -62,6 +64,7 @@ class Modal extends React.Component {
       </main>
     );
   }
+
 }
 
 export default Modal;

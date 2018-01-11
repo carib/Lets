@@ -12,7 +12,8 @@ import {
 const mapStateToProps = (state, ownProps) => {
   return {
     currentModal: state.ui.modal.currentModal,
-    show: state.ui.modal.isShowing
+    currentUser: state.session.currentUser,
+    show: state.ui.modal.isShowing,
   }
 }
 
