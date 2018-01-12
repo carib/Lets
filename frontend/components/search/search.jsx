@@ -8,35 +8,72 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.searchSpots = this.searchSpots.bind(this);
+    this.updateBounds = this.updateBounds.bind(this);
+    this.parseBounds = this.parseBounds.bind(this);
+    this.extractCoords = this.extractCoords.bind(this);
     this.state = {
       searchPage: 1,
       loggedIn: false,
-      spots: [],
-      allSpots: []
+      spots: this.props.spots,
+      allSpots: [],
     };
   }
 
   componentDidMount() {
-    if (!this.state.spots) {
-      this.props.fetchSpots();
-    } else {
-      const spots = JSON.parse(localStorage.getItem('spots')) || []
-      this.setState({ spots: spots, allSpots: spots })
-    }
+    this.props.fetchSpots();
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ spots: nextProps.spots });
   }
 
-  searchSpots(query, queryFullAddressComponents) {
-    // const { lat, lng } = queryFullAddressComponents.latLng
-
-    let spots = this.state.spots.filter((spot) => {
-      // spot.lat < (lat + 2) && spot.lat > (lat - 2)
-      // spot.lng < (lng + 2) && spot.lng > (lng - 2)
+  searchSpots(query, queryFullAddressComponents, autocompleteFormField) {
+    const autocomplete = new google.maps.places.AutocompleteService();
+    autocompleteFormField.addEventListener(`input`, () => {
+      if (autocompleteFormField.value) {
+        autocomplete.getPlacePredictions({
+          input: autocompleteFormField.value,
+          types: [`geocode`]},
+          (predictions, status) => {
+            predictions.map(prediction => {
+              const coords = this.extractCoords(prediction.description)
+            })
+          }
+        );
+      } else {
+        predictionList.style.display = `none`;
+      }
     });
-    this.setState({ spots: spots })
+  }
+
+  extractCoords(address) {
+    const geo = new google.maps.Geocoder();
+    let newBounds;
+    geo.geocode( { 'address': address }, (results, status) => {
+      if (status == 'OK') {
+        results.map(result => {
+          console.log(result);
+          const viewport = result.geometry.viewport;
+          this.updateBounds(viewport);
+        })
+      }
+    });
+  }
+
+  updateBounds(latlng) {
+    const bounds = this.parseBounds(latlng);
+    this.props.updateFilter('bounds', bounds);
+  }
+
+  parseBounds(latlng) {
+    const ne = latlng.getNorthEast()
+    const sw = latlng.getSouthWest()
+    const bounds = {
+      northEast: { lat: ne.lat(), lng: ne.lng() },
+      southWest: { lat: sw.lat(), lng: sw.lng() },
+    };
+
+    return bounds;
   }
 
   render() {
