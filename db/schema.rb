@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108213525) do
+ActiveRecord::Schema.define(version: 20180112015022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "spot_details", force: :cascade do |t|
+    t.string "country"
+    t.string "state_province"
+    t.string "city"
+    t.float "rooms"
+    t.float "beds"
+    t.float "baths"
+    t.boolean "internet", default: false
+    t.boolean "kitchen", default: false
+    t.boolean "outdoor_area", default: false
+    t.boolean "laundry", default: false
+    t.boolean "parking", default: false
+    t.boolean "pets", default: false
+    t.boolean "tv", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "spot_id"
+    t.index ["spot_id"], name: "index_spot_details_on_spot_id"
+  end
 
   create_table "spots", force: :cascade do |t|
     t.string "description", null: false
@@ -44,4 +64,5 @@ ActiveRecord::Schema.define(version: 20180108213525) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "spot_details", "spots"
 end
