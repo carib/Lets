@@ -34,6 +34,8 @@ class Header extends React.Component {
 
   handleHeaderNavSelection(e) {
     switch (e.target.value) {
+      case '/':
+        this.props.history.push("/");
       case 'new':
         this.props.history.push("/new");
       default:
@@ -45,6 +47,11 @@ class Header extends React.Component {
     let menu;
     if (this.state.menuActive) {
       menu =  <div className="header-member-menu">
+                <button
+                  className="logo-button"
+                  value="/"
+                  onClick={this.handleHeaderSelection}
+                />
                 <ul className="menu-list">
                   <li>
                     <div onClick={this.handleLogout} className="menu-item">Log Out</div>
@@ -56,13 +63,24 @@ class Header extends React.Component {
     }
     return (
       <div className="header-right">
+        <button
+          className="logo-button"
+          value="/"
+          onClick={this.handleHeaderSelection}
+        />
         <div className="header-nav-buttons">
           <button
             className="header-add-spot-btn"
-            value="new" onClick={this.handleHeaderNavSelection}
-            >Add a new listing</button>
+            value="new"
+            onClick={this.handleHeaderNavSelection}
+          >Add a new listing</button>
         </div>
         <nav className="header-member-nav">
+          <button
+            className="logo-button"
+            value="/"
+            onClick={this.handleHeaderSelection}
+          />
           <div className="member-icon-box" onClick={this.toggleMenu}>
             <i className="fa fa-user-circle" />
           </div>
@@ -75,6 +93,11 @@ class Header extends React.Component {
   navLinks() {
     return (
       <div className="header-right">
+        <button
+          className="logo-button"
+          value="/"
+          onClick={this.handleHeaderSelection}
+        />
         <nav className="header-nav-links">
           <button
             value={"SIGNUP"}

@@ -81,7 +81,7 @@ class SignUpModal extends React.Component {
           />
           <button type="submit">{text[0]}</button>
           <div className="modal-footer">
-            <div className="modal-divider-foot"></div>
+            <div id="signup-divider" className="modal-divider-foot"></div>
             <span className="modal-footer-text">{text[1]}
               <div className="modal-footer-link">
                 <div className="modal-footer-button" onClick={this.switchForm}>Log In</div>

@@ -19,6 +19,11 @@
 class Spot < ApplicationRecord
   validates :description, :lat, :lng, presence: true
 
+  has_one :spot_detail,
+    class_name: :SpotDetail,
+    foreign_key: :spot_id,
+    dependent: :destroy
+
   def self.in_bounds(bounds)
     ne_lat = bounds['northEast']['lat'].to_f
     sw_lat = bounds['southWest']['lat'].to_f

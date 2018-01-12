@@ -2,7 +2,7 @@ import React from 'react';
 
 import SpotIndex from './spot_index';
 import SpotMap from './../spot_map/spot_map';
-import SearchBar from './search_bar';
+import SearchBar from './search_bar_demo';
 
 class Search extends React.Component {
   constructor(props) {
@@ -29,9 +29,12 @@ class Search extends React.Component {
     this.setState({ spots: nextProps.spots });
   }
 
-  searchSpots(query) {
+  searchSpots(query, queryFullAddressComponents) {
+    // const { lat, lng } = queryFullAddressComponents.latLng
+
     let spots = this.state.spots.filter((spot) => {
-      return spot.description.includes(query)
+      // spot.lat < (lat + 2) && spot.lat > (lat - 2)
+      // spot.lng < (lng + 2) && spot.lng > (lng - 2)
     });
     this.setState({ spots: spots })
   }
@@ -48,10 +51,16 @@ class Search extends React.Component {
       searchPage
     } = this.state;
 
+    const spotValues = {
+      streetAddress: '',
+    }
+
+
     return (
       <div className="search-main">
         <SearchBar
           searchSpots={this.searchSpots}
+          spotValues={spotValues}
         />
         <SpotMap
           spots={spots}

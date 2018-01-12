@@ -30,6 +30,16 @@
       font-size: 18px;
       font-weight: lighter;
     }
+  }
+}
 
+
+.pac-container {
+  max-height: 300px ;
+  width: 556px;
+  background: #fff;
+
+  .pac-selected {
+    background: #555;
   }
 }

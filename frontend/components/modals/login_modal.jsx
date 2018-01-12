@@ -4,13 +4,13 @@ import { Redirect } from 'react-router-dom';
 class LoginModal extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.switchForm = this.switchForm.bind(this)
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.switchForm = this.switchForm.bind(this);
     this.state = {
       email: "",
       password: "",
     };
-    console.log("login", this.props);
   }
 
   handleSubmit(e) {
@@ -35,14 +35,28 @@ class LoginModal extends React.Component {
     }
   }
 
-  update(field) {
-    return e => {
-      this.setState({ [field]: e.target.value })
-    };
+  update(field, isDemo = false) {
+    if (!isDemo) {
+      return e => {
+        this.setState({ [field]: e.target.value })
+      };
+    } else {
+      const guestEmail = "user@email.com";
+      const guestPassword = "password";
+      this.setState({
+        [field]: ((field === 'email') ? guestEmail : guestPassword)
+      });
+    }
   }
 
   switchForm() {
     this.props.modProps.fetch("SIGNUP");
+  }
+
+  handleGuestLogin() {
+    const user = { email: "user@email.com", password: "password" };
+    this.props.modProps.login(user);
+    this.props.modProps.toggle();
   }
 
   render() {
@@ -50,6 +64,11 @@ class LoginModal extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <div
+            className="guest-login-button"
+            onClick={this.handleGuestLogin}
+          >Guest Log In</div>
+
           <input className="session-form-email"
             type="text"
             value={this.state.email}
@@ -65,10 +84,14 @@ class LoginModal extends React.Component {
 
           <button type="submit" >{text[0]}</button>
           <div className="modal-footer">
-            <div className="modal-divider-foot"></div>
+            <div id="login-divider" className="modal-divider-foot"></div>
             <span className="modal-footer-text">{text[1]}
               <div className="modal-footer-link">
-                <div className="modal-footer-button" value="SIGNUP" onClick={this.switchForm}>Sign Up</div>
+                <div
+                  className="modal-footer-button"
+                  value="SIGNUP"
+                  onClick={this.switchForm}
+                >Sign Up</div>
               </div>
             </span>
           </div>

@@ -1,0 +1,2 @@
+module SpotDetailsHelper
+end

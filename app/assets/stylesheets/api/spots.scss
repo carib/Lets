@@ -21,78 +21,93 @@
   left: 24px;
   column-gap: 1em;
   margin-top: 169px;
-  width: 63%;
-  max-width: 1219px;
+  width: 65%;
+  width: 100%;
+  max-width: 1482px;
+
 
   .spot-index-column {
-    position: relative;
-    width: 100%;
+    position: absolute;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1245px;
 
-    .spot-item {
-      display: inline-block;
-      box-sizing: border-box;
-      width: 100%;
-      height: 218px;
-      border: 1px solid lightgray;
-      border-radius: 3px;
-      background-size: cover;
-      background-image: url(https://goo.gl/cFfeK1);
-
-      .nested-spot-item {
-        font-family: 'Circular', sans-serif !important;
-
-        .nested-spot-list {
-          padding-top: 10px;
-          border: 1px solid black;
-        }
-      }
-    }
-
-    .spot-item-info {
+    .spot-index-inner-column {
       display: flex;
       flex-direction: column;
+      align-items: baseline;
+      width: 31%;
+      height: 100%;
+      margin-right: 15px;
 
-      .item-info-row-1 {
-        font-size: 12px;
-        margin-top: 8px;
-        font-weight: bold;
+      .spot-item {
+        display: inline-block;
+        box-sizing: border-box;
+        min-width: 100%;
+        height: 218px;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        background-size: cover;
+        background-image: url(https://goo.gl/cFfeK1);
+        align-self: auto;
+
+        .nested-spot-item {
+          font-family: 'Circular', sans-serif !important;
+
+          .nested-spot-list {
+            padding-top: 10px;
+            border: 1px solid black;
+          }
+        }
       }
 
-      .item-info-row-2 {
-        font-size: 17px;
-        margin-top: 3px;
-        font-weight: bold;
-      }
-
-      .item-info-row-3 {
-        font-size: 15px;
-        margin-top: 3px;
-        font-weight: 100;
-      }
-
-      .item-info-row-4 {
-        font-size: 13px;
-        margin-top: 5px;
+      .spot-item-info {
         display: flex;
-        flex-direction: row;
-        margin-bottom: 23px;
+        flex-direction: column;
 
-        .item-info-stars {
-          font-size: 8px;
-          margin-top: 4px;
-          color: #2a8d94;
+        .item-info-row-1 {
+          font-size: 12px;
+          margin-top: 8px;
+          font-weight: bold;
         }
 
-        .item-info-review-count {
-          font-size: 12px;
-          margin-left: 3px;
-          margin-top: 1px;
+        .item-info-row-2 {
+          font-size: 17px;
+          margin-top: 3px;
+          font-weight: bold;
         }
 
-        .item-info-superletter {
-          font-size: 12px;
-          margin-left: 7px;
-          margin-top: 1px;
+        .item-info-row-3 {
+          font-size: 15px;
+          margin-top: 3px;
+          font-weight: 100;
+        }
+
+        .item-info-row-4 {
+          font-size: 13px;
+          margin-top: 5px;
+          display: flex;
+          flex-direction: row;
+          margin-bottom: 23px;
+
+          .item-info-stars {
+            font-size: 8px;
+            margin-top: 4px;
+            color: #2a8d94;
+          }
+
+          .item-info-review-count {
+            font-size: 12px;
+            margin-left: 3px;
+            margin-top: 1px;
+          }
+
+          .item-info-superletter {
+            font-size: 12px;
+            margin-left: 7px;
+            margin-top: 1px;
+          }
         }
       }
     }
@@ -103,10 +118,68 @@
   .spot-index-main {
     column-count: 2;
   }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
 }
 
 @media only screen and (min-width: 1300px) {
   .spot-index-main {
     column-count: 3
+  }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .spot-index-column {
+    width: 65% !important;
+  }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1580px) {
+  .spot-index-column {
+    width: 70% !important;
+  }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1590px) {
+  .spot-index-column {
+    width: 70% !important;
+  }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .spot-index-column {
+    width: 80% !important;
+  }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .spot-index-column {
+    width: 84% !important;
+  }
+
+  .spot-item {
+    min-width: 100% !important;
   }
 }

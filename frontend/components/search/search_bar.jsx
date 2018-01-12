@@ -1,44 +1,36 @@
 import React from 'react';
+import _ from 'lodash';
 
 import MagnifyIcon from 'mdi-react/MagnifyIcon';
+
 
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      autocompleteFormFieldValue: '',
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.initAutocomplete = this.initAutocomplete.bind(this);
-    this.initGooglePlacesAutocomplete = this.initGooglePlacesAutocomplete.bind(this);
-    this.displayPredictionSuggestions = this.displayPredictionSuggestions.bind(this);
     this.predictionBuilder = this.predictionBuilder.bind(this);
-    this.autocompleteKeyboardListener = this.autocompleteKeyboardListener.bind(this);
-    this.autocompleteServiceListener = this.autocompleteServiceListener.bind(this);
-    // this.fillInAddress = this.fillInAddress.bind(this);
-    this.upKeyAutocompleteInteraction = this.upKeyAutocompleteInteraction.bind(this);
-    this.downKeyAutocompleteInteraction = this.downKeyAutocompleteInteraction.bind(this);
     this.keyboardAutocomplete = this.keyboardAutocomplete.bind(this);
     this.autocompleteListDecorator = this.autocompleteListDecorator.bind(this);
-    this.state = {
-      autocompleteOptions: {
-        inputId: `search-bar-input`,
-        searchParams: {
-          types: ['country'],
-          restrictions: { 'country': ['us'] },
-        },
-      },
-      googleComponents: [{
-        googleComponent: `sublocality_level_1`,
-        id: `city-address-field`
-      }, {
-        googleComponent: `locality`,
-        id: `city-address-field`
-      }, {
-        googleComponent: `administrative_area_level_1`,
-        id: `state-address-field`
-      }, {
-        googleComponent: `postal_code`,
-        id: `postal-code-address-field`
-      }],
-    }
+    this.autocompleteServiceListener = this.autocompleteServiceListener.bind(this);
+    this.initGooglePlacesAutocomplete = this.initGooglePlacesAutocomplete.bind(this);
+    this.displayPredictionSuggestions = this.displayPredictionSuggestions.bind(this);
+    this.autocompleteKeyboardListener = this.autocompleteKeyboardListener.bind(this);
+    this.upKeyAutocompleteInteraction = this.upKeyAutocompleteInteraction.bind(this);
+    this.downKeyAutocompleteInteraction = this.downKeyAutocompleteInteraction.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.setState({
+      autocompleteFormFieldValue: document.getElementById(`search-bar-input`).innerHTML,
+    })
+
   }
 
   handleSearch(e) {
@@ -52,7 +44,7 @@ class SearchBar extends React.Component {
   }
 
   initAutocomplete() {
-    const googleComponents = [{
+    const googleComponentsInit = [{
         googleComponent: `sublocality_level_1`,
         id: `city-address-field`
       }, {
@@ -74,7 +66,6 @@ class SearchBar extends React.Component {
   initGooglePlacesAutocomplete(autocompleteFormField) {
     const autocomplete = new google.maps.places.AutocompleteService();
     const predictionList = this.predictionListMarkup();
-
 
 // NOTE: Edited 81, 82. "autocompleteFormField.parent() not a function" error.
 
@@ -99,6 +90,7 @@ class SearchBar extends React.Component {
 
   predictionListMarkup() {
     const predictionsWrapperDiv = document.createElement(`ul`);
+
     predictionsWrapperDiv.classList.add(`pac-container`, `pac-logo`);
     return predictionsWrapperDiv;
   }
@@ -108,9 +100,25 @@ class SearchBar extends React.Component {
       predictionList.style.display = `none`;
       return;
     }
+
+
+// NOTE: Added followinglines 16 to dynamically remove dud predictions
+
+    const currentQuery = autocompleteFormField.value;
+    predictions.filter((prediction) => (prediction.description.includes(currentQuery)));
+
+    const queryMatchDescriptions = predictions.map(prediction => prediction.description);
+
+    predictionList.childNodes.forEach((child) => {
+      if (!queryMatchDescriptions.includes(child.innerHTML)) {
+        predictionList.removeChild(child);
+      }
+    });
+
     for (const prediction of predictions) {
       this.predictionBuilder(prediction, predictionList, autocompleteFormField);
     }
+
     this.autocompleteKeyboardListener(predictions, predictionList, autocompleteFormField);
   }
 
@@ -122,7 +130,12 @@ class SearchBar extends React.Component {
     predictionListItem.addEventListener(`click`, () => {
       this.autocompleteServiceListener(prediction, predictionList, autocompleteFormField);
     });
-    predictionList.appendChild(predictionListItem);
+
+// NOTE: Added this to remove duplicate predictions
+    const currentPredictions = Array.from(predictionList.children).map(child => child.innerHTML);
+    if (!currentPredictions.includes(prediction.description)) {
+      predictionList.appendChild(predictionListItem);
+    }
   }
 
   autocompleteServiceListener(prediction, predictionList, autocompleteFormField) {
@@ -132,13 +145,19 @@ class SearchBar extends React.Component {
     }, (place, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         if (place.types[0] === `street_address`) {
+
+//NOTE: fillInAddress() doesn't exist?!?
           this.fillInAddress(place, autocompleteFormField);
         } else {
           autocompleteFormField.value = prediction.terms[0].value;
-          predicitonList.style.display = `none`;
+          predictionList.style.display = `none`;
         }
       }
     });
+  }
+
+  fillInAddress(place, autocompleteFormField) {
+    autocompleteFormField.value = place.formatted_address;
   }
 
   autocompleteKeyboardListener(predictions, predictionList, autocompleteFormField) {
@@ -198,17 +217,22 @@ class SearchBar extends React.Component {
   }
 
   keyboardAutocomplete(predictions, predictionList, autocompleteFormField, keyCodeListener) {
-    if (document.querySelector(`.pac-selected`).innerHTML) {
+    if (document.querySelector(`.pac-selected`)) {
       for (const prediction of predictions) {
         if (document.querySelector(`.pac-selected`).innerHTML === prediction.description) {
           this.autocompleteServiceListener(prediction, predictionList, autocompleteFormField);
         }
       }
+      const selectedResult = document.querySelector(`.pac-selected`)
+
       document.querySelector(`.pac-selected`).classList.remove(`pac-selected`);
       autocompleteFormField.removeEventListener(`keydown`, keyCodeListener);
+
+      this.setState({
+        autocompleteFormFieldValue: selectedResult,
+      });
     }
   }
-
 
   /*Hi, I just wanted to thank you for your tutorial on implementing TK!
   I'm building a clone of airbnb for my final project in AA bootcamp and I've been going out of my way to avoid using third-party packages so that I can feel confident that I understand the material (plus I doubt "just install TK package", would go over very well for "how do you" questions in job interviews). I figured using gmaps widgets was a necessary exception to this approach, so when I got to part three of your tutorial and saw that we were about to take apart the widget and build a custom one I nearly emoted all over my desk here in class!
@@ -219,16 +243,19 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div id="search-bar-wrapper" className="search-bar">
+      <div id="search-with-results-wrapper">
+        <div id="search-bar-wrapper" className="search-bar">
 
-        <MagnifyIcon className="search-bar-icon mdi-48px"/>
-        <input
-          id="search-bar-input"
-          className="search-input"
-          type="search"
-          onChange={this.handleSearch}
-          placeholder="Search"
-        />
+          <MagnifyIcon className="search-bar-icon mdi-48px"/>
+            <input
+              id="search-bar-input"
+              className="search-input"
+              type="search"
+              onChange={this.handleSearch}
+              placeholder="Search"
+              autoComplete="off"
+            />
+        </div>
       </div>
     )
   }

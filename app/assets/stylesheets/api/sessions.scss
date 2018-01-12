@@ -55,6 +55,26 @@
       color: #484848;
       background-color: #fff;
 
+      .guest-login-button {
+        display: inline-block;
+        position: relative;
+        font-size: 17px;
+        font-weight: 100;
+        text-align: center;
+        text-decoration: none;
+        line-height: 22px;
+        height: 52px;
+        width: 28%;
+        min-width: 78px;
+        margin-top: 8.7%;
+        padding: 12px 24px 12px 24px;
+        border: 2px solid transparent;
+        border-radius: 4px;
+        background-color: #ff5a5f;
+        color: #fff;
+        cursor: pointer;
+      }
+
       input {
         width: 92%;
         height: 36px;
@@ -97,10 +117,17 @@
         position: fixed;
         box-sizing: border-box;
         margin-right: 10%;
-        bottom: 72px;
         left: 23px;
         width: 92%;
         border-bottom: 1px solid #DBDBDB !important;
+      }
+
+      #login-divider.modal-divider-foot {
+        bottom: 200px;
+      }
+
+      #signup-divider.modal-divider-foot {
+        bottom: 72px;
       }
 
       .modal-footer {
@@ -112,6 +139,7 @@
         .modal-footer-text {
           display: flex;
           flex-direction: row;
+          align-items: center;
           padding: 5px;
           font-weight: 300;
 
