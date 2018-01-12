@@ -37,13 +37,14 @@
       display: flex;
       flex-direction: column;
       align-items: baseline;
-      width: 33%;
+      width: 31%;
       height: 100%;
+      margin-right: 15px;
 
       .spot-item {
         display: inline-block;
         box-sizing: border-box;
-        min-width: 397px;
+        min-width: 100%;
         height: 218px;
         border: 1px solid lightgray;
         border-radius: 3px;
@@ -117,10 +118,68 @@
   .spot-index-main {
     column-count: 2;
   }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
 }
 
 @media only screen and (min-width: 1300px) {
   .spot-index-main {
     column-count: 3
+  }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .spot-index-column {
+    width: 65% !important;
+  }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1580px) {
+  .spot-index-column {
+    width: 70% !important;
+  }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1590px) {
+  .spot-index-column {
+    width: 70% !important;
+  }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .spot-index-column {
+    width: 80% !important;
+  }
+
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .spot-index-column {
+    width: 84% !important;
+  }
+
+  .spot-item {
+    min-width: 100% !important;
   }
 }

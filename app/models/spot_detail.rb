@@ -27,5 +27,5 @@ class SpotDetail < ApplicationRecord
 
   belongs_to :spot,
     class_name: :Spot,
-    foreign_key: :spot_id,
+    foreign_key: :spot_id
 end
