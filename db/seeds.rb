@@ -30,7 +30,7 @@ User.create!(
 end
 
 Spot.destroy_all
-20.times do |_|
+20.times do |t|
   desc = [
     Faker::TwinPeaks.location,
     Faker::RickAndMorty.location,
@@ -50,7 +50,8 @@ Spot.destroy_all
     pastGuestIds: [],
     reviewIds: [],
     spotType: "#{type[rand(3)]} * #{rand(4)} BEDS",
-    host_id: User.ids[rand(21)]
+    host_id: User.ids[rand(21)],
+    spot_image: File.open("app/assets/images/#{t+1}.jpeg")
   )
 end
 

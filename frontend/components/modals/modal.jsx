@@ -48,8 +48,7 @@ class Modal extends React.Component {
 
           <HeaderContainer modProp={modProps} />
         </header>
-        <div className="search-filters-bar">
-        </div>
+
         <div className={toggleType[1]}>
           <div className="modal-detail-box">
             <section className="modal-inner-detail-box">

@@ -15,6 +15,8 @@ class SpotIndex extends React.Component {
     return (
       <div>
         <article className="spot-index-main">
+          <div className="search-filters-bar">
+          </div>
           <ul className="spot-index-column">
             {
               currentSpots.map(spot =>

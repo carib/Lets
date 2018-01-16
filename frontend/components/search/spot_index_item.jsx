@@ -11,6 +11,7 @@ const SpotIndexItem = ({ spot }) => {
   return (
     <div className="spot-index-inner-column">
       <li className="spot-item">
+        <img src={spot.imageThumbUrl} className="spot-thumb"/>
       </li>
       <div className="spot-item-info">
         <div className="item-info-row-1">

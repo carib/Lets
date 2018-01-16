@@ -49,8 +49,8 @@
         border: 1px solid lightgray;
         border-radius: 3px;
         background-size: cover;
-        background-image: url(https://goo.gl/cFfeK1);
         align-self: auto;
+        overflow: hidden;
 
         .nested-spot-item {
           font-family: 'Circular', sans-serif !important;
