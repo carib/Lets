@@ -52,8 +52,8 @@ class Search extends React.Component {
     geo.geocode( { 'address': address }, (results, status) => {
       if (status == 'OK') {
         results.map(result => {
-          console.log(result);
           const viewport = result.geometry.viewport;
+          console.log('extract coords',viewport);
           this.updateBounds(viewport);
         })
       }
@@ -62,6 +62,7 @@ class Search extends React.Component {
 
   updateBounds(latlng) {
     const bounds = this.parseBounds(latlng);
+    console.log('bounds',bounds);
     this.props.updateFilter('bounds', bounds);
   }
 

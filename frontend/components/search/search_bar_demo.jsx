@@ -53,7 +53,7 @@ class SearchBar extends React.Component {
           lng: place.geometry.location.lng(),
         },
         currentQueryPlace: place
-      })
+      });
     });
   }
 

@@ -21,8 +21,8 @@
   left: 24px;
   column-gap: 1em;
   margin-top: 169px;
-  width: 65%;
-  width: 100%;
+  // width: 65%;
+  // width: 100%;
   max-width: 1482px;
 
 
@@ -31,7 +31,8 @@
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 1245px;
+    // width: 1245px;
+    width: 100%;
 
     .spot-index-inner-column {
       display: flex;
@@ -114,30 +115,78 @@
   }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 100px) {
   .spot-index-main {
-    column-count: 2;
+    column-count: 1 !important;
+    width: 100% !important;
   }
 
-  .spot-item {
-    min-width: 100% !important;
+  .spot-index-inner-column {
+    width: 56% !important;
   }
+
+
+    .spot-index-column {
+      width: 100% !important;
+    }
+
+}
+
+@media only screen and (min-width: 1000px) {
+  .spot-index-main {
+    column-count: 2 !important;
+    width: 100% !important;
+  }
+
+  .spot-index-inner-column {
+    width: 33% !important;
+  }
+
+  .spot-index-column {
+    width: 92% !important;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+  .spot-index-main {
+    column-count: 2 !important;
+    width: 100% !important;
+  }
+
+  .spot-index-inner-column {
+    width: 33% !important;
+  }
+
 }
 
 @media only screen and (min-width: 1300px) {
   .spot-index-main {
-    column-count: 2;
+    column-count: 2 !important;
+    width: 66% !important;
   }
+
+  .spot-index-column {
+    width: 100% !important;
+
+  }
+
+  .spot-index-inner-column {
+    width: 31% !important;
+  }
+
 
   .spot-item {
     min-width: 100% !important;
   }
 }
 
-@media only screen and (min-width: 1490px) {
-  .spot-index-main {
-    column-count: 2 !important;
+@media only screen and (min-width: 1400px) {
+
+  .spot-index-column {
+    width: 100% !important;
   }
+
   .spot-item {
     min-width: 100% !important;
   }
@@ -145,7 +194,7 @@
 
 @media only screen and (min-width: 1500px) {
   .spot-index-column {
-    width: 65% !important;
+    width: 100% !important;
   }
 
   .spot-item {
@@ -155,7 +204,7 @@
 
 @media only screen and (min-width: 1580px) {
   .spot-index-column {
-    width: 70% !important;
+    width: 100% !important;
   }
 
   .spot-item {
@@ -163,15 +212,15 @@
   }
 }
 
-@media only screen and (min-width: 1590px) {
-  .spot-index-column {
-    width: 70% !important;
-  }
-
-  .spot-item {
-    min-width: 100% !important;
-  }
-}
+// @media only screen and (min-width: 1590px) {
+//   .spot-index-column {
+//     width: 70% !important;
+//   }
+//
+//   .spot-item {
+//     min-width: 100% !important;
+//   }
+// }
 
 @media only screen and (min-width: 1700px) {
   .spot-index-column {

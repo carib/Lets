@@ -31,7 +31,6 @@ class SpotMap extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.state.currentLocation);
     this.initializeMap();
     this.map.addListener('idle', this.updateBounds);
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -41,8 +40,8 @@ class SpotMap extends React.Component {
           lat: coords.latitude,
           lng: coords.longitude
         }
-      })
-    })
+      });
+    });
   }
 
   updateBounds() {
@@ -63,8 +62,11 @@ class SpotMap extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    const { spots } = newProps;
     this.MarkerManager.updateMarkers(newProps.spots);
+    // this.map.setCenter(latlng: { lat: spots.lat, lng: spots.lng });
   }
+  componentDidReceiveProps
 
   handleCLick(coords) {
     this.props.history.push({
