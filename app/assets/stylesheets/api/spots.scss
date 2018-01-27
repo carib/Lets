@@ -126,9 +126,18 @@
 
 @media only screen and (min-width: 1300px) {
   .spot-index-main {
-    column-count: 3
+    column-count: 2;
   }
 
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1490px) {
+  .spot-index-main {
+    column-count: 2 !important;
+  }
   .spot-item {
     min-width: 100% !important;
   }

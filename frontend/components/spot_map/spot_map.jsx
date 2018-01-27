@@ -23,7 +23,7 @@ class SpotMap extends React.Component {
   initializeMap() {
     const mapOptions = {
       center: this.state.currentLocation,
-      zoom: 1
+      zoom: 2
     };
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
