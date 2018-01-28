@@ -90,9 +90,11 @@ class SearchBar extends React.Component {
     const predictionsWrapperDiv = document.createElement(`ul`);
 
     predictionsWrapperDiv.classList.add(`pac-container`, `pac-logo`);
+    if (this.props.formProps && this.props.formProps.match.path === '/new') {
+      predictionsWrapperDiv.classList.add(`new-spot-pac`);
+    }
     return predictionsWrapperDiv;
   }
-
   displayPredictionSuggestions(predictions, status, predictionList, autocompleteFormField) {
     if (status !== google.maps.places.PlacesServiceStatus.OK) {
       predictionList.style.display = `none`;

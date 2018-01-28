@@ -46,9 +46,7 @@ class Search extends React.Component {
             }
           }
         );
-      } else {
-        predictionList.style.display = `none`;
-      }
+      } 
     });
   }
 

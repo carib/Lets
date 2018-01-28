@@ -13,6 +13,7 @@
    height: 85%;
    width: 34%;
    max-width: 666px;
+   // min-width: 666px;
  }
 
 .spot-index-main {
@@ -122,30 +123,35 @@
   }
 
   .spot-index-inner-column {
-    width: 56% !important;
+    width: 92% !important;
   }
 
+  .spot-index-column {
+    width: 50% !important;
+  }
 
-    .spot-index-column {
-      width: 100% !important;
-    }
-
+  .map-wrap #map-container {
+    width: 49%;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
   .spot-index-main {
-    column-count: 2 !important;
+    column-count: 1 !important;
     width: 100% !important;
   }
 
   .spot-index-inner-column {
-    width: 33% !important;
-  }
-
-  .spot-index-column {
     width: 92% !important;
   }
 
+  .spot-index-column {
+    width: 50% !important;
+  }
+
+  .map-wrap #map-container {
+    width: 49%;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -165,6 +171,12 @@
     column-count: 2 !important;
     width: 66% !important;
   }
+
+
+  .map-wrap #map-container {
+    width: 34%;
+  }
+
 
   .spot-index-column {
     width: 100% !important;

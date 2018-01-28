@@ -36,6 +36,18 @@
     }
   }
 
+  .new-spot-pac {
+    max-height: 360px;
+    width: 384px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    border: 1px solid #e0e0e0;
+    line-height: 1;
+    text-indent: 10px;
+  }
+
   .new-spot-submit-button {
     height: 35px;
     width: 98px;
