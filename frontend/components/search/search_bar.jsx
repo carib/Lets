@@ -29,13 +29,12 @@ class SearchBar extends React.Component {
     e.preventDefault();
     this.setState({
       autocompleteFormFieldValue: document.getElementById(`search-bar-input`).innerHTML,
-    })
-
+    });
   }
 
   handleSearch(e) {
     if (this.props.searchSpots) {
-      this.props.searchSpots(e.target.value);
+      this.props.searchSpots(this.state.autocompleteFormFieldValue, null, document.getElementById(`search-bar-input`));
     }
   }
 
@@ -71,7 +70,6 @@ class SearchBar extends React.Component {
 
     const formFieldParent = autocompleteFormField.parentElement;
     document.getElementById(formFieldParent.id).appendChild(predictionList);
-
     autocompleteFormField.addEventListener(`input`, () => {
       if (autocompleteFormField.value) {
         predictionList.style.display = `block`;
@@ -100,7 +98,6 @@ class SearchBar extends React.Component {
       predictionList.style.display = `none`;
       return;
     }
-
 
 // NOTE: Added followinglines 16 to dynamically remove dud predictions
 
@@ -145,11 +142,9 @@ class SearchBar extends React.Component {
     }, (place, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         if (place.types[0] === `street_address`) {
-
-//NOTE: fillInAddress() doesn't exist?!?
           this.fillInAddress(place, autocompleteFormField);
         } else {
-          autocompleteFormField.value = prediction.terms[0].value;
+          autocompleteFormField.value = prediction.description;
           predictionList.style.display = `none`;
         }
       }
@@ -158,6 +153,7 @@ class SearchBar extends React.Component {
 
   fillInAddress(place, autocompleteFormField) {
     autocompleteFormField.value = place.formatted_address;
+    predictionList.style.display = `none`;
   }
 
   autocompleteKeyboardListener(predictions, predictionList, autocompleteFormField) {
@@ -175,6 +171,7 @@ class SearchBar extends React.Component {
           break;
         case 13: // ENTER
           this.keyboardAutocomplete(predictions, predictionList, autocompleteFormField, this.keyCodeListener);
+          autocompletePredictionMarkup.style.display = 'none';
           break;
       }
     };
@@ -227,19 +224,11 @@ class SearchBar extends React.Component {
 
       document.querySelector(`.pac-selected`).classList.remove(`pac-selected`);
       autocompleteFormField.removeEventListener(`keydown`, keyCodeListener);
-
       this.setState({
         autocompleteFormFieldValue: selectedResult,
       });
     }
   }
-
-  /*Hi, I just wanted to thank you for your tutorial on implementing TK!
-  I'm building a clone of airbnb for my final project in AA bootcamp and I've been going out of my way to avoid using third-party packages so that I can feel confident that I understand the material (plus I doubt "just install TK package", would go over very well for "how do you" questions in job interviews). I figured using gmaps widgets was a necessary exception to this approach, so when I got to part three of your tutorial and saw that we were about to take apart the widget and build a custom one I nearly emoted all over my desk here in class!
-
-  PS. Why did I ever use anything other than backticks?!
-  */
-
 
   render() {
     return (

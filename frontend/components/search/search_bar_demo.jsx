@@ -32,7 +32,7 @@ class SearchBar extends React.Component {
       this.props.searchSpots(e, this.state, autocompleteFormField);
     }
   }
-
+  //
   componentDidMount() {
     this.initAutocomplete();
   }
@@ -46,6 +46,7 @@ class SearchBar extends React.Component {
     google.maps.event.addListener(autocomplete, 'place_changed', () => {
       const place = autocomplete.getPlace();
       const addressMap = this.mapAddressComponents(place.address_components);
+                        console.log('sbd', place);
       this.setState({
         autocompleteFormFieldValue: place.formatted_address,
         latLng: {

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import times from 'lodash/times';
 
-import SearchBar from '../search/search_bar_demo';
+import SearchBar from '../search/search_bar';
 
 class SpotForm extends React.Component {
   constructor(props) {

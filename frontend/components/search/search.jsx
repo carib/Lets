@@ -2,7 +2,7 @@ import React from 'react';
 
 import SpotIndex from './spot_index';
 import SpotMap from './../spot_map/spot_map';
-import SearchBar from './search_bar_demo';
+import SearchBar from './search_bar';
 
 class Search extends React.Component {
   constructor(props) {
@@ -29,15 +29,21 @@ class Search extends React.Component {
 
   searchSpots(query, queryFullAddressComponents, autocompleteFormField) {
     const autocomplete = new google.maps.places.AutocompleteService();
+    this.setState({
+      input: autocompleteFormField,
+      query: query,
+    })
     autocompleteFormField.addEventListener(`input`, () => {
       if (autocompleteFormField.value) {
         autocomplete.getPlacePredictions({
           input: autocompleteFormField.value,
           types: [`geocode`]},
           (predictions, status) => {
-            predictions.map(prediction => {
-              const coords = this.extractCoords(prediction.description)
-            })
+            if (predictions) {
+              predictions.map(prediction => {
+                const coords = this.extractCoords(prediction.description)
+              });
+            }
           }
         );
       } else {
@@ -48,12 +54,10 @@ class Search extends React.Component {
 
   extractCoords(address) {
     const geo = new google.maps.Geocoder();
-    let newBounds;
     geo.geocode( { 'address': address }, (results, status) => {
       if (status == 'OK') {
         results.map(result => {
           const viewport = result.geometry.viewport;
-          console.log('extract coords',viewport);
           this.updateBounds(viewport);
         })
       }
@@ -62,7 +66,7 @@ class Search extends React.Component {
 
   updateBounds(latlng) {
     const bounds = this.parseBounds(latlng);
-    console.log('bounds',bounds);
+    console.log('update', latlng);
     this.props.updateFilter('bounds', bounds);
   }
 
@@ -73,7 +77,7 @@ class Search extends React.Component {
       northEast: { lat: ne.lat(), lng: ne.lng() },
       southWest: { lat: sw.lat(), lng: sw.lng() },
     };
-
+    this.newBounds = bounds;
     return bounds;
   }
 
@@ -86,13 +90,19 @@ class Search extends React.Component {
 
     const {
       spots,
-      searchPage
+      searchPage,
+      input,
+      query,
     } = this.state;
 
     const spotValues = {
       streetAddress: '',
     }
+    let mapCenter;
 
+    if (spots.length > 0) {
+      mapCenter = this.newBounds
+    }
 
     return (
       <div className="search-main">
@@ -103,6 +113,9 @@ class Search extends React.Component {
         <SpotMap
           spots={spots}
           updateFilter={updateFilter}
+          mapCenter={mapCenter}
+          input={input}
+          query={query}
         />
         <SpotIndex
           fetchSpots={fetchSpots}

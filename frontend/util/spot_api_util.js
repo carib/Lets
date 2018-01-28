@@ -1,6 +1,5 @@
 export const fetchSpots = (filters) => {
   let bounds;
-  console.log('filters',filters);
   if (filters !== undefined) {
     bounds = filters.bounds;
   } else {

@@ -33,13 +33,35 @@
   }
 }
 
-
 .pac-container {
-  max-height: 300px ;
+  max-height: 360px;
   width: 556px;
   background: #fff;
+  position: absolute;
+  top: 103%;
+  left: -1px;
+  border: 1px solid #e0e0e0;
+  line-height: 1;
+  text-indent: 59px;
 
   .pac-selected {
-    background: #555;
+    background: #c6ece9;
+  }
+
+  .pac-item {
+    font-size: 15px;
+    line-height: 3.1;
+  }
+
+  .pac-item:first-child {
+    margin-top: 40px;
+  }
+
+  .pac-item:last-child {
+    margin-bottom: 50px;
+  }
+
+  .pac-item:hover {
+    background: #c6ece9;
   }
 }
