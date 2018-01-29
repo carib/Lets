@@ -4,15 +4,9 @@ import times from 'lodash/times';
 
 import SearchBar from '../../search/search_bar';
 
+export const NewSpotP1 = ({ formProps }) => {
 
-
-const NewSpotP1 = ({ formProps }) => {
-
-  // 1. What kind of place do you have?
-  //   - Entire Place, Private Room, Shared Room
-  //   - for n guests
-  //   - Location search
-const { user, userLocation, createSpot } = formProps;
+const { user, userLocation, createSpot, handleClick } = formProps;
 const placeholder = "New York, NY, USA"
   return (
     <div className="new-spot-inner">
@@ -38,12 +32,13 @@ const placeholder = "New York, NY, USA"
           }
         </select>
         <SearchBar formProps={formProps}  placeholder={placeholder}/>
-        <input className="new-spot-submit-button" type="submit" value="Continue"/>
+        <input
+          className="new-spot-submit-button"
+          type="submit"
+          value="Continue"
+          onClick={handleClick}
+          />
       </div>
     </div>
   )
 }
-
-
-
-export default NewSpotP1;

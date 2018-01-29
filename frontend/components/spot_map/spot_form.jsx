@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import times from 'lodash/times';
 
+import { NewSpotP1 } from './spot_forms/new_spot_1';
 import SearchBar from '../search/search_bar';
 
 class SpotForm extends React.Component {
@@ -68,9 +69,9 @@ class SpotForm extends React.Component {
       maxGuests: occupancy,
       streetAddress: address,
     });
+
     if (this.state.spotValues.postalCode) {
       this.setState({postalCode: this.state.spotValues.postalCode});
-
     }
   }
 
@@ -96,7 +97,18 @@ class SpotForm extends React.Component {
     return loc;
   }
 
+  spotFormRelay() {
+    switch (expression) {
+      case expression:
+
+        break;
+      default:
+
+    }
+  }
+
   render() {
+    console.log(this.props);
     return (
       <form className="new-spot-main" onSubmit={this.handleSubmit}>
         <div className="new-spot-inner">
@@ -135,6 +147,8 @@ class SpotForm extends React.Component {
 }
 
 export default withRouter(SpotForm);
+//
+
 // <NewSpotP1
 //   formProps={this.props}
 //   update={this.update}
