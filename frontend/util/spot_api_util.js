@@ -16,11 +16,10 @@ export const fetchSpots = (filters) => {
   });
 };
 
-export const fetchSpot = (spot) => {
+export const fetchSpot = (spotId) => {
   return $.ajax({
     method: 'GET',
-    url: `api/spots/${spot.id}`,
-    data: { spot },
+    url: `api/spots/${spotId}`,
   })
 }
 

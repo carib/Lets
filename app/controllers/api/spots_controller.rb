@@ -14,6 +14,7 @@ class Api::SpotsController < ApplicationController
   end
 
   def show
+    @spot = Spot.includes(:spot_detail).find(params[:id])
   end
 
   private

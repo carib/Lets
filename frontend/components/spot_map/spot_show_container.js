@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 
 import { fetchSpot } from '../../actions/spot_actions';
 
-import SpotDetail from './spot_detail';
+import SpotShow from './spot_show';
 
 const mapStateToProps = (state) => {
   return {
-
+    spot: state.entities.spots[state.ui.spotShow],
   }
 }
 
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SpotDetail);
+)(SpotShow);

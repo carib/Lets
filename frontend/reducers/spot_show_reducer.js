@@ -2,16 +2,17 @@ import merge from 'lodash/merge';
 
 import { RECEIVE_SPOT } from '../actions/spot_actions';
 
-const spotDetailsReducer = (state = {}, action) => {
+const spotShowReducer = (state = null, action) => {
   Object.freeze(state);
+  console.log(action);
   let spotDetails;
   switch (action.type) {
     case RECEIVE_SPOT:
-      spotDetails = action.payload.spot_detail;
-      return merge({}, state, spotDetails);
+      const spot = action.payload.spots;
+      return spot.id;
     default:
       return state;
   }
 };
 
-export default spotDetailsReducer
+export default spotShowReducer

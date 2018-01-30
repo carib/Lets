@@ -1,6 +1,6 @@
 class SpotDetailsController < ApplicationController
   def update
-    @spot_detail = Item.find(params[:id])
+    @spot_detail = SpotDetail.find(params[:id])
 
     if @spot_detail.update(spot_detail_params)
       spot = @spot_detail.spot
@@ -9,6 +9,10 @@ class SpotDetailsController < ApplicationController
     else
       render json: @spot_detail.errors.full_messages, status: 422
     end
+  end
+
+  def show
+    @spot_detail = SpotDetail.find_by(spot_id: params[:id])
   end
 
   private

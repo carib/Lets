@@ -33,11 +33,11 @@ class Search extends React.Component {
       input: autocompleteFormField,
       query: query,
     })
-    autocompleteFormField.addEventListener(`input`, () => {
+    autocompleteFormField.addEventListener('input', () => {
       if (autocompleteFormField.value) {
         autocomplete.getPlacePredictions({
           input: autocompleteFormField.value,
-          types: [`geocode`]},
+          types: ['geocode']},
           (predictions, status) => {
             if (predictions) {
               predictions.map(prediction => {
@@ -46,7 +46,7 @@ class Search extends React.Component {
             }
           }
         );
-      } 
+      }
     });
   }
 

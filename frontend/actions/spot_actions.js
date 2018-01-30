@@ -11,10 +11,10 @@ export const receiveSpots = spots => {
   }
 }
 
-export const receiveSpot = spot => {
+export const receiveSpot = payload => {
   return {
     type: RECEIVE_SPOT,
-    spot
+    payload
   }
 }
 
@@ -25,8 +25,8 @@ export const fetchSpots = (filters) => dispatch => {
   });
 }
 
-export const fetchSpot = (spot) => dispatch => {
-  return ApiUtil.fetchSpot(spot.id).then(spot => {
+export const fetchSpot = (spotId) => dispatch => {
+  return ApiUtil.fetchSpot(spotId).then(spot => {
     dispatch(receiveSpot(spot));
     return spot;
   });
