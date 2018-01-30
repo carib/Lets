@@ -23,7 +23,7 @@
 
 class Spot < ApplicationRecord
   validates :description, :lat, :lng, presence: true
-  has_attached_file :spot_image, styles: { cover: "1296x729>", thumbnail: "500x340>" }
+  has_attached_file :spot_image, styles: { full: "1296x729>", hero: "1296x550#", thumbnail: "500x340>" }
   validates_attachment_content_type :spot_image, content_type: /\Aimage\/.*\z/
 
   has_one :spot_detail,

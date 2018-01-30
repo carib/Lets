@@ -7,7 +7,7 @@ const spotShowReducer = (state = null, action) => {
   let spotDetails;
   switch (action.type) {
     case RECEIVE_SPOT:
-      const spot = action.payload.spots;
+      const spot = action.payload.spot;
       return spot.id;
     default:
       return state;

@@ -1,0 +1,10 @@
+---
+:Spot:
+  :spot_image:
+  - :full
+  - :hero
+  - :thumbnail
+:User:
+  :avatar:
+  - :medium
+  - :thumb

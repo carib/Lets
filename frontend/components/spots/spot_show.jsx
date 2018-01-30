@@ -21,16 +21,28 @@ class SpotShow extends React.Component {
   }
 
   render() {
-    const { spot } = this.state;
+    const { spot, spotDetails } = this.state;
     return (
-      <main className="spot-show-main">
+      <div className="spot-show-main">
         <section className="spot-hero-container">
-          <img src={spot.imageUrl} className="spot-hero"></img>
+          <img src={spot.imageHeroUrl} className="spot-hero"></img>
         </section>
-        <ul>
-          <li>Here's something!</li>
-        </ul>
-      </main>
+        <section className="spot-show-details">
+          <nav className="spot-show-nav">
+            <ul className="spot-show-nav-list">
+              <li className="spot-show-nav-list-item">Overview </li> ·
+              <li className="spot-show-nav-list-item">Reviews</li> ·
+              <li className="spot-show-nav-list-item">The Host</li> ·
+              <li className="spot-show-nav-list-item">Location</li>
+            </ul>
+          </nav>
+          <section className="spot-show-description">
+            <div className="spot-show-headline">Malibu Yurt Retreat On Organic Farm</div>
+            <div className="spot-show-host-avatar"></div>
+          </section>
+        </section>
+        <section className="spot-show-book-box">BOOK BOX</section>
+      </div>
     )
   }
 }

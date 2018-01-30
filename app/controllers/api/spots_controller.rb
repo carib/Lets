@@ -29,6 +29,7 @@ class Api::SpotsController < ApplicationController
       :spotType,
       :lat,
       :lng,
+      :spot_image,
     )
   end
 end
