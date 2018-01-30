@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SpotIndex from './spot_index';
-import SpotMap from './../spot_map/spot_map';
+import SpotMap from './../spots/spot_map';
 import SearchBar from './search_bar';
 
 class Search extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
-import SpotFormContainer from '../spot_map/spot_form_container';
+import SpotFormContainer from '../spots/spot_form_container';
 
 class Header extends React.Component {
   constructor(props) {

@@ -8,13 +8,11 @@ import {
 const spotsReducer = (state = {}, action) => {
   Object.freeze(state);
   let spot;
-  console.log(action);
   switch (action.type) {
     case RECEIVE_SPOTS:
       return merge({}, state, action.spots);
     case RECEIVE_SPOT:
       spot = action.payload.spots
-      console.log('spot', spot);
       return merge({}, state, { [spot.id]: spot });
     default:
       return state;
