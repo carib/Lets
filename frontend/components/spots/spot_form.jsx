@@ -33,6 +33,7 @@ class SpotForm extends React.Component {
       country: '',
       occupancy: 0,
       userSpotLocationInput: '',
+      currentForm: 1,
     };
   }
 
@@ -68,7 +69,15 @@ class SpotForm extends React.Component {
     geo.geocode({ 'location': coords }, (results, status) => {
       if (status === 'OK') {
         const loc = results[0].address_components;
-        console.log('parsecoords',loc);
+        let city;
+        let state;
+        let country;
+        loc.map(result => {
+          const types = result.types.join();;
+          if (/locality/.test(types)) city: result.long_name;
+          if(/country/.test(types)) country: result.long_name;
+          if (/administrative_area/.test(types)) state: result.long_name;
+        });
         this.setState({
           country: loc[8].long_name,
           state: loc[5].long_name,
@@ -118,38 +127,38 @@ class SpotForm extends React.Component {
     return loc;
   }
 
-  spotFormRelay(formNum) {
-    if (!formNum) formNum = "/new";
+  spotFormRelay() {
     const searchProps = {
       mapValuesToState: this.mapValuesToState,
       searchValues: this.state,
     };
-    switch (formNum) {
-      case "/new-2":
-        <NewSpotP2/>
+    console.log('relay', this.state);
+    switch (this.state.currentForm) {
+      case 2:
+        return <NewSpotP2/>
+        break;
+      case 3:
         break;
       default:
         return <NewSpotP1
-          update={this.update}
-          formProps={this.props}
-          searchProps={searchProps}
-          handleClick={this.handleRelay}
-          handleSubmit={this.handleSubmit}
-          extractCoords={this.extractCoords}
-          userLocation={this.userLocation()}
-          />
+                  update={this.update}
+                  formProps={this.props}
+                  searchProps={searchProps}
+                  handleClick={this.handleRelay}
+                  handleSubmit={this.handleSubmit}
+                  extractCoords={this.extractCoords}
+                  userLocation={this.userLocation()}
+                />
     }
   }
 
   handleRelay() {
-    const { path } = this.props.match
-    let nextNum;
-    let formNum;
-    if (path !== nextNum) {
-      formNum = parseInt(path.slice(-1));
-      nextNum = (`/new-${formNum + 1}` ||  '/new-1');
-    }
-    this.spotFormRelay(nextNum);
+    const formNum = (this.state.currentForm + 1);
+    console.log("formNum", formNum);
+    this.setState({
+      currentForm: formNum
+    });
+    this.spotFormRelay();
   }
 
   render() {

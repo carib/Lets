@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NewSpotP1 = (props) => {
+export const NewSpotP2 = (props) => {
 
   // 2. What kind of place are you listing?
   //   - Home, Hotel, Something Else?
@@ -11,7 +11,7 @@ const NewSpotP1 = (props) => {
 
   return (
     <div className="new-spot-inner">
-      <form className="new-spot-1">
+      <form className="new-spot-2">
         <label>Description:
           <input type="text"/>
         </label>
@@ -31,5 +31,3 @@ const NewSpotP1 = (props) => {
     </div>
   )
 }
-
-export default NewSpotP1;
