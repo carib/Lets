@@ -11,6 +11,17 @@ class SpotShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchSpot(this.props.match.params.spotId);
+    document.addEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    const bookBox = $('.spot-show-book-box');
+    // debugger
+    if (window.scrollY > 632) {
+      bookBox.addClass('fixbox');
+    } else {
+      bookBox.removeClass('fixbox');
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -22,6 +33,9 @@ class SpotShow extends React.Component {
 
   render() {
     const { spot, spotDetails } = this.state;
+
+
+
     return (
       <div className="spot-show-main">
         <section className="spot-hero-container">
@@ -40,8 +54,8 @@ class SpotShow extends React.Component {
             <div className="spot-show-headline">Malibu Yurt Retreat On Organic Farm</div>
             <div className="spot-show-host-avatar"></div>
           </section>
+          <section className="spot-show-book-box">BOOK BOX</section>
         </section>
-        <section className="spot-show-book-box">BOOK BOX</section>
       </div>
     )
   }

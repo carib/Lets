@@ -8,7 +8,7 @@ const spotDetailsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SPOT:
       spotDetails = action.payload.spot_detail;
-      return merge({}, state, spotDetails);
+      return spotDetails;
     default:
       return state;
   }
