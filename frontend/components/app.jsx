@@ -18,9 +18,11 @@ class App extends React.Component {
     return (
       <div>
         <ModalContainer>
-          <Route exact path="/:spotId" component={ SpotShowContainer } />
-          <AuthRoute path="/new" component={ SpotFormContainer } />
-          <Route exact path="/" component={ SearchContainer } />
+          <Switch>
+            <Route path="/new" component={ SpotFormContainer } />
+            <Route exact path="/:spotId" component={ SpotShowContainer } />
+            <Route exact path="/" component={ SearchContainer } />
+          </Switch>
         </ModalContainer>
       </div>
     );

@@ -18,35 +18,43 @@ class Modal extends React.Component {
       modalProps: {},
       modalType: null,
       show: this.props.currentModal.isShowing,
+      unfix: this.props.unfixHeader,
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ show: nextProps.show, currentModal: nextProps.currentModal })
+    this.setState({
+      show: nextProps.show,
+      currentModal: nextProps.currentModal,
+      unfix: nextProps.unfixHeader,
+    });
   }
+
+
 
   render() {
     const toggleType = (
-                        this.state.show
-                          ) ? (
-                            [this.props.hideModal, "modal-backdrop"]
-                          ) : (
-                            [this.props.showModal, "no-modal"]
-                        );
-    const modProps = merge(
-                            {},
-                            this.state.modalProps,
-                            { toggle: toggleType[0],
-                              fetch: this.props.fetchModal,
-                              show: this.state.show }
-                          );
+      this.state.show
+        ) ? (
+          [this.props.hideModal, "modal-backdrop"]
+        ) : (
+          [this.props.showModal, "no-modal"]
+    );
 
+    const modProps = merge(
+      {},
+      this.state.modalProps,
+      { toggle: toggleType[0],
+        fetch: this.props.fetchModal,
+        show: this.state.show }
+    );
+
+    const { unfix, currentModal } = this.state
     return (
       <main className="modal">
-        <header className="main-header">
+        <header className={(unfix) ? "main-header unfix" : "main-header"}>
           <Logo />
-
-          <HeaderContainer modProp={modProps} />
+          <HeaderContainer modProp={modProps} unfix={unfix}/>
         </header>
 
         <div className={toggleType[1]}>
@@ -55,7 +63,7 @@ class Modal extends React.Component {
 
               <ModalRelayContainer
                 modProps={modProps}
-                currentModal={this.state.currentModal} />
+                currentModal={currentModal} />
             </section>
           </div>
         </div>

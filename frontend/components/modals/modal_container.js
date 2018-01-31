@@ -14,12 +14,11 @@ const mapStateToProps = (state, ownProps) => {
     currentModal: state.ui.modal.currentModal,
     currentUser: state.session.currentUser,
     show: state.ui.modal.isShowing,
+    unfixHeader: Boolean(state.ui.spotShow)
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-
-
   return {
     showModal: () => dispatch(showModal()),
     hideModal: () => dispatch(hideModal()),

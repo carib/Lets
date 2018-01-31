@@ -28,13 +28,13 @@ class SearchBar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.setState({
-      autocompleteFormFieldValue: document.getElementById(`search-bar-input`).innerHTML,
+      autocompleteFormFieldValue: document.getElementById('search-bar-input').innerHTML,
     });
   }
 
   handleSearch(e) {
     if (this.props.searchSpots) {
-      this.props.searchSpots(this.state.autocompleteFormFieldValue, null, document.getElementById(`search-bar-input`));
+      this.props.searchSpots(this.state.autocompleteFormFieldValue, null, document.getElementById('search-bar-input'));
     }
   }
 
@@ -44,20 +44,20 @@ class SearchBar extends React.Component {
 
   initAutocomplete() {
     const googleComponentsInit = [{
-        googleComponent: `sublocality_level_1`,
-        id: `city-address-field`
+        googleComponent: 'sublocality_level_1',
+        id: 'city-address-field'
       }, {
-        googleComponent: `locality`,
-        id: `city-address-field`
+        googleComponent: 'locality',
+        id: 'city-address-field'
       }, {
-        googleComponent: `administrative_area_level_1`,
-        id: `state-address-field`
+        googleComponent: 'administrative_area_level_1',
+        id: 'state-address-field'
       }, {
-        googleComponent: `postal_code`,
-        id: `postal-code-address-field`
+        googleComponent: 'postal_code',
+        id: 'postal-code-address-field'
     }];
 
-    const autocompleteFormField = document.getElementById(`search-bar-input`);
+    const autocompleteFormField = document.getElementById('search-bar-input');
 
     this.initGooglePlacesAutocomplete(autocompleteFormField);
   }
@@ -70,34 +70,34 @@ class SearchBar extends React.Component {
 
     const formFieldParent = autocompleteFormField.parentElement;
     document.getElementById(formFieldParent.id).appendChild(predictionList);
-    autocompleteFormField.addEventListener(`input`, () => {
+    autocompleteFormField.addEventListener('input', () => {
       if (autocompleteFormField.value) {
-        predictionList.style.display = `block`;
+        predictionList.style.display = 'block';
         autocomplete.getPlacePredictions({
           input: autocompleteFormField.value,
-          types: [`geocode`]},
+          types: ['geocode']},
           (predictions, status) => {
             this.displayPredictionSuggestions(predictions, status, predictionList, autocompleteFormField);
           }
         );
       } else {
-        predictionList.style.display = `none`;
+        predictionList.style.display = 'none';
       }
     });
   }
 
   predictionListMarkup() {
-    const predictionsWrapperDiv = document.createElement(`ul`);
+    const predictionsWrapperDiv = document.createElement('ul');
 
-    predictionsWrapperDiv.classList.add(`pac-container`, `pac-logo`);
+    predictionsWrapperDiv.classList.add('pac-container', 'pac-logo');
     if (this.props.formProps && this.props.formProps.match.path === '/new') {
-      predictionsWrapperDiv.classList.add(`new-spot-pac`);
+      predictionsWrapperDiv.classList.add('new-spot-pac');
     }
     return predictionsWrapperDiv;
   }
   displayPredictionSuggestions(predictions, status, predictionList, autocompleteFormField) {
     if (status !== google.maps.places.PlacesServiceStatus.OK) {
-      predictionList.style.display = `none`;
+      predictionList.style.display = 'none';
       return;
     }
 
@@ -122,11 +122,11 @@ class SearchBar extends React.Component {
   }
 
   predictionBuilder(prediction, predictionList, autocompleteFormField) {
-    const predictionListItem = document.createElement(`li`);
-    predictionListItem.classList.add(`pac-item`);
+    const predictionListItem = document.createElement('li');
+    predictionListItem.classList.add('pac-item');
 
   predictionListItem.appendChild(document.createTextNode(prediction.description));
-    predictionListItem.addEventListener(`click`, () => {
+    predictionListItem.addEventListener('click', () => {
       this.autocompleteServiceListener(prediction, predictionList, autocompleteFormField);
     });
 
@@ -143,11 +143,11 @@ class SearchBar extends React.Component {
       placeId: prediction.place_id,
     }, (place, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        if (place.types[0] === `street_address`) {
+        if (place.types[0] === 'street_address') {
           this.fillInAddress(place, autocompleteFormField);
         } else {
           autocompleteFormField.value = prediction.description;
-          predictionList.style.display = `none`;
+          predictionList.style.display = 'none';
         }
       }
     });
@@ -155,11 +155,11 @@ class SearchBar extends React.Component {
 
   fillInAddress(place, autocompleteFormField) {
     autocompleteFormField.value = place.formatted_address;
-    predictionList.style.display = `none`;
+    predictionList.style.display = 'none';
   }
 
   autocompleteKeyboardListener(predictions, predictionList, autocompleteFormField) {
-    const autocompletePredictionMarkup = document.querySelector(`.pac-container`);
+    const autocompletePredictionMarkup = document.querySelector('.pac-container');
     this.keyCodeListener = (event) => {
       switch (event.keyCode) {
         case 38: // UP
@@ -177,14 +177,14 @@ class SearchBar extends React.Component {
           break;
       }
     };
-    autocompleteFormField.addEventListener(`keydown`, this.keyCodeListener);
+    autocompleteFormField.addEventListener('keydown', this.keyCodeListener);
   }
 
   upKeyAutocompleteInteraction(autocompletePredictionMarkup, autocompleteFormField) {
-    if (!(document.querySelector(`.pac-selected`))) {
+    if (!(document.querySelector('.pac-selected'))) {
       return this.autocompleteListDecorator(autocompletePredictionMarkup.lastChild, autocompleteFormField);
     } else {
-      const previousSibling = document.querySelector(`.pac-selected`).previousSibling;
+      const previousSibling = document.querySelector('.pac-selected').previousSibling;
 
       if (previousSibling) {
         this.autocompleteListDecorator(previousSibling, autocompleteFormField);
@@ -195,10 +195,10 @@ class SearchBar extends React.Component {
   }
 
   downKeyAutocompleteInteraction(autocompletePredictionMarkup, autocompleteFormField) {
-    if (!(document.querySelector(`.pac-selected`))) {
+    if (!(document.querySelector('.pac-selected'))) {
       return this.autocompleteListDecorator(autocompletePredictionMarkup.firstChild, autocompleteFormField);
     } else {
-      const nextSibling = document.querySelector(`.pac-selected`).nextSibling;
+      const nextSibling = document.querySelector('.pac-selected').nextSibling;
       if (nextSibling) {
         this.autocompleteListDecorator(nextSibling, autocompleteFormField);
       } else {
@@ -208,24 +208,24 @@ class SearchBar extends React.Component {
   }
 
   autocompleteListDecorator(autocompletePredictionMarkup, autocompleteFormField) {
-    if (document.querySelector(`.pac-selected`)) {
-      document.querySelector(`.pac-selected`).classList.remove(`pac-selected`);
+    if (document.querySelector('.pac-selected')) {
+      document.querySelector('.pac-selected').classList.remove('pac-selected');
     }
     autocompleteFormField.value = autocompletePredictionMarkup.innerHTML;
-    autocompletePredictionMarkup.classList.add(`pac-selected`);
+    autocompletePredictionMarkup.classList.add('pac-selected');
   }
 
   keyboardAutocomplete(predictions, predictionList, autocompleteFormField, keyCodeListener) {
-    if (document.querySelector(`.pac-selected`)) {
+    if (document.querySelector('.pac-selected')) {
       for (const prediction of predictions) {
-        if (document.querySelector(`.pac-selected`).innerHTML === prediction.description) {
+        if (document.querySelector('.pac-selected').innerHTML === prediction.description) {
           this.autocompleteServiceListener(prediction, predictionList, autocompleteFormField);
         }
       }
-      const selectedResult = document.querySelector(`.pac-selected`)
+      const selectedResult = document.querySelector('.pac-selected')
 
-      document.querySelector(`.pac-selected`).classList.remove(`pac-selected`);
-      autocompleteFormField.removeEventListener(`keydown`, keyCodeListener);
+      document.querySelector('.pac-selected').classList.remove('pac-selected');
+      autocompleteFormField.removeEventListener('keydown', keyCodeListener);
       this.setState({
         autocompleteFormFieldValue: selectedResult,
       });

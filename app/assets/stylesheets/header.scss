@@ -1,3 +1,6 @@
+.unfix {
+  position: relative !important;
+}
 
 .main-header {
   z-index: 2;
@@ -14,6 +17,7 @@
   // font-family: 'Circular', sans-serif;
   font-weight: book;
   font-size: 13px;
+
 
   h1 {
     padding: 5px;
@@ -98,9 +102,55 @@
       }
     }
   }
+
+  .logo-box {
+    z-index: 3;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 22px;
+    border: 1px solid #FA5C65;
+    border-radius: 45px;
+    background-color: #edfeff;
+
+
+    .logo-gel {
+      font-family: 'Mrs Sheppards', cursive !important;
+      font-size: 42px;
+      position: absolute;
+      left: -3px;
+      top: -8px;
+      opacity: 37;
+      color: #FA5C65;
+    }
+
+    .logo {
+      font-family: 'Mrs Sheppards', cursive !important;
+      font-size: 40px;
+      color: white;
+      z-index: 3;
+      position: absolute;
+      left: -2px;
+      top: -8px;
+    }
+  }
+
+  .logo-button {
+    height: 35px;
+    z-index: 5;
+    left: 22px;
+    top: 24px;
+    position: fixed;
+    width: 35px;
+    background: transparent;
+    cursor: pointer;
+  }
 }
 
-.search-filters-bar {
+.search-filters-bar-index {
   z-index: 1;
   position: fixed;
   top: 80px;
@@ -110,50 +160,4 @@
   width: 100%;
   background: #fff;
   color: #484848;
-}
-
-.logo-box {
-  z-index: 3;
-  height: 35px;
-  width: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  left: 22px;
-  border: 1px solid #FA5C65;
-  border-radius: 45px;
-  background-color: #edfeff;
-
-
-  .logo-gel {
-    font-family: 'Mrs Sheppards', cursive !important;
-    font-size: 42px;
-    position: absolute;
-    left: -3px;
-    top: -8px;
-    opacity: 37;
-    color: #FA5C65;
-  }
-
-  .logo {
-    font-family: 'Mrs Sheppards', cursive !important;
-    font-size: 40px;
-    color: white;
-    z-index: 3;
-    position: absolute;
-    left: -2px;
-    top: -8px;
-  }
-}
-
-.logo-button {
-  height: 35px;
-  z-index: 5;
-  left: 22px;
-  top: 24px;
-  position: fixed;
-  width: 35px;
-  background: transparent;
-  cursor: pointer;
 }

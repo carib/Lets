@@ -15,7 +15,7 @@ class SpotIndex extends React.Component {
     return (
       <div>
         <article className="spot-index-main">
-          <div className="search-filters-bar">
+          <div className="search-filters-bar-index">
           </div>
           <ul className="spot-index-column">
             {

@@ -113,7 +113,17 @@ class Header extends React.Component {
     );
   }
 
+  showHeader() {
+    return (
+      <div className="spot-show-header">HEADER!</div>
+    )
+  }
+
   render() {
+    console.log('header',this.props.unfix);
+    if (this.props.unfix) {
+      return this.showHeader();
+    }
     if (this.props.user !== null) {
       return this.memberHeader();
     } else {
