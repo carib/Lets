@@ -29,13 +29,16 @@ class SpotShow extends React.Component {
       spot: newProps.spot,
       spotDetails: newProps.spotDetails,
     });
-  }
 
+
+  }
   render() {
     const { spot, spotDetails } = this.state;
-
-
-
+    let spotType;
+    if (this.state.spot.spotType) {
+      spotType = this.state.spot.spotType.match(/^(.*)\s\*/)[1]
+    }
+    console.log(spotType);
     return (
       <div className="spot-show-main">
         <section className="spot-hero-container">
@@ -51,7 +54,17 @@ class SpotShow extends React.Component {
             </ul>
           </nav>
           <section className="spot-show-description">
-            <div className="spot-show-headline">Malibu Yurt Retreat On Organic Farm</div>
+            <div className="spot-show-info-container">
+              <div className="spot-show-type">{spotType}</div>
+              <div className="spot-show-headline">{spot.description}</div>
+              <div className="spot-show-location">{spotDetails.city}</div>
+              <div className="spot-show-quick-key">
+                <div className="spot-show-key-item-occupancy">TKTKTK</div>
+                <div className="spot-show-key-item-rooms">{spotDetails.rooms}</div>
+                <div className="spot-show-key-item-beds">{spotDetails.beds}</div>
+                <div className="spot-show-key-item-baths">{spotDetails.baths}</div>
+              </div>
+            </div>
             <div className="spot-show-host-avatar"></div>
           </section>
           <section className="spot-show-book-box">BOOK BOX</section>

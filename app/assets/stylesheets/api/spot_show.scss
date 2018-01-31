@@ -50,24 +50,43 @@
     .spot-show-description {
       display: flex;
       flex-direction: row;
+      align-items: flex-start;
       padding-top: 30px;
-      font-size: 35px;
-      font-weight: 600;
-      width: 40%;
+      width: 46%;
+      height: 200px;
       background-color: lightblue;
       color: #424242;
 
-      .spot-show-headline {
-        width: 80%;
+      .spot-show-info-container {
+        width: 85%;
+        flex-direction: column;
+
+        .spot-show-type {
+          font-size: 11px;
+          font-weight: 600;
+          font-stretch: extra-expanded;
+        }
+
+        .spot-show-headline {
+          font-size: 35px;
+          font-weight: 600;
+          width: 80%;
+        }
+
+        .spot-show-location {
+          font-size: 17px;
+          font-weight: lighter;
+        }
       }
 
       .spot-show-host-avatar {
-        border-radius: 50px;
-        border: 1px solid black;
         width: 60px;
         height: 60px;
         margin-left: 9px;
+        margin-top: 20px;
         box-sizing: border-box;
+        border-radius: 50px;
+        border: 1px solid black;
       }
     }
   }
