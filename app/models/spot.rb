@@ -19,6 +19,7 @@
 #  spot_image_content_type :string
 #  spot_image_file_size    :integer
 #  spot_image_updated_at   :datetime
+#  occupancy               :integer
 #
 
 class Spot < ApplicationRecord

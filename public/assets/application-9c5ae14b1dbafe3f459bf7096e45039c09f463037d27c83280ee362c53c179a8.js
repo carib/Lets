@@ -43334,7 +43334,7 @@ var SpotForm = function (_React$Component) {
       city: '',
       state: '',
       postalCode: '',
-      maxGuests: 0,
+      occupancy: 0,
       streetNumber: ''
     };
     return _this;
@@ -43380,7 +43380,7 @@ var SpotForm = function (_React$Component) {
 
       this.setState({
         spotType: type,
-        maxGuests: occupancy,
+        occupancy: occupancy,
         streetAddress: address
       });
       if (this.state.spotValues.postalCode) {
@@ -43464,7 +43464,7 @@ var SpotForm = function (_React$Component) {
             ),
             _react2.default.createElement(
               'select',
-              { id: 'occupancy', className: 'select-occupancy', type: 'text', defaultValue: 'for 4 guests', onChange: this.update('maxGuests') },
+              { id: 'occupancy', className: 'select-occupancy', type: 'text', defaultValue: 'for 4 guests', onChange: this.update('occupancy') },
               (0, _times2.default)(16, function (t) {
                 var text = 'for ' + t + ' guests ';
                 return _react2.default.createElement(

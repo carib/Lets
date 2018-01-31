@@ -16,6 +16,10 @@ class Search extends React.Component {
       loggedIn: false,
       spots: this.props.spots,
       allSpots: [],
+      activeFilter: {
+        type: null,
+        value: {},
+      }
     };
   }
 
@@ -32,7 +36,8 @@ class Search extends React.Component {
     this.setState({
       input: autocompleteFormField,
       query: query,
-    })
+    });
+    
     autocompleteFormField.addEventListener('input', () => {
       if (autocompleteFormField.value) {
         autocomplete.getPlacePredictions({
@@ -64,7 +69,6 @@ class Search extends React.Component {
 
   updateBounds(latlng) {
     const bounds = this.parseBounds(latlng);
-    console.log('update', latlng);
     this.props.updateFilter('bounds', bounds);
   }
 

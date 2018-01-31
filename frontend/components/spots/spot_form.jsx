@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import times from 'lodash/times';
 
 import { NewSpotP1 } from './spot_forms/new_spot_1';
+import { NewSpotP2 } from './spot_forms/new_spot_2';
+
 import SearchBar from '../search/search_bar';
 
 class SpotForm extends React.Component {
@@ -11,6 +13,7 @@ class SpotForm extends React.Component {
     super(props);
     this.update = this.update.bind(this);
     this.handleCLick = this.handleCLick.bind(this);
+    this.handleRelay = this.handleRelay.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.userLocation = this.userLocation.bind(this);
     this.extractCoords = this.extractCoords.bind(this);
@@ -18,17 +21,18 @@ class SpotForm extends React.Component {
 
     this.state = {
       description: 'New Listing!',
-      spotType: '',
-      lat: 0.0,
-      lng: 0.0,
+      spotType: 'Entire Place',
+      coords: {
+        lat: 0.0,
+        lng: 0.0,
+      },
       price: 0.00,
       currency: 'USD',
-      streetAddress: '',
       city: '',
       state: '',
-      postalCode: '',
-      maxGuests: 0,
-      streetNumber: '',
+      country: '',
+      occupancy: 0,
+      userSpotLocationInput: '',
     };
   }
 
@@ -52,27 +56,38 @@ class SpotForm extends React.Component {
 
       this.setState({
         lat: spotCoords.lat,
-        lng: spotCoords.lng
+        lng: spotCoords.lng,
+        coords: spotCoords,
+        userSpotLocationInput: address,
       });
+    });
+  }
+
+  parseCoords(coords) {
+    const geo = new google.maps.Geocoder();
+    geo.geocode({ 'location': coords }, (results, status) => {
+      if (status === 'OK') {
+        const loc = results[0].address_components;
+        console.log('parsecoords',loc);
+        this.setState({
+          country: loc[8].long_name,
+          state: loc[5].long_name,
+          city: loc[4].long_name,
+        });
+      }
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const type = document.getElementById('spot-type').value
     const address = document.getElementById('search-bar-input').value
-    const occupancy = document.getElementById('occupancy').value
-    const spotCoords = this.extractCoords(address);
-
-    this.setState({
-      spotType: type,
-      maxGuests: occupancy,
-      streetAddress: address,
-    });
-
-    if (this.state.spotValues.postalCode) {
-      this.setState({postalCode: this.state.spotValues.postalCode});
-    }
+    const coords = this.extractCoords(address);
+    setTimeout(() => {
+      this.parseCoords(this.state.coords)
+    }, 1000);
+    setTimeout(() => {
+      this.handleRelay()
+    }, 1);
   }
 
   mapValuesToState(values) {
@@ -82,7 +97,13 @@ class SpotForm extends React.Component {
 
   update(field) {
     return e => {
-      this.setState({ [field]: e.target.value })
+      if (field === 'coords') {
+        // debugger
+        let coords = this.extractCoords(e.target.value);
+        this.setState({ [field]: coords });
+      } else {
+        this.setState({ [field]: e.target.value });
+      }
     };
   }
 
@@ -97,65 +118,88 @@ class SpotForm extends React.Component {
     return loc;
   }
 
-  spotFormRelay() {
-    switch (expression) {
-      case expression:
-
+  spotFormRelay(formNum) {
+    if (!formNum) formNum = "/new";
+    const searchProps = {
+      mapValuesToState: this.mapValuesToState,
+      searchValues: this.state,
+    };
+    switch (formNum) {
+      case "/new-2":
+        <NewSpotP2/>
         break;
       default:
-
+        return <NewSpotP1
+          update={this.update}
+          formProps={this.props}
+          searchProps={searchProps}
+          handleClick={this.handleRelay}
+          handleSubmit={this.handleSubmit}
+          extractCoords={this.extractCoords}
+          userLocation={this.userLocation()}
+          />
     }
   }
 
-  render() {
-    console.log(this.props);
-    return (
-      <form className="new-spot-main" onSubmit={this.handleSubmit}>
-        <div className="new-spot-inner">
-          <div className="new-spot-headline">
-            Hi, {this.props.user.firstName}! Let's get started listing your space.
-          </div>
-          <div className="new-spot-step">STEP 1</div>
-          <div className="new-spot-question">What kind of place do you have?</div>
-          <div className="new-spot-inputs">
-            <select id="spot-type" className="select-spot-type" type="text" onChange={this.update('spotType')}>
-              <option value="Entire place">Entire place</option>
-              <option value="Private room">Private room</option>
-              <option value="Shared room">Shared room</option>
-            </select>
+  handleRelay() {
+    const { path } = this.props.match
+    let nextNum;
+    let formNum;
+    if (path !== nextNum) {
+      formNum = parseInt(path.slice(-1));
+      nextNum = (`/new-${formNum + 1}` ||  '/new-1');
+    }
+    this.spotFormRelay(nextNum);
+  }
 
-            <select id="occupancy" className="select-occupancy" type="text" defaultValue="for 4 guests" onChange={this.update('maxGuests')}>
-              {
-                times(16, (t) => {
-                  const text = `for ${t} guests `;
-                  return <option key={t} value={text}>{text}</option>
-                })
-              }
-            </select>
-            <SearchBar
-              formProps={this.props}
-              spotValues={this.state}
-              placeholder='New York, NY, US'
-              mapValuesToState={this.mapValuesToState}
-            />
-          <input className="new-spot-submit-button" type="submit" value="Continue" onClick={this.handleCLick}/>
-          </div>
-        </div>
-    </form>
-    )
+  render() {
+    console.log('main form',this.state);
+    return this.spotFormRelay();
   }
 }
 
 export default withRouter(SpotForm);
 //
 
-// <NewSpotP1
-//   formProps={this.props}
-//   update={this.update}
-//   handleSubmit={this.handleSubmit}
-//   userLocation={this.userLocation()}
-//   extractCoords={this.extractCoords}
-// />
+// <form className="new-spot-main" onSubmit={this.handleSubmit}>
+//   <NewSpotP1
+//     formProps={this.props}
+//     update={this.update}
+//     handleSubmit={this.handleSubmit}
+//     userLocation={this.userLocation()}
+//     extractCoords={this.extractCoords}
+//   />
+//   <div className="new-spot-inner">
+//     <div className="new-spot-headline">
+//       Hi, {this.props.user.firstName}! Let's get started listing your space.
+//     </div>
+//     <div className="new-spot-step">STEP 1</div>
+//     <div className="new-spot-question">What kind of place do you have?</div>
+//     <div className="new-spot-inputs">
+//       <select id="spot-type" className="select-spot-type" type="text" onChange={this.update('spotType')}>
+//         <option value="Entire place">Entire place</option>
+//         <option value="Private room">Private room</option>
+//         <option value="Shared room">Shared room</option>
+//       </select>
+//
+//       <select id="occupancy" className="select-occupancy" type="text" defaultValue="for 4 guests" onChange={this.update('occupancy')}>
+//         {
+//           times(16, (t) => {
+//             const text = `for ${t} guests `;
+//             return <option key={t} value={text}>{text}</option>
+//           })
+//         }
+//       </select>
+//       <SearchBar
+//         formProps={this.props}
+//         spotValues={this.state}
+//         placeholder='New York, NY, US'
+//         mapValuesToState={this.mapValuesToState}
+//       />
+//     <input className="new-spot-submit-button" type="submit" value="Continue" onClick={this.handleCLick}/>
+//     </div>
+//   </div>
+// </form>
 
 // 1. What kind of place do you have?
 //   - Entire Place, Private Room, Shared Room
