@@ -14,8 +14,7 @@ const filterReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case CHANGE_FILTER:
-      return merge({}, { [action.filter]: action.value });
-
+      return merge({}, state, { [action.filter]: action.value });
     default:
       return state;
   }
