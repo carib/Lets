@@ -15,10 +15,7 @@ class SpotForm extends React.Component {
     this.handleCLick = this.handleCLick.bind(this);
     this.handleRelay = this.handleRelay.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.userLocation = this.userLocation.bind(this);
     this.extractCoords = this.extractCoords.bind(this);
-    this.mapValuesToState = this.mapValuesToState.bind(this);
-
     this.state = {
       description: 'New Listing!',
       spotType: 'Entire Place',
@@ -26,13 +23,25 @@ class SpotForm extends React.Component {
         lat: 0.0,
         lng: 0.0,
       },
+      details: {
+        rooms: 0,
+        beds: 0,
+        baths: 0,
+        tv: false,
+        pets: false,
+        kitchen: false,
+        laundry: false,
+        parking: false,
+        internet: false,
+        outdoor_area: false,
+      },
       price: 0.00,
       currency: 'USD',
+      userSpotLocationInput: '',
       city: '',
       state: '',
       country: '',
       occupancy: 0,
-      userSpotLocationInput: '',
       currentForm: 1,
     };
   }
@@ -46,7 +55,6 @@ class SpotForm extends React.Component {
   extractCoords(address) {
     const geo = new google.maps.Geocoder();
     let spotCoords;
-
     geo.geocode( { 'address': address }, (results, status) => {
       if (status == 'OK') {
         spotCoords = {
@@ -54,12 +62,11 @@ class SpotForm extends React.Component {
           lng: results[0].geometry.location.lng(),
         };
       }
-
       this.setState({
+        userSpotLocationInput: address,
         lat: spotCoords.lat,
         lng: spotCoords.lng,
         coords: spotCoords,
-        userSpotLocationInput: address,
       });
     });
   }
@@ -73,15 +80,15 @@ class SpotForm extends React.Component {
         let state;
         let country;
         loc.map(result => {
-          const types = result.types.join();;
-          if (/locality/.test(types)) city: result.long_name;
-          if(/country/.test(types)) country: result.long_name;
-          if (/administrative_area/.test(types)) state: result.long_name;
+          const types = result.types.join();
+          if (/locality/.test(types)) city = result.long_name;
+          if (/administrative_area/.test(types)) state = result.long_name;
+          if(/country/.test(types)) country = result.long_name;
         });
         this.setState({
-          country: loc[8].long_name,
-          state: loc[5].long_name,
-          city: loc[4].long_name,
+          city: city,
+          state: state,
+          country: country,
         });
       }
     });
@@ -99,70 +106,45 @@ class SpotForm extends React.Component {
     }, 1);
   }
 
-  mapValuesToState(values) {
-    const newState = Object.assign({}, this.state, values);
-    this.setState(newState);
-  }
-
   update(field) {
+    let coords;
     return e => {
-      if (field === 'coords') {
-        // debugger
-        let coords = this.extractCoords(e.target.value);
-        this.setState({ [field]: coords });
-      } else {
-        this.setState({ [field]: e.target.value });
+      switch (field) {
+        case 'coords':
+          coords = this.extractCoords(e.target.value);
+          this.setState({ [field]: coords });
+          break;
+        default:
+          this.setState({ [field]: e.target.value });
       }
     };
   }
 
-  userLocation() {
-    let loc;
-    navigator.geolocation.getCurrentPosition(pos => {
-      loc = {
-        lat: pos.coords.latitude,
-        lng: pos.coords.longitude
-      };
-    });
-    return loc;
-  }
-
-  spotFormRelay() {
-    const searchProps = {
-      mapValuesToState: this.mapValuesToState,
-      searchValues: this.state,
-    };
-    console.log('relay', this.state);
-    switch (this.state.currentForm) {
-      case 2:
-        return <NewSpotP2/>
-        break;
-      case 3:
-        break;
-      default:
-        return <NewSpotP1
-                  update={this.update}
-                  formProps={this.props}
-                  searchProps={searchProps}
-                  handleClick={this.handleRelay}
-                  handleSubmit={this.handleSubmit}
-                  extractCoords={this.extractCoords}
-                  userLocation={this.userLocation()}
-                />
-    }
-  }
-
   handleRelay() {
     const formNum = (this.state.currentForm + 1);
-    console.log("formNum", formNum);
-    this.setState({
-      currentForm: formNum
-    });
+    this.setState({ currentForm: formNum });
     this.spotFormRelay();
   }
 
+  spotFormRelay() {
+    switch (this.state.currentForm) {
+      case 2: return <NewSpotP2/>
+        break;
+      case 3:
+        break;
+      default: return <NewSpotP2
+                        update={this.update}
+                        spotDetails={this.state.details}
+                      />
+      // default: return <NewSpotP1
+      //                   update={this.update}
+      //                   formProps={this.props}
+      //                   handleSubmit={this.handleSubmit}
+      //                 />
+    }
+  }
+
   render() {
-    console.log('main form',this.state);
     return this.spotFormRelay();
   }
 }

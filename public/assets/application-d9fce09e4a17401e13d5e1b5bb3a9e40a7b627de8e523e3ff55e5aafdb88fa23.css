@@ -386,7 +386,7 @@
 }
 /* line 55, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
 .spot-index-main .spot-index-column .spot-index-inner-column .spot-item .nested-spot-item {
-  font-family: 'Circular', sans-serif !important;
+  /* font-family: 'Circular', sans-serif !important; */
 }
 /* line 58, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/api/spots.scss */
 .spot-index-main .spot-index-column .spot-index-inner-column .spot-item .nested-spot-item .nested-spot-list {
@@ -1000,7 +1000,7 @@ input[type="submit"] {
 }
 /* line 4, /Users/44carib/thing/aa/coursework/Lets/app/assets/stylesheets/static_pages.scss */
 * {
-  font-family: 'Circular', sans-serif !important;
+  /* font-family: 'Circular', sans-serif !important; */
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -1047,5 +1047,5 @@ input[type="submit"] {
 }
 
 * {
-  font-family: 'Circular', sans-serif !important;
+  /* font-family: 'Circular', sans-serif !important; */
 }

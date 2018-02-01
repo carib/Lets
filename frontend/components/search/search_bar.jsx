@@ -7,10 +7,6 @@ import MagnifyIcon from 'mdi-react/MagnifyIcon';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      autocompleteFormFieldValue: '',
-    }
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.initAutocomplete = this.initAutocomplete.bind(this);
@@ -23,13 +19,15 @@ class SearchBar extends React.Component {
     this.autocompleteKeyboardListener = this.autocompleteKeyboardListener.bind(this);
     this.upKeyAutocompleteInteraction = this.upKeyAutocompleteInteraction.bind(this);
     this.downKeyAutocompleteInteraction = this.downKeyAutocompleteInteraction.bind(this);
+    this.state = {
+      autocompleteFormFieldValue: '',
+    }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({
-      autocompleteFormFieldValue: document.getElementById('search-bar-input').innerHTML,
-    });
+    const searchBar = document.getElementById('search-bar-input');
+    this.setState({ autocompleteFormFieldValue: searchBar.innerHTML });
   }
 
   handleSearch(e) {
@@ -236,7 +234,6 @@ class SearchBar extends React.Component {
     return (
       <div id="search-with-results-wrapper">
         <div id="search-bar-wrapper" className="search-bar">
-
           <MagnifyIcon className="search-bar-icon mdi-48px"/>
             <input
               id="search-bar-input"

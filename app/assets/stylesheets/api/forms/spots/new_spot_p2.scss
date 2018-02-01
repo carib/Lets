@@ -1,0 +1,143 @@
+
+.new-spot-inner {
+  position: fixed;
+  display: flow-root;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-evenly;
+  height: 500px;
+  width: 500px;
+  top: 14.5%;
+  left: 15%;
+  color: #484848;
+
+  .new-spot-headline-p2 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #525252;
+    padding-bottom: 30px;
+  }
+
+  .new-spot-question-p2 {
+    font-size: 18px;
+    font-weight: 300;
+    color: #5c5f5eb5;
+    height: 11px;
+    margin-top: 10px;
+  }
+
+  .new-spot-inputs-p2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+    width: 78%;
+
+    .new-spot-dropdown {
+      display: flex;
+      flex-direction: row;
+      width: 305px;
+      height: 50px;
+      border: 1px solid #dadada;
+      margin-top: 20px;
+      margin-bottom: 40px;
+
+      .select-rooms-count {
+        box-sizing: border-box;
+        height: 45px;
+        width: 175%;
+        border-radius: 2px;
+        background: transparent;
+        color: rgba(0, 0, 0, 0.6);
+        border: none;
+        padding: 9px;
+        font-size: 18px;
+        font-weight: lighter;
+        -webkit-appearance: none;
+      }
+
+      .arrow-frame {
+        height: 50px;
+        position: absolute;
+        z-index: -1;
+        right: 50%;
+        width: 0;
+        box-sizing: border-box;
+
+        .dropdown-select-arrow {
+          height: 12px;
+          width: 12px;
+          transform: rotate(45deg);
+          margin: 15px;
+          border-bottom: 0.095em solid hsla(0, 0%, 24%, 0.69);
+          border-right: 0.095em solid hsla(0, 0%, 24%, 0.69);
+        }
+      }
+    }
+
+    .new-spot-counter {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      .counter-label {
+        height: 100%;
+        width: 45%;
+        align-self: end;
+        font-size: 17px;
+        font-weight: 500;
+        color: rgba(76, 76, 76, 0.9);
+        margin-top: 21px;
+      }
+
+      .counter-button-container {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+        width: 35%;
+
+        .counter-button-less {
+          cursor: pointer;
+          text-align: center;
+          font-size: 25px;
+          line-height: 1.1;
+          font-weight: 100;
+          margin: 0;
+          width: 30px;
+          height: 30px;
+          color: #539a9c;
+          border-radius: 30px;
+          border: 1px solid #539a9c;
+        }
+
+        .counter-count {
+          line-height: 3;
+          margin-top: 5px;
+          margin-left: 15px;
+          margin-right: 15px;
+          font-size: 20px;
+          font-weight: 200;
+          color: #525252;
+        }
+
+        .counter-button-more {
+          cursor: pointer;
+          text-align: center;
+          line-height: 1.8;
+          font-size: 16px;
+          font-weight: 100;
+          margin: 0;
+          width: 30px;
+          height: 30px;
+          color: #539a9c;
+          border-radius: 30px;
+          border: 1px solid #539a9c;
+        }
+      }
+    }
+  }
+}

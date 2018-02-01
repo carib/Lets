@@ -38,7 +38,6 @@ class SpotShow extends React.Component {
     if (this.state.spot.spotType) {
       spotType = this.state.spot.spotType.match(/^(.*)\s\*/)[1]
     }
-    console.log(spotType);
     return (
       <div className="spot-show-main">
         <section className="spot-hero-container">
