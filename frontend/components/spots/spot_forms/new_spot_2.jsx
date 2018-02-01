@@ -2,10 +2,14 @@ import React from 'react';
 
 import times from 'lodash/times';
 
-export const NewSpotP2 = ({ spotDetails, update, handleClick, handleSubmit }) => {
+export const NewSpotP2 = ({ spotDetails, update, handleClick, createNew }) => {
+  function handleSubmit(e) {
+    e.preventDefault()
+    createNew()
+  }
   return (
-    <form className="new-spot-2" onSubmit={ handleSubmit }>
-      <div className="new-spot-inner">
+    <form className="new-spot-main-p2" onSubmit={ handleSubmit }>
+      <div className="new-spot-inner-p2">
         <div className="new-spot-headline-p2">
           What can guests expect to find at your place?
         </div>
@@ -60,7 +64,7 @@ export const NewSpotP2 = ({ spotDetails, update, handleClick, handleSubmit }) =>
           className="new-spot-submit-button"
           type="submit"
           value="Continue"
-          onClick={ handleSubmit.bind(this) }
+          onClick={ handleSubmit }
           />
       </div>
     </form>

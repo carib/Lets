@@ -23,21 +23,10 @@ export const fetchSpot = (spotId) => {
   })
 };
 
-export const createSpot = (payload) => {
-  const spot = payload.spot;
+export const createSpot = (spot) => {
   return $.ajax({
     method: 'POST',
     url: 'api/spots',
     data: { spot },
   });
 };
-
-export const createSpotDetails = (payload) => {
-  const spot = payload.spot;
-  const details = payload.spotDetails;
-  return $.ajax({
-    method: 'POST',
-    url:`api/spots/${spot.id}/spot_details`,
-    data: { details }
-  });
-}

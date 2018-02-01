@@ -47,6 +47,5 @@ export const NewSpotP1 = ({ formProps, handleSubmit, handleRelay, update, handle
         </div>
       </div>
     </form>
-
   )
 }

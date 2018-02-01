@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchSpot: (id) => dispatch(fetchSpot(id)),
-    createSpot: (spot) => dispatch(createSpot(spot))
+    createSpot: (payload) => dispatch(createSpot(payload))
   }
 }
 

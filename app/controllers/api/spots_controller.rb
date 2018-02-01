@@ -4,8 +4,9 @@ class Api::SpotsController < ApplicationController
   end
 
   def create
-    @spot = Spot.new(spot_params)
 
+    @spot = Spot.new(spot_params)
+    @spot.create_spot_detail(spot_detail_params)
     if @spot.save
       render json: 'api/spots'
     else
@@ -27,9 +28,21 @@ class Api::SpotsController < ApplicationController
       :reviewIds,
       :currency,
       :spotType,
+      :occupancy,
       :lat,
       :lng,
       :spot_image,
+    )
+  end
+
+  def spot_detail_params
+    params.require(:spot).permit(
+      :country,
+      :baths,
+      :state,
+      :rooms,
+      :city,
+      :beds,
     )
   end
 end

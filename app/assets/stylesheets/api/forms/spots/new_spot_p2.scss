@@ -1,5 +1,5 @@
 
-.new-spot-inner {
+.new-spot-inner-p2 {
   position: fixed;
   display: flow-root;
   flex-direction: row;
@@ -8,7 +8,7 @@
   align-content: space-evenly;
   height: 500px;
   width: 500px;
-  top: 14.5%;
+  top: 15%;
   left: 15%;
   color: #484848;
 
@@ -140,4 +140,18 @@
       }
     }
   }
+
+    .new-spot-submit-button {
+      height: 35px;
+      width: 98px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      padding: 9px;
+      font-size: 13px;
+      color: white;
+      font-weight: 100;
+      letter-spacing: 0.09em;
+      margin-top: 10px;
+      background: #008489;
+    }
 }
