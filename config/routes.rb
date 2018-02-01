@@ -3,8 +3,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :spots, only: [:create, :index, :show]
-    resource :user, only: [:create]
+    resources :spots do
+      resource :spot_details, only: [:create, :update]
+    end
     resource :session, only: [:create, :destroy]
+    resource :user, only: [:create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -32,8 +32,10 @@ export const fetchSpot = (spotId) => dispatch => {
   });
 }
 
-export const createSpot = (spot) => dispatch => {
-  return ApiUtil.createSpot(spot).then(spot => {
+export const createSpot = (payload) => dispatch => {
+        console.log("ACTING");
+  return ApiUtil.createSpot(payload.spot).then(spot => {
+    dispatch(ApiUtil.createSpotDetails({ spot: spot, details: payload.details }))
     dispatch(receiveSpot(spot));
     return spot;
   });

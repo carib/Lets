@@ -1,5 +1,5 @@
 export default class MarkerManager {
-  constructor(map, handleCLick) {
+  constructor(map, handleClick) {
     this.map = map;
     // this.handleClick = handleClick;
     this.markers = {};

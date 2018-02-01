@@ -4,7 +4,7 @@ import times from 'lodash/times';
 
 import SearchBar from '../../search/search_bar';
 
-export const NewSpotP1 = ({ formProps, handleSubmit, handleRelay, update }) => {
+export const NewSpotP1 = ({ formProps, handleSubmit, handleRelay, update, handleClick, spotDetails }) => {
   const placeholder = "New York, NY, USA"
 
   return (
@@ -47,5 +47,6 @@ export const NewSpotP1 = ({ formProps, handleSubmit, handleRelay, update }) => {
         </div>
       </div>
     </form>
+
   )
 }

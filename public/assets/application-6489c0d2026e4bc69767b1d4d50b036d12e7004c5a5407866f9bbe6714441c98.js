@@ -60803,7 +60803,7 @@ var SpotMap = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (SpotMap.__proto__ || Object.getPrototypeOf(SpotMap)).call(this, props));
 
-    _this.handleCLick = _this.handleCLick.bind(_this);
+    _this.handleClick = _this.handleClick.bind(_this);
     _this.updateBounds = _this.updateBounds.bind(_this);
     _this.state = {
       currentLocation: {
@@ -60871,8 +60871,8 @@ var SpotMap = function (_React$Component) {
       this.MarkerManager.updateMarkers(newProps.spots);
     }
   }, {
-    key: 'handleCLick',
-    value: function handleCLick(coords) {
+    key: 'handleClick',
+    value: function handleClick(coords) {
       this.props.history.push({
         pathname: 'spots/new',
         search: 'lat=' + coords.lat + '&lng=' + coords.lng
@@ -60920,7 +60920,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var MarkerManager = function () {
-  function MarkerManager(map, handleCLick) {
+  function MarkerManager(map, handleClick) {
     _classCallCheck(this, MarkerManager);
 
     this.map = map;
@@ -61656,7 +61656,7 @@ var SpotForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (SpotForm.__proto__ || Object.getPrototypeOf(SpotForm)).call(this, props));
 
     _this.update = _this.update.bind(_this);
-    _this.handleCLick = _this.handleCLick.bind(_this);
+    _this.handleClick = _this.handleClick.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.userLocation = _this.userLocation.bind(_this);
     _this.extractCoords = _this.extractCoords.bind(_this);
@@ -61680,8 +61680,8 @@ var SpotForm = function (_React$Component) {
   }
 
   _createClass(SpotForm, [{
-    key: 'handleCLick',
-    value: function handleCLick(e) {
+    key: 'handleClick',
+    value: function handleClick(e) {
       e.preventDefault();
       this.props.createSpot(this.state);
       this.props.history.push("/");
@@ -61819,7 +61819,7 @@ var SpotForm = function (_React$Component) {
               placeholder: 'New York, NY, US',
               mapValuesToState: this.mapValuesToState
             }),
-            _react2.default.createElement('input', { className: 'new-spot-submit-button', type: 'submit', value: 'Continue', onClick: this.handleCLick })
+            _react2.default.createElement('input', { className: 'new-spot-submit-button', type: 'submit', value: 'Continue', onClick: this.handleClick })
           )
         )
       );

@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import times from 'lodash/times';
+import merge from 'lodash/merge';
 
 import { NewSpotP1 } from './spot_forms/new_spot_1';
 import { NewSpotP2 } from './spot_forms/new_spot_2';
@@ -12,17 +13,25 @@ class SpotForm extends React.Component {
   constructor(props) {
     super(props);
     this.update = this.update.bind(this);
-    this.handleCLick = this.handleCLick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.handleRelay = this.handleRelay.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.extractCoords = this.extractCoords.bind(this);
     this.state = {
       description: 'New Listing!',
       spotType: 'Entire Place',
+      lat: 0.0,
+      lng: 0.0,
       coords: {
         lat: 0.0,
         lng: 0.0,
       },
+      price: 0.00,
+      currency: 'USD',
+      city: '',
+      state: '',
+      country: '',
+      occupancy: 0,
       details: {
         rooms: 0,
         beds: 0,
@@ -35,21 +44,21 @@ class SpotForm extends React.Component {
         internet: false,
         outdoor_area: false,
       },
-      price: 0.00,
-      currency: 'USD',
       userSpotLocationInput: '',
-      city: '',
-      state: '',
-      country: '',
-      occupancy: 0,
       currentForm: 1,
     };
   }
 
-  handleCLick(e) {
+  handleClick(e) {
     e.preventDefault();
-    this.props.createSpot(this.state);
-    this.props.history.push("/");
+    const { details } = this.state;
+    const { type, operator } = e.target.dataset
+    let newValue;
+    if (operator === 'less' && details[type] > 0) newValue = (details[type] - 1);
+    if (operator === 'more') newValue = (details[type] + 1);
+    const newState = merge({}, this.state, { details: { [type]: newValue } })
+    this.setState(newState);
+    console.log(this.state);
   }
 
   extractCoords(address) {
@@ -83,7 +92,7 @@ class SpotForm extends React.Component {
           const types = result.types.join();
           if (/locality/.test(types)) city = result.long_name;
           if (/administrative_area/.test(types)) state = result.long_name;
-          if(/country/.test(types)) country = result.long_name;
+          if (/country/.test(types)) country = result.long_name;
         });
         this.setState({
           city: city,
@@ -96,23 +105,45 @@ class SpotForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const address = document.getElementById('search-bar-input').value
-    const coords = this.extractCoords(address);
-    setTimeout(() => {
-      this.parseCoords(this.state.coords)
-    }, 1000);
-    setTimeout(() => {
-      this.handleRelay()
-    }, 1);
+    debugger
+    console.log(this.state.currentForm);
+    if (this.state.currentForm === 1) {
+      const address = document.getElementById('search-bar-input').value
+      const coords = this.extractCoords(address);
+      setTimeout(() => {
+        this.parseCoords(this.state.coords)
+      }, 1000);
+      setTimeout(() => {
+        this.handleRelay()
+      }, 1);
+    } else {
+      const newSpotPayload = {
+        spot: {
+          description: this.state.description,
+          spotType: this.state.spotType,
+          lat: this.state.lat,
+          lng: this.state.lng,
+          currency: this.state.currency,
+          occupancy: this.state.occupancy,
+        },
+        details: this.state.details,
+      }
+      console.log("SENDING");
+      this.props.createSpot(newSpotPayload)
+    }
   }
 
   update(field) {
-    let coords;
+    const { details } = this.state
     return e => {
       switch (field) {
-        case 'coords':
-          coords = this.extractCoords(e.target.value);
-          this.setState({ [field]: coords });
+        case (/(\.\w*)/).test(field):
+          field = field.split('.');
+          this.setState({
+            details: {
+              [field]: e.target.value
+            }
+          });
           break;
         default:
           this.setState({ [field]: e.target.value });
@@ -122,25 +153,28 @@ class SpotForm extends React.Component {
 
   handleRelay() {
     const formNum = (this.state.currentForm + 1);
+    console.log(formNum);
     this.setState({ currentForm: formNum });
     this.spotFormRelay();
   }
 
   spotFormRelay() {
     switch (this.state.currentForm) {
-      case 2: return <NewSpotP2/>
+      case 2:
+        return <NewSpotP2
+                 update={this.update}
+                 spotDetails={this.state.details}
+                 handleClick={this.handleClick}
+               />
         break;
-      case 3:
-        break;
-      default: return <NewSpotP2
-                        update={this.update}
-                        spotDetails={this.state.details}
-                      />
-      // default: return <NewSpotP1
-      //                   update={this.update}
-      //                   formProps={this.props}
-      //                   handleSubmit={this.handleSubmit}
-      //                 />
+      default:
+        return <NewSpotP1
+                  update={this.update}
+                  formProps={this.props}
+                  spotDetails={this.state.details}
+                  handleClick={this.handleClick}
+                  handleSubmit={this.handleSubmit}
+                />
     }
   }
 
@@ -187,7 +221,7 @@ export default withRouter(SpotForm);
 //         placeholder='New York, NY, US'
 //         mapValuesToState={this.mapValuesToState}
 //       />
-//     <input className="new-spot-submit-button" type="submit" value="Continue" onClick={this.handleCLick}/>
+//     <input className="new-spot-submit-button" type="submit" value="Continue" onClick={this.handleClick}/>
 //     </div>
 //   </div>
 // </form>

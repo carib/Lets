@@ -1,4 +1,16 @@
 class SpotDetailsController < ApplicationController
+  def create
+    @spot_detail = SpotDetail.new(spot_detail_params)
+    @spot_detail.spot_id = Spot.find(params[:id]).id
+    if @spot_detail.save!
+      spot = @spot_detail.spot
+
+      render json: spot, include: [:spot_detail]
+    else
+      render json: @spot_detail.errors.full_messages, status: 422
+    end
+  end
+
   def update
     @spot_detail = SpotDetail.find(params[:id])
 

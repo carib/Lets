@@ -42532,8 +42532,8 @@ var SpotMap = function (_React$Component) {
       this.MarkerManager.updateMarkers(newProps.spots);
     }
   }, {
-    key: 'handleCLick',
-    value: function handleCLick(coords) {
+    key: 'handleClick',
+    value: function handleClick(coords) {
       this.props.history.push({
         pathname: 'spots/new',
         search: 'lat=' + coords.lat + '&lng=' + coords.lng
@@ -42584,7 +42584,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var MarkerManager = function () {
-  function MarkerManager(map, handleCLick) {
+  function MarkerManager(map, handleClick) {
     _classCallCheck(this, MarkerManager);
 
     this.map = map;
