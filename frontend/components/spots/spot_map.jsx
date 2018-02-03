@@ -18,9 +18,6 @@ class SpotMap extends React.Component {
     }
   }
 
-  // Google Maps API key:
-  // AIzaSyA3MOvbKg_cM1xTb1_HyBnykwshCHtXSJk
-
   initializeMap() {
     const mapOptions = {
       center: this.state.currentLocation,
@@ -34,7 +31,7 @@ class SpotMap extends React.Component {
 
   componentDidMount() {
     this.initializeMap();
-    // this.map.addListener('drag', this.updateBounds);
+    this.mapDragListener = this.map.addListener('drag', this.updateBounds)
     navigator.geolocation.getCurrentPosition((pos) => {
       const coords = pos.coords;
       this.setState({
@@ -95,3 +92,11 @@ class SpotMap extends React.Component {
 }
 
 export default withRouter(SpotMap);
+
+
+
+
+
+
+  // Google Maps API key:
+  // AIzaSyA3MOvbKg_cM1xTb1_HyBnykwshCHtXSJk

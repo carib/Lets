@@ -94,28 +94,24 @@ class SearchBar extends React.Component {
     return predictionsWrapperDiv;
   }
   displayPredictionSuggestions(predictions, status, predictionList, autocompleteFormField) {
+        debugger
     if (status !== google.maps.places.PlacesServiceStatus.OK) {
       predictionList.style.display = 'none';
       return;
     }
 
 // NOTE: Added followinglines 16 to dynamically remove dud predictions
-
     const currentQuery = autocompleteFormField.value;
     predictions.filter((prediction) => (prediction.description.includes(currentQuery)));
-
     const queryMatchDescriptions = predictions.map(prediction => prediction.description);
-
     predictionList.childNodes.forEach((child) => {
       if (!queryMatchDescriptions.includes(child.innerHTML)) {
         predictionList.removeChild(child);
       }
     });
-
     for (const prediction of predictions) {
       this.predictionBuilder(prediction, predictionList, autocompleteFormField);
     }
-
     this.autocompleteKeyboardListener(predictions, predictionList, autocompleteFormField);
   }
 
@@ -123,7 +119,7 @@ class SearchBar extends React.Component {
     const predictionListItem = document.createElement('li');
     predictionListItem.classList.add('pac-item');
 
-  predictionListItem.appendChild(document.createTextNode(prediction.description));
+    predictionListItem.appendChild(document.createTextNode(prediction.description));
     predictionListItem.addEventListener('click', () => {
       this.autocompleteServiceListener(prediction, predictionList, autocompleteFormField);
     });
@@ -197,6 +193,10 @@ class SearchBar extends React.Component {
       return this.autocompleteListDecorator(autocompletePredictionMarkup.firstChild, autocompleteFormField);
     } else {
       const nextSibling = document.querySelector('.pac-selected').nextSibling;
+      // debugger
+      // const selected = document.querySelector('.pac-selected');
+      // const nextIndex = Array.from(autocompletePredictionMarkup.childNodes).indexOf(selected)
+      // const nextSibling = Array.from(autocompletePredictionMarkup.childNodes)[nextIndex]
       if (nextSibling) {
         this.autocompleteListDecorator(nextSibling, autocompleteFormField);
       } else {
