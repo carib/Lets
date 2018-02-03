@@ -16,7 +16,6 @@ class SpotShow extends React.Component {
 
   handleScroll() {
     const bookBox = $('.spot-show-book-box');
-    // debugger
     if (window.scrollY > 632) {
       bookBox.addClass('fixbox');
     } else {
