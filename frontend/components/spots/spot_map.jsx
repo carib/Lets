@@ -32,6 +32,7 @@ class SpotMap extends React.Component {
   componentDidMount() {
     this.initializeMap();
     this.mapDragListener = this.map.addListener('drag', this.updateBounds)
+
     navigator.geolocation.getCurrentPosition((pos) => {
       const coords = pos.coords;
       this.setState({

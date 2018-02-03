@@ -94,7 +94,6 @@ class SearchBar extends React.Component {
     return predictionsWrapperDiv;
   }
   displayPredictionSuggestions(predictions, status, predictionList, autocompleteFormField) {
-        debugger
     if (status !== google.maps.places.PlacesServiceStatus.OK) {
       predictionList.style.display = 'none';
       return;
