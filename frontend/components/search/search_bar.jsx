@@ -193,10 +193,6 @@ class SearchBar extends React.Component {
       return this.autocompleteListDecorator(autocompletePredictionMarkup.firstChild, autocompleteFormField);
     } else {
       const nextSibling = document.querySelector('.pac-selected').nextSibling;
-      // debugger
-      // const selected = document.querySelector('.pac-selected');
-      // const nextIndex = Array.from(autocompletePredictionMarkup.childNodes).indexOf(selected)
-      // const nextSibling = Array.from(autocompletePredictionMarkup.childNodes)[nextIndex]
       if (nextSibling) {
         this.autocompleteListDecorator(nextSibling, autocompleteFormField);
       } else {
