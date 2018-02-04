@@ -37,7 +37,7 @@ class Search extends React.Component {
       input: autocompleteFormField,
       query: query,
     });
-    
+
     autocompleteFormField.addEventListener('input', () => {
       if (autocompleteFormField.value) {
         autocomplete.getPlacePredictions({
@@ -85,6 +85,8 @@ class Search extends React.Component {
 
   render() {
     const {
+      spotShow,
+      fetchSpot,
       fetchSpots,
       loggedIn,
       updateFilter
@@ -120,7 +122,9 @@ class Search extends React.Component {
           query={query}
         />
         <SpotIndex
+          spotShow={spotShow}
           fetchSpots={fetchSpots}
+          fetchSpot={fetchSpot}
           spots={spots}
           loggedIn={loggedIn}
         />

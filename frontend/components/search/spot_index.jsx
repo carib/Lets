@@ -8,10 +8,9 @@ import SpotIndexItem from './spot_index_item';
 class SpotIndex extends React.Component {
 
   render() {
-    const { spots, searchPage } = this.props;
+    const { spots, searchPage, fetchSpot } = this.props;
     const page = (searchPage * 18);
     const currentSpots = spots.slice(0, 18);
-
     return (
       <div>
         <article className="spot-index-main">

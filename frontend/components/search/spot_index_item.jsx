@@ -1,90 +1,54 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import times from 'lodash/times';
 
-const SpotIndexItem = ({ spot }) => {
-  const starRating = [];
-  const calcStarRating = times(spot.averageRating, () => {
-      starRating.push(<i className="fa fa-star" key={starRating.length} aria-hidden="true"></i>);
-  });
-  return (
-    <div className="spot-index-inner-column">
-      <li className="spot-item">
-        <img src={spot.imageThumbUrl} className="spot-thumb"/>
-      </li>
-      <div className="spot-item-info">
-        <div className="item-info-row-1">
-          {spot.spotType}
-        </div>
-        <div className="item-info-row-2">
-          {spot.description}
-        </div>
-        <div className="item-info-row-3">
+// const SpotIndexItem = ({ spot, fetchSpot }) => {
+class SpotIndexItem extends React.Component {
 
-          From <span>${spot.averagePricePerNight}</span> per night
-        </div>
-        <div className="item-info-row-4">
-          <div className="item-info-stars">
-            {starRating}
+  constructor(props) {
+    super(props);
+    this.spot = props.spot;
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.props.history.push(`/${this.spot.id}`);
+  }
+
+  render() {
+    return (
+      <div className="spot-index-inner-column" onClick={this.handleClick}>
+        <li className="spot-item">
+          <img src={this.spot.imageThumbUrl} className="spot-thumb"/>
+        </li>
+        <div className="spot-item-info">
+          <div className="item-info-row-1">
+            {this.spot.spotType}
           </div>
-          <div className="item-info-review-count">
-            175
+          <div className="item-info-row-2">
+            {this.spot.description}
           </div>
-          <div className="item-info-superletter">
-            Superletter!
+          <div className="item-info-row-3">
+
+            From <span>${this.spot.averagePricePerNight}</span> per night
+          </div>
+          <div className="item-info-row-4">
+            <div className="item-info-stars">
+              {
+                times(this.spot.averageRating, (t) => {
+                  <i className="fa fa-star" key={t} aria-hidden="true"></i>
+                })
+              }
+            </div>
+            <div className="item-info-review-count">
+              175
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
-export default SpotIndexItem;
-// import React from 'react';
-// import { Link, Redirect } from 'react-router-dom';
-//
-// const SpotIndexItem = ({ spot }) => {
-//   return (
-//     <div>
-//       <li className="spot-item">
-//         <ul className="nested-spot-list">
-//           <li className="nested-spot-item">
-//             Latitude: {spot.lat}</li>
-//           <li className="nested-spot-item">
-//             Longitude: {spot.lng}</li>
-//         </ul>
-//
-//       </li>
-//       <div className="spot-item-info">
-//         <div className="item-info-row-1">
-//
-//           <span>ENTIRE HOUSE</span> * <span>2 BEDS</span>
-//         </div>
-//         <div className="item-info-row-2">
-//           Romantic front lake Como attic
-//         </div>
-//         <div className="item-info-row-3">
-//           From <span>$148</span> per night
-//         </div>
-//         <div className="item-info-row-4">
-//           <div className="item-info-stars">
-//             <i className="fa fa-star" aria-hidden="true"></i>
-//             <i className="fa fa-star" aria-hidden="true"></i>
-//             <i className="fa fa-star" aria-hidden="true"></i>
-//             <i className="fa fa-star" aria-hidden="true"></i>
-//             <i className="fa fa-star" aria-hidden="true"></i>
-//           </div>
-//           <div className="item-info-review-count">
-//             175
-//           </div>
-//           <div className="item-info-superletter">
-//             Superletter!
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-//
-// export default SpotIndexItem;
+export default withRouter(SpotIndexItem);

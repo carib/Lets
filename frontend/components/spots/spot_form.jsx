@@ -130,6 +130,7 @@ class SpotForm extends React.Component {
         country: this.state.country,
       };
     this.props.createSpot(newSpotPayload);
+    this.props.history.push(`/${this.spot.id}`);
   }
 
   update(field) {

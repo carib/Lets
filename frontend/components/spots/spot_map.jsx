@@ -7,7 +7,6 @@ import MarkerManager from '../../util/marker_manager';
 class SpotMap extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
     this.updateBounds = this.updateBounds.bind(this);
     this.state = {
       currentLocation: {
@@ -70,13 +69,6 @@ class SpotMap extends React.Component {
       if (spots.length < 4) this.map.setZoom(6)
       else if (spots.length < 3) this.map.setZoom(7)
     }
-  }
-
-  handleClick(coords) {
-    this.props.history.push({
-      pathname: 'spots/new',
-      search: `lat=${coords.lat}&lng=${coords.lng}`
-    });
   }
 
   render() {

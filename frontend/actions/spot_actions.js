@@ -26,7 +26,6 @@ export const fetchSpots = (filters) => dispatch => {
 }
 
 export const fetchSpot = (spotId) => dispatch => {
-  debugger
   return ApiUtil.fetchSpot(spotId).then(spot => {
     dispatch(receiveSpot(spot));
     return spot;

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchSpots } from '../../actions/spot_actions';
+import { fetchSpots, fetchSpot } from '../../actions/spot_actions';
 import { updateFilter } from '../../actions/filter_actions';
 import Search from './search';
 
@@ -14,6 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    fetchSpot: (id) => dispatch(fetchSpot(id)),
     fetchSpots: () => dispatch(fetchSpots()),
     updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
   }
