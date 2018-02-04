@@ -8,6 +8,7 @@ class SpotMap extends React.Component {
   constructor(props) {
     super(props);
     this.updateBounds = this.updateBounds.bind(this);
+    this.panToNewBounds = this.panToNewBounds.bind(this);
     this.state = {
       currentLocation: {
         lat: 40.751336,
@@ -29,18 +30,24 @@ class SpotMap extends React.Component {
   }
 
   componentDidMount() {
+    const searchBar = document.getElementById('search-bar-input');
     this.initializeMap();
-    this.mapDragListener = this.map.addListener('drag', this.updateBounds)
+    this.searchListener = searchBar.addEventListener('keydown', this.panToNewBounds);
+    this.mapDragListener = this.map.addListener('drag', this.updateBounds);
+  }
 
-    navigator.geolocation.getCurrentPosition((pos) => {
-      const coords = pos.coords;
-      this.setState({
-        currentLocation: {
-          lat: coords.latitude,
-          lng: coords.longitude
-        },
-      });
-    });
+  componentWillUnmount() {
+    google.maps.event.clearListeners(this.map, 'drag');
+  }
+
+  panToNewBounds() {
+    const { spots } = this.state;
+    if (spots.length > 0 ) {
+      const newBounds = new google.maps.LatLng(spots[0].lat, spots[0].lng)
+      this.map.panTo(newBounds)
+      if (spots.length < 4) this.map.setZoom(6)
+      else if (spots.length < 3) this.map.setZoom(7)
+    }
   }
 
   updateBounds() {
@@ -60,15 +67,8 @@ class SpotMap extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    const { spots } = newProps
     this.MarkerManager.updateMarkers(newProps.spots);
     this.setState({ spots: newProps.spots });
-    if (spots.length > 0) {
-      const newBounds = new google.maps.LatLng(spots[0].lat, spots[0].lng)
-      this.map.panTo(newBounds)
-      if (spots.length < 4) this.map.setZoom(6)
-      else if (spots.length < 3) this.map.setZoom(7)
-    }
   }
 
   render() {

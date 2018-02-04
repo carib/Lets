@@ -1,6 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 
 import SearchContainer from '../search/search_container';
 import HeaderContainer from '../header/header_container';
@@ -12,6 +12,7 @@ import Logo from '../header/logo';
 class Modal extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       currentModal: ((this.props.currentModal) ? this.props.currentModal : null),
       currentUser: this.props.currentUser,
@@ -30,7 +31,10 @@ class Modal extends React.Component {
     });
   }
 
-
+  handleClick() {
+    console.log(this.props);
+    this.props.history.push('/');
+  }
 
   render() {
     const toggleType = (
@@ -53,7 +57,7 @@ class Modal extends React.Component {
     return (
       <main className="modal">
         <header className={(unfix) ? "main-header unfix" : "main-header"}>
-          <Logo />
+          <Logo handleClick={this.handleClick}/>
           <HeaderContainer modProp={modProps} unfix={unfix}/>
         </header>
 
@@ -74,4 +78,4 @@ class Modal extends React.Component {
 
 }
 
-export default Modal;
+export default withRouter(Modal);

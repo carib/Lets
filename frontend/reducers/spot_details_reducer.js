@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_SPOT } from '../actions/spot_actions';
+import { RECEIVE_SPOT, RECEIVE_SPOTS } from '../actions/spot_actions';
 
 const spotDetailsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -8,6 +8,9 @@ const spotDetailsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SPOT:
       spotDetails = action.payload.spot_detail;
+      return spotDetails;
+    case RECEIVE_SPOTS:
+      spotDetails = {};
       return spotDetails;
     default:
       return state;

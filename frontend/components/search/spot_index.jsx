@@ -6,10 +6,8 @@ import _ from 'lodash'
 import SpotIndexItem from './spot_index_item';
 
 class SpotIndex extends React.Component {
-
   render() {
-    const { spots, searchPage, fetchSpot } = this.props;
-    const page = (searchPage * 18);
+    const { spots } = this.props;
     const currentSpots = spots.slice(0, 18);
     return (
       <div>

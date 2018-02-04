@@ -30,7 +30,6 @@ class SpotIndexItem extends React.Component {
             {this.spot.description}
           </div>
           <div className="item-info-row-3">
-
             From <span>${this.spot.averagePricePerNight}</span> per night
           </div>
           <div className="item-info-row-4">
