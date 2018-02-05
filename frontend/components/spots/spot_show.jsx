@@ -34,10 +34,6 @@ class SpotShow extends React.Component {
     const { spot, spotDetails } = this.state;
     let spotType;
     if (this.state.spot) {
-      if (this.state.spot.spotType) {
-            console.log('render',this.state, this.props);
-        spotType = this.state.spot.spotType.match(/^(.*)\s\*/)[1]
-      }
       return (
         <div className="spot-show-main">
           <section className="spot-hero-container">
