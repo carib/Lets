@@ -59,7 +59,6 @@ class Modal extends React.Component {
           <Logo handleClick={this.handleClick}/>
           <HeaderContainer modProp={modProps} unfix={unfix}/>
         </header>
-
         <div className={toggleType[1]}>
           <div className="modal-detail-box">
             <section className="modal-inner-detail-box">
@@ -71,6 +70,23 @@ class Modal extends React.Component {
           </div>
         </div>
         {this.props.children}
+        <div className="contact-footer">
+          <div className="contact-github">
+            <a href="https://www.github.com/carib">
+              <i className="fab fa-github"></i>
+            </a>
+          </div>
+          <div className="contact-linkedin">
+            <a href="https://www.linkedin.com/in/carib">
+              <i className="fab fa-linkedin"></i>
+            </a>
+          </div>
+            <div className="contact-angelist">
+            <a href="https://angel.co/carib">
+              <i className="fab fa-angellist"></i>
+            </a>
+          </div>
+        </div>
       </main>
     );
   }

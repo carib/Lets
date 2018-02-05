@@ -36,7 +36,7 @@ class SpotIndexItem extends React.Component {
             <div className="item-info-stars">
               {
                 times(this.spot.averageRating, (t) => {
-                  <i className="fa fa-star" key={t} aria-hidden="true"></i>
+                  <i className="fas fa-star" key={t} aria-hidden="true"></i>
                 })
               }
             </div>

@@ -78,6 +78,21 @@
           font-size: 17px;
           font-weight: lighter;
         }
+
+        .spot-show-quick-key {
+          display: flex;
+
+          [class^="spot-show-key-item"] {
+            font-size: 16px;
+            font-weight: 100;
+            margin-right: 20px;
+
+            svg {
+              margin-right: 10px;
+              font-size: 14px;
+            }
+          }
+        }
       }
 
       .spot-show-host-avatar {
@@ -94,6 +109,7 @@
 
   .spot-show-book-box {
     display: flex;
+    flex-direction: column;
     position: absolute;
     width: 376px;
     height: 350px;
@@ -105,9 +121,46 @@
     box-sizing: border-box;
   }
 
+  .book-box-brief {
+    width: 100%;
+    .book-box-brief-price {
+      padding: 25px 0 0 25px;
+
+      .price-nums {
+        font-weight: 600;
+        font-size: 22px;
+        color: #545454;
+      }
+
+      .price-text {
+        font-weight: 400;
+        font-size: 15px;
+        color: #545454;
+      }
+    }
+
+    .book-box-brief-rating {
+      padding: 5px 0 0 25px;
+      font-size: 10px;
+      color: #2a8d94;
+    }
+  }
+
+  .book-box-divider {
+    position: relative;
+    box-sizing: border-box;
+    width: 86%;
+    top: 5%;
+    left: 25px;
+    border-bottom: 1px solid #DBDBDB !important;
+  }
+
   .fixbox {
     position: fixed;
     top: 24px;
     right: 17.75%;
+    width: 376px;
+    display: flex;
+    flex-direction: column;
   }
 }
