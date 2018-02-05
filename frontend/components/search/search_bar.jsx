@@ -62,7 +62,7 @@ class SearchBar extends React.Component {
   initGooglePlacesAutocomplete(autocompleteFormField) {
     const autocomplete = new google.maps.places.AutocompleteService();
     const predictionList = this.predictionListMarkup();
-
+    
 // NOTE: Edited 81, 82. "autocompleteFormField.parent() not a function" error.
 
     const formFieldParent = autocompleteFormField.parentElement;

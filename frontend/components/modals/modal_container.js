@@ -10,7 +10,6 @@ import {
 } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
   return {
     currentModal: state.ui.modal.currentModal,
     currentUser: state.session.currentUser,

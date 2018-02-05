@@ -32,7 +32,6 @@ class SpotShow extends React.Component {
 
   render() {
     const { spot, spotDetails } = this.state;
-    let spotType;
     if (this.state.spot) {
       return (
         <div className="spot-show-main">
@@ -50,11 +49,11 @@ class SpotShow extends React.Component {
             </nav>
             <section className="spot-show-description">
               <div className="spot-show-info-container">
-                <div className="spot-show-type">{spotType}</div>
+                <div className="spot-show-type">{spot.spotType}</div>
                 <div className="spot-show-headline">{spot.description}</div>
                 <div className="spot-show-location">{spotDetails.city}</div>
                 <div className="spot-show-quick-key">
-                  <div className="spot-show-key-item-occupancy">TKTKTK</div>
+                  <div className="spot-show-key-item-occupancy">{spot.occupancy}</div>
                   <div className="spot-show-key-item-rooms">{spotDetails.rooms}</div>
                   <div className="spot-show-key-item-beds">{spotDetails.beds}</div>
                   <div className="spot-show-key-item-baths">{spotDetails.baths}</div>

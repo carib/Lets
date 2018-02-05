@@ -52,7 +52,7 @@ Spot.destroy_all
     reviewIds: [],
     spotType: "#{type[rand(3)]}",
     host_id: User.ids[rand(21)],
-    spot_image: File.open("app/assets/images/#{t+1}.jpeg")
+    spot_image: File.open("app/assets/images/spots/#{t}.jpeg")
   )
 end
 

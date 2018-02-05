@@ -8,7 +8,6 @@ import {
 const spotShowReducer = (state = null, action) => {
   Object.freeze(state);
   let spotDetails;
-  console.log('spotShowReducer', action);
   switch (action.type) {
     case RECEIVE_SPOTS:
       return null;

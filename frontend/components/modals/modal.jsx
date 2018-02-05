@@ -32,7 +32,6 @@ class Modal extends React.Component {
   }
 
   handleClick() {
-    console.log(this.props);
     this.props.history.push('/');
   }
 

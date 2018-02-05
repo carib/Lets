@@ -4,7 +4,7 @@ class Api::SpotsController < ApplicationController
   end
 
   def create
-    @spot = Spot.new(spot_params)
+    @spot = current_user.hosted_spots.new(spot_params)
     @spot.create_spot_detail(spot_detail_params)
     if @spot.save
       render :show, include: [:spot_detail]
@@ -42,8 +42,9 @@ class Api::SpotsController < ApplicationController
   def spot_detail_params
     params.require(:spot).permit(
       :country,
+      :rooms,
       :baths,
-      :state,
+      :state_province,
       :rooms,
       :city,
       :beds,
