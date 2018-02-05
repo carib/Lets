@@ -3,7 +3,6 @@ import _ from 'lodash';
 
 import MagnifyIcon from 'mdi-react/MagnifyIcon';
 
-
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);

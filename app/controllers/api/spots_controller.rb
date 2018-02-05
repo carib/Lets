@@ -4,11 +4,10 @@ class Api::SpotsController < ApplicationController
   end
 
   def create
-
     @spot = Spot.new(spot_params)
     @spot.create_spot_detail(spot_detail_params)
     if @spot.save
-      render json: 'api/spots'
+      render :show, include: [:spot_detail]
     else
       render @spot.errors.full_messages, status: 422
     end
@@ -16,6 +15,11 @@ class Api::SpotsController < ApplicationController
 
   def show
     @spot = Spot.includes(:spot_detail).find(params[:id])
+    if @spot
+      render :show
+    else
+      render @spot.errors.full_messages, status: 422
+    end
   end
 
   private

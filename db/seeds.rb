@@ -47,9 +47,10 @@ Spot.destroy_all
     averageRating: rand(6),
     averagePricePerNight: num.rand(50.00..300.99).round(2),
     currency: 'USD',
+    occupancy: rand(16),
     pastGuestIds: [],
     reviewIds: [],
-    spotType: "#{type[rand(3)]} * #{rand(4)} BEDS",
+    spotType: "#{type[rand(3)]}",
     host_id: User.ids[rand(21)],
     spot_image: File.open("app/assets/images/#{t+1}.jpeg")
   )

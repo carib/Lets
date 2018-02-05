@@ -115,7 +115,7 @@
     border: 1px solid #FA5C65;
     border-radius: 45px;
     background-color: #edfeff;
-
+    cursor: pointer;
 
     .logo-gel {
       font-family: 'Mrs Sheppards', cursive !important;
@@ -125,6 +125,7 @@
       top: -8px;
       opacity: 37;
       color: #FA5C65;
+      cursor: pointer;
     }
 
     .logo {
@@ -135,6 +136,7 @@
       position: absolute;
       left: -2px;
       top: -8px;
+      cursor: pointer;
     }
   }
 

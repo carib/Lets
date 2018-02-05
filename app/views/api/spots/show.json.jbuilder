@@ -1,6 +1,6 @@
 json.set! "spot" do
   json.extract! @spot, :id, :description, :averageRating, :averagePricePerNight, :currency, :reviewIds, :spotType
-  json.imageHeroUrl asset_path(@spot.spot_image.url(:hero))
+  json.imageFullUrl asset_path(@spot.spot_image.url(:full))
 end
 
 json.spot_detail do
