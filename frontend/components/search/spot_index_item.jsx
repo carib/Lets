@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 
 import times from 'lodash/times';
 
-// const SpotIndexItem = ({ spot, fetchSpot }) => {
 class SpotIndexItem extends React.Component {
 
   constructor(props) {
@@ -17,6 +16,9 @@ class SpotIndexItem extends React.Component {
   }
 
   render() {
+    const starRating = times(this.spot.averageRating, (t) => {
+      return <i className="fas fa-star" key={t}></i>
+    });
     return (
       <div className="spot-index-inner-column" onClick={this.handleClick}>
         <li className="spot-item">
@@ -34,11 +36,7 @@ class SpotIndexItem extends React.Component {
           </div>
           <div className="item-info-row-4">
             <div className="item-info-stars">
-              {
-                times(this.spot.averageRating, (t) => {
-                  <i className="fas fa-star" key={t} aria-hidden="true"></i>
-                })
-              }
+              {starRating}
             </div>
             <div className="item-info-review-count">
               175

@@ -33,7 +33,7 @@ class User < ApplicationRecord
   validates :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100" }, default_url: "/images/:style/missing.png",
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100" },
       :convert_options => { thumb: "-gravity center -resize 100x100" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 

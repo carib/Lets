@@ -62,7 +62,7 @@ class SearchBar extends React.Component {
   initGooglePlacesAutocomplete(autocompleteFormField) {
     const autocomplete = new google.maps.places.AutocompleteService();
     const predictionList = this.predictionListMarkup();
-    
+
 // NOTE: Edited 81, 82. "autocompleteFormField.parent() not a function" error.
 
     const formFieldParent = autocompleteFormField.parentElement;
@@ -98,7 +98,8 @@ class SearchBar extends React.Component {
       return;
     }
 
-// NOTE: Added followinglines 16 to dynamically remove dud predictions
+// NOTE: Added following lines 16 to dynamically remove dud predictions:
+
     const currentQuery = autocompleteFormField.value;
     predictions.filter((prediction) => (prediction.description.includes(currentQuery)));
     const queryMatchDescriptions = predictions.map(prediction => prediction.description);
@@ -122,7 +123,8 @@ class SearchBar extends React.Component {
       this.autocompleteServiceListener(prediction, predictionList, autocompleteFormField);
     });
 
-// NOTE: Added this to remove duplicate predictions
+// NOTE: Added this to remove duplicate predictions:
+
     const currentPredictions = Array.from(predictionList.children).map(child => child.innerHTML);
     if (!currentPredictions.includes(prediction.description)) {
       predictionList.appendChild(predictionListItem);
@@ -177,7 +179,6 @@ class SearchBar extends React.Component {
       return this.autocompleteListDecorator(autocompletePredictionMarkup.lastChild, autocompleteFormField);
     } else {
       const previousSibling = document.querySelector('.pac-selected').previousSibling;
-
       if (previousSibling) {
         this.autocompleteListDecorator(previousSibling, autocompleteFormField);
       } else {

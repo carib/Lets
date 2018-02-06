@@ -36,12 +36,11 @@ class Header extends React.Component {
 
   userAvatar() {
     if (this.state.user) {
-      if (this.state.user.imageThumbUrl.match(/missing/)) {
-        return <i className="fa fa-user-circle"></i>
-      } else {
+      if (this.state.user.imageThumbUrl) {
         return <img src={this.state.user.imageThumbUrl}></img>
       }
     }
+    return null
   }
 
   handleHeaderNavSelection(e) {
@@ -80,6 +79,7 @@ class Header extends React.Component {
         </div>
         <nav className="header-member-nav">
           <div className="member-icon-box" onClick={this.toggleMenu}>
+            <i className="fa fa-user-circle"></i>
             {userAvatar}
           </div>
         {menu}
@@ -132,6 +132,7 @@ class Header extends React.Component {
           </div>
           <nav className="show-header-member-nav">
             <div className="show-member-icon-box" onClick={this.toggleMenu}>
+              <i className="fa fa-user-circle"></i>
               {userAvatar}
             </div>
           {menu}
