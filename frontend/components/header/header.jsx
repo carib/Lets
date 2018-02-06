@@ -58,7 +58,6 @@ class Header extends React.Component {
     } else {
       menu = "";
     }
-    console.log(this.state);
     return (
       <div className="header-right">
         <div className="header-nav-buttons">
