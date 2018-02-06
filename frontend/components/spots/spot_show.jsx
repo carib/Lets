@@ -110,6 +110,9 @@ class SpotShow extends React.Component {
               <div className="book-box-divider"></div>
             </section>
           </section>
+          <svg id="svgOne" xmlns="http://www.w3.org/2000/svg" width="120" height="140">
+            <rect x="50" y="50" width="50" height="50" fill="white" />
+          </svg>
         </div>
       )
     } else {

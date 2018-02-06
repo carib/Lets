@@ -22,7 +22,7 @@ export default class MarkerManager {
     const marker = new google.maps.Marker({
       position,
       map: this.map,
-      spotId: spot.id
+      spotId: spot.id,
     });
 
     // marker.addListener('click', () => this.handleClick(spot));
