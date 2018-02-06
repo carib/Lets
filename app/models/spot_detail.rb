@@ -19,6 +19,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  spot_id        :integer
+#  blurb          :string
 #
 
 class SpotDetail < ApplicationRecord

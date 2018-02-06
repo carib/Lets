@@ -74,6 +74,7 @@ SpotDetail.destroy_all
     parking: Faker::Boolean.boolean,
     pets: Faker::Boolean.boolean,
     tv: Faker::Boolean.boolean,
-    spot_id: Spot.ids[i]
+    spot_id: Spot.ids[i],
+    blurb: Faker::Hipster.paragraphs,
   )
 end

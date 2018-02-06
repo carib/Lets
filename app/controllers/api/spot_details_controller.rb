@@ -17,7 +17,7 @@ class SpotDetailsController < ApplicationController
   def spot_detail_params
     params.require(:spot_detail).permit(
       :city, :state_province, :country,
-      :rooms, :beds, :baths
+      :rooms, :beds, :baths, :blurb, :internet, :kitchen, :outdoor_area, :laundry, :parking, :pets, :tv
     )
   end
 end

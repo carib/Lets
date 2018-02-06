@@ -58,6 +58,7 @@ class SpotShow extends React.Component {
         return <i className="fas fa-star" key={t}></i>
       })
       const hostImage = this.hostAvatar();
+      const blurb = spotDetails.blurb.match(/^\[\"(.*)\"\]$/)[1]
 
       return (
         <div className="spot-show-main">
@@ -99,6 +100,56 @@ class SpotShow extends React.Component {
               </div>
               <div className="spot-show-host-avatar">{hostImage}</div>
             </section>
+            <div className="spot-show-section-head">The Space</div>
+            <section className="spot-show-blurb">
+              {blurb}
+            </section>
+            <div className="spot-show-divider"></div>
+            <div className="spot-show-section-head">Amenities</div>
+            <div className="spot-show-amenities">
+              <div className="amenity-icon">
+                <i className="fas fa-wifi"></i>
+              </div>
+              <div className={(spotDetails.internet) ? "spot-show-amenity" : "spot-show-amenity strike"}>
+                Internet
+              </div>
+              <div className="amenity-icon">
+                <i className="fas fa-utensils"></i>
+              </div>
+              <div className={(spotDetails.kitchen) ? "spot-show-amenity" : "spot-show-amenity strike"}>
+                Kitchen
+              </div>
+              <div className="amenity-icon">
+                <i className="fas fa-tree"></i>
+              </div>
+              <div className={(spotDetails.outdoor_area) ? "spot-show-amenity" : "spot-show-amenity strike"}>
+                Outdoor Area
+              </div>
+              <div className="amenity-icon">
+                <i className="fas fa-tint"></i>
+              </div>
+              <div className={(spotDetails.laundry) ? "spot-show-amenity" : "spot-show-amenity strike"}>
+                Laundry
+              </div>
+              <div className="amenity-icon">
+                <i className="fas fa-car"></i>
+              </div>
+              <div className={(spotDetails.parking) ? "spot-show-amenity" : "spot-show-amenity strike"}>
+                Parking
+              </div>
+              <div className="amenity-icon">
+                <i className="fas fa-paw"></i>
+              </div>
+              <div className={(spotDetails.pets) ? "spot-show-amenity" : "spot-show-amenity strike"}>
+                Pets
+              </div>
+              <div className="amenity-icon">
+                <i className="fas fa-tv"></i>
+              </div>
+              <div className={(spotDetails.tv) ? "spot-show-amenity" : "spot-show-amenity strike"}>
+                Tv
+              </div>
+            </div>
             <section className="spot-show-book-box">
               <div className="book-box-brief">
                 <div className="book-box-brief-price">

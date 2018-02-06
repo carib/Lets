@@ -36,7 +36,9 @@ class Header extends React.Component {
 
   userAvatar() {
     if (this.state.user) {
-      if (this.state.user.imageThumbUrl) {
+      if (this.state.user.imageThumbUrl.match(/missing.png/)) {
+        return <i className="fa fa-user-circle"></i>
+      } else {
         return <img src={this.state.user.imageThumbUrl}></img>
       }
     }
@@ -79,7 +81,6 @@ class Header extends React.Component {
         </div>
         <nav className="header-member-nav">
           <div className="member-icon-box" onClick={this.toggleMenu}>
-            <i className="fa fa-user-circle"></i>
             {userAvatar}
           </div>
         {menu}
@@ -119,27 +120,30 @@ class Header extends React.Component {
     } else {
       menu = "";
     }
-    return (
-      <div className="spot-show-header">
+    if (this.props.user !== null) {
+      return (
+        <div className="spot-show-header">
 
-        <div className="show-header-right">
-          <div className="show-header-nav-buttons">
-            <button
-              className="show-header-add-spot-btn"
-              value="new"
-              onClick={this.handleHeaderNavSelection}
-            >Add a new listing</button>
-          </div>
-          <nav className="show-header-member-nav">
-            <div className="show-member-icon-box" onClick={this.toggleMenu}>
-              <i className="fa fa-user-circle"></i>
-              {userAvatar}
+          <div className="show-header-right">
+            <div className="show-header-nav-buttons">
+              <button
+                className="show-header-add-spot-btn"
+                value="new"
+                onClick={this.handleHeaderNavSelection}
+                >Add a new listing</button>
             </div>
-          {menu}
-          </nav>
+            <nav className="show-header-member-nav">
+              <div className="show-member-icon-box" onClick={this.toggleMenu}>
+                {userAvatar}
+              </div>
+              {menu}
+            </nav>
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return this.navLinks();
+    }
   }
 
   render() {

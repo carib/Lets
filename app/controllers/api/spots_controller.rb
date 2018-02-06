@@ -50,6 +50,14 @@ class Api::SpotsController < ApplicationController
       :rooms,
       :city,
       :beds,
+      :blurb,
+      :internet,
+      :kitchen,
+      :outdoor_area,
+      :laundry,
+      :parking,
+      :pets,
+      :tv,
     )
   end
 end
