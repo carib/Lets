@@ -14,9 +14,10 @@ User.create!(
   firstName: 'Guest',
   lastName: 'User',
   host: false,
+  spot_image: File.open("app/assets/images/users/23.jpeg")
 )
 
-20.times do |_|
+20.times do |t|
   first = Faker::Name.first_name
   last = Faker::Name.last_name
   email = Faker::Internet.email(first)
@@ -26,6 +27,7 @@ User.create!(
     firstName: first,
     lastName: last,
     host: Faker::Boolean.boolean
+    spot_image: File.open("app/assets/images/users/#{t}.jpeg")
   )
 end
 
