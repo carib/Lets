@@ -32,8 +32,8 @@
 
   .header-nav-buttons {
     position: fixed;
-    top: 0px;
-    right: 82px;
+    top: 2px;
+    right: 90px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -47,13 +47,13 @@
 
   .member-icon-box {
     position: fixed;
-    right: 16px;
-    top: 25px;
+    right: 20px;
+    top: 23px;
     height: 40px;
     width: 40px;
     overflow: hidden;
     border-radius: 40px;
-    
+
     .fa-user-circle {
       position: fixed;
       right: 20px;
