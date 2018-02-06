@@ -29,6 +29,7 @@ class SpotShow extends React.Component {
     this.setState({
       spot: newProps.spot,
       spotDetails: newProps.spotDetails,
+      host: newProps.host,
     });
   }
 
@@ -38,8 +39,16 @@ class SpotShow extends React.Component {
     return [itemNum, itemNoun]
   }
 
+  hostAvatar() {
+    if (this.state.host.imageThumbUrl) {
+      return <img src={this.state.host.imageThumbUrl}></img>
+    } else {
+      return <i className="fa fa-user-circle"></i>
+    }
+  }
+
   render() {
-    const { spot, spotDetails } = this.state;
+    const { spot, spotDetails, host } = this.state;
     if (this.state.spot) {
       console.log(spot, this.state);
       const occupancy = this.quickKeyHelper(spot.occupancy, "guest");
@@ -49,6 +58,9 @@ class SpotShow extends React.Component {
       const stars = times(spot.averageRating, (t) => {
         return <i className="fas fa-star" key={t}></i>
       })
+      const hostImage = this.hostAvatar();
+
+
       return (
         <div className="spot-show-main">
           <section className="spot-hero-container">
@@ -87,7 +99,7 @@ class SpotShow extends React.Component {
             </div>
                 </div>
               </div>
-              <div className="spot-show-host-avatar"></div>
+              <div className="spot-show-host-avatar">{hostImage}</div>
             </section>
             <section className="spot-show-book-box">
               <div className="book-box-brief">

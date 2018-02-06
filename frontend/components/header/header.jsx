@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 import SpotFormContainer from '../spots/spot_form_container';
 
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ class Header extends React.Component {
     this.toggleMenu = this.toggleMenu.bind(this);
     this.state = {
       menuActive: false,
+      user: props.user
     };
   }
 
@@ -56,6 +58,7 @@ class Header extends React.Component {
     } else {
       menu = "";
     }
+    console.log(this.state);
     return (
       <div className="header-right">
         <div className="header-nav-buttons">
@@ -67,7 +70,8 @@ class Header extends React.Component {
         </div>
         <nav className="header-member-nav">
           <div className="member-icon-box" onClick={this.toggleMenu}>
-            <i className="fa fa-user-circle" />
+            <img src={this.state.user.imageThumbUrl}></img>
+
           </div>
         {menu}
         </nav>
@@ -93,8 +97,37 @@ class Header extends React.Component {
   }
 
   showHeader() {
+    let menu;
+    if (this.state.menuActive) {
+      menu =  <div className="show-header-member-menu">
+                <ul className="show-menu-list">
+                  <li>
+                    <div onClick={this.handleLogout} className="show-menu-item">Log Out</div>
+                  </li>
+                </ul>
+              </div>
+    } else {
+      menu = "";
+    }
     return (
-      <div className="spot-show-header">HEADER!</div>
+      <div className="spot-show-header">
+
+        <div className="show-header-right">
+          <div className="show-header-nav-buttons">
+            <button
+              className="show-header-add-spot-btn"
+              value="new"
+              onClick={this.handleHeaderNavSelection}
+            >Add a new listing</button>
+          </div>
+          <nav className="show-header-member-nav">
+            <div className="show-member-icon-box" onClick={this.toggleMenu}>
+              <img src={this.state.user.imageThumbUrl}></img>
+            </div>
+          {menu}
+          </nav>
+        </div>
+      </div>
     )
   }
 

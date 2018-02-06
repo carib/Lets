@@ -14,7 +14,7 @@ User.create!(
   firstName: 'Guest',
   lastName: 'User',
   host: false,
-  spot_image: File.open("app/assets/images/users/23.jpeg")
+  avatar: File.open("app/assets/images/users/23.jpeg")
 )
 
 20.times do |t|
@@ -26,8 +26,8 @@ User.create!(
     password: 'password',
     firstName: first,
     lastName: last,
-    host: Faker::Boolean.boolean
-    spot_image: File.open("app/assets/images/users/#{t}.jpeg")
+    host: Faker::Boolean.boolean,
+    avatar: File.open("app/assets/images/users/#{t}.jpeg")
   )
 end
 

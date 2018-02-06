@@ -15,6 +15,7 @@ class Api::SpotsController < ApplicationController
 
   def show
     @spot = Spot.includes(:spot_detail).find(params[:id])
+    @host = @spot.host
     if @spot
       render :show
     else
@@ -33,6 +34,7 @@ class Api::SpotsController < ApplicationController
       :currency,
       :spotType,
       :occupancy,
+      :host_id,
       :lat,
       :lng,
       :spot_image,

@@ -51,6 +51,8 @@
     top: 25px;
     height: 40px;
     width: 40px;
+    overflow: hidden;
+    border-radius: 40px;
 
     .fa-user-circle {
       position: fixed;
