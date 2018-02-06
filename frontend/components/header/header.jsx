@@ -35,10 +35,12 @@ class Header extends React.Component {
   }
 
   userAvatar() {
-    if (this.state.user.imageThumbUrl.match(/missing/)) {
-      return <i className="fa fa-user-circle"></i>
-    } else {
-      return <img src={this.state.user.imageThumbUrl}></img>
+    if (this.state.user) {
+      if (this.state.user.imageThumbUrl.match(/missing/)) {
+        return <i className="fa fa-user-circle"></i>
+      } else {
+        return <img src={this.state.user.imageThumbUrl}></img>
+      }
     }
   }
 
