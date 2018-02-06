@@ -19,11 +19,16 @@ export default class MarkerManager {
 
   createMarkerFromSpot(spot) {
     const position = new google.maps.LatLng(spot.lat, spot.lng);
+    const priceTag = new google.maps.InfoWindow({
+      content: `${spot.averagePricePerNight}`,
+    })
     const marker = new google.maps.Marker({
       position,
       map: this.map,
       spotId: spot.id,
     });
+
+
 
     // marker.addListener('click', () => this.handleClick(spot));
     this.markers[marker.spotId] = marker;
