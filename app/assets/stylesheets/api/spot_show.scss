@@ -102,9 +102,15 @@
         margin-top: 20px;
         box-sizing: border-box;
         border-radius: 60px;
+        border: 1px solid #dadada;
         font-size: 60px;
         line-height: 1;
         overflow: hidden;
+
+        img {
+          width: auto;
+          height: 100%;
+        }
       }
     }
   }

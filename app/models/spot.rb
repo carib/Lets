@@ -53,19 +53,3 @@ class Spot < ApplicationRecord
     self.lat.between?(min_lat, max_lat) && self.lng.between?(min_lng, max_lng)
   end
 end
-
-# SAMPLE STATE:
-# spots: {
-  # 1: {
-  #   id: 1,
-  #   hostId: 2,
-  #   title: "East Village Villa",
-  #   type: "Studio Apartment",
-  #   lat: 40.7265,
-  #   lng: 73.9815,
-  #   averageRating: 4.5,
-  #   averagePricePerNight: { usd: 9.99 },
-  #   pastGuestIds: [4, 5, 6],
-  #   reviewIds: [7, 8, 9],
-  # }
-# },

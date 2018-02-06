@@ -50,7 +50,6 @@ class SpotShow extends React.Component {
   render() {
     const { spot, spotDetails, host } = this.state;
     if (this.state.spot) {
-      console.log(spot, this.state);
       const occupancy = this.quickKeyHelper(spot.occupancy, "guest");
       const rooms = this.quickKeyHelper(spotDetails.rooms, "room");
       const beds = this.quickKeyHelper(spotDetails.beds, "bed");
@@ -59,7 +58,6 @@ class SpotShow extends React.Component {
         return <i className="fas fa-star" key={t}></i>
       })
       const hostImage = this.hostAvatar();
-
 
       return (
         <div className="spot-show-main">
