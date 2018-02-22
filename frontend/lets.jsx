@@ -11,6 +11,8 @@ import * as SpotAct from './actions/spot_actions';
 import * as ModalApi from './util/modal_util';
 import * as ModalAct from './actions/modal_actions';
 import * as FilterAct from './actions/filter_actions';
+import * as BookingAct from './actions/booking_actions';
+import * as BookingApi from './util/booking_api_util';
 
 import merge from 'lodash/merge';
 
@@ -43,5 +45,7 @@ window.SpotAct = SpotAct;
 window.ModalApi = ModalApi;
 window.ModalAct = ModalAct;
 window.FilterAct = FilterAct;
+window.BookingAct = BookingAct;
+window.BookingApi = BookingApi;
 window.merge = merge;
 //TESTING END
