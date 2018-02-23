@@ -2,6 +2,8 @@ import React from 'react';
 
 import times from 'lodash/times';
 
+import BookBox from './booking_box';
+
 class SpotShow extends React.Component {
   constructor(props) {
     super(props);
@@ -150,16 +152,12 @@ class SpotShow extends React.Component {
                 Tv
               </div>
             </div>
-            <section className="spot-show-book-box">
-              <div className="book-box-brief">
-                <div className="book-box-brief-price">
-                  <span className="price-nums">${Math.floor(spot.averagePricePerNight)}</span>
-                  <span className="price-text">  per night</span>
-                </div>
-                <div className="book-box-brief-rating">{stars}</div>
-              </div>
-              <div className="book-box-divider"></div>
-            </section>
+            <BookBox
+              spot={spot}
+              spotDetails={spotDetails}
+              host={host}
+              stars={stars}
+            />
           </section>
         </div>
       )

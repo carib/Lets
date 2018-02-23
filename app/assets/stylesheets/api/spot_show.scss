@@ -211,6 +211,118 @@
     border-bottom: 1px solid #DBDBDB !important;
   }
 
+  .book-box-options {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    top: 37px;
+    left: 25px;
+    height: 224px;
+    width: 86%;
+
+    [class^="book-box-text-"] {
+      height: 20px;
+      width: 100%;
+      font-size: 12px;
+      line-height: 1.5;
+      background-color: lightblue;
+      border: 1px solid #dadada;
+    }
+
+    .book-box-text-dates {
+
+    }
+
+    .book-box-date-selector {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      width: 100%;
+      background-color: lightblue;
+      border: 1px solid #dadada;
+
+      [class^="check-"] {
+        height: 70%;
+        line-height: 1.5;
+        text-indent: 6px;
+        font-size: 18px;
+        font-weight: 100;
+        width: 130px;
+      }
+
+      [class^="input-check-"] {
+        position: absolute;
+        height: 12%;
+        width: 40%;
+        opacity: 0.5;
+        line-height: 1.5;
+        text-indent: 6px;
+        font-size: 18px;
+        font-weight: 100;
+        border-radius: 3px;
+      }
+
+      .check-in-selector {
+        margin-left: 10px;
+
+        .input-check-in {
+          top: 33px;
+          left: 11px;
+        }
+      }
+      // →
+
+      .date-selector-arrow {
+        font-size: 40px;
+        color: #dadada;
+
+        .arrow {
+          position: absolute;
+          top: 33px;
+          left: 141px;
+          height: 39px;
+        }
+      }
+
+      .check-out-selector {
+        margin-right: 10px;
+
+        .input-check-out {
+          top: 33px;
+          right: 12px;
+        }
+      }
+    }
+
+    .calendar-box {
+
+    }
+
+    .book-box-text-guests {
+
+    }
+
+    .book-box-guests-selector {
+      height: 40px;
+      width: 100%;
+      background-color: lightblue;
+      border: 1px solid #dadada;
+    }
+
+    .book-box-book-button {
+      height: 60px;
+      width: 100%;
+      background-color: lightblue;
+      border: 1px solid #dadada;
+    }
+
+    .book-box-text-bottom {
+      text-align: center;
+    }
+  }
+
   .fixbox {
     display: flex;
     position: fixed;
