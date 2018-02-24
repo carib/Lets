@@ -4,16 +4,6 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-import * as SessionApi from './util/session_api_util';
-import * as SessionAct from './actions/session_actions';
-import * as SpotApi from './util/spot_api_util';
-import * as SpotAct from './actions/spot_actions';
-import * as ModalApi from './util/modal_util';
-import * as ModalAct from './actions/modal_actions';
-import * as FilterAct from './actions/filter_actions';
-
-import merge from 'lodash/merge';
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
@@ -24,24 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  //TESTING START
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  //TESTING END
-
-
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store } />, root);
 });
-
-
-//TESTING START
-window.SessionApi = SessionApi;
-window.SessionAct = SessionAct;
-window.SpotApi = SpotApi;
-window.SpotAct = SpotAct;
-window.ModalApi = ModalApi;
-window.ModalAct = ModalAct;
-window.FilterAct = FilterAct;
-window.merge = merge;
-//TESTING END
