@@ -11,6 +11,7 @@ class CalendarBox extends React.Component {
       year: new Date().getFullYear(),
       month: new Date().getMonth(),
       dateToday: new Date().getDate(),
+      showCalendar: this.props.showCalendar,
     }
     this.incrementMonth = this.incrementMonth.bind(this);
     this.decrementMonth = this.decrementMonth.bind(this);
@@ -37,8 +38,15 @@ class CalendarBox extends React.Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps !== this.props) {
+      this.setState(nextProps);
+    }
+  }
+
   render() {
-    const { dateToday, month, year } = this.state;
+    const { dateToday, month, year, showCalendar, toggleSelector } = this.state;
+    let togglePointer = (showCalendar) ? '' : 'hidden';
     let lastYear = (month === 0) ? (year - 1) : year;
     let lastMonth = (month === 0) ? 11 : (month - 1);
     let nextYear = (month === 11) ? (year + 1) : year;
@@ -50,36 +58,42 @@ class CalendarBox extends React.Component {
     };
 
     return (
-      <div id="calendar" className="calendar">
-        <div className="calendar-top">
-          <div id="arrow-left" className="month-select-left" onClick={this.decrementMonth}>
-            <SVGUtil.calendarLeftArrow/>
+      <div className="calendar-box-wrapper">
+        <div className={`cal-pointer-box ${togglePointer} ${toggleSelector}`}>
+          <SVGUtil.calendarPointer/>
+        </div>
+        <div id="calendar" className={ showCalendar ? "calendar" : "calendar hidden" }>
+          <div className="calendar-top">
+            <div id="arrow-left" className="month-select-left" onClick={this.decrementMonth}>
+              <SVGUtil.calendarLeftArrow/>
+            </div>
+            <div className="month-display">
+              {`${fullMonth[month]} ${year}`}
+            </div>
+            <div id="arrow-right" className="month-select-right" onClick={this.incrementMonth}>
+              <SVGUtil.calendarRightArrow/>
+            </div>
           </div>
-          <div className="month-display">
-            {`${fullMonth[month]} ${year}`}
+          <div className="calendar-week">
+            <div className="cal-day">Su</div>
+            <div className="cal-day">Mo</div>
+            <div className="cal-day">Tu</div>
+            <div className="cal-day">We</div>
+            <div className="cal-day">Th</div>
+            <div className="cal-day">Fr</div>
+            <div className="cal-day">Sa</div>
           </div>
-          <div id="arrow-right" className="month-select-right" onClick={this.incrementMonth}>
-            <SVGUtil.calendarRightArrow/>
+          <CalendarGrid
+            year={year}
+            month={month}
+            date={dateToday}
+            />
+          <div className="calendar-bottom">
+            <div className="calendar-bottom-text">Minimum stay varies</div>
+            <div className="calendar-bottom-text">Updated 22 days ago</div>
           </div>
         </div>
-        <div className="calendar-week">
-          <div className="cal-day">Su</div>
-          <div className="cal-day">Mo</div>
-          <div className="cal-day">Tu</div>
-          <div className="cal-day">We</div>
-          <div className="cal-day">Th</div>
-          <div className="cal-day">Fr</div>
-          <div className="cal-day">Sa</div>
-        </div>
-        <CalendarGrid
-          year={year}
-          month={month}
-          date={dateToday}
-          />
-        <div className="calendar-bottom">
-          <div className="calendar-bottom-text">Minimum stay varies</div>
-          <div className="calendar-bottom-text">Updated 22 days ago</div>
-        </div>
+        <div id="click-net" className={`click-net ${togglePointer}`}></div>
       </div>
     )
   }

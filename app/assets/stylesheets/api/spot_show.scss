@@ -216,7 +216,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    top: 37px;
+    top: 30px;
     left: 25px;
     height: 224px;
     width: 86%;
@@ -224,10 +224,8 @@
     [class^="book-box-text-"] {
       height: 20px;
       width: 100%;
-      font-size: 12px;
-      line-height: 1.5;
-      background-color: lightblue;
-      border: 1px solid #dadada;
+      font-size: 11.5px;
+      line-height: 2;
     }
 
     .book-box-text-dates {
@@ -238,10 +236,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 40px;
+      height: 38px;
       width: 100%;
-      background-color: lightblue;
       border: 1px solid #dadada;
+      z-index: 1;
 
       [class^="check-"] {
         height: 70%;
@@ -256,12 +254,21 @@
         position: absolute;
         height: 12%;
         width: 40%;
-        opacity: 0.5;
         line-height: 1.5;
         text-indent: 6px;
-        font-size: 18px;
+        font-size: 18px !important;
         font-weight: 100;
         border-radius: 3px;
+      }
+
+      [class$="aqua"] {
+        background-color: #8eebe3;
+        color: #19838d !important;
+      }
+
+      [class$="aqua"]::placeholder {
+        background-color: #8eebe3;
+        color: #19838d !important;
       }
 
       .check-in-selector {
@@ -275,7 +282,6 @@
 
       .date-selector-arrow {
         font-size: 40px;
-        color: #dadada;
 
         .arrow {
           position: absolute;
@@ -293,23 +299,6 @@
           right: 12px;
         }
       }
-    }
-
-    [class^="cal-pointer-box"] {
-      height: 10px;
-      width: 20px;
-      z-index: 2;
-      position: relative;
-      bottom: 2.5%;
-      box-sizing: border-box;
-    }
-
-    [class$="-box checkin"] {
-      left: 7.5%;
-    }
-
-    [class$="-box checkout"] {
-      left: 61%;
     }
 
     .book-box-text-guests {

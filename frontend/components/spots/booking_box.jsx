@@ -15,9 +15,20 @@ class BookBox extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    const clickNet = document.getElementById('click-net');
+    clickNet.addEventListener('click', (e) => {
+      if (this.state.showCalendar && e.target.id === 'click-net') {
+        this.setState({
+          showCalendar: false,
+        });
+      }
+    });
+  }
+
   handleClick(e) {
-    const { dateToday, month, year } = this.state;
     e.preventDefault();
+    const { dateToday, month, year } = this.state;
     this.setState({
       showCalendar: true,
       toggleSelector: e.currentTarget.id,
@@ -45,7 +56,7 @@ class BookBox extends React.Component {
             <div className="check-in-selector">
               <input
                 id="checkin"
-                className="input-check-in"
+                className={(showCalendar && toggleSelector === 'checkin') ? `input-check-in aqua` : "input-check-in"}
                 type="text"
                 autoComplete="off"
                 placeholder="Check In"
@@ -58,7 +69,7 @@ class BookBox extends React.Component {
             <div className="check-out-selector">
               <input
                 id="checkout"
-                className="input-check-out"
+                className={(showCalendar && toggleSelector === 'checkout') ? `input-check-out aqua` : "input-check-out"}
                 type="text"
                 autoComplete="off"
                 placeholder="Check Out"
@@ -66,13 +77,9 @@ class BookBox extends React.Component {
               />
             </div>
           </div>
-          <div className={`cal-pointer-box ${toggleSelector}`}>
-            <SVGUtil.calendarPointer/>
-          </div>
-          <CalendarBox/>
+          <CalendarBox showCalendar={showCalendar} toggleSelector={toggleSelector} />
           <div className="book-box-text-guests">Guests</div>
           <div className="book-box-guests-selector">
-
           </div>
           <div className="book-box-book-button"></div>
           <div className="book-box-text-bottom">You won't be charged yet</div>
@@ -83,4 +90,3 @@ class BookBox extends React.Component {
 }
 
 export default BookBox;
-// className={ showCalendar ? "calendar" : "calendar hidden" }
