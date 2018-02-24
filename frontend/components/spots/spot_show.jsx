@@ -51,6 +51,7 @@ class SpotShow extends React.Component {
 
   render() {
     const { spot, spotDetails, host } = this.state;
+    const { createBooking } = this.props;
     if (this.state.spot) {
       const occupancy = this.quickKeyHelper(spot.occupancy, "guest");
       const rooms = this.quickKeyHelper(spotDetails.rooms, "room");
@@ -157,6 +158,7 @@ class SpotShow extends React.Component {
               spotDetails={spotDetails}
               host={host}
               stars={stars}
+              createBooking={createBooking}
             />
           </section>
         </div>

@@ -12,6 +12,10 @@ class BookBox extends React.Component {
       showCalendar: false,
       showGuestBox: false,
       toggleSelector: '',
+      checkInDate: '',
+      checkOutDate: '',
+      numGuests: '',
+      numInfants: '',
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,22 +34,56 @@ class BookBox extends React.Component {
     });
   }
 
+  openCalendar(selector) {
+    this.setState({
+      showCalendar: true,
+      showGuestBox: false,
+      toggleSelector: selector,
+    });
+  }
+
+  openGuestBox(selector) {
+    this.setState({
+      showCalendar: false,
+      showGuestBox: true,
+      toggleSelector: selector,
+    });
+  }
+
+  setStayDates(dateString) {
+    const { checkInDate, checkOutDate, toggleSelector } = this.state;
+    if (/checkin/.test(this.state.toggleSelector)) {
+      this.setState({ checkInDate: dateString });
+      if (checkOutDate !== '') {
+        this.setState({ showCalendar: false });
+      } else {
+        this.setState({ toggleSelector: 'checkout' })
+      }
+    } else {
+      this.setState({ checkOutDate: dateString });
+      if (checkInDate !== '') {
+        this.setState({ showCalendar: false });
+      } else {
+        this.setState({ toggleSelector: 'checkin' })
+      }
+    }
+  }
+
   handleClick(e) {
     e.preventDefault();
-    const { dateToday, month, year } = this.state;
+    const {
+      dateToday,
+      month,
+      year,
+    } = this.state;
     if (/check/.test(e.currentTarget.id)) {
-      this.setState({
-        showCalendar: true,
-        showGuestBox: false,
-        toggleSelector: e.currentTarget.id,
-      });
+      this.openCalendar(e.currentTarget.id);
     } else if (/guest/.test(e.currentTarget.id)){
-      this.setState({
-        showCalendar: false,
-        showGuestBox: true,
-        toggleSelector: e.currentTarget.id,
-      });
-    } else {
+      this.openGuestBox(e.currentTarget.id);
+    } else if (/cal-date/.test(e.currentTarget.id)){
+      const dateString = e.currentTarget.dataset.datestring;
+      this.setStayDates(dateString);
+    }  else {
       this.setState({
         showCalendar: false,
         showGuestBox: false,
@@ -55,13 +93,28 @@ class BookBox extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('BOOKINGS COMING SOON!');
+    const { checkInDate, checkOutDate } = this.state;
+    const { createBooking, spot } = this.props;
+    let numGuests = document.getElementById('guestbox');
+    numGuests = numGuests.innerText.split(' ');
+    let numAdults = parseInt(numGuests[0]);
+    let numInfants = (numGuests[2]) ? parseInt(numGuests[2]) : 0;
+    this.setState({
+      numGuests: numAdults,
+      numInfants: numInfants,
+    });
+    createBooking({
+      start_date: checkInDate,
+      end_date: checkOutDate,
+      num_guests: numAdults,
+      spot_id: spot.id,
+    });
   }
 
   render() {
     const { spot, spotDetails, host, stars } = this.props;
     const { showCalendar, showGuestBox, toggleSelector } = this.state;
-    const { dateToday, month, year } = this.state;
+    const { dateToday, month, year, checkInDate, checkOutDate } = this.state;
 
     return (
       <section className="spot-show-book-box">
@@ -83,6 +136,7 @@ class BookBox extends React.Component {
                 type="text"
                 autoComplete="off"
                 placeholder="Check In"
+                value={checkInDate}
                 onClick={this.handleClick}
               />
             </div>
@@ -96,11 +150,12 @@ class BookBox extends React.Component {
                 type="text"
                 autoComplete="off"
                 placeholder="Check Out"
+                value={checkOutDate}
                 onClick={this.handleClick}
               />
             </div>
           </div>
-          <CalendarBox showCalendar={showCalendar} toggleSelector={toggleSelector} />
+          <CalendarBox showCalendar={showCalendar} toggleSelector={toggleSelector} handleClick={this.handleClick}/>
           <div className="book-box-text-guests">Guests</div>
           <div className="book-box-guests-selector">
             <div id="guestbox" className="guest-input-field" onClick={this.handleClick}>

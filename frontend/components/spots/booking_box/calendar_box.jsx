@@ -46,6 +46,7 @@ class CalendarBox extends React.Component {
 
   render() {
     const { dateToday, month, year, showCalendar, toggleSelector } = this.state;
+    const { handleClick } = this.props;
     let togglePointer = (showCalendar) ? '' : 'hidden';
     let lastYear = (month === 0) ? (year - 1) : year;
     let lastMonth = (month === 0) ? 11 : (month - 1);
@@ -87,6 +88,7 @@ class CalendarBox extends React.Component {
             year={year}
             month={month}
             date={dateToday}
+            handleClick={handleClick}
             />
           <div className="calendar-bottom">
             <div className="calendar-bottom-text">Minimum stay varies</div>

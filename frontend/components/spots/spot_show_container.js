@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import { fetchSpot } from '../../actions/spot_actions';
+import { fetchBookings, createBooking } from '../../actions/booking_actions';
 
 import SpotShow from './spot_show';
 
@@ -14,7 +15,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchSpot: id => dispatch(fetchSpot(id))
+    fetchSpot: id => dispatch(fetchSpot(id)),
+    fetchBookings: id => dispatch(fetchBookings(id)),
+    createBooking: booking => dispatch(createBooking(booking))
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import times from 'lodash/times';
 
-export const CalendarGrid = ({ year, month, date }) => {
+export const CalendarGrid = ({ year, month, date, handleClick }) => {
   let startDay = new Date(year, month, 1).getDay();
 
   return (
@@ -16,8 +16,10 @@ export const CalendarGrid = ({ year, month, date }) => {
           let firstRow = (tCount + startDay <= 7) ? 'first-row' : '';
           if (month === countMonth && ((t + 1) > startDay)) {
             return <div key={`t${t + 1}`}
-                        id={(tCount === lastDay) ? 'last-day' : `${countId} ${firstRow}`}
-                        className={`calendar-day-${weekDay}`}>
+                        id={(tCount === lastDay) ? 'last-day' : `${countId}cal-date${firstRow}`}
+                        className={`calendar-day-${weekDay}`}
+                        data-datestring={`${tCount}/${month}/${year}`}
+                        onClick={handleClick}>
                     {tCount}
                    </div>;
           } else {
