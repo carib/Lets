@@ -19,7 +19,6 @@ class GuestBox extends React.Component {
     if (nextProps !== this.props) {
       this.setState(nextProps);
     }
-    console.log('props',nextProps,'state',this.state);
   }
 
   handleClick(e) {

@@ -55,7 +55,7 @@ class BookBox extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('SUBMIT!');
+    console.log('BOOKINGS COMING SOON!');
   }
 
   render() {
