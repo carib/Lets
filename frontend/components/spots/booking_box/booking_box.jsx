@@ -14,18 +14,18 @@ class BookBox extends React.Component {
       toggleSelector: '',
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     const { showCalendar, showGuestBox } = this.state;
     const clickNet = document.getElementById('click-net');
     clickNet.addEventListener('click', (e) => {
-      if (e.target.id === 'click-net') {
+      if (e.currentTarget.id === 'click-net') {
         this.setState({
           showCalendar: false,
           showGuestBox: false,
         });
-        console.log('bookbox',this.state);
       }
     });
   }
@@ -36,10 +36,12 @@ class BookBox extends React.Component {
     if (/check/.test(e.currentTarget.id)) {
       this.setState({
         showCalendar: true,
+        showGuestBox: false,
         toggleSelector: e.currentTarget.id,
       });
     } else if (/guest/.test(e.currentTarget.id)){
       this.setState({
+        showCalendar: false,
         showGuestBox: true,
         toggleSelector: e.currentTarget.id,
       });
@@ -49,6 +51,11 @@ class BookBox extends React.Component {
         showGuestBox: false,
       });
     }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log('SUBMIT!');
   }
 
   render() {
@@ -100,10 +107,15 @@ class BookBox extends React.Component {
               <GuestBox showGuestBox={showGuestBox} toggleSelector={toggleSelector} />
             </div>
           </div>
-          <div className="book-box-book-button"></div>
+          <input
+            type="submit"
+            className="book-box-book-button"
+            value="Request to Book"
+            style={(showGuestBox) ? {zIndex:0} : {zIndex:1}}
+            onClick={this.handleSubmit}/>
           <div className="book-box-text-bottom">You won't be charged yet</div>
         </div>
-        <div id="click-net" className={`click-net ${togglePointer}`}></div>
+        <div id="click-net" className={`click-net`}></div>
       </section>
     )
   }

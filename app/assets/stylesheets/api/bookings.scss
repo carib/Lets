@@ -3,7 +3,7 @@
   flex-direction: column;
   position: absolute;
   width: 376px;
-  height: 350px;
+  height: 377px;
   border: 1px solid #dadada;
   background-color: #fff;
   align-self: flex-end;
@@ -93,6 +93,7 @@
       width: 40%;
       line-height: 1.5 !important;
       text-indent: 6px;
+      color: #565a5c;
       border-radius: 3px;
       font-size: 16px !important;
       font-weight: 100 !important;
@@ -143,11 +144,13 @@
   }
 
   .book-box-guests-selector {
+    z-index: 1;
     height: 50px;
     width: 100%;
     border: 1px solid #dadada;
 
     .guest-input-field {
+      z-index: 1;
       height: 50px;
 
       .count-wrapper {
@@ -181,84 +184,94 @@
         }
       }
     }
+    .guest-box-wrapper {
+      z-index: 2;
+      
+      .guestbox {
+        z-index: 1;
+        display: grid;
+        position: relative;
+        top: 0px;
+        grid-template-columns: 57.5% 40px 46px 40px;
+        grid-template-rows: 65px 65px 65px;
+        width: 100%;
+        background-color: #fff;
+        border-top: 2px solid #19838d;
+        border-left: 1px solid #dadada;
+        border-right: 1px solid #dadada;
+        border-bottom: 1px solid #dadada;
 
-    .guestbox {
-      z-index: 1;
-      display: grid;
-      position: relative;
-      top: 0px;
-      grid-template-columns: 57.5% 40px 46px 40px;
-      grid-template-rows: 65px 65px 65px;
-      width: 100%;
-      background-color: #fff;
-      border-top: 2px solid #19838d;
-      border-left: 1px solid #dadada;
-      border-right: 1px solid #dadada;
-      border-bottom: 1px solid #dadada;
+        [class$="counter-text"] {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-indent: 18px;
+          font-size: 18px;
+          font-weight: 100;
+          color: #565a5c;
 
-      [class$="counter-text"] {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-indent: 18px;
-        font-size: 18px;
-        font-weight: 100;
-        color: #565a5c;
+          .counter-main-text {
+            margin-bottom: 5px;
+          }
 
-        .counter-main-text {
-          margin-bottom: 5px;
+          .counter-sub-text {
+            font-size: 14px;
+            color: #828282;
+          }
         }
 
-        .counter-sub-text {
-          font-size: 14px;
-          color: #828282;
+        [class$="counter-less-button"] {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
         }
-      }
 
-      [class$="counter-less-button"] {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
+        [class$="counter-count"] {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-size: 19px;
+          font-weight: 100;
+          color: #565a5c;
+        }
 
-      [class$="counter-count"] {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 19px;
-        font-weight: 100;
-        color: #565a5c;
-      }
+        [class$="counter-more-button"] {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
 
-      [class$="counter-more-button"] {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        }
 
-      }
-
-      .button-screen {
-        height: 35px;
-        width: 35px;
-        background-color: transparent;
-        position: absolute;
-        border-radius: 35px;
+        .button-screen {
+          height: 35px;
+          width: 35px;
+          background-color: transparent;
+          position: absolute;
+          border-radius: 35px;
+        }
       }
     }
   }
 
   .book-box-book-button {
-    height: 60px;
+    z-index: 1;
+    height: 65px;
     width: 100%;
-    background-color: lightblue;
-    border: 1px solid #dadada;
+    background-color: #ff5a5f;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 5px;
+    position: relative;
+    top: 8%;
   }
 
   .book-box-text-bottom {
     text-align: center;
+    position: relative;
+    top: 26px;
   }
 }
 
