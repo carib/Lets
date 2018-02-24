@@ -37,3 +37,22 @@ export const calendarRightArrow = () => {
     </svg>
   )
 }
+
+export const lessButton = () => {
+  return (
+    <svg className="less-button" height="36" width="36">
+      <circle cx="18" cy="18" r="16" fill="transparent" stroke="#19838d" strokeWidth="1"/>
+      <line x1="14" y1="18" x2="22" y2="18" stroke="#19838d" strokeWidth="1"/>
+    </svg>
+  )
+}
+
+export const moreButton = () => {
+  return (
+    <svg className="more-button" height="36" width="36">
+      <circle cx="18" cy="18" r="16" fill="transparent" stroke="#19838d" strokeWidth="1"/>
+      <line x1="14" y1="18" x2="22" y2="18" stroke="#19838d" strokeWidth="1"/>
+      <line x1="18" y1="14" x2="18" y2="22" stroke="#19838d" strokeWidth="1"/>
+    </svg>
+  )
+}

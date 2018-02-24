@@ -1,27 +1,31 @@
 import React from 'react';
 import times from 'lodash/times';
 
-import * as SVGUtil from '../../util/svg_util.jsx';
-import { CalendarGrid } from './calendar_grid';
+import * as SVGUtil from '../../../util/svg_util.jsx';
 import CalendarBox from './calendar_box';
+import GuestBox from './guest_box';
 
 class BookBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showCalendar: false,
-      toggleSelector: 'checkin',
+      showGuestBox: false,
+      toggleSelector: '',
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
+    const { showCalendar, showGuestBox } = this.state;
     const clickNet = document.getElementById('click-net');
     clickNet.addEventListener('click', (e) => {
-      if (this.state.showCalendar && e.target.id === 'click-net') {
+      if (e.target.id === 'click-net') {
         this.setState({
           showCalendar: false,
+          showGuestBox: false,
         });
+        console.log('bookbox',this.state);
       }
     });
   }
@@ -29,15 +33,27 @@ class BookBox extends React.Component {
   handleClick(e) {
     e.preventDefault();
     const { dateToday, month, year } = this.state;
-    this.setState({
-      showCalendar: true,
-      toggleSelector: e.currentTarget.id,
-    });
+    if (/check/.test(e.currentTarget.id)) {
+      this.setState({
+        showCalendar: true,
+        toggleSelector: e.currentTarget.id,
+      });
+    } else if (/guest/.test(e.currentTarget.id)){
+      this.setState({
+        showGuestBox: true,
+        toggleSelector: e.currentTarget.id,
+      });
+    } else {
+      this.setState({
+        showCalendar: false,
+        showGuestBox: false,
+      });
+    }
   }
 
   render() {
     const { spot, spotDetails, host, stars } = this.props;
-    const { showCalendar, toggleSelector } = this.state;
+    const { showCalendar, showGuestBox, toggleSelector } = this.state;
     const { dateToday, month, year } = this.state;
 
     return (
@@ -80,10 +96,14 @@ class BookBox extends React.Component {
           <CalendarBox showCalendar={showCalendar} toggleSelector={toggleSelector} />
           <div className="book-box-text-guests">Guests</div>
           <div className="book-box-guests-selector">
+            <div id="guestbox" className="guest-input-field" onClick={this.handleClick}>
+              <GuestBox showGuestBox={showGuestBox} toggleSelector={toggleSelector} />
+            </div>
           </div>
           <div className="book-box-book-button"></div>
           <div className="book-box-text-bottom">You won't be charged yet</div>
         </div>
+        <div id="click-net" className={`click-net ${togglePointer}`}></div>
       </section>
     )
   }

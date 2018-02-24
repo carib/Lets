@@ -2,7 +2,7 @@ import React from 'react';
 
 import times from 'lodash/times';
 
-import BookBox from './booking_box';
+import BookBox from './booking_box/booking_box';
 
 class SpotShow extends React.Component {
   constructor(props) {

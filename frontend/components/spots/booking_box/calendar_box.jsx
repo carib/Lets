@@ -1,7 +1,7 @@
 import React from 'react';
 import times from 'lodash/times';
 
-import * as SVGUtil from '../../util/svg_util.jsx';
+import * as SVGUtil from '../../../util/svg_util.jsx';
 import { CalendarGrid } from './calendar_grid';
 
 class CalendarBox extends React.Component {
@@ -93,7 +93,7 @@ class CalendarBox extends React.Component {
             <div className="calendar-bottom-text">Updated 22 days ago</div>
           </div>
         </div>
-        <div id="click-net" className={`click-net ${togglePointer}`}></div>
+
       </div>
     )
   }
