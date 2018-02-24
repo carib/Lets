@@ -185,13 +185,13 @@
       .price-nums {
         font-weight: 500;
         font-size: 21px;
-        color: #545454;
+        color: #565a5c;
       }
 
       .price-text {
         font-weight: 400;
         font-size: 15px;
-        color: #545454;
+        color: #565a5c;
       }
     }
 
@@ -305,117 +305,11 @@
     }
 
     [class$="-box checkin"] {
-      left: 10%;
+      left: 7.5%;
     }
 
     [class$="-box checkout"] {
       left: 61%;
-    }
-
-    .calendar {
-      height: 354px;
-      width: 313px;
-      position: absolute;
-      background-color: #fff;
-      top: 32%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-      border: 1px solid #dadada;
-      box-sizing: border-box;
-      overflow: hidden;
-
-      .calendar-top {
-        height: 30px;
-        width: 90%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 13px;
-
-        [class^="month-select"] {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          height: 35px;
-          width: 40px;
-          border: 1px solid #dadada;
-          border-radius: 3px;
-          background-color: #fff;
-          z-index: 1;
-        }
-
-        .month-display {
-          height: 50px;
-          width: 202px;
-          font-size: 18px;
-          font-weight: 200;
-          text-align: center;
-          line-height: 2;
-          color: #545454;
-          position: relative;
-          left: 0%;
-        }
-      }
-
-      .calendar-week {
-        display: flex;
-        flex-direction: row;
-        height: 20px;
-        width: 90%;
-
-        .cal-day {
-          height: 20px;
-          width: 40px;
-          line-height: 4;
-          font-size: 11px;
-          font-weight: 400;
-          text-align: center;
-          color: #777777;
-        }
-      }
-
-      .calendar-grid {
-        height: 200px;
-        width: 90%;
-        display: grid;
-        grid-template-columns: 40px 40px 40px 40px 40px 40px 40px;
-        grid-template-rows: 40px 40px 40px 40px 40px;
-
-
-        [class^="calendar-day"] {
-          text-align: center;
-          line-height: 2.5;
-          border-left: 1px solid #dadada;
-          border-bottom: 1px solid #dadada;
-          font-size: 15px;
-          color: #545454;
-        }
-
-        .calendar-day-6 {
-          border-right: 1px solid #dadada;
-        }
-
-        #first-week {
-          border-top: 1px solid #dadada;
-        }
-
-        #last-day {
-          border-right: 1px solid #dadada;
-        }
-
-        .calendar-day-zero {
-          color: transparent;
-          border: none;
-        }
-      }
-
-      .calendar-bottom {
-        height: 50px;
-        width: 90%;
-        background-color: lightblue;
-      }
     }
 
     .book-box-text-guests {
@@ -459,3 +353,15 @@
 .hidden {
   display: none !important;
 }
+//
+// .last-month {
+//   background-color: aliceblue;
+// }
+//
+// .this-month {
+//   background-color: aliceblue;
+// }
+//
+// .next-month {
+//   background-color: aliceblue;
+// }

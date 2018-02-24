@@ -28,7 +28,6 @@ class CalendarBox extends React.Component {
   }
 
   decrementMonth() {
-    const display = document.getElementById("month-display");
     const { month, year } = this.state;
     const newMonth = (month === 0) ? 11 : (month - 1);
     const newYear = (month === 0) ? (year - 1) : year;
@@ -40,10 +39,10 @@ class CalendarBox extends React.Component {
 
   render() {
     const { dateToday, month, year } = this.state;
-    let nextYear = (month === 11) ? (year + 1) : year;
-    let nextMonth = (month === 11) ? 0 : (month + 1);
     let lastYear = (month === 0) ? (year - 1) : year;
     let lastMonth = (month === 0) ? 11 : (month - 1);
+    let nextYear = (month === 11) ? (year + 1) : year;
+    let nextMonth = (month === 11) ? 0 : (month + 1);
     const fullMonth = {
       0: 'January', 1: 'February', 2: 'March', 3: 'April',
       4: 'May', 5: 'June', 6: 'July', 7: 'August',
@@ -56,7 +55,7 @@ class CalendarBox extends React.Component {
           <div id="arrow-left" className="month-select-left" onClick={this.decrementMonth}>
             <SVGUtil.calendarLeftArrow/>
           </div>
-          <div id="slide" className="month-display">
+          <div className="month-display">
             {`${fullMonth[month]} ${year}`}
           </div>
           <div id="arrow-right" className="month-select-right" onClick={this.incrementMonth}>
@@ -73,16 +72,17 @@ class CalendarBox extends React.Component {
           <div className="cal-day">Sa</div>
         </div>
         <CalendarGrid
-          className='this-month'
           year={year}
           month={month}
           date={dateToday}
           />
-
-        <div className="calendar-bottom"></div>
+        <div className="calendar-bottom">
+          <div className="calendar-bottom-text">Minimum stay varies</div>
+          <div className="calendar-bottom-text">Updated 22 days ago</div>
+        </div>
       </div>
     )
   }
 }
 
-export default Calendar;
+export default CalendarBox;
