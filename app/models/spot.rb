@@ -28,9 +28,17 @@ class Spot < ApplicationRecord
     :convert_options => { full: "-gravity center -resize 1920x1080" }
   validates_attachment_content_type :spot_image, content_type: /\Aimage\/.*\z/
 
+  has_many :bookings,
+    class_name: :Booking,
+    foreign_key: :spot_id
+
+  has_many :bookers,
+    through: :bookings,
+    source: :booker
+
   belongs_to :host,
-  class_name: :User,
-  foreign_key: :host_id
+    class_name: :User,
+    foreign_key: :host_id
 
   has_one :spot_detail,
     class_name: :SpotDetail,

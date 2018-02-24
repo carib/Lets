@@ -17,18 +17,6 @@
 #  host                :boolean          default(FALSE)
 #
 
-# SAMPLE STATE:
-# users: {
-#              1: {
-#                id: 1,
-#                email: "humancondition2001@hotmail.com",
-#                firstName: "Hannah",
-#                lastName: "Arendt",
-#                imgUrl: "https://goo.gl/44nkpL",
-#                reviewIds: [7],
-#                hostedSpotIds: []
-#              },
-
 class User < ApplicationRecord
   validates :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
@@ -45,6 +33,13 @@ class User < ApplicationRecord
     class_name: :Spot,
     foreign_key: :host_id
 
+  has_many :bookings,
+    class_name: :Booking,
+    foreign_key: :booker_id
+
+  has_many :booked_spots,
+    through: :bookings,
+    source: :spot
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
@@ -71,3 +66,16 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
 end
+
+
+# SAMPLE STATE:
+# users: {
+#              1: {
+#                id: 1,
+#                email: "humancondition2001@hotmail.com",
+#                firstName: "Hannah",
+#                lastName: "Arendt",
+#                imgUrl: "https://goo.gl/44nkpL",
+#                reviewIds: [7],
+#                hostedSpotIds: []
+#              },

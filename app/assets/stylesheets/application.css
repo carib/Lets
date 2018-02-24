@@ -43,4 +43,6 @@
 
 * {
   font-family: 'Circular', sans-serif !important;
+  font-stretch: ultra-expanded;
+  letter-spacing: 0.04rem;
 }
