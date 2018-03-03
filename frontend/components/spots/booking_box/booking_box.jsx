@@ -81,6 +81,7 @@ class BookBox extends React.Component {
     } else if (/guest/.test(e.currentTarget.id)){
       this.openGuestBox(e.currentTarget.id);
     } else if (/cal-date/.test(e.currentTarget.id)){
+          console.log('click');
       const dateString = e.currentTarget.dataset.datestring;
       this.setStayDates(dateString);
     }  else {

@@ -28,7 +28,7 @@
   justify-content: space-evenly;
   border: 1px solid #dadada;
   box-sizing: border-box;
-  overflow: hidden;
+  // overflow: hidden;
 
   .calendar-top {
     height: 27px;
@@ -86,7 +86,7 @@
     }
   }
 
-  .calendar-grid {
+  [class^="calendar-grid"] {
     z-index: 2;
     height: 200px;
     width: 100%;
@@ -94,7 +94,7 @@
     grid-template-columns: 39px 39px 39px 39px 39px 39px 39px;
     grid-template-rows: 39px 39px 39px 39px 39px;
     position: relative;
-    left: 7.3%;
+    left: 7.5%;
 
     [class^="calendar-day"] {
       text-align: center;
@@ -130,6 +130,29 @@
       border: none;
     }
   }
+
+  // [class$="grid-show"] {
+  //   left: 7.3%;
+  //   top: 4%;
+  //   transform: translateX(-92.7%);
+  //   transition: transform .5s linear;
+  // }
+  //
+  // [class$="grid-load"] {
+  //   left: 100%;
+  //   bottom: 35.5%;
+  //   transform: translateX(0%);
+  //   transition: transform .5s linear;
+  // }
+  //
+  // [id$="slide-in"] {
+  //
+  // }
+  //
+  // [id$="slide-out"] {
+  //
+  // }
+
   .calendar-bottom {
     display: flex;
     flex-direction: column;
@@ -139,5 +162,7 @@
     font-size: 11px;
     line-height: 1.5;
     color: #565a5c;
+    position: relative;
+    bottom: 15px;
   }
 }

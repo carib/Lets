@@ -85,6 +85,8 @@ class CalendarBox extends React.Component {
             <div className="cal-day">Sa</div>
           </div>
           <CalendarGrid
+            id="show-grid"
+            className="calendar-grid-show"
             year={year}
             month={month}
             date={dateToday}

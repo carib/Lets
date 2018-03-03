@@ -1,11 +1,11 @@
 import React from 'react';
 import times from 'lodash/times';
 
-export const CalendarGrid = ({ year, month, date, handleClick }) => {
+export const CalendarGrid = ({ year, month, date, handleClick, className, id }) => {
   let startDay = new Date(year, month, 1).getDay();
 
   return (
-    <div className={`calendar-grid`}>
+    <div id={id} className={className}>
       {
         times((31 + startDay), (t) => {
           let tCount = ((t + 1) < startDay) ? 1 : (t + 1 - startDay);
