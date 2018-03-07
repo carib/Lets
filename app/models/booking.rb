@@ -23,5 +23,16 @@ class Booking < ApplicationRecord
   belongs_to :spot,
     class_name: :Spot,
     foreign_key: :spot_id
-  
+
+  def self.is_valid_booking?(start_date, end_date, booker)
+    sdate, edate = start_date, end_date
+    return false if sdate < Time.now || edate < Time.now
+    return false if sdate >= edate
+    booker.bookings.each do |booking|
+      bsd, bed = booking.start_date, booking.end_date
+      return false if sdate >= bsd && sdate < bed
+      return false if edate > bsd && edate <= bed
+    end
+    true
+  end
 end

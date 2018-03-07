@@ -16,6 +16,8 @@ class BookBox extends React.Component {
       checkOutDate: '',
       numGuests: '',
       numInfants: '',
+      checkInDisplay: '',
+      checkOutDisplay: '',
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,17 +52,24 @@ class BookBox extends React.Component {
     });
   }
 
-  setStayDates(dateString) {
+  setStayDates(bookingDate, displayDate) {
     const { checkInDate, checkOutDate, toggleSelector } = this.state;
     if (/checkin/.test(this.state.toggleSelector)) {
-      this.setState({ checkInDate: dateString });
+      console.log(bookingDate);
+      this.setState({
+        checkInDate: bookingDate,
+        checkInDisplay: displayDate
+      });
       if (checkOutDate !== '') {
         this.setState({ showCalendar: false });
       } else {
         this.setState({ toggleSelector: 'checkout' })
       }
     } else {
-      this.setState({ checkOutDate: dateString });
+      this.setState({
+        checkOutDate: bookingDate,
+        checkOutDisplay: displayDate
+      });
       if (checkInDate !== '') {
         this.setState({ showCalendar: false });
       } else {
@@ -81,9 +90,12 @@ class BookBox extends React.Component {
     } else if (/guest/.test(e.currentTarget.id)){
       this.openGuestBox(e.currentTarget.id);
     } else if (/cal-date/.test(e.currentTarget.id)){
-          console.log('click');
       const dateString = e.currentTarget.dataset.datestring;
-      this.setStayDates(dateString);
+      const parsedDate = dateString.split('/').map(el => parseInt(el));
+      const displayDate = `${parsedDate[1] + 1}/${parsedDate[0]}/${parsedDate[2]}`;
+      const bookingDate = `${parsedDate[2]}/${parsedDate[1] + 1}/${parsedDate[0]}`;
+      // debugger
+      this.setStayDates(bookingDate, displayDate);
     }  else {
       this.setState({
         showCalendar: false,
@@ -115,7 +127,7 @@ class BookBox extends React.Component {
   render() {
     const { spot, spotDetails, host, stars } = this.props;
     const { showCalendar, showGuestBox, toggleSelector } = this.state;
-    const { dateToday, month, year, checkInDate, checkOutDate } = this.state;
+    const { dateToday, month, year, checkInDisplay, checkOutDisplay } = this.state;
 
     return (
       <section className="spot-show-book-box">
@@ -137,7 +149,7 @@ class BookBox extends React.Component {
                 type="text"
                 autoComplete="off"
                 placeholder="Check In"
-                value={checkInDate}
+                value={checkInDisplay}
                 onClick={this.handleClick}
               />
             </div>
@@ -151,7 +163,7 @@ class BookBox extends React.Component {
                 type="text"
                 autoComplete="off"
                 placeholder="Check Out"
-                value={checkOutDate}
+                value={checkOutDisplay}
                 onClick={this.handleClick}
               />
             </div>
