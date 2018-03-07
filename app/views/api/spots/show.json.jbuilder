@@ -7,8 +7,6 @@ json.spot_detail do
   json.partial!('/api/spot_details/spot_detail')
 end
 
-
-
-  json.host do
-    json.partial! '/api/users/user', user: @host
-  end
+json.host do
+  json.partial! '/api/users/user', user: @host
+end

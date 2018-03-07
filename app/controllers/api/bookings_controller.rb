@@ -1,13 +1,14 @@
 class Api::BookingsController < ApplicationController
   def index
+    @bookings = Spot.find(params[:spot_id]).bookings
   end
 
   def create
-
     if Booking.is_valid_booking?(
       parse_date(booking_params[:start_date]),
       parse_date(booking_params[:end_date]),
-      current_user
+      current_user,
+      Spot.find(booking_params[:spot_id])
     )
       @booking = current_user.bookings.create(booking_params)
       if @booking.save
@@ -18,6 +19,9 @@ class Api::BookingsController < ApplicationController
     else
       render json: ['Invalid booking'], status: 401
     end
+  end
+
+  def show
   end
 
   def update

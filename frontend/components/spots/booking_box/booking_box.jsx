@@ -55,7 +55,6 @@ class BookBox extends React.Component {
   setStayDates(bookingDate, displayDate) {
     const { checkInDate, checkOutDate, toggleSelector } = this.state;
     if (/checkin/.test(this.state.toggleSelector)) {
-      console.log(bookingDate);
       this.setState({
         checkInDate: bookingDate,
         checkInDisplay: displayDate
@@ -94,7 +93,6 @@ class BookBox extends React.Component {
       const parsedDate = dateString.split('/').map(el => parseInt(el));
       const displayDate = `${parsedDate[1] + 1}/${parsedDate[0]}/${parsedDate[2]}`;
       const bookingDate = `${parsedDate[2]}/${parsedDate[1] + 1}/${parsedDate[0]}`;
-      // debugger
       this.setStayDates(bookingDate, displayDate);
     }  else {
       this.setState({

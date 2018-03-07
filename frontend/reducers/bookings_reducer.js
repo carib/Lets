@@ -11,7 +11,7 @@ const BookingsReducer = (state = {}, action) => {
   let newState;
   switch (action) {
     case RECEIVE_BOOKINGS:
-      return action.bookings;
+      return merge({}, state, action.bookings);
     case RECEIVE_BOOKING:
       return merge({}, state, { [action.booking.id]: action.booking });
     case RECEIVE_SPOT:
