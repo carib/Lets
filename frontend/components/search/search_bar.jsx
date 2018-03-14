@@ -8,16 +8,6 @@ class SearchBar extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.initAutocomplete = this.initAutocomplete.bind(this);
-    this.predictionBuilder = this.predictionBuilder.bind(this);
-    this.keyboardAutocomplete = this.keyboardAutocomplete.bind(this);
-    this.autocompleteListDecorator = this.autocompleteListDecorator.bind(this);
-    this.autocompleteServiceListener = this.autocompleteServiceListener.bind(this);
-    this.initGooglePlacesAutocomplete = this.initGooglePlacesAutocomplete.bind(this);
-    this.displayPredictionSuggestions = this.displayPredictionSuggestions.bind(this);
-    this.autocompleteKeyboardListener = this.autocompleteKeyboardListener.bind(this);
-    this.upKeyAutocompleteInteraction = this.upKeyAutocompleteInteraction.bind(this);
-    this.downKeyAutocompleteInteraction = this.downKeyAutocompleteInteraction.bind(this);
     this.state = {
       autocompleteFormFieldValue: '',
     }
@@ -92,22 +82,20 @@ class SearchBar extends React.Component {
     }
     return predictionsWrapperDiv;
   }
+
   displayPredictionSuggestions(predictions, status, predictionList, autocompleteFormField) {
     if (status !== google.maps.places.PlacesServiceStatus.OK) {
       predictionList.style.display = 'none';
       return;
     }
-
-// NOTE: Added following lines 16 to dynamically remove dud predictions:
-
-    const currentQuery = autocompleteFormField.value;
-    predictions.filter((prediction) => (prediction.description.includes(currentQuery)));
     const queryMatchDescriptions = predictions.map(prediction => prediction.description);
-    predictionList.childNodes.forEach((child) => {
-      if (!queryMatchDescriptions.includes(child.innerHTML)) {
-        predictionList.removeChild(child);
+    for (let i = 0; i < predictionList.childNodes.length; i++) {
+
+      predictionList.childNodes[i]
+      if (!queryMatchDescriptions.includes(predictionList.childNodes[i].innerHTML)) {
+        predictionList.removeChild(predictionList.childNodes[i]);
       }
-    });
+    }
     for (const prediction of predictions) {
       this.predictionBuilder(prediction, predictionList, autocompleteFormField);
     }
@@ -117,7 +105,6 @@ class SearchBar extends React.Component {
   predictionBuilder(prediction, predictionList, autocompleteFormField) {
     const predictionListItem = document.createElement('li');
     predictionListItem.classList.add('pac-item');
-
     predictionListItem.appendChild(document.createTextNode(prediction.description));
     predictionListItem.addEventListener('click', () => {
       this.autocompleteServiceListener(prediction, predictionList, autocompleteFormField);
@@ -154,6 +141,7 @@ class SearchBar extends React.Component {
 
   autocompleteKeyboardListener(predictions, predictionList, autocompleteFormField) {
     const autocompletePredictionMarkup = document.querySelector('.pac-container');
+    predictions = _.orderBy(predictions, 'description', 'desc');
     this.keyCodeListener = (event) => {
       switch (event.keyCode) {
         case 38: // UP
