@@ -56,3 +56,11 @@ export const moreButton = () => {
     </svg>
   )
 }
+
+export const searchIcon = () => {
+  return (
+    <svg className="search-icon" height="30" width="30">
+      <circle cx="18" cy="18" r="16" fill="transparent" stroke="#19838d" strokeWidth="1"/>
+    </svg>
+  )
+}

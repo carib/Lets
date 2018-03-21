@@ -34,12 +34,13 @@
 }
 
 .pac-container {
+  display: block;
   max-height: 360px;
-  width: 556px;
+  width: 558px;
   background: #fff;
   position: absolute;
   top: 103%;
-  left: -1px;
+  left: 80px;
   border: 1px solid #e0e0e0;
   line-height: 1;
   text-indent: 59px;
