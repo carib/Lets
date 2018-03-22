@@ -1,14 +1,18 @@
 import React from 'react';
 
-export const NewSpotP4 = ({ spotDetails, update, handleClick, handleSubmit }) => {
+export const NewSpotP4 = ({ spotDetails, handleClick, createNew }) => {
   function storeSpotBlurb(e) {
     const blurb = document.getElementById('blurb');
+    const description = document.getElementById('description');
     const mockEvent = {
-      target: 'description',
-      value: blurb.value,
+      blurb: 'blurb',
+      blurbValue: blurb.value,
+      description: 'description',
+      descriptionValue: description.value,
     };
-    handleClick(mockEvent);
-    handleSubmit(e);
+    handleClick(mockEvent).then(() => {
+      createNew();
+    });
   }
 
   return (
@@ -17,7 +21,8 @@ export const NewSpotP4 = ({ spotDetails, update, handleClick, handleSubmit }) =>
         <div className="new-spot-headline-p4">
           Here's your chance to give your guests a first-hand description of your place.
         </div>
-        <textarea id="blurb" className="new-spot-blurb-input" type="textarea" rows="20" cols="65" placeholder="This house rules!" autoFocus="true" autoComplete="off"/>
+        <input id="description" type="text" className="new-spot-description-input" placeholder="Give your spot a headline..."/>
+        <textarea id="blurb" className="new-spot-blurb-input" type="textarea" rows="20" cols="65" placeholder="Tell them why they should rent your spot!" autoFocus="true" autoComplete="off"/>
         <input
           className="new-spot-submit-button"
           type="submit"

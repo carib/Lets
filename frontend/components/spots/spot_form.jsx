@@ -9,6 +9,7 @@ import { NewSpotP2 } from './spot_forms/new_spot_2';
 import { NewSpotP3 } from './spot_forms/new_spot_3';
 import { NewSpotP4 } from './spot_forms/new_spot_4';
 
+
 import SearchBar from '../search/search_bar';
 
 class SpotForm extends React.Component {
@@ -40,9 +41,9 @@ class SpotForm extends React.Component {
         parking: false,
         internet: false,
         outdoor_area: false,
+        blurb: ''
       },
       currentForm: 1,
-      // currentForm: 4,
     };
     this.createNew = this.createNew.bind(this);
     this.update = this.update.bind(this);
@@ -62,8 +63,12 @@ class SpotForm extends React.Component {
         newState = merge({}, this.state, { details: { [detail]: !details[detail] } })
         break;
       case 4:
-        const { target, value } = e;
-        newState = merge({}, this.state, { [target]: newValue })
+        const { blurb, blurbValue, description, descriptionValue } = e;
+        const payload = {
+          details: { blurb: blurbValue },
+          description: descriptionValue,
+        }
+        newState = merge({}, this.state, payload)
         break;
       default:
         e.preventDefault();
@@ -145,6 +150,7 @@ class SpotForm extends React.Component {
         city: this.state.city,
         state_province: this.state.state,
         country: this.state.country,
+        blurb: this.state.details.blurb
       };
     this.props.createSpot(newSpotPayload).then((payload) => {
       this.props.history.push(`/${payload.spot.id}`)
@@ -187,13 +193,20 @@ class SpotForm extends React.Component {
         break;
       case 3:
         return <NewSpotP3
+                 spotDetails={this.state.details}
                  handleClick={this.handleClick}
                  handleSubmit={this.handleSubmit}
                />
         break;
       case 4:
         return <NewSpotP4
-                 update={this.update}
+                 spotDetails={this.state.details}
+                 handleClick={this.handleClick}
+                 createNew={this.createNew}
+               />
+        break;
+      case 5:
+        return <NewSpotP5
                  spotDetails={this.state.details}
                  createSpot={this.props.createSpot}
                  createNew={this.createNew}
@@ -202,14 +215,6 @@ class SpotForm extends React.Component {
                />
         break;
       default:
-        // return <NewSpotP3
-        //          update={this.update}
-        //          spotDetails={this.state.details}
-        //          createSpot={this.props.createSpot}
-        //          createNew={this.createNew}
-        //          handleClick={this.handleClick}
-        //          handleSubmit={this.handleSubmit}
-        //        />
         return <NewSpotP1
                   update={this.update}
                   formProps={this.props}
