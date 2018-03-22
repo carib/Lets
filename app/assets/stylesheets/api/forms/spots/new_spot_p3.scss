@@ -35,6 +35,7 @@
           width: 150px;
           height: 40px;
           line-height: 2.5;
+          color: #5c5f5eb5;
         }
 
         .amenity-selectors-switch {
@@ -67,6 +68,19 @@
           }
         }
       }
+    }
+    .new-spot-submit-button {
+      height: 35px;
+      width: 98px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      padding: 9px;
+      font-size: 13px;
+      color: white;
+      font-weight: 100;
+      letter-spacing: 0.09em;
+      margin-top: 10px;
+      background: #008489;
     }
   }
 }

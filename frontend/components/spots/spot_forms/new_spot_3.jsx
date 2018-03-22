@@ -10,6 +10,7 @@ export const NewSpotP3 = ({ update, spotDetails, createSpot, createNew, handleCl
     }
     handleClick(e);
   }
+  
   return (
     <form className="new-spot-main-p3" onSubmit={ handleSubmit }>
       <div className="new-spot-inner-p3">
@@ -60,6 +61,12 @@ export const NewSpotP3 = ({ update, spotDetails, createSpot, createNew, handleCl
             </div>
           </div>
         </div>
+        <input
+          className="new-spot-submit-button"
+          type="submit"
+          value="Continue"
+          onClick={ handleSubmit }
+          />
       </div>
     </form>
   )
