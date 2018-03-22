@@ -2,11 +2,11 @@ import React from 'react';
 
 import times from 'lodash/times';
 
-export const NewSpotP2 = ({ spotDetails, update, handleClick, createNew }) => {
-  function handleSubmit(e) {
-    e.preventDefault()
-    createNew()
-  }
+export const NewSpotP2 = ({ spotDetails, update, handleClick, handleSubmit }) => {
+  // function handleSubmit(e) {
+  //   e.preventDefault()
+  //   createNew()
+  // }
   return (
     <form className="new-spot-main-p2" onSubmit={ handleSubmit }>
       <div className="new-spot-inner-p2">

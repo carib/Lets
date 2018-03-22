@@ -6,18 +6,13 @@ import merge from 'lodash/merge';
 
 import { NewSpotP1 } from './spot_forms/new_spot_1';
 import { NewSpotP2 } from './spot_forms/new_spot_2';
+import { NewSpotP3 } from './spot_forms/new_spot_3';
 
 import SearchBar from '../search/search_bar';
 
 class SpotForm extends React.Component {
   constructor(props) {
     super(props);
-    this.createNew = this.createNew.bind(this);
-    this.update = this.update.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleRelay = this.handleRelay.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.extractCoords = this.extractCoords.bind(this);
     this.state = {
       description: 'New Listing!',
       spotType: 'Entire Place',
@@ -47,16 +42,28 @@ class SpotForm extends React.Component {
       },
       currentForm: 1,
     };
+    this.createNew = this.createNew.bind(this);
+    this.update = this.update.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleRelay = this.handleRelay.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.extractCoords = this.extractCoords.bind(this);
   }
 
   handleClick(e) {
     e.preventDefault();
-    const { details } = this.state;
-    const { type, operator } = e.target.dataset
+    const { details, currentForm } = this.state;
+    let { type, operator } = e.target.dataset;
     let newValue;
+    let newState;
     if (operator === 'less' && details[type] > 0) newValue = (details[type] - 1);
     if (operator === 'more') newValue = (details[type] + 1);
-    const newState = merge({}, this.state, { details: { [type]: newValue } })
+    if (currentForm === 3) {
+      type = e.currentTarget.dataset.type;
+      newState = merge({}, this.state, { details: { [type]: !details[type] } })
+    } else {
+      newState = merge({}, this.state, { details: { [type]: newValue } });
+    }
     this.setState(newState);
   }
 
@@ -105,10 +112,12 @@ class SpotForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const address = document.getElementById('search-bar-input')
-    const coords = this.extractCoords(address.value);
-    setTimeout(() => {
-      this.parseCoords(this.state.coords)
-    }, 1000);
+    if (this.state.currentForm === 1) {
+      const coords = this.extractCoords(address.value);
+      setTimeout(() => {
+        this.parseCoords(this.state.coords)
+      }, 1000);
+    }
     setTimeout(() => {
       this.handleRelay()
     }, 1);
@@ -164,14 +173,30 @@ class SpotForm extends React.Component {
         return <NewSpotP2
                  update={this.update}
                  spotDetails={this.state.details}
-                 createSpot={this.props.createSpot}
-                 createNew={this.createNew}
+                 handleSubmit={this.handleSubmit}
                  handleClick={this.handleClick}
                />
         break;
+      case 3:
+        return <NewSpotP3
+                 update={this.update}
+                 spotDetails={this.state.details}
+                 createSpot={this.props.createSpot}
+                 createNew={this.createNew}
+                 handleClick={this.handleClick}
+                 handleSubmit={this.handleSubmit}
+               />
+        break;
       default:
+        // return <NewSpotP3
+        //          update={this.update}
+        //          spotDetails={this.state.details}
+        //          createSpot={this.props.createSpot}
+        //          createNew={this.createNew}
+        //          handleClick={this.handleClick}
+        //          handleSubmit={this.handleSubmit}
+        //        />
         return <NewSpotP1
-
                   update={this.update}
                   formProps={this.props}
                   spotDetails={this.state.details}
