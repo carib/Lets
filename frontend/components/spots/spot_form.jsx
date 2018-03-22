@@ -7,6 +7,7 @@ import merge from 'lodash/merge';
 import { NewSpotP1 } from './spot_forms/new_spot_1';
 import { NewSpotP2 } from './spot_forms/new_spot_2';
 import { NewSpotP3 } from './spot_forms/new_spot_3';
+import { NewSpotP4 } from './spot_forms/new_spot_4';
 
 import SearchBar from '../search/search_bar';
 
@@ -41,6 +42,7 @@ class SpotForm extends React.Component {
         outdoor_area: false,
       },
       currentForm: 1,
+      // currentForm: 4,
     };
     this.createNew = this.createNew.bind(this);
     this.update = this.update.bind(this);
@@ -51,18 +53,24 @@ class SpotForm extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault();
     const { details, currentForm } = this.state;
-    let { type, operator } = e.target.dataset;
     let newValue;
     let newState;
-    if (operator === 'less' && details[type] > 0) newValue = (details[type] - 1);
-    if (operator === 'more') newValue = (details[type] + 1);
-    if (currentForm === 3) {
-      type = e.currentTarget.dataset.type;
-      newState = merge({}, this.state, { details: { [type]: !details[type] } })
-    } else {
-      newState = merge({}, this.state, { details: { [type]: newValue } });
+    switch (currentForm) {
+      case 3:
+        let detail = e.currentTarget.dataset.type;
+        newState = merge({}, this.state, { details: { [detail]: !details[detail] } })
+        break;
+      case 4:
+        const { target, value } = e;
+        newState = merge({}, this.state, { [target]: newValue })
+        break;
+      default:
+        e.preventDefault();
+        let { type, operator } = e.target.dataset;
+        if (operator === 'less' && details[type] > 0) newValue = (details[type] - 1);
+        if (operator === 'more') newValue = (details[type] + 1);
+        newState = merge({}, this.state, { details: { [type]: newValue } });
     }
     this.setState(newState);
   }
@@ -179,6 +187,12 @@ class SpotForm extends React.Component {
         break;
       case 3:
         return <NewSpotP3
+                 handleClick={this.handleClick}
+                 handleSubmit={this.handleSubmit}
+               />
+        break;
+      case 4:
+        return <NewSpotP4
                  update={this.update}
                  spotDetails={this.state.details}
                  createSpot={this.props.createSpot}

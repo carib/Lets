@@ -1,0 +1,45 @@
+.new-spot-main-p4 {
+  position: relative;
+  top: 81px;
+  height: 100%;
+  width: 100%;
+
+  .new-spot-inner-p4 {
+    position: relative;
+    left: 15%;
+    padding: 20px;
+    height: 500px;
+    width: 500px;
+
+    .new-spot-headline-p4 {
+      font-size: 25px;
+      font-weight: 600;
+      color: #525252;
+      padding-bottom: 30px;
+    }
+
+    .new-spot-blurb-input {
+      padding: 5px;
+      font-weight: 100;
+      font-size: 14px;
+      color: #5c5f5eb5;
+      resize: vertical;
+      border-radius: 3px;
+      border: 1px solid #c4cac8b5;
+    }
+
+    .new-spot-submit-button {
+      height: 35px;
+      width: 98px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      padding: 9px;
+      font-size: 13px;
+      color: white;
+      font-weight: 100;
+      letter-spacing: 0.09em;
+      margin-top: 10px;
+      background: #008489;
+    }
+  }
+}
