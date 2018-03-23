@@ -8,8 +8,13 @@ import {
 import SpotForm from './spot_form';
 
 const mapStateToProps = (state, ownProps) => {
+  let spotId;
+  if (state.ui.spotShow) {
+    spotId = state.ui.spotShow;
+  }
   return {
     user: state.session.currentUser,
+    spotId: spotId,
   }
 }
 

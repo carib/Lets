@@ -13,8 +13,8 @@ const spotsReducer = (state = {}, action) => {
     case RECEIVE_SPOTS:
       return action.spots
     case RECEIVE_SPOT:
-      spot = action.payload.spot
-      host = action.payload.host
+      spot = action.payload.spot;
+      host = action.payload.host;
       return merge({}, state, { [spot.id]: spot, host: host });
     default:
       return state;

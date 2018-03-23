@@ -1,12 +1,11 @@
 import React from 'react';
-
+import { Redirect } from 'react-router-dom';
 import times from 'lodash/times';
 
 import SearchBar from '../../search/search_bar';
 
 export const NewSpotP1 = ({ formProps, handleSubmit, handleRelay, update, handleClick, spotDetails }) => {
   const placeholder = "New York, NY, USA"
-
   return (
     <form className="new-spot-main" onSubmit={ handleSubmit }>
       <div className="new-spot-inner">

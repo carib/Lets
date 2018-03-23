@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 
 import times from 'lodash/times';
 import merge from 'lodash/merge';
@@ -8,7 +8,6 @@ import { NewSpotP1 } from './spot_forms/new_spot_1';
 import { NewSpotP2 } from './spot_forms/new_spot_2';
 import { NewSpotP3 } from './spot_forms/new_spot_3';
 import { NewSpotP4 } from './spot_forms/new_spot_4';
-
 
 import SearchBar from '../search/search_bar';
 
@@ -152,9 +151,9 @@ class SpotForm extends React.Component {
         country: this.state.country,
         blurb: this.state.details.blurb
       };
-    this.props.createSpot(newSpotPayload).then((payload) => {
-      this.props.history.push(`/${payload.spot.id}`)
-    });
+    this.props.createSpot(newSpotPayload).then(payload => {
+      this.props.history.push(`/${payload.spot.id}`);
+    })
   }
 
   update(field) {
@@ -183,6 +182,15 @@ class SpotForm extends React.Component {
 
   spotFormRelay() {
     switch (this.state.currentForm) {
+      case 1:
+      return <NewSpotP1
+                update={this.update}
+                formProps={this.props}
+                spotDetails={this.state.details}
+                handleClick={this.handleClick}
+                handleSubmit={this.handleSubmit}
+              />
+        break;
       case 2:
         return <NewSpotP2
                  update={this.update}
@@ -205,15 +213,6 @@ class SpotForm extends React.Component {
                  createNew={this.createNew}
                />
         break;
-      case 5:
-        return <NewSpotP5
-                 spotDetails={this.state.details}
-                 createSpot={this.props.createSpot}
-                 createNew={this.createNew}
-                 handleClick={this.handleClick}
-                 handleSubmit={this.handleSubmit}
-               />
-        break;
       default:
         return <NewSpotP1
                   update={this.update}
@@ -226,6 +225,10 @@ class SpotForm extends React.Component {
   }
 
   render() {
+    // if (this.props.spotId) {
+    //   return (<Redirect to={`/${this.props.spotId}`}/>);
+    // }
+
     return this.spotFormRelay();
   }
 }

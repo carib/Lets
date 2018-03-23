@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
     spot: state.entities.spots[state.ui.spotShow],
     spotDetails: state.entities.spotDetails,
     host: state.entities.spots.host,
+    spotId: state.ui.spotShow
   }
 }
 

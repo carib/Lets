@@ -20,10 +20,13 @@ class SpotShow extends React.Component {
 
   handleScroll() {
     const bookBox = $('.spot-show-book-box');
+    // const bookBox = document.getElementsByClassName('spot-show-book-box')[0];
     if (window.scrollY > 632) {
       bookBox.addClass('fixbox');
+      // bookBox.classList.add('fixbox');
     } else {
       bookBox.removeClass('fixbox');
+      // bookBox.classList.remove('fixbox');
     }
   }
 
@@ -42,10 +45,10 @@ class SpotShow extends React.Component {
   }
 
   hostAvatar() {
-    if (this.state.host.imageThumbUrl) {
+    if (this.state.host && this.state.host.imageThumbUrl) {
       return <img src={this.state.host.imageThumbUrl}></img>
     } else {
-      return <i className="fa fa-user-circle"></i>
+      return <div className=""><i className="fa fa-user-circle"></i></div>
     }
   }
 
@@ -57,16 +60,20 @@ class SpotShow extends React.Component {
       const rooms = this.quickKeyHelper(spotDetails.rooms, "room");
       const beds = this.quickKeyHelper(spotDetails.beds, "bed");
       const baths = this.quickKeyHelper(spotDetails.baths, "bath");
-      const stars = times(spot.averageRating, (t) => {
-        return <i className="fas fa-star" key={t}></i>
-      })
+      let stars;
+      if (spot.averageRating) {
+        stars = times(spot.averageRating, (t) => {
+          return (<i className="fas fa-star" key={t}></i>)
+        });
+      }
       const hostImage = this.hostAvatar();
-      const blurb = spotDetails.blurb.match(/^\[\"(.*)\"\]$/)[1]
+      const blurb = spotDetails.blurb;
+      let heroImage = (spot.imageFullUrl.match('missing.png')) ? null : spot.imageFullUrl;
 
       return (
         <div className="spot-show-main">
           <section className="spot-hero-container">
-            <img src={spot.imageFullUrl} className="spot-hero"></img>
+            <img src={ heroImage } className="spot-hero"></img>
           </section>
           <section className="spot-show-details">
             <nav className="spot-show-nav">
