@@ -32,7 +32,7 @@ class SpotMap extends React.Component {
   componentDidMount() {
     const searchBar = document.getElementById('search-bar-input');
     this.initializeMap();
-    this.searchListener = searchBar.addEventListener('keydown', this.panToNewBounds);
+    this.searchListener = searchBar.addEventListener('keydown', (e) => { this.panToNewBounds(e) });
     this.mapDragListener = this.map.addListener('drag', this.updateBounds);
   }
 
@@ -40,9 +40,10 @@ class SpotMap extends React.Component {
     google.maps.event.clearListeners(this.map, 'drag');
   }
 
-  panToNewBounds() {
+  panToNewBounds(e) {
+    const searchBar = document.getElementById('search-bar-input');
     const { spots } = this.state;
-    if (spots.length > 0 ) {
+    if ([9, 13, 38, 40].includes(e.keyCode) && spots.length > 0) {
       const newBounds = new google.maps.LatLng(spots[0].lat, spots[0].lng)
       this.map.panTo(newBounds)
       if (spots.length < 4) this.map.setZoom(6)
