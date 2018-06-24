@@ -49,7 +49,7 @@ class SearchBar extends React.Component {
               className="search-input"
               type="search"
               onChange={this.handleSearch}
-              placeholder="Try 'Texas'"
+              placeholder="Try 'California'"
               autoComplete="off"
               />
           </div>
@@ -66,7 +66,7 @@ class SearchBar extends React.Component {
               className="search-input"
               type="search"
               onChange={this.handleSearch}
-              placeholder="Try 'Texas'"
+              placeholder="Try 'California'"
               autoComplete="off"
               />
           </div>
