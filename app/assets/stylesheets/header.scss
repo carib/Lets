@@ -106,6 +106,28 @@
     }
   }
 
+  .small-logo-wrap {
+    cursor: pointer;
+    margin-left: 0.5em;
+    svg {
+      width: 5em;
+      height: 6em;
+    }
+
+    text {
+      font-family: 'Mrs Sheppards', cursive !important;
+    }
+
+    #small-logo-text {
+      font-size: 14.5em;
+    }
+
+    #small-logo-gel {
+      font-size: 14.7em;
+    }
+  }
+
+
   .logo-box {
     z-index: 3;
     height: 35px;
