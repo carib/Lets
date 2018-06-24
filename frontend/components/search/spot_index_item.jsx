@@ -12,7 +12,7 @@ class SpotIndexItem extends React.Component {
   }
 
   handleClick(e) {
-    this.props.history.push(`/${this.spot.id}`);
+    this.props.history.push(`spots/${this.spot.id}`);
   }
 
   render() {

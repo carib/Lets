@@ -1,0 +1,112 @@
+.splash-page {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 20vh 22vh auto;
+  place-content: center;
+  background-image: url(spots/22.jpeg);
+  background-size: cover;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+    place-self: start center;
+  }
+
+  .search-bar {
+    z-index: 2;
+    height: 68px;
+    width: 64.7em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0px 7px 64px 7px #232323;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    background: white;
+
+    .search-bar-icon {
+      padding: 11px;
+      padding-left: 16px;
+      height: 41px;
+      width: 37px;
+      fill: #909090;
+    }
+
+    .search-input {
+      height: 100%;
+      width: 100%;
+      font-size: 18px;
+      font-weight: lighter;
+    }
+  }
+
+  .splash-logo-wrap {
+    z-index: 3;
+    display: grid;
+    place-content: center center;
+
+    text {
+      font-family: 'Mrs Sheppards', cursive !important;
+      font-size: 5.5em;
+    }
+
+    #splash-logo-gel {
+      font-size: 5.7em;
+    }
+  }
+
+  .logo-box {
+    z-index: 3;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 22px;
+    border: 1px solid #FA5C65;
+    border-radius: 45px;
+    background-color: #edfeff;
+    cursor: pointer;
+
+    .logo-gel {
+      font-family: 'Mrs Sheppards', cursive !important;
+      font-size: 42px;
+      position: absolute;
+      left: -3px;
+      top: -8px;
+      opacity: 37;
+      color: #FA5C65;
+      cursor: pointer;
+    }
+
+    .logo {
+      font-family: 'Mrs Sheppards', cursive !important;
+      font-size: 40px;
+      color: white;
+      z-index: 3;
+      position: absolute;
+      left: -2px;
+      top: -8px;
+      cursor: pointer;
+    }
+  }
+
+  .logo-button {
+    height: 35px;
+    z-index: 5;
+    left: 22px;
+    top: 24px;
+    position: fixed;
+    width: 35px;
+    background: transparent;
+    cursor: pointer;
+  }
+
+}
+
+.splash-header {
+  display: none !important;
+}
