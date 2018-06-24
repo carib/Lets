@@ -1,0 +1,2448 @@
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.spot-show-book-box {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 376px;
+  height: 377px;
+  border: 1px solid #dadada;
+  background-color: #fff;
+  align-self: flex-end;
+  top: 24px;
+  right: 21.35%;
+  box-sizing: border-box;
+}
+
+/* line 15, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-brief {
+  width: 100%;
+}
+/* line 17, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-brief .book-box-brief-price {
+  padding: 19px 0 0 25px;
+}
+/* line 20, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-brief .book-box-brief-price .price-nums {
+  font-weight: 400;
+  font-size: 21px;
+  color: #565a5c;
+}
+/* line 26, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-brief .book-box-brief-price .price-text {
+  font-weight: 400;
+  font-size: 11px;
+  color: #565a5c;
+}
+/* line 33, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-brief .book-box-brief-rating {
+  padding: 7.5px 0 0 25px;
+  font-size: 8.5px;
+  color: #2a8d94;
+}
+
+/* line 40, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-divider {
+  position: relative;
+  box-sizing: border-box;
+  width: 86%;
+  top: 21px;
+  left: 25px;
+  border-bottom: 1px solid #DBDBDB !important;
+}
+
+/* line 49, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  top: 39px;
+  left: 22px;
+  height: 224px;
+  width: 88.4%;
+}
+/* line 59, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options [class^="book-box-text-"] {
+  height: 24px;
+  width: 100%;
+  font-size: 11.5px;
+  line-height: 2;
+  color: #565a5c;
+}
+/* line 67, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  border: 1px solid #dadada;
+  z-index: 1;
+  margin-bottom: 11px;
+  margin-top: 1px;
+}
+/* line 78, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector [class^="check-"] {
+  height: 70%;
+  line-height: 1.5;
+  text-indent: 6px;
+  width: 130px;
+}
+/* line 85, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector [class^="check-"]::placeholder {
+  font-size: 16px !important;
+  font-weight: 100 !important;
+}
+/* line 90, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector [class^="input-check-"] {
+  position: absolute;
+  height: 12%;
+  width: 40%;
+  line-height: 1.5 !important;
+  text-indent: 6px;
+  color: #565a5c;
+  border-radius: 3px;
+  font-size: 16px !important;
+  font-weight: 100 !important;
+  padding-top: 2px;
+}
+/* line 103, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector [class$="aqua"] {
+  background-color: #8eebe3;
+  caret-color: transparent;
+}
+/* line 108, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector [class$="aqua"]::placeholder {
+  color: #19838d !important;
+}
+/* line 112, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector .check-in-selector {
+  margin-left: 10px;
+}
+/* line 115, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector .check-in-selector .input-check-in {
+  top: 30px;
+  left: 11px;
+}
+/* line 121, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector .date-selector-arrow {
+  font-size: 40px;
+}
+/* line 124, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector .date-selector-arrow .arrow {
+  position: absolute;
+  top: 30px;
+  left: 141px;
+  height: 39px;
+}
+/* line 132, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector .check-out-selector {
+  margin-right: 10px;
+}
+/* line 135, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-date-selector .check-out-selector .input-check-out {
+  top: 30px;
+  right: 12px;
+}
+/* line 146, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector {
+  z-index: 1;
+  height: 50px;
+  width: 100%;
+  border: 1px solid #dadada;
+}
+/* line 152, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-input-field {
+  z-index: 1;
+  height: 50px;
+}
+/* line 156, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-input-field .count-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 49px;
+  width: 95%;
+  margin-left: 5px;
+}
+/* line 163, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-input-field .count-wrapper [class^="guest-count"] {
+  height: 33px;
+  font-size: 16px;
+  font-weight: 100;
+  text-align: center;
+  border-radius: 3px;
+  margin-left: 9px;
+  margin-top: 8px;
+  line-height: 2;
+}
+/* line 174, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-input-field .count-wrapper [class$="aqua"] {
+  background-color: #8eebe3;
+  color: #19838d !important;
+  width: 80px;
+}
+/* line 180, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-input-field .count-wrapper .guest-count-comma {
+  background-color: transparent !important;
+  width: 0px !important;
+  margin-left: 0;
+}
+/* line 187, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-box-wrapper {
+  z-index: 2;
+}
+/* line 190, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-box-wrapper .guestbox {
+  z-index: 1;
+  display: grid;
+  position: relative;
+  top: 0px;
+  grid-template-columns: 57.5% 40px 46px 40px;
+  grid-template-rows: 65px 65px 65px;
+  width: 100%;
+  background-color: #fff;
+  border-top: 2px solid #19838d;
+  border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+}
+/* line 204, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-box-wrapper .guestbox [class$="counter-text"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-indent: 18px;
+  font-size: 18px;
+  font-weight: 100;
+  color: #565a5c;
+}
+/* line 213, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-box-wrapper .guestbox [class$="counter-text"] .counter-main-text {
+  margin-bottom: 5px;
+}
+/* line 217, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-box-wrapper .guestbox [class$="counter-text"] .counter-sub-text {
+  font-size: 14px;
+  color: #828282;
+}
+/* line 223, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-box-wrapper .guestbox [class$="counter-less-button"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* line 230, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-box-wrapper .guestbox [class$="counter-count"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 100;
+  color: #565a5c;
+}
+/* line 240, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-box-wrapper .guestbox [class$="counter-more-button"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* line 248, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-guests-selector .guest-box-wrapper .guestbox .button-screen {
+  height: 35px;
+  width: 35px;
+  background-color: transparent;
+  position: absolute;
+  border-radius: 35px;
+}
+/* line 259, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-book-button {
+  z-index: 1;
+  height: 65px;
+  width: 100%;
+  background-color: #ff5a5f;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 5px;
+  position: relative;
+  top: 8%;
+}
+/* line 271, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.book-box-options .book-box-text-bottom {
+  text-align: center;
+  position: relative;
+  top: 26px;
+}
+
+/* line 278, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.fixbox {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  top: 24px;
+  right: 17.75%;
+  width: 376px;
+}
+
+/* line 287, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.click-net {
+  z-index: 0;
+  position: fixed;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+}
+
+/* line 298, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/bookings.scss */
+.hidden {
+  display: none !important;
+}
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+[class^="cal-pointer-box"] {
+  height: 10px;
+  width: 20px;
+  z-index: 3;
+  position: absolute;
+  top: 62px;
+  box-sizing: border-box;
+}
+
+/* line 10, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+[class$="checkin"] {
+  left: 7.5%;
+}
+
+/* line 14, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+[class$="checkout"] {
+  left: 61%;
+}
+
+/* line 18, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar {
+  z-index: 2;
+  height: 354px;
+  width: 321px;
+  position: absolute;
+  background-color: #fff;
+  top: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #dadada;
+  box-sizing: border-box;
+}
+/* line 33, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar .calendar-top {
+  height: 27px;
+  width: 86.3%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 9px;
+}
+/* line 41, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar .calendar-top [class^="month-select"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  width: 40px;
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  background-color: #fff;
+  z-index: 1;
+  box-sizing: border-box;
+}
+/* line 55, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar .calendar-top .month-display {
+  height: 50px;
+  width: 202px;
+  font-size: 18px;
+  font-weight: 200;
+  text-align: center;
+  line-height: 2;
+  color: #565a5c;
+  position: relative;
+  left: 0%;
+  transform: translateX(0px);
+}
+/* line 69, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar .calendar-week {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 19px;
+  width: 90%;
+}
+/* line 76, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar .calendar-week .cal-day {
+  height: 20px;
+  width: 39px;
+  line-height: 4;
+  font-size: 11px;
+  font-weight: 400;
+  text-align: center;
+  color: #777777;
+  box-sizing: border-box;
+  left: 9px;
+}
+/* line 89, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar [class^="calendar-grid"] {
+  z-index: 2;
+  height: 200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 39px 39px 39px 39px 39px 39px 39px;
+  grid-template-rows: 39px 39px 39px 39px 39px;
+  position: relative;
+  left: 7.5%;
+}
+/* line 99, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar [class^="calendar-grid"] [class^="calendar-day"] {
+  text-align: center;
+  line-height: 3;
+  border-left: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+  font-size: 14px;
+  color: #565a5c;
+  padding: none;
+  margin: none;
+  box-sizing: border-box;
+}
+/* line 111, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar [class^="calendar-grid"] .calendar-day-6 {
+  border-right: 1px solid #dadada;
+}
+/* line 115, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar [class^="calendar-grid"] [id^="first-week"] {
+  border-top: 1px solid #dadada;
+}
+/* line 119, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar [class^="calendar-grid"] [id$="first-row"] {
+  margin-bottom: -1px;
+}
+/* line 123, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar [class^="calendar-grid"] #last-day {
+  border-right: 1px solid #dadada;
+  margin-right: -1px;
+}
+/* line 128, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar [class^="calendar-grid"] .calendar-day-zero {
+  color: transparent;
+  border: none;
+}
+/* line 156, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/calendar.scss */
+.calendar .calendar-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+  width: 85%;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #565a5c;
+  position: relative;
+  bottom: 15px;
+}
+/* line 4, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main {
+  height: 100%;
+  width: 100%;
+}
+/* line 8, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main .new-spot-1 {
+  width: 600px;
+  height: auto;
+}
+/* line 13, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main .search-bar {
+  height: 49px;
+  width: 556px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0px 1px 7px 0px #d4d2d2;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+}
+/* line 23, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main .search-bar .search-bar-icon {
+  padding: 11px;
+  padding-left: 16px;
+  height: 41px;
+  width: 37px;
+  fill: #909090;
+}
+/* line 31, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main .search-bar .search-input {
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+  font-weight: lighter;
+}
+/* line 39, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main .new-spot-pac {
+  max-height: 360px;
+  width: 384px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  border: 1px solid #e0e0e0;
+  line-height: 1;
+  text-indent: 10px;
+}
+/* line 51, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_main.scss */
+.new-spot-main .new-spot-submit-button {
+  height: 35px;
+  width: 98px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 13px;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 0.09em;
+  margin-top: 10px;
+  background: #008489;
+}
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.spot-form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 7, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner {
+  position: fixed;
+  display: flow-root;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-evenly;
+  height: 500px;
+  width: 500px;
+  top: 14.5%;
+  left: 15%;
+  color: #484848;
+}
+/* line 20, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner #new-spot-search-1 {
+  border: 1px solid black;
+  padding: 10px;
+  width: 200px;
+  height: 40px;
+}
+/* line 27, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner .new-spot-headline {
+  font-size: 30px;
+  padding-bottom: 30px;
+}
+/* line 32, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner .new-spot-step {
+  font-size: 13px;
+  padding-bottom: 9px;
+}
+/* line 37, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner .new-spot-question {
+  font-size: 25px;
+  padding-bottom: 16px;
+}
+/* line 42, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner .new-spot-inputs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  height: 17%;
+  width: 78%;
+}
+/* line 50, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner .new-spot-inputs .select-spot-type {
+  box-sizing: border-box;
+  height: 38px;
+  width: 48.5%;
+  border-radius: 2px;
+  background: #fff;
+  color: #484848;
+  padding: 9px;
+  font-size: 15px;
+  font-weight: 400;
+  -webkit-appearance: none;
+}
+/* line 63, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner .new-spot-inputs .select-occupancy {
+  box-sizing: border-box;
+  height: 38px;
+  width: 48.5%;
+  border-radius: 2px;
+  background: #fff;
+  color: #484848;
+  padding: 9px;
+  font-size: 15px;
+  font-weight: 400;
+  margin-left: 7px;
+  -webkit-appearance: none;
+}
+/* line 77, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner .new-spot-inputs .search-bar {
+  height: 38px;
+  margin-top: 6px;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 385px;
+  box-shadow: none;
+  border: 1px solid #969696;
+}
+/* line 86, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner .new-spot-inputs .search-bar .search-input {
+  font-size: 17px;
+}
+/* line 90, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p1.scss */
+.new-spot-inner .new-spot-inputs .search-bar .search-bar-icon {
+  display: none;
+}
+/* line 2, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 {
+  position: fixed;
+  display: flow-root;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-evenly;
+  height: 500px;
+  width: 500px;
+  top: 15%;
+  left: 15%;
+  color: #484848;
+}
+/* line 15, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-headline-p2 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #525252;
+  padding-bottom: 30px;
+}
+/* line 22, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-question-p2 {
+  font-size: 18px;
+  font-weight: 300;
+  color: #5c5f5eb5;
+  height: 11px;
+  margin-top: 10px;
+}
+/* line 30, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60%;
+  width: 78%;
+}
+/* line 37, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 .new-spot-dropdown {
+  display: flex;
+  flex-direction: row;
+  width: 305px;
+  height: 50px;
+  border: 1px solid #dadada;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+/* line 46, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 .new-spot-dropdown .select-rooms-count {
+  box-sizing: border-box;
+  height: 45px;
+  width: 175%;
+  border-radius: 2px;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  border: none;
+  padding: 9px;
+  font-size: 18px;
+  font-weight: lighter;
+  -webkit-appearance: none;
+}
+/* line 60, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 .new-spot-dropdown .arrow-frame {
+  height: 50px;
+  position: absolute;
+  z-index: -1;
+  right: 50%;
+  width: 0;
+  box-sizing: border-box;
+}
+/* line 68, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 .new-spot-dropdown .arrow-frame .dropdown-select-arrow {
+  height: 12px;
+  width: 12px;
+  transform: rotate(45deg);
+  margin: 15px;
+  border-bottom: 0.095em solid rgba(61, 61, 61, 0.69);
+  border-right: 0.095em solid rgba(61, 61, 61, 0.69);
+}
+/* line 79, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 .new-spot-counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+/* line 84, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 .new-spot-counter .counter-label {
+  height: 100%;
+  width: 45%;
+  align-self: end;
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(76, 76, 76, 0.9);
+  margin-top: 21px;
+}
+/* line 94, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 .new-spot-counter .counter-button-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 35%;
+}
+/* line 103, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 .new-spot-counter .counter-button-container .counter-button-less {
+  cursor: pointer;
+  text-align: center;
+  font-size: 25px;
+  line-height: 1.1;
+  font-weight: 100;
+  z-index: 2;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  color: #539a9c;
+  border-radius: 30px;
+  border: 1px solid #539a9c;
+}
+/* line 118, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 .new-spot-counter .counter-button-container .counter-count {
+  line-height: 3;
+  margin-top: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #525252;
+}
+/* line 128, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-inputs-p2 .new-spot-counter .counter-button-container .counter-button-more {
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.8;
+  font-size: 16px;
+  font-weight: 100;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  color: #539a9c;
+  border-radius: 30px;
+  border: 1px solid #539a9c;
+}
+/* line 145, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p2.scss */
+.new-spot-inner-p2 .new-spot-submit-button {
+  height: 35px;
+  width: 98px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 13px;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 0.09em;
+  margin-top: 10px;
+  background: #008489;
+}
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 {
+  position: relative;
+  top: 81px;
+  height: 100%;
+  width: 100%;
+}
+/* line 7, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 .new-spot-inner-p3 {
+  position: relative;
+  left: 15%;
+  padding: 20px;
+  height: 500px;
+  width: 500px;
+}
+/* line 14, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 .new-spot-inner-p3 .new-spot-headline-p3 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #525252;
+  padding-bottom: 30px;
+}
+/* line 21, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 .new-spot-inner-p3 .amenity-selectors-container {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 50px 50px 50px 50px;
+  grid-column-gap: 50px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+/* line 29, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 .new-spot-inner-p3 .amenity-selectors-container [class$="-selector"] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+/* line 34, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 .new-spot-inner-p3 .amenity-selectors-container [class$="-selector"] .amenity-selectors-text {
+  width: 150px;
+  height: 40px;
+  line-height: 2.5;
+  color: #5c5f5eb5;
+}
+/* line 41, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 .new-spot-inner-p3 .amenity-selectors-container [class$="-selector"] .amenity-selectors-switch {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+}
+/* line 48, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 .new-spot-inner-p3 .amenity-selectors-container [class$="-selector"] .amenity-selectors-switch .selector-switch-ball {
+  height: 18px;
+  width: 18px;
+  border-radius: 18px;
+  background-color: white;
+}
+/* line 55, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 .new-spot-inner-p3 .amenity-selectors-container [class$="-selector"] .amenity-selectors-switch.on {
+  justify-content: flex-end;
+  background-color: #19838d;
+  border: 1px solid #19838d;
+  transition: all 0.2s ease;
+}
+/* line 62, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 .new-spot-inner-p3 .amenity-selectors-container [class$="-selector"] .amenity-selectors-switch.off {
+  justify-content: flex-start;
+  background-color: #5c5f5eb5;
+  border: 1px solid #5c5f5eb5;
+  transition: all 0.4s ease;
+}
+/* line 72, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p3.scss */
+.new-spot-main-p3 .new-spot-inner-p3 .new-spot-submit-button {
+  height: 35px;
+  width: 98px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 13px;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 0.09em;
+  margin-top: 10px;
+  background: #008489;
+}
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p4.scss */
+.new-spot-main-p4 {
+  position: relative;
+  top: 81px;
+  height: 100%;
+  width: 100%;
+}
+/* line 7, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p4.scss */
+.new-spot-main-p4 .new-spot-inner-p4 {
+  position: relative;
+  left: 15%;
+  padding: 20px;
+  height: 500px;
+  width: 500px;
+}
+/* line 14, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p4.scss */
+.new-spot-main-p4 .new-spot-inner-p4 .new-spot-headline-p4 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #525252;
+  padding-bottom: 30px;
+}
+/* line 21, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p4.scss */
+.new-spot-main-p4 .new-spot-inner-p4 .new-spot-description-input {
+  padding: 5px;
+  font-weight: 100;
+  font-size: 14px;
+  color: #5c5f5eb5;
+  height: 30px;
+  width: 400px;
+  border: 1px solid #c4cac8b5;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+/* line 33, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p4.scss */
+.new-spot-main-p4 .new-spot-inner-p4 .new-spot-blurb-input {
+  padding: 5px;
+  font-weight: 100;
+  font-size: 14px;
+  color: #5c5f5eb5;
+  resize: vertical;
+  border-radius: 3px;
+  border: 1px solid #c4cac8b5;
+}
+/* line 43, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p4.scss */
+.new-spot-main-p4 .new-spot-inner-p4 .new-spot-submit-button {
+  height: 35px;
+  width: 98px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 13px;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 0.09em;
+  margin-top: 10px;
+  background: #008489;
+}
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p5.scss */
+.new-spot-main-p4 {
+  position: relative;
+  top: 81px;
+  height: 100%;
+  width: 100%;
+}
+/* line 7, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p5.scss */
+.new-spot-main-p4 .new-spot-inner-p4 {
+  position: relative;
+  left: 15%;
+  padding: 20px;
+  height: 500px;
+  width: 500px;
+}
+/* line 14, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p5.scss */
+.new-spot-main-p4 .new-spot-inner-p4 .new-spot-headline-p4 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #525252;
+  padding-bottom: 30px;
+}
+/* line 21, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p5.scss */
+.new-spot-main-p4 .new-spot-inner-p4 .new-spot-blurb-input {
+  padding: 5px;
+  font-weight: 100;
+  font-size: 14px;
+  color: #5c5f5eb5;
+  resize: vertical;
+  border-radius: 3px;
+  border: 1px solid #c4cac8b5;
+}
+/* line 31, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/forms/spots/new_spot_p5.scss */
+.new-spot-main-p4 .new-spot-inner-p4 .new-spot-submit-button {
+  height: 35px;
+  width: 98px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 13px;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 0.09em;
+  margin-top: 10px;
+  background: #008489;
+}
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/search.scss */
+.search-main {
+  height: 200px;
+  width: 100%;
+}
+/* line 5, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/search.scss */
+.search-main .search-bar {
+  z-index: 2;
+  position: fixed;
+  top: 17px;
+  left: 80px;
+  height: 49px;
+  width: 556px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0px 1px 7px 0px #d4d2d2;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+}
+/* line 19, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/search.scss */
+.search-main .search-bar .search-bar-icon {
+  padding: 11px;
+  padding-left: 16px;
+  height: 41px;
+  width: 37px;
+  fill: #909090;
+}
+/* line 27, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/search.scss */
+.search-main .search-bar .search-input {
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+/* line 36, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/search.scss */
+.pac-container {
+  display: block;
+  max-height: 360px;
+  width: 558px;
+  background: #fff;
+  position: absolute;
+  top: 103%;
+  left: 80px;
+  border: 1px solid #e0e0e0;
+  line-height: 1;
+  text-indent: 59px;
+}
+/* line 48, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/search.scss */
+.pac-container .pac-selected {
+  background: #c6ece9;
+}
+/* line 52, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/search.scss */
+.pac-container .pac-item {
+  font-size: 15px;
+  line-height: 3.1;
+}
+/* line 57, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/search.scss */
+.pac-container .pac-item:first-child {
+  margin-top: 40px;
+}
+/* line 61, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/search.scss */
+.pac-container .pac-item:last-child {
+  margin-bottom: 50px;
+}
+/* line 65, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/search.scss */
+.pac-container .pac-item:hover {
+  background: #c6ece9;
+}
+/* line 6, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+}
+/* line 13, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box {
+  position: relative;
+  box-sizing: border-box;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  width: 568px;
+  height: 573px;
+  margin-left: -275px;
+  transform: translateY(-50%);
+}
+/* line 24, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box .session-form-email {
+  margin-top: 120px;
+}
+/* line 28, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box .session-form-password {
+  margin: 5px 0;
+}
+/* line 40, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box .modal-inner-detail-box {
+  height: 100%;
+}
+/* line 45, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form {
+  display: grid;
+  justify-content: normal;
+  grid-template-rows: min-content;
+  align-content: end;
+  justify-items: center;
+  height: 100%;
+  height: 100%;
+  width: 100%;
+  line-height: 20px;
+  color: #484848;
+  background-color: #fff;
+}
+/* line 58, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form .guest-login-button {
+  display: inline-block;
+  position: relative;
+  font-size: 17px;
+  font-weight: 100;
+  text-align: center;
+  text-decoration: none;
+  line-height: 22px;
+  height: 52px;
+  width: 28%;
+  min-width: 78px;
+  margin-top: 8.7%;
+  padding: 12px 24px 12px 24px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: #ff5a5f;
+  color: #fff;
+  cursor: pointer;
+}
+/* line 78, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form input {
+  width: 92%;
+  height: 36px;
+  font-size: 19px;
+  font-weight: 200;
+  background: none;
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid #DBDBDB;
+  border-radius: 2px;
+  line-height: 24px;
+}
+/* line 90, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form input .session-form-password {
+  margin-bottom: 20px !important;
+}
+/* line 96, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form button {
+  display: inline-block;
+  position: relative;
+  font-size: 17px;
+  font-weight: 100;
+  text-align: center;
+  text-decoration: none;
+  line-height: 22px;
+  height: 52px;
+  width: 92%;
+  min-width: 78px;
+  margin-top: 8.7%;
+  padding: 12px 24px 12px 24px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: #ff5a5f;
+  color: #fff;
+  cursor: pointer;
+}
+/* line 116, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form .modal-divider-foot {
+  position: fixed;
+  box-sizing: border-box;
+  margin-right: 10%;
+  left: 23px;
+  width: 92%;
+  border-bottom: 1px solid #DBDBDB !important;
+}
+/* line 125, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form #login-divider.modal-divider-foot {
+  bottom: 200px;
+}
+/* line 129, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form #signup-divider.modal-divider-foot {
+  bottom: 72px;
+}
+/* line 133, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form .modal-footer {
+  padding-top: 10.3%;
+  padding-bottom: 6%;
+  font-size: 17px;
+  text-align: center;
+}
+/* line 139, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form .modal-footer .modal-footer-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  font-weight: 300;
+}
+/* line 146, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/sessions.scss */
+.modal-backdrop .modal-detail-box form .modal-footer .modal-footer-text .modal-footer-button {
+  padding: 5px;
+  color: #008489 !important;
+  font-weight: 400;
+  cursor: pointer;
+}
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main {
+  height: 2000px;
+  width: 100%;
+}
+/* line 5, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-hero-container {
+  position: relative;
+  width: 100%;
+  height: 551px;
+  overflow: hidden;
+}
+/* line 11, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-hero-container .spot-hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+/* line 18, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details {
+  position: relative;
+  top: 0;
+  left: 283px;
+  width: 82%;
+  height: 100%;
+  font-size: 15px;
+}
+/* line 26, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-nav {
+  display: flex;
+  position: relative;
+  width: 595px;
+  border-bottom: 1px solid #dadada;
+}
+/* line 32, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-nav .spot-show-nav-list {
+  display: flex;
+  flex-direction: row;
+  padding-top: 15px;
+  padding-bottom: 17px;
+  padding-left: 1px;
+  width: 300px;
+  justify-content: space-between;
+}
+/* line 41, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-nav .spot-show-nav-list .spot-show-nav-list-item {
+  padding: 0px;
+  margin: 0;
+}
+/* line 48, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-description {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-top: 30px;
+  width: 46%;
+  height: 190px;
+  color: #424242;
+}
+/* line 57, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-description .spot-show-info-container {
+  width: 85%;
+  flex-direction: column;
+}
+/* line 61, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-description .spot-show-info-container .spot-show-type {
+  font-size: 11px;
+  font-weight: 600;
+  font-stretch: extra-expanded;
+}
+/* line 67, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-description .spot-show-info-container .spot-show-headline {
+  font-size: 35px;
+  font-weight: 600;
+  margin-left: -2px;
+  width: 80%;
+}
+/* line 74, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-description .spot-show-info-container .spot-show-location {
+  font-size: 17px;
+  font-weight: lighter;
+  margin-top: 5px;
+}
+/* line 80, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-description .spot-show-info-container .spot-show-quick-key {
+  display: flex;
+  margin-top: 20px;
+}
+/* line 84, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-description .spot-show-info-container .spot-show-quick-key [class^="spot-show-key-item"] {
+  font-size: 16px;
+  font-weight: 100;
+  margin-right: 20px;
+}
+/* line 89, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-description .spot-show-info-container .spot-show-quick-key [class^="spot-show-key-item"] svg {
+  margin-right: 10px;
+  font-size: 14px;
+}
+/* line 97, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-description .spot-show-host-avatar {
+  width: 60px;
+  height: 60px;
+  margin-left: 9px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  border-radius: 60px;
+  border: 1px solid #dadada;
+  font-size: 60px;
+  line-height: 1;
+  overflow: hidden;
+}
+/* line 109, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-description .spot-show-host-avatar img {
+  width: auto;
+  height: 100%;
+}
+/* line 116, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-section-head {
+  font-size: 19px;
+  font-weight: 400;
+  color: #353535eb;
+  margin-bottom: 15px;
+}
+/* line 123, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-blurb {
+  width: 46%;
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 100;
+  color: #444444bd;
+}
+/* line 131, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-divider {
+  position: relative;
+  box-sizing: border-box;
+  width: 45%;
+  top: 0;
+  left: 0;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #DBDBDB !important;
+}
+/* line 142, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-amenities {
+  display: grid;
+  grid-template-columns: 40px 280px 40px 280px;
+  grid-template-rows: 30px 30px 30px 30px 30px 30px 30px 30px;
+}
+/* line 147, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-amenities .spot-show-amenity {
+  display: flex;
+  flex-direction: row;
+  font-size: 17px;
+  font-weight: 100;
+  color: #444444;
+}
+/* line 155, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.spot-show-main .spot-show-details .spot-show-amenities .amenity-icon {
+  font-size: 20px;
+  color: #444444;
+  text-align: center;
+  text-indent: -20px;
+}
+
+/* line 165, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spot_show.scss */
+.strike {
+  text-decoration: line-through;
+  color: #44444494 !important;
+}
+/* line 6, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.map-wrap #map-container {
+  position: fixed !important;
+  margin-left: 0;
+  padding-left: 0;
+  top: 145px;
+  bottom: 0px !important;
+  right: 0px !important;
+  height: 85%;
+  width: 34%;
+  max-width: 666px;
+}
+
+/* line 18, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  left: 24px;
+  -webkit-column-gap: 1em;
+  column-gap: 1em;
+  margin-top: 169px;
+  max-width: 1482px;
+}
+/* line 28, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column {
+  position: absolute;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  cursor: pointer;
+}
+/* line 42, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  width: 31%;
+  height: 100%;
+  margin-right: 15px;
+}
+/* line 57, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column .spot-item {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width: 100%;
+  height: 215px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  background-size: cover;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+  overflow: hidden;
+  opacity: 1;
+  -webkit-animation: spot-fade-in 0.5s;
+  animation: spot-fade-in 0.5s;
+}
+@-webkit-keyframes spot-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes spot-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* line 87, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column .spot-item .nested-spot-item .nested-spot-list {
+  padding-top: 10px;
+  border: 1px solid black;
+}
+/* line 94, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column .spot-item-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+/* line 103, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column .spot-item-info .item-info-row-1 {
+  font-size: 12px;
+  margin-top: 8px;
+  font-weight: bold;
+}
+/* line 109, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column .spot-item-info .item-info-row-2 {
+  font-size: 17px;
+  margin-top: 3px;
+  font-weight: bold;
+}
+/* line 115, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column .spot-item-info .item-info-row-3 {
+  font-size: 15px;
+  margin-top: 3px;
+  font-weight: 100;
+}
+/* line 121, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column .spot-item-info .item-info-row-4 {
+  font-size: 13px;
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-bottom: 23px;
+}
+/* line 133, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column .spot-item-info .item-info-row-4 .item-info-stars {
+  font-size: 8px;
+  margin-top: 4px;
+  color: #2a8d94;
+}
+/* line 139, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column .spot-item-info .item-info-row-4 .item-info-review-count {
+  font-size: 12px;
+  margin-left: 3px;
+  margin-top: 1px;
+}
+/* line 145, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+.spot-index-main .spot-index-column .spot-index-inner-column .spot-item-info .item-info-row-4 .item-info-superletter {
+  font-size: 12px;
+  margin-left: 7px;
+  margin-top: 1px;
+}
+
+@media only screen and (min-width: 100px) {
+  /* line 157, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-main {
+    -webkit-column-count: 1 !important;
+    column-count: 1 !important;
+    width: 100% !important;
+  }
+
+  /* line 163, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-inner-column {
+    width: 92% !important;
+  }
+
+  /* line 167, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-column {
+    width: 50% !important;
+  }
+
+  /* line 171, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .map-wrap #map-container {
+    width: 49%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  /* line 177, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-main {
+    -webkit-column-count: 1 !important;
+    column-count: 1 !important;
+    width: 100% !important;
+  }
+
+  /* line 183, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-inner-column {
+    width: 92% !important;
+  }
+
+  /* line 187, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-column {
+    width: 50% !important;
+  }
+
+  /* line 191, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .map-wrap #map-container {
+    width: 49%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 197, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-main {
+    -webkit-column-count: 2 !important;
+    column-count: 2 !important;
+    width: 100% !important;
+  }
+
+  /* line 203, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-inner-column {
+    width: 33% !important;
+  }
+}
+@media only screen and (min-width: 1300px) {
+  /* line 210, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-main {
+    -webkit-column-count: 2 !important;
+    column-count: 2 !important;
+    width: 66% !important;
+  }
+
+  /* line 217, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .map-wrap #map-container {
+    width: 34%;
+  }
+
+  /* line 222, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-column {
+    width: 100% !important;
+  }
+
+  /* line 227, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-inner-column {
+    width: 31% !important;
+  }
+
+  /* line 232, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  /* line 239, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-column {
+    width: 100% !important;
+  }
+
+  /* line 243, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  /* line 249, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-column {
+    width: 100% !important;
+  }
+
+  /* line 253, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+@media only screen and (min-width: 1580px) {
+  /* line 259, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-column {
+    width: 100% !important;
+  }
+
+  /* line 263, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+@media only screen and (min-width: 1700px) {
+  /* line 279, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-column {
+    width: 80% !important;
+  }
+
+  /* line 283, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  /* line 289, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-column {
+    width: 84% !important;
+  }
+
+  /* line 293, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  /* line 299, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-column {
+    width: 89% !important;
+  }
+
+  /* line 303, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-index-inner-column {
+    width: 30% !important;
+  }
+
+  /* line 307, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/api/spots.scss */
+  .spot-item {
+    min-width: 100% !important;
+  }
+}
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/contact_footer.scss */
+.contact-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 2px;
+  height: 30px;
+  width: 30%;
+  position: fixed;
+  background: #fff;
+  bottom: 0;
+  border-top: 1px solid #e4e4e4;
+  box-shadow: 1px 9px 20px 0px;
+  opacity: 0.6;
+}
+/* line 15, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/contact_footer.scss */
+.contact-footer .contact-github {
+  font-size: 24px;
+  cursor: pointer;
+}
+/* line 20, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/contact_footer.scss */
+.contact-footer .contact-linkedin {
+  font-size: 24px;
+  cursor: pointer;
+}
+/* line 25, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/contact_footer.scss */
+.contact-footer .contact-angelist {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* line 31, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/contact_footer.scss */
+.contact-footer:hover {
+  opacity: 1;
+}
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.unfix {
+  position: relative !important;
+}
+
+/* line 5, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header {
+  z-index: 2;
+  position: fixed;
+  display: inline-flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  border-bottom: 1px solid  #e4e4e4;
+  align-items: center;
+  height: 81px;
+  width: 100%;
+  background: transparent;
+  color: #484848;
+  font-weight: book;
+  font-size: 13px;
+}
+/* line 22, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header h1 {
+  padding: 5px;
+  justify-self: flex-start;
+}
+/* line 27, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right {
+  display: grid;
+  grid-auto-columns: max-content;
+  padding: 5px;
+}
+/* line 33, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-nav-buttons {
+  position: fixed;
+  top: 2px;
+  right: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 300px;
+  height: 80px;
+}
+/* line 43, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-nav-buttons .header-add-spot-btn {
+  font-size: 14px;
+  background-color: transparent;
+}
+/* line 49, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .member-icon-box {
+  position: fixed;
+  right: 20px;
+  top: 23px;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  border-radius: 40px;
+}
+/* line 58, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .member-icon-box .fa-user-circle {
+  position: fixed;
+  right: 20px;
+  top: 24px;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #bfbfbf;
+  border-radius: 30px;
+  cursor: pointer;
+}
+/* line 70, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .member-icon-box:hover {
+  border-bottom: 2px solid #717171;
+}
+/* line 74, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-member-menu {
+  position: absolute;
+  top: 81px;
+  box-sizing: border-box;
+  border: 1px solid #b7b7b7;
+  right: 8px;
+  z-index: 4;
+  display: block;
+  background: white;
+  height: auto;
+  width: 284px;
+}
+/* line 86, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-member-menu .menu-list {
+  width: 90%;
+}
+/* line 89, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-member-menu .menu-list .menu-item {
+  padding: 17px;
+  width: 90%;
+  border-bottom: 1px solid #b7b7b7;
+  cursor: pointer;
+}
+/* line 99, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-nav-links {
+  vertical-align: sub;
+}
+/* line 102, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .header-right .header-nav-links button {
+  margin-right: 25px;
+  background-color: transparent;
+}
+/* line 109, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .small-logo-wrap {
+  cursor: pointer;
+  margin-left: 0.5em;
+}
+/* line 112, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .small-logo-wrap svg {
+  width: 5em;
+  height: 6em;
+}
+/* line 117, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .small-logo-wrap text {
+  font-family: 'Mrs Sheppards', cursive !important;
+}
+/* line 121, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .small-logo-wrap #small-logo-text {
+  font-size: 14.5em;
+}
+/* line 125, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .small-logo-wrap #small-logo-gel {
+  font-size: 14.7em;
+}
+/* line 131, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .logo-box {
+  z-index: 3;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 22px;
+  border: 1px solid #FA5C65;
+  border-radius: 45px;
+  background-color: #edfeff;
+  cursor: pointer;
+}
+/* line 145, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .logo-box .logo-gel {
+  font-family: 'Mrs Sheppards', cursive !important;
+  font-size: 42px;
+  position: absolute;
+  left: -3px;
+  top: -8px;
+  opacity: 37;
+  color: #FA5C65;
+  cursor: pointer;
+}
+/* line 156, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .logo-box .logo {
+  font-family: 'Mrs Sheppards', cursive !important;
+  font-size: 40px;
+  color: white;
+  z-index: 3;
+  position: absolute;
+  left: -2px;
+  top: -8px;
+  cursor: pointer;
+}
+/* line 168, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.main-header .logo-button {
+  height: 35px;
+  z-index: 5;
+  left: 22px;
+  top: 24px;
+  position: fixed;
+  width: 35px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* line 180, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/header.scss */
+.search-filters-bar-index {
+  z-index: 1;
+  position: fixed;
+  top: 80px;
+  border-bottom: 1px solid #e4e4e4;
+  box-sizing: border-box;
+  height: 65px;
+  width: 100%;
+  background: #fff;
+  color: #484848;
+}
+/* line 2, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/reset.scss */
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, textarea,
+span, article, footer, time, small, Link {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+}
+/* line 18, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/reset.scss */
+html input[type="searchfield"],
+html input[type="textfield"],
+html input[type="password"],
+html input[type="submit"],
+html input[type="email"],
+html input[type="text"],
+html searchfield-decoration,
+html textarea,
+html button,
+html input, body input[type="searchfield"],
+body input[type="textfield"],
+body input[type="password"],
+body input[type="submit"],
+body input[type="email"],
+body input[type="text"],
+body searchfield-decoration,
+body textarea,
+body button,
+body input, header input[type="searchfield"],
+header input[type="textfield"],
+header input[type="password"],
+header input[type="submit"],
+header input[type="email"],
+header input[type="text"],
+header searchfield-decoration,
+header textarea,
+header button,
+header input, nav input[type="searchfield"],
+nav input[type="textfield"],
+nav input[type="password"],
+nav input[type="submit"],
+nav input[type="email"],
+nav input[type="text"],
+nav searchfield-decoration,
+nav textarea,
+nav button,
+nav input, h1 input[type="searchfield"],
+h1 input[type="textfield"],
+h1 input[type="password"],
+h1 input[type="submit"],
+h1 input[type="email"],
+h1 input[type="text"],
+h1 searchfield-decoration,
+h1 textarea,
+h1 button,
+h1 input, a input[type="searchfield"],
+a input[type="textfield"],
+a input[type="password"],
+a input[type="submit"],
+a input[type="email"],
+a input[type="text"],
+a searchfield-decoration,
+a textarea,
+a button,
+a input,
+ul input[type="searchfield"],
+ul input[type="textfield"],
+ul input[type="password"],
+ul input[type="submit"],
+ul input[type="email"],
+ul input[type="text"],
+ul searchfield-decoration,
+ul textarea,
+ul button,
+ul input, li input[type="searchfield"],
+li input[type="textfield"],
+li input[type="password"],
+li input[type="submit"],
+li input[type="email"],
+li input[type="text"],
+li searchfield-decoration,
+li textarea,
+li button,
+li input, strong input[type="searchfield"],
+strong input[type="textfield"],
+strong input[type="password"],
+strong input[type="submit"],
+strong input[type="email"],
+strong input[type="text"],
+strong searchfield-decoration,
+strong textarea,
+strong button,
+strong input, main input[type="searchfield"],
+main input[type="textfield"],
+main input[type="password"],
+main input[type="submit"],
+main input[type="email"],
+main input[type="text"],
+main searchfield-decoration,
+main textarea,
+main button,
+main input, button input[type="searchfield"],
+button input[type="textfield"],
+button input[type="password"],
+button input[type="submit"],
+button input[type="email"],
+button input[type="text"],
+button searchfield-decoration,
+button textarea,
+button button,
+button input, i input[type="searchfield"],
+i input[type="textfield"],
+i input[type="password"],
+i input[type="submit"],
+i input[type="email"],
+i input[type="text"],
+i searchfield-decoration,
+i textarea,
+i button,
+i input,
+section input[type="searchfield"],
+section input[type="textfield"],
+section input[type="password"],
+section input[type="submit"],
+section input[type="email"],
+section input[type="text"],
+section searchfield-decoration,
+section textarea,
+section button,
+section input, img input[type="searchfield"],
+img input[type="textfield"],
+img input[type="password"],
+img input[type="submit"],
+img input[type="email"],
+img input[type="text"],
+img searchfield-decoration,
+img textarea,
+img button,
+img input, div input[type="searchfield"],
+div input[type="textfield"],
+div input[type="password"],
+div input[type="submit"],
+div input[type="email"],
+div input[type="text"],
+div searchfield-decoration,
+div textarea,
+div button,
+div input, h2 input[type="searchfield"],
+h2 input[type="textfield"],
+h2 input[type="password"],
+h2 input[type="submit"],
+h2 input[type="email"],
+h2 input[type="text"],
+h2 searchfield-decoration,
+h2 textarea,
+h2 button,
+h2 input, p input[type="searchfield"],
+p input[type="textfield"],
+p input[type="password"],
+p input[type="submit"],
+p input[type="email"],
+p input[type="text"],
+p searchfield-decoration,
+p textarea,
+p button,
+p input, form input[type="searchfield"],
+form input[type="textfield"],
+form input[type="password"],
+form input[type="submit"],
+form input[type="email"],
+form input[type="text"],
+form searchfield-decoration,
+form textarea,
+form button,
+form input,
+fieldset input[type="searchfield"],
+fieldset input[type="textfield"],
+fieldset input[type="password"],
+fieldset input[type="submit"],
+fieldset input[type="email"],
+fieldset input[type="text"],
+fieldset searchfield-decoration,
+fieldset textarea,
+fieldset button,
+fieldset input, label input[type="searchfield"],
+label input[type="textfield"],
+label input[type="password"],
+label input[type="submit"],
+label input[type="email"],
+label input[type="text"],
+label searchfield-decoration,
+label textarea,
+label button,
+label input, textarea input[type="searchfield"],
+textarea input[type="textfield"],
+textarea input[type="password"],
+textarea input[type="submit"],
+textarea input[type="email"],
+textarea input[type="text"],
+textarea searchfield-decoration,
+textarea textarea,
+textarea button,
+textarea input,
+span input[type="searchfield"],
+span input[type="textfield"],
+span input[type="password"],
+span input[type="submit"],
+span input[type="email"],
+span input[type="text"],
+span searchfield-decoration,
+span textarea,
+span button,
+span input, article input[type="searchfield"],
+article input[type="textfield"],
+article input[type="password"],
+article input[type="submit"],
+article input[type="email"],
+article input[type="text"],
+article searchfield-decoration,
+article textarea,
+article button,
+article input, footer input[type="searchfield"],
+footer input[type="textfield"],
+footer input[type="password"],
+footer input[type="submit"],
+footer input[type="email"],
+footer input[type="text"],
+footer searchfield-decoration,
+footer textarea,
+footer button,
+footer input, time input[type="searchfield"],
+time input[type="textfield"],
+time input[type="password"],
+time input[type="submit"],
+time input[type="email"],
+time input[type="text"],
+time searchfield-decoration,
+time textarea,
+time button,
+time input, small input[type="searchfield"],
+small input[type="textfield"],
+small input[type="password"],
+small input[type="submit"],
+small input[type="email"],
+small input[type="text"],
+small searchfield-decoration,
+small textarea,
+small button,
+small input, Link input[type="searchfield"],
+Link input[type="textfield"],
+Link input[type="password"],
+Link input[type="submit"],
+Link input[type="email"],
+Link input[type="text"],
+Link searchfield-decoration,
+Link textarea,
+Link button,
+Link input {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  background-color: white;
+  appearance: none;
+}
+
+/* line 44, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/reset.scss */
+nav {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  box-sizing: inherit;
+}
+
+/* line 57, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/reset.scss */
+ul {
+  list-style: none;
+}
+
+/* line 61, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/reset.scss */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* line 68, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/reset.scss */
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* Clearfix */
+/* line 75, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/reset.scss */
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* line 2, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header {
+  display: flex;
+}
+/* line 5, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header h1 {
+  padding: 5px;
+  justify-self: flex-start;
+}
+/* line 10, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header .show-header-right {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+/* line 16, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header .show-header-right .show-header-nav-buttons {
+  position: relative;
+  top: 2px;
+  right: 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 300px;
+  height: 80px;
+}
+/* line 27, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header .show-header-right .show-header-nav-buttons .show-header-add-spot-btn {
+  font-size: 14px;
+  background-color: transparent;
+}
+/* line 33, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header .show-header-right .show-member-icon-box {
+  position: relative;
+  font-size: 30px;
+  right: 15px;
+  top: 3px;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+/* line 44, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header .show-header-right .show-member-icon-box:hover {
+  border-bottom: 2px solid #717171;
+}
+/* line 48, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header .show-header-right .show-header-member-menu {
+  position: absolute;
+  top: 81px;
+  box-sizing: border-box;
+  border: 1px solid #b7b7b7;
+  right: 8px;
+  z-index: 4;
+  display: block;
+  background: white;
+  height: auto;
+  width: 284px;
+}
+/* line 60, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header .show-header-right .show-header-member-menu .show-menu-list {
+  width: 90%;
+}
+/* line 63, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header .show-header-right .show-header-member-menu .show-menu-list .show-menu-item {
+  padding: 17px;
+  width: 90%;
+  border-bottom: 1px solid #b7b7b7;
+  cursor: pointer;
+}
+/* line 73, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header .show-header-right .show-header-nav-links {
+  vertical-align: sub;
+}
+/* line 76, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/show_header.scss */
+.spot-show-header .show-header-right .show-header-nav-links button {
+  margin-right: 25px;
+}
+/* line 1, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 20vh 22vh auto;
+  place-content: center;
+  background-image: url(spots/22.jpeg);
+  background-size: cover;
+}
+/* line 10, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: white;
+  place-self: start center;
+}
+/* line 17, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .search-bar {
+  z-index: 2;
+  height: 68px;
+  width: 64.7em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0px 7px 64px 7px #232323;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  background: white;
+}
+/* line 29, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .search-bar .search-bar-icon {
+  padding: 11px;
+  padding-left: 16px;
+  height: 41px;
+  width: 37px;
+  fill: #909090;
+}
+/* line 37, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .search-bar .search-input {
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+  font-weight: lighter;
+}
+/* line 45, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .splash-logo-wrap {
+  z-index: 3;
+  display: grid;
+  place-content: center center;
+}
+/* line 50, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .splash-logo-wrap text {
+  font-family: 'Mrs Sheppards', cursive !important;
+}
+/* line 54, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .splash-logo-wrap #splash-logo-text {
+  font-size: 5.5em;
+}
+/* line 58, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .splash-logo-wrap #splash-logo-gel {
+  font-size: 5.7em;
+}
+/* line 63, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .logo-box {
+  z-index: 3;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 22px;
+  border: 1px solid #FA5C65;
+  border-radius: 45px;
+  background-color: #edfeff;
+  cursor: pointer;
+}
+/* line 77, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .logo-box .logo-gel {
+  font-family: 'Mrs Sheppards', cursive !important;
+  font-size: 42px;
+  position: absolute;
+  left: -3px;
+  top: -8px;
+  opacity: 37;
+  color: #FA5C65;
+  cursor: pointer;
+}
+/* line 88, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .logo-box .logo {
+  font-family: 'Mrs Sheppards', cursive !important;
+  font-size: 40px;
+  color: white;
+  z-index: 3;
+  position: absolute;
+  left: -2px;
+  top: -8px;
+  cursor: pointer;
+}
+/* line 100, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-page .logo-button {
+  height: 35px;
+  z-index: 5;
+  left: 22px;
+  top: 24px;
+  position: fixed;
+  width: 35px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* line 113, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/splash.scss */
+.splash-header {
+  display: none !important;
+}
+/* line 10, /Users/44carib/thing/active_projects/lets_stuff/Lets/app/assets/stylesheets/static_pages.scss */
+html, body, #root, .lets-app {
+  height: 100%;
+  width: 100%;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+
+@font-face {
+  font-family: 'Circular';
+  font-style: book;
+  src: font-url('circularstd-book.eot');
+  src: font-url('circularstd-book.eot?#iefix') format('embedded-opentype'),
+       font-url('circularstd-book.woff') format('woff'),
+       font-url('circularstd-book.ttf') format('truetype'),
+       font-url('circularstd-book.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Circular';
+  font-style: bold;
+  src: font-url('circularstd-bold.eot');
+  src: font-url('circularstd-bold.eot?#iefix') format('embedded-opentype'),
+       font-url('circularstd-bold.woff') format('woff'),
+       font-url('circularstd-bold.ttf') format('truetype'),
+       font-url('circularstd-bold.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Circular';
+  font-style: light;
+  src: font-url('circular-light.woff2') format('woff');
+}
+
+* {
+  font-family: 'Circular', sans-serif !important;
+  font-stretch: ultra-expanded;
+  letter-spacing: 0.04rem;
+}
