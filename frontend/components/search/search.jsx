@@ -111,6 +111,7 @@ class Search extends React.Component {
     const searchBar = document.getElementById('search-bar-input');
     const header = document.getElementsByClassName('main-header')[0]
     const buttons = document.getElementsByTagName('button')
+    header.style.backgroundColor = 'white'
     header.style.borderColor = '#e4e4e4';
     Array.from(buttons).map(btn => btn.style.color = 'black')
     this.props.location.state = searchBar
