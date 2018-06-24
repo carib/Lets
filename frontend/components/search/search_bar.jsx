@@ -38,10 +38,12 @@ class SearchBar extends React.Component {
 
 
   render() {
-    return (
-      <div id="search-with-results-wrapper">
-        <div id="search-bar-wrapper" className="search-bar">
-          <MagnifyIcon className="search-bar-icon mdi-48px"/>
+
+    if (this.props.splashConfirm) {
+      return (
+        <div id="search-with-results-wrapper">
+          <div id="search-bar-wrapper" className="search-bar">
+            <MagnifyIcon className="search-bar-icon mdi-48px"/>
             <input
               id="search-bar-input"
               className="search-input"
@@ -49,10 +51,28 @@ class SearchBar extends React.Component {
               onChange={this.handleSearch}
               placeholder="Try 'Texas'"
               autoComplete="off"
-            />
+              />
+          </div>
         </div>
-      </div>
-    )
+      )
+
+    } else {
+      return (
+        <div id="search-with-results-wrapper">
+          <div id="search-bar-wrapper" className="search-bar">
+            <MagnifyIcon className="search-bar-icon mdi-48px"/>
+            <input
+              id="search-bar-input"
+              className="search-input"
+              type="search"
+              onChange={this.handleSearch}
+              placeholder="Try 'Texas'"
+              autoComplete="off"
+              />
+          </div>
+        </div>
+      )
+    }
   }
 }
 

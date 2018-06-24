@@ -1,13 +1,17 @@
 import React from 'react';
+import { Redirect, Route, Link } from 'react-router-dom';
 
 import SpotIndex from './spot_index';
 import SpotMap from './../spots/spot_map';
 import SearchBar from './search_bar';
+import { SmallLogo, Logo } from '../header/new_logo';
+
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
     this.searchSpots = this.searchSpots.bind(this);
+    this.sendToSearch = this.sendToSearch.bind(this);
     this.updateBounds = this.updateBounds.bind(this);
     this.parseBounds = this.parseBounds.bind(this);
     this.extractCoords = this.extractCoords.bind(this);
@@ -19,7 +23,8 @@ class Search extends React.Component {
       activeFilter: {
         type: null,
         value: {},
-      }
+      },
+      query: ''
     };
   }
 
@@ -28,6 +33,16 @@ class Search extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (this.props.location.state) {
+      const searchBar = this.props.location.state
+      const nextSearch = document.getElementById('search-bar-input')
+      nextSearch.setAttribute('value', searchBar.value)
+      this.searchSpots(searchBar.value, null, searchBar)
+      if (this.state.bounds) {
+        console.log(this.props, nextProps);
+        this.extractCoords(searchBar.value)
+      }
+    }
     this.setState({ spots: nextProps.spots });
   }
 
@@ -70,6 +85,7 @@ class Search extends React.Component {
   updateBounds(latlng) {
     const bounds = this.parseBounds(latlng);
     this.props.updateFilter('bounds', bounds);
+    this.setState({ bounds: bounds })
   }
 
   parseBounds(latlng) {
@@ -81,6 +97,13 @@ class Search extends React.Component {
     };
     this.newBounds = bounds;
     return bounds;
+  }
+
+  sendToSearch(e) {
+    e.preventDefault()
+    const searchBar = document.getElementById('search-bar-input');
+    this.props.location.state = searchBar
+    this.props.history.push('/search')
   }
 
   render() {
@@ -107,29 +130,46 @@ class Search extends React.Component {
     if (spots.length > 0) {
       mapCenter = this.newBounds
     }
-
-    return (
-      <div className="search-main">
-        <SearchBar
-          searchSpots={this.searchSpots}
-          spotValues={spotValues}
-        />
-        <SpotMap
-          spots={spots}
-          updateFilter={updateFilter}
-          mapCenter={mapCenter}
-          input={input}
-          query={query}
-        />
-        <SpotIndex
-          spotShow={spotShow}
-          fetchSpots={fetchSpots}
-          fetchSpot={fetchSpot}
-          spots={spots}
-          loggedIn={loggedIn}
-        />
-      </div>
-    )
+    if (this.props.history.location.pathname.includes('/search')) {
+      return (
+        <div className="search-main">
+          <SearchBar
+            searchSpots={this.searchSpots}
+            spotValues={spotValues}
+            />
+          <SpotMap
+            spots={spots}
+            updateFilter={updateFilter}
+            mapCenter={mapCenter}
+            input={input}
+            query={query}
+            />
+          <SpotIndex
+            spotShow={spotShow}
+            fetchSpots={fetchSpots}
+            fetchSpot={fetchSpot}
+            spots={spots}
+            loggedIn={loggedIn}
+            />
+        </div>
+      )
+    } else {
+      return (
+        <main className="splash-page">
+          <div className="splash-logo-wrap">
+            <Logo/>
+          </div>
+          <form onSubmit={this.sendToSearch}>
+            <SearchBar className="splash-search-bar"
+              searchSpots={this.searchSpots}
+              spotValues={spotValues}
+              splashConfirm={true}
+              />
+          </form>
+          <h1>Find rooms to let all over the United States.</h1>
+        </main>
+      )
+    }
   }
 }
 

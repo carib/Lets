@@ -1,12 +1,27 @@
 import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
 
 import SearchBar from './search/search_bar';
-import Logo from './header/logo';
+// import Logo from './header/logo';
+import { SmallLogo, Logo } from './header/new_logo';
 
 class SplashPage extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      query: '',
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(e) {
+    const searchBar = document.getElementById('search-bar-input')
+    e.preventDefault()
+    debugger
+    return (
+      <Route path=''/>
+    )
   }
 
   componentDidMount() {
@@ -17,29 +32,13 @@ class SplashPage extends React.Component {
   render() {
     return (
       <main className="splash-page">
-
         <div className="splash-logo-wrap">
-          <svg width='300' height='200' viewBox='0 0 250 250' xmlns="http://www.w3.org/2000/svg">
-            <circle
-              cx='120' cy='110' r='100'
-              fill='#d6fdfa'
-              stroke='#ff888f'
-              strokeWidth='5'/>
-            <text id='splash-logo-gel'
-              x='115' y='135'
-              fill='#ff888f'
-              textAnchor='middle'
-              fontFamily='Mrs Sheppards'
-              fontSize='3em'>Lets!</text>
-            <text id='splash-logo-text'
-              x='115' y='130'
-              fill='white'
-              textAnchor='middle'
-              fontFamily='Mrs Sheppards'
-              fontSize='3em'>Lets!</text>
-          </svg>
+          <Logo/>
         </div>
-        <SearchBar className="splash-search-bar"/>
+        <form onSubmit={this.handleSubmit}>
+          <SearchBar className="splash-search-bar"
+            splashConfirm={true}/>
+        </form>
         <h1>Find rooms to let all over the United States.</h1>
       </main>
     )

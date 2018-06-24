@@ -20,7 +20,7 @@ class App extends React.Component {
       <div className="lets-app">
         <ModalContainer>
           <Switch>
-            <Route exact path="/" component={ SplashPage } />
+            <Route exact path="/" component={ SearchContainer } />
             <Route path="/new" component={ SpotFormContainer } />
             <Route path="/spots/:spotId" component={ SpotShowContainer } />
             <Route path="/search" component={ SearchContainer } />

@@ -4,8 +4,8 @@
   display: grid;
   grid-template-rows: 20vh 22vh auto;
   place-content: center;
-  background-image: url(spots/22.jpeg);
-  background-size: cover;
+  // background-image: url(spots/22.jpeg);
+  // background-size: cover;
 
   h1 {
     font-size: 2.5rem;
@@ -49,6 +49,9 @@
 
     text {
       font-family: 'Mrs Sheppards', cursive !important;
+    }
+
+    #splash-logo-text {
       font-size: 5.5em;
     }
 
