@@ -4,7 +4,7 @@ import { Redirect, Route, Link } from 'react-router-dom';
 import SpotIndex from './spot_index';
 import SpotMap from './../spots/spot_map';
 import SearchBar from './search_bar';
-import { SmallLogo, Logo } from '../header/new_logo';
+import { SmallLogo, FrameLogo, Logo } from '../header/new_logo';
 
 
 class Search extends React.Component {
@@ -29,6 +29,13 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props);
+    if (this.props.location.pathname === '/') {
+      const header = document.getElementsByClassName('main-header')[0]
+      const buttons = document.getElementsByTagName('button')
+      header.style.borderColor = 'transparent';
+      Array.from(buttons).map(btn => btn.style.color = 'white')
+    }
     this.props.fetchSpots();
   }
 
@@ -102,6 +109,10 @@ class Search extends React.Component {
   sendToSearch(e) {
     e.preventDefault()
     const searchBar = document.getElementById('search-bar-input');
+    const header = document.getElementsByClassName('main-header')[0]
+    const buttons = document.getElementsByTagName('button')
+    header.style.borderColor = '#e4e4e4';
+    Array.from(buttons).map(btn => btn.style.color = 'black')
     this.props.location.state = searchBar
     this.props.history.push('/search')
   }

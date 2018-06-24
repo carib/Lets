@@ -12,7 +12,7 @@
   align-items: center;
   height: 81px;
   width: 100%;
-  background: #fff;
+  background: transparent;
   color: #484848;
   // font-family: 'Circular', sans-serif;
   font-weight: book;
@@ -101,7 +101,7 @@
 
       button {
         margin-right: 25px;
-
+        background-color: transparent;
       }
     }
   }

@@ -47,3 +47,33 @@ export const SmallLogo = () => {
     </svg>
   )
 }
+
+export const FrameLogo = () => {
+  return (
+    <svg id='small-logo' width='300' height='200' viewBox='0 0 250 250' xmlns="http://www.w3.org/2000/svg">
+      <text id='small-logo-text'
+        x='105' y='155'
+        stroke='#ff888f'
+        strokeWidth='5'
+        fill='transparent'
+        textAnchor='middle'
+        fontFamily='Mrs Sheppards'
+        fontSize='3em'>L</text>
+    </svg>
+  )
+}
+
+export const FrameLogoWhite = () => {
+  return (
+    <svg id='small-logo' width='300' height='200' viewBox='0 0 250 250' xmlns="http://www.w3.org/2000/svg">
+      <text id='small-logo-text'
+        x='105' y='155'
+        stroke='white'
+        strokeWidth='5'
+        fill='transparent'
+        textAnchor='middle'
+        fontFamily='Mrs Sheppards'
+        fontSize='3em'>L</text>
+    </svg>
+  )
+}

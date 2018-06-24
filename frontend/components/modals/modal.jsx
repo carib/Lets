@@ -6,7 +6,7 @@ import SearchContainer from '../search/search_container';
 import HeaderContainer from '../header/header_container';
 
 import ModalRelayContainer from './modal_relay_container';
-import { SmallLogo } from '../header/new_logo';
+import { SmallLogo, FrameLogo, FrameLogoWhite } from '../header/new_logo';
 
 
 class Modal extends React.Component {
@@ -35,6 +35,18 @@ class Modal extends React.Component {
     this.props.history.push('/search');
   }
 
+  selectLogo() {
+    if (this.props.location.pathname === '/') {
+      return (
+        <FrameLogoWhite />
+      )
+    } else {
+      return (
+        <FrameLogo />
+      )
+    }
+  }
+
   render() {
     const toggleType = (
       this.state.show
@@ -57,7 +69,7 @@ class Modal extends React.Component {
       <main className="modal">
         <header className={(unfix) ? "main-header unfix" : "main-header"}>
           <div className="small-logo-wrap" onClick={this.handleClick}>
-            <SmallLogo />
+            { this.selectLogo() }
           </div>
           <HeaderContainer modProp={modProps} unfix={unfix}/>
         </header>
