@@ -4,7 +4,7 @@
   display: grid;
   grid-template-rows: 22vh 13vh 31vh;
   place-content: center;
-  background-image: url(spots/22.jpeg);
+  background-image: url(<%= asset_path 'spots/22.jpeg' %>);
   background-size: cover;
 
   h1 {
