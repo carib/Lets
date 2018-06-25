@@ -24,8 +24,9 @@
 
 class Spot < ApplicationRecord
   validates :description, :lat, :lng, presence: true
-  has_attached_file :spot_image, styles: { full: "1920x1080", hero: "1920x550#", thumbnail: "500x340>" },
-    :convert_options => { full: "-gravity center -resize 1920x1080" }
+  has_attached_file :spot_image,
+    :styles => { full: "1920x1080", hero: "1920x550#", thumbnail: "500x340#" },
+    :convert_options => { full: "-gravity center -resize 1920x1080", thumbnail: '-gravity center -resize 500x340' }
   validates_attachment_content_type :spot_image, content_type: /\Aimage\/.*\z/
 
   has_many :bookings,
