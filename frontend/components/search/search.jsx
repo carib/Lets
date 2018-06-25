@@ -165,6 +165,7 @@ class Search extends React.Component {
         const header = document.getElementsByClassName('main-header')[0]
         const buttons = document.getElementsByTagName('button')
         if (header && buttons.length > 0) {
+          header.style.backgroundColor = 'transparent';
           header.style.borderColor = 'transparent';
           Array.from(buttons).map(btn => btn.style.color = 'white')
         }
