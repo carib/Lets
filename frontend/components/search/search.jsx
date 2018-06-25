@@ -29,13 +29,6 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
-    if (this.props.location.pathname === '/') {
-      const header = document.getElementsByClassName('main-header')[0]
-      const buttons = document.getElementsByTagName('button')
-      header.style.borderColor = 'transparent';
-      Array.from(buttons).map(btn => btn.style.color = 'white')
-    }
     this.props.fetchSpots();
   }
 
@@ -109,11 +102,7 @@ class Search extends React.Component {
   sendToSearch(e) {
     e.preventDefault()
     const searchBar = document.getElementById('search-bar-input');
-    const header = document.getElementsByClassName('main-header')[0]
-    const buttons = document.getElementsByTagName('button')
-    header.style.backgroundColor = 'white'
-    header.style.borderColor = '#e4e4e4';
-    Array.from(buttons).map(btn => btn.style.color = 'black')
+
     this.props.location.state = searchBar
     this.props.history.push('/search')
   }
@@ -142,7 +131,12 @@ class Search extends React.Component {
     if (spots.length > 0) {
       mapCenter = this.newBounds
     }
-    if (this.props.history.location.pathname.includes('/search')) {
+    if (this.props.location.pathname.includes('/search')) {
+      const header = document.getElementsByClassName('main-header')[0]
+      const buttons = document.getElementsByTagName('button')
+      header.style.backgroundColor = 'white'
+      header.style.borderColor = '#e4e4e4';
+      Array.from(buttons).map(btn => btn.style.color = 'black')
       return (
         <div className="search-main">
           <SearchBar
@@ -166,12 +160,18 @@ class Search extends React.Component {
         </div>
       )
     } else {
+      if (this.props.location.pathname === '/') {
+        const header = document.getElementsByClassName('main-header')[0]
+        const buttons = document.getElementsByTagName('button')
+        header.style.borderColor = 'transparent';
+        Array.from(buttons).map(btn => btn.style.color = 'white')
+      }
       return (
         <main className="splash-page">
           <div className="splash-logo-wrap">
             <Logo/>
           </div>
-          <form class='splash-form' onSubmit={this.sendToSearch}>
+          <form className='splash-form' onSubmit={this.sendToSearch}>
             <SearchBar className="splash-search-bar"
               searchSpots={this.searchSpots}
               spotValues={spotValues}
