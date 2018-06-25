@@ -39,7 +39,6 @@ class Search extends React.Component {
       nextSearch.setAttribute('value', searchBar.value)
       this.searchSpots(searchBar.value, null, searchBar)
       if (this.state.bounds) {
-        console.log(this.props, nextProps);
         this.extractCoords(searchBar.value)
       }
     }
@@ -134,9 +133,11 @@ class Search extends React.Component {
     if (this.props.location.pathname.includes('/search')) {
       const header = document.getElementsByClassName('main-header')[0]
       const buttons = document.getElementsByTagName('button')
-      header.style.backgroundColor = 'white'
-      header.style.borderColor = '#e4e4e4';
-      Array.from(buttons).map(btn => btn.style.color = 'black')
+      if (header && buttons.length > 0) {
+        header.style.backgroundColor = 'white'
+        header.style.borderColor = '#e4e4e4';
+        Array.from(buttons).map(btn => btn.style.color = 'black')
+      }
       return (
         <div className="search-main">
           <SearchBar
@@ -163,8 +164,10 @@ class Search extends React.Component {
       if (this.props.location.pathname === '/') {
         const header = document.getElementsByClassName('main-header')[0]
         const buttons = document.getElementsByTagName('button')
-        header.style.borderColor = 'transparent';
-        Array.from(buttons).map(btn => btn.style.color = 'white')
+        if (header && buttons.length > 0) {
+          header.style.borderColor = 'transparent';
+          Array.from(buttons).map(btn => btn.style.color = 'white')
+        }
       }
       return (
         <main className="splash-page">
