@@ -17,7 +17,7 @@ User.create!(
   avatar: File.open("app/assets/images/users/23.jpeg")
 )
 
-20.times do |t|
+100.times do |t|
   first = Faker::Name.first_name
   last = Faker::Name.last_name
   email = Faker::Internet.email(first)
@@ -27,12 +27,12 @@ User.create!(
     firstName: first,
     lastName: last,
     host: Faker::Boolean.boolean,
-    avatar: File.open("app/assets/images/users/#{t}.jpeg")
+    avatar: File.open("app/assets/images/users/#{t % 23}.jpeg")
   )
 end
 
 Spot.destroy_all
-20.times do |t|
+100.times do |t|
   desc = [
     Faker::TwinPeaks.location,
     Faker::RickAndMorty.location,
@@ -54,12 +54,12 @@ Spot.destroy_all
     reviewIds: [],
     spotType: "#{type[rand(3)]}",
     host_id: User.ids[rand(21)],
-    spot_image: File.open("app/assets/images/spots/#{t}.jpeg")
+    spot_image: File.open("app/assets/images/spots/#{t % 23}.jpeg")
   )
 end
 
 SpotDetail.destroy_all
-20.times do |i|
+100.times do |i|
   SpotDetail.create!(
     country: "United States",
     state_province: Faker::Address.state,

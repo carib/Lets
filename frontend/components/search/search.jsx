@@ -171,7 +171,7 @@ class Search extends React.Component {
           <div className="splash-logo-wrap">
             <Logo/>
           </div>
-          <form onSubmit={this.sendToSearch}>
+          <form class='splash-form' onSubmit={this.sendToSearch}>
             <SearchBar className="splash-search-bar"
               searchSpots={this.searchSpots}
               spotValues={spotValues}
