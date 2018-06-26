@@ -88,16 +88,7 @@ class Search extends React.Component {
   }
 
   render() {
-    const {
-      spotShow,
-      fetchSpot,
-      fetchSpots,
-      loggedIn,
-    } = this.props;
-    const {
-      spots,
-      checkBounds
-    } = this.state;
+    const { spots, checkBounds } = this.state;
     const header = document.getElementsByClassName('main-header')[0]
     const buttons = document.getElementsByTagName('button')
 

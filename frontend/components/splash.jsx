@@ -4,7 +4,6 @@ import { Redirect, Route } from 'react-router-dom';
 import SearchBar from './search/search_bar';
 
 import { SmallLogo, Logo, FrameLogo, FrameLogoWhite } from './header/new_logo';
-import { LoadingPage } from '../util/loading_page'
 
 class SplashPage extends React.Component {
 
@@ -19,6 +18,25 @@ class SplashPage extends React.Component {
   componentDidMount() {
     const header = document.getElementsByClassName('main-header')[0];
     header.classList.add('splash-header');
+    document.addEventListener('mousedown', (e) => {
+      console.log(e.target);
+      const firstCheck = e.target.classList.contains('pac-item')
+      const secondCheck = e.target.classList.contains('pac-item-query')
+      let query;
+      if (firstCheck || secondCheck) {
+        if (firstCheck) {
+          query = Array.from(e.target.children).map(child => child.innerText)
+          if (query[0]) {
+            query = query.join()
+          } else {
+            query = query.slice(1).join(', ')
+          }
+        } else {
+          query = e.target.innerText
+        }
+        this.props.history.push(`/search?${query}`)
+      }
+    })
   }
 
   handleSubmit(e) {
@@ -34,9 +52,7 @@ class SplashPage extends React.Component {
           <Logo/>
         </div>
         <form onSubmit={this.handleSubmit}>
-          <SearchBar className="splash-search-bar"
-            splashConfirm={true}
-            />
+          <SearchBar className="splash-search-bar" />
         </form>
         <h1>Find rooms for rent all over the United States.</h1>
       </main>
