@@ -35,7 +35,6 @@ class Search extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.state.spots !== nextProps.spots) {
-      console.log(this.state);
       this.setState({ spots: nextProps.spots });
     }
   }

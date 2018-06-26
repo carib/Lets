@@ -19,7 +19,6 @@ class SplashPage extends React.Component {
     const header = document.getElementsByClassName('main-header')[0];
     header.classList.add('splash-header');
     document.addEventListener('mousedown', (e) => {
-      console.log(e.target);
       const firstCheck = e.target.classList.contains('pac-item')
       const secondCheck = e.target.classList.contains('pac-item-query')
       let query;
