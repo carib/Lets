@@ -2,31 +2,29 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
 import SearchBar from './search/search_bar';
-// import Logo from './header/logo';
-import { SmallLogo, Logo } from './header/new_logo';
+
+import { SmallLogo, Logo, FrameLogo, FrameLogoWhite } from './header/new_logo';
+import { LoadingPage } from '../util/loading_page'
 
 class SplashPage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      query: '',
+      query: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleSubmit(e) {
-    const searchBar = document.getElementById('search-bar-input')
-    e.preventDefault()
-    debugger
-    return (
-      <Route path=''/>
-    )
   }
 
   componentDidMount() {
     const header = document.getElementsByClassName('main-header')[0];
     header.classList.add('splash-header');
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const searchBar = document.getElementById('search-bar-input')
+    this.props.history.push(`/search?${searchBar.value}`)
   }
 
   render() {
@@ -37,9 +35,10 @@ class SplashPage extends React.Component {
         </div>
         <form onSubmit={this.handleSubmit}>
           <SearchBar className="splash-search-bar"
-            splashConfirm={true}/>
+            splashConfirm={true}
+            />
         </form>
-        <h1>Find rooms to let all over the United States.</h1>
+        <h1>Find rooms for rent all over the United States.</h1>
       </main>
     )
   }

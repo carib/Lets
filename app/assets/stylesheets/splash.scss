@@ -1,10 +1,24 @@
+.loading-wrap {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-content: center center;
+
+  .loading-logo {
+    border: 1px solid black;
+    height: 5vh;
+    width: 5vw;
+  }
+}
+
+
 .splash-page {
   height: 100vh;
   width: 100vw;
   display: grid;
   grid-template-rows: 22vh 13vh 31vh;
   place-content: center;
-  background-image: url(asset-path('spots/22.jpeg'));
+  // background-image: url(asset-path('spots/22.jpeg'));
   background-size: cover;
 
   h1 {
