@@ -45,7 +45,8 @@ class Search extends React.Component {
       if (autocompleteFormField.value) {
         autocomplete.getPlacePredictions({
           input: autocompleteFormField.value,
-          types: ['geocode']},
+          types: ['geocode'],
+          componentRestrictions: {country: 'US'}},
           (predictions, status) => {
             if (predictions) {
               predictions.map(prediction => {

@@ -16,8 +16,14 @@ class SplashPage extends React.Component {
   }
 
   componentDidMount() {
-    const header = document.getElementsByClassName('main-header')[0];
-    header.classList.add('splash-header');
+    const header = document.getElementsByClassName('main-header')[0]
+    const buttons = document.getElementsByTagName('button')
+
+    if (header && buttons.length > 0) {
+      header.style.backgroundColor = 'transparent'
+      header.style.borderColor = 'transparent';
+      Array.from(buttons).map(btn => btn.style.color = 'white')
+    }
     document.addEventListener('mousedown', (e) => {
       const firstCheck = e.target.classList.contains('pac-item')
       const secondCheck = e.target.classList.contains('pac-item-query')
