@@ -1,7 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-
-import _ from 'lodash'
 
 import SpotIndexItem from './spot_index_item';
 

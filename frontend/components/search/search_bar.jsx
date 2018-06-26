@@ -32,47 +32,26 @@ class SearchBar extends React.Component {
 
   handleSearch(e) {
     if (this.props.searchSpots) {
-      this.props.searchSpots(this.state.searchQuery, null, document.getElementById('search-bar-input'));
+      this.props.searchSpots(this.state.searchQuery, null, document.getElementById('search-bar-input'))
     }
   }
 
-
   render() {
-
-    if (this.props.splashConfirm) {
-      return (
-        <div id="search-with-results-wrapper">
-          <div id="search-bar-wrapper" className="search-bar">
-            <MagnifyIcon className="search-bar-icon mdi-48px"/>
-            <input
-              id="search-bar-input"
-              className="search-input"
-              type="search"
-              onChange={this.handleSearch}
-              placeholder="Try 'California'"
-              autoComplete="off"
-              />
-          </div>
+    return (
+      <div id="search-with-results-wrapper">
+        <div id="search-bar-wrapper" className="search-bar">
+          <MagnifyIcon className="search-bar-icon mdi-48px"/>
+          <input
+            id="search-bar-input"
+            className="search-input"
+            type="search"
+            onChange={this.handleSearch}
+            placeholder="Try 'California'"
+            autoComplete="off"
+            />
         </div>
-      )
-
-    } else {
-      return (
-        <div id="search-with-results-wrapper">
-          <div id="search-bar-wrapper" className="search-bar">
-            <MagnifyIcon className="search-bar-icon mdi-48px"/>
-            <input
-              id="search-bar-input"
-              className="search-input"
-              type="search"
-              onChange={this.handleSearch}
-              placeholder="Try 'California'"
-              autoComplete="off"
-              />
-          </div>
-        </div>
-      )
-    }
+      </div>
+    )
   }
 }
 
